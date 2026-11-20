@@ -34,6 +34,13 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - Runde Ecken: Radius-Tokens in `tailwind.config.js` (vorher überall 0), Button/Input/Badge/Card/Sheet/Menü/Toast angepasst; leichter Akzent-Schimmer hinter jedem `Screen`.
 - Design-Vorschau (Canvas): https://claude.ai/artifact/B23bwyoX6JX63e5QhjQ9Uy
 
+### Erster Tablet-Test (2026-11-20)
+
+- Maus-Markierung arbeitet in Scrollback-Zeilen (`nativeSetScreenSelection`), wächst über den Bildschirm hinaus, scrollt beim Ziehen über den Rand automatisch, bleibt beim Wegscrollen; keine Touch-Griffe. Touchpad (SOURCE_MOUSE ohne Gesten-Klassifizierung) zählt als Maus.
+- Leiste: Hintergrund daneben im Theme (war weiß), Wartestreifen dezent grau, Leiste füllt die ganze Höhe; Tabs ohne Terminal (Files, Tools) halten sie fest daneben (`useSessionsRailInset`).
+- Kein Termix-Server in der Oberfläche: kein Willkommensbildschirm, Kopf zeigt „ShellPad“ statt Konto-Umschalter, keine „Server verknüpfen“-Knöpfe, Einstellungen „Konten“/„Plugins“ und Palette-Befehle entfernt (Server-Code bleibt im Hintergrund).
+- Neues Logo `assets/brand/logo.svg` (Tablet mit `>_`), Icons per `npm run icons`.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -61,4 +68,5 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-20 (später): Tablet-Test-Fixes, Server-Oberfläche entfernt, neues Logo.
 - 2026-11-20: Fork geklont; Maus/Tastatur-Verbesserungen, einklappbare Leiste, Tastenleisten-Button; Umbenennung in ShellPad; Frosted-Glass-Redesign; Statistik entfernt.
