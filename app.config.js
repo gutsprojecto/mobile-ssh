@@ -1,14 +1,10 @@
-const fs = require("fs");
-const path = require("path");
 const { applyFdroid } = require("./scripts/fdroid.cjs");
 
-// Firebase config for Android push. EAS passes it as a file variable, a local
-// build reads google-services.json. Without it the app builds, minus push.
+// Firebase config for Android push, passed in as a file variable.
+// Without it the app builds, minus push. The bundled google-services.json is
+// upstream Termix's package, so ShellPad never reads it.
 function withFirebase(config) {
-  const local = path.join(__dirname, "google-services.json");
-  const file =
-    process.env.GOOGLE_SERVICES_JSON ||
-    (fs.existsSync(local) ? "./google-services.json" : null);
+  const file = process.env.GOOGLE_SERVICES_JSON || null;
   if (!file) return config;
   return {
     ...config,

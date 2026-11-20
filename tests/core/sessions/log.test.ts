@@ -37,7 +37,7 @@ test("the copied log has a header and one line per entry, without the address or
     Date.UTC(2026, 9, 24, 9, 6, 0),
   );
   expect(text.split("\n")).toEqual([
-    "Termix Mobile 2.0.0 | android 35",
+    "ShellPad 2.0.0 | android 35",
     "Host: Box | Way: local | State: reconnecting",
     "Network: mobile data | Low power mode",
     "Copied: 2026-10-24T09:06:00.000Z",

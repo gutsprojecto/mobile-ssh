@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Atšaukti",
       "tooManyTriesWaitSeconds": "Per daug bandymų. Palaukite {{value}} sekundžių",
-      "termixLocked": "Termix užrakintas",
+      "termixLocked": "ShellPad užrakintas",
       "enterYourPinToContinue": "Įveskite PIN kodą, kad tęstumėte"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Naudoti PIN",
-      "unlockTermix": "Atrakinti Termix",
-      "unlockTermixFirst": "Pirmiausia atrakinkite Termix."
+      "unlockTermix": "Atrakinti ShellPad",
+      "unlockTermixFirst": "Pirmiausia atrakinkite ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Ši funkcija serverio yra išjungta.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Pakeiskite tai žemiau skiltyje „Tarpinis serveris“",
-      "updateTermixMobileFromYour": "Atnaujinkite Termix Mobile iš programų parduotuvės"
+      "updateTermixMobileFromYour": "Atnaujinkite ShellPad iš programų parduotuvės"
     },
     "savedLogin": {
       "signInToTermix": "Prisijungti prie Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Naudokite slaptažodį, kuriame būtų ne mažiau nei 8 simboliai.",
       "thisIsNotATermix": "Tai nėra Termix atsarginės kopijos failas.",
-      "thisBackupIsFromA": "Ši atsarginė kopija yra iš naujesnės Termix versijos. Pirmiausia atnaujinkite programą.",
+      "thisBackupIsFromA": "Ši atsarginė kopija yra iš naujesnės ShellPad versijos. Pirmiausia atnaujinkite programą.",
       "wrongPassphraseOrTheFile": "Neteisinga slaptafrazė arba failas pažeistas."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Ši versija negali šifruoti vietinių duomenų."
     },
     "keys": {
-      "unlockTermixFirst": "Pirmiausia atrakinkite Termix.",
+      "unlockTermixFirst": "Pirmiausia atrakinkite ShellPad.",
       "thatIsNotADatabase": "Tai nėra duomenų bazės raktas.",
       "couldNotSaveTheDatabase": "Nepavyko išsaugoti duomenų bazės rakto."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Šie duomenys buvo išsaugoti naujesnėje Termix versijoje. Atnaujinkite programą, kad galėtumėte juos atidaryti."
+      "thisDataWasSavedBy": "Šie duomenys buvo išsaugoti naujesnėje ShellPad versijoje. Atnaujinkite programą, kad galėtumėte juos atidaryti."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Šis įrenginys nesinchronizuoja.",
       "localDataIsNotAvailable": "Vietiniai duomenys čia nepasiekiami.",
-      "unlockTermixFirst": "Pirmiausia atrakinkite Termix."
+      "unlockTermixFirst": "Pirmiausia atrakinkite ShellPad."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Rakto užrakinimas slaptafraze reikalauja Termix programos, o ne naršyklės peržiūros."
+      "lockingAKeyWithA": "Rakto užrakinimas slaptafraze reikalauja ShellPad programos, o ne naršyklės peržiūros."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Atnaujinti programą",
-      "onYourServerNeedsA": "{{name}} jūsų serveryje reikalauja naujesnės Termix versijos šiame {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} jūsų serveryje reikalauja naujesnės ShellPad versijos šiame {{deviceWord}}.",
       "updateThePlugin": "Atnaujinti įskiepį",
       "onYourServerIsToo": "{{name}} jūsų serveryje yra per senas šiai programai. Paprašykite administratoriaus atnaujinti jį skiltyje „Įskiepiai“."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Atsijungti visiems",
       "showOpenSessions": "Rodyti atviras sesijas",
-      "termixShowsANotificationWhile": "Termix rodo pranešimą, kol sesijos yra atviros, kad Android jas palaikytų fone.",
+      "termixShowsANotificationWhile": "ShellPad rodo pranešimą, kol sesijos yra atviros, kad Android jas palaikytų fone.",
       "sessionsOpen_one": "{{count}} sesija atvira",
       "sessionsOpen_few": "{{count}} sesijos atviros",
       "sessionsOpen_many": "{{count}} sesijų atviro",
@@ -1078,7 +1078,7 @@
     "failed": "{{label}} nepavyko",
     "uploading": "Įkeliamas {{name}}",
     "uploadingFiles": "Įkeliami {{count}} failai",
-    "downloadingToFilesOnMy": "Atsisiunčiama į „Files“, „On My iPhone“, „Termix“",
+    "downloadingToFilesOnMy": "Atsisiunčiama į „Files“, „On My iPhone“, „ShellPad“",
     "downloading": "Atsisiunčiamas {{name}}",
     "downloadingFiles": "Atsisiunčiami {{count}} failai",
     "openALargeFile": "Atidaryti didelį failą?",
@@ -1259,7 +1259,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} turi daugiau nei {{limit}} failų. Atsisiųskite mažesnes aplankus."
     },
-    "downloadingToFilesOnMyIpad": "Atsisiunčiama į „Files“, „On My iPad“, „Termix“",
+    "downloadingToFilesOnMyIpad": "Atsisiunčiama į „Files“, „On My iPad“, „ShellPad“",
     "size": "Dydis",
     "date": "Data"
   },
@@ -1504,7 +1504,7 @@
       "copiedTheLink": "Nukopijuota nuoroda",
       "shareHost": "Bendrinti serverį",
       "thatHostNoLongerExists": "Šio serverio nebėra",
-      "scanThisInTermixOn": "Nuskenuokite tai Termix programoje kitame {{deviceWord}}, skiltyje Importas ir eksportas. Kode yra adresas, prievadas ir vartotojas. Jame nėra slaptažodžio ar rakto.",
+      "scanThisInTermixOn": "Nuskenuokite tai ShellPad programoje kitame {{deviceWord}}, skiltyje Importas ir eksportas. Kode yra adresas, prievadas ir vartotojas. Jame nėra slaptažodžio ar rakto.",
       "copyLink": "Kopijuoti nuorodą",
       "copyLinkWithPassword": "Kopijuoti nuorodą su slaptažodžiu"
     },
@@ -1551,7 +1551,7 @@
     "scanSheet": {
       "scanAHostCode": "Nuskenuoti serverio kodą",
       "pointTheCameraAtA": "Nukreipkite kamerą į Termix serverio QR kodą.",
-      "termixNeedsTheCameraTo": "Termix reikia kameros, kad nuskenuotų kodą. Nieko nėra įrašoma.",
+      "termixNeedsTheCameraTo": "ShellPad reikia kameros, kad nuskenuotų kodą. Nieko nėra įrašoma.",
       "allowTheCamera": "Leisti naudoti kamerą"
     },
     "read": {
@@ -2263,7 +2263,7 @@
     "backInTmuxSession": "Grįžta į tmux sesiją „{{tmuxName}}“",
     "backInScreenSession": "Grįžta į screen sesiją „{{name}}“",
     "theServerSessionEndedThis": "Serverio sesija baigėsi. Tai naujas shell.",
-    "termixWasClosedSoThe": "Termix buvo uždarytas, todėl senas shell baigėsi. Tai naujas shell.",
+    "termixWasClosedSoThe": "ShellPad buvo uždarytas, todėl senas shell baigėsi. Tai naujas shell.",
     "theConnectionDroppedAndThe": "Jungtis nutrūko ir senas shell baigėsi. Tai naujas shell.",
     "disconnectedFrom": "Atsijungta nuo „{{hostName}}“"
   },
@@ -2296,7 +2296,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Dalintis anoniminiais naudojimo statistikos duomenimis?",
-      "termixWouldSendAShort": "Termix kas dieną siųstų trumpą ataskaitą. Tai galite pakeisti bet kada „Nustatymuose“.",
+      "termixWouldSendAShort": "ShellPad kas dieną siųstų trumpą ataskaitą. Tai galite pakeisti bet kada „Nustatymuose“.",
       "noThanks": "Ne, ačiū",
       "share": "Dalintis",
       "theReportHasTheApp": "Ataskaitoje yra programos versija, {{deviceWord}} tipas, apytikslis kompiuterių ir sesijų skaičius, kurias funkcijas naudojate ir ar prisijungimas pavyko. Joje niekada nėra kompiuterių pavadinimų, vartotojo vardų, adresų, kelių, komandų ar serverių pavadinimų.",
@@ -3116,8 +3116,8 @@
       "keepSessionsRunning": "Laikyti sesijas veikiančias",
       "showsANotificationWhileSessions": "Rodo pranešimą, kol sesijos yra atidarytos, kad Android jas palaikytų veikiančias, kai išeinate iš programos",
       "batteryOptimization": "Baterijos optimizavimas",
-      "termixIsNotRestrictedSo": "Termix nėra apribotas, todėl sesijos gali likti atidarytos, kai ekranas išjungtas.",
-      "androidMayStillStopSessions": "Android vis tiek gali sustabdyti sesijas, kad sutaupytų bateriją. Atidarykite baterijos nustatymus, suraskite Termix ir pasirinkite „Neoptimizuota“ arba „Neribota“.",
+      "termixIsNotRestrictedSo": "ShellPad nėra apribotas, todėl sesijos gali likti atidarytos, kai ekranas išjungtas.",
+      "androidMayStillStopSessions": "Android vis tiek gali sustabdyti sesijas, kad sutaupytų bateriją. Atidarykite baterijos nustatymus, suraskite ShellPad ir pasirinkite „Neoptimizuota“ arba „Neribota“.",
       "openBatterySettings": "Atidaryti baterijos nustatymus",
       "notificationsAreOff": "Pranešimai išjungti",
       "sessionsStillRunButThe": "Sesijos vis tiek veikia, tačiau atidarytų sesijų sąrašas ir mygtukas „Atjungti visas“ lieka paslėpti.",
@@ -3125,7 +3125,7 @@
       "thisBuildCanTKeep": "Ši versija negali palaikyti sesijų fone. Jos prisijungia iš naujo, kai grįžtate.",
       "lowPowerMode": "Mažos galios režimas",
       "batterySaver": "Baterijos taupymas",
-      "isOnTermixChecksConnections": "{{value}} įjungtas. Termix rečiau tikrina ryšius ir ilgiau laukia tarp prisijungimo iš naujo bandymų.",
+      "isOnTermixChecksConnections": "{{value}} įjungtas. ShellPad rečiau tikrina ryšius ir ilgiau laukia tarp prisijungimo iš naujo bandymų.",
       "backgroundSessions": "Foninės sesijos",
       "iosStopsAppsSoonAfter": "iOS greitai sustabdo programas, kai jas paliekate, todėl sesijos negali veikti fone. Jos prisijungia iš naujo, kai grįžtate, o tmux arba screen tęsia ten, kur buvote."
     },
@@ -3197,7 +3197,7 @@
         "couldNotCheckForUpdates": "Nepavyko patikrinti atnaujinimų",
         "versionIsOutUpdateFrom": "Išleista versija {{version}}. Atnaujinkite iš savo parduotuvės.",
         "youHaveTheNewestVersion": "Turite naujausią versiją",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Atnaujinimai",
         "check": "Patikrinti"
       },
@@ -3318,7 +3318,7 @@
       "next": "Toliau",
       "typeItAgain": "Įveskite dar kartą",
       "export": "Eksportuoti",
-      "saveYourTermixBackup": "Išsaugokite savo Termix atsarginę kopiją"
+      "saveYourTermixBackup": "Išsaugokite savo ShellPad atsarginę kopiją"
     },
     "logs": {
       "logs": "Žurnalai",
@@ -3423,7 +3423,7 @@
         "whatTheServerAddsAnd": "Ką serveris prideda ir kur jis veikia",
         "localData": "Vietiniai duomenys",
         "backupRestoreAndDeleteWhat": "Kurti atsargines kopijas, atkurti ir ištrinti tai, kas išsaugota šiame {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versija ir atnaujinimai",
         "logs": "Žurnalai",
         "latestLinesFromThisRun": "Naujausios eilutės iš šio paleidimo, skirtos klaidų pranešimams",
@@ -3457,7 +3457,7 @@
     "searchSettings": "Ieškoti nustatymų",
     "noSettingsMatch": "Nėra jokių atitinkančių nustatymų.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Nepavyko įkelti komandų fragmentų",
       "copied": "Nukopijuota: {{name}}",

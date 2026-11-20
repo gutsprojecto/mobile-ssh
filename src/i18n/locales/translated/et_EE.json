@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Tühista",
       "tooManyTriesWaitSeconds": "Liiga palju katseid. Oota {{value}} sekundit",
-      "termixLocked": "Termix on lukustatud",
+      "termixLocked": "ShellPad on lukustatud",
       "enterYourPinToContinue": "Sisesta oma PIN-kood jätkamiseks"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Kasuta PIN-i",
-      "unlockTermix": "Lukusta Termix lahti",
-      "unlockTermixFirst": "Lukusta Termix esmalt lahti."
+      "unlockTermix": "Lukusta ShellPad lahti",
+      "unlockTermixFirst": "Lukusta ShellPad esmalt lahti."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "See funktsioon on serveris välja lülitatud.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Muuda seda allpool Vaheserveri all",
-      "updateTermixMobileFromYour": "Uuenda Termix Mobile'i oma rakenduste poodist"
+      "updateTermixMobileFromYour": "Uuenda ShellPad'i oma rakenduste poodist"
     },
     "savedLogin": {
       "signInToTermix": "Logi sisse Termixi",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Kasuta paroolfraasi, mis sisaldab vähemalt 8 märki.",
       "thisIsNotATermix": "See ei ole Termixi varundusfail.",
-      "thisBackupIsFromA": "See varundus on uuest Termixi versioonist. Uuenda kõigepealt rakendust.",
+      "thisBackupIsFromA": "See varundus on uuest ShellPadi versioonist. Uuenda kõigepealt rakendust.",
       "wrongPassphraseOrTheFile": "Vale parool või fail on kahjustatud."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "See versioon ei suuda kohalikke andmeid krüpteerida."
     },
     "keys": {
-      "unlockTermixFirst": "Lukusta Termix esmalt lahti.",
+      "unlockTermixFirst": "Lukusta ShellPad esmalt lahti.",
       "thatIsNotADatabase": "See ei ole andmebaasi võti.",
       "couldNotSaveTheDatabase": "Andmebaasi võtit ei õnnestunud salvestada."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Need andmed on salvestatud Termixi uuema versiooniga. Uuenda rakendust, et neid avada."
+      "thisDataWasSavedBy": "Need andmed on salvestatud ShellPadi uuema versiooniga. Uuenda rakendust, et neid avada."
     },
     "stores": {
       "thisDeviceDoesNotSync": "See seade ei sünkrooni.",
       "localDataIsNotAvailable": "Kohalikud andmed pole siin saadaval.",
-      "unlockTermixFirst": "Lukusta Termix esmalt lahti."
+      "unlockTermixFirst": "Lukusta ShellPad esmalt lahti."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Võtme lukustamine parooliga nõuab Termixi rakendust, mitte veebieelvaadet."
+      "lockingAKeyWithA": "Võtme lukustamine parooliga nõuab ShellPadi rakendust, mitte veebieelvaadet."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Uuenda rakendust",
-      "onYourServerNeedsA": "{{name}} teie serveril vajab sellel {{deviceWord}}il uuemat Termixi versiooni.",
+      "onYourServerNeedsA": "{{name}} teie serveril vajab sellel {{deviceWord}}il uuemat ShellPadi versiooni.",
       "updateThePlugin": "Uuenda pistikprogrammi",
       "onYourServerIsToo": "{{name}} teie serveril on selle rakenduse jaoks liiga vana. Paluge administraatoril uuendada seda pistikprogrammide halduses."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Katkesta kõik ühendused",
       "showOpenSessions": "Kuva avatud sessioonid",
-      "termixShowsANotificationWhile": "Termix kuvab teavitust, kui sessioonid on avatud, et Android hoiaks neid taustal töötamas.",
+      "termixShowsANotificationWhile": "ShellPad kuvab teavitust, kui sessioonid on avatud, et Android hoiaks neid taustal töötamas.",
       "sessionsOpen_one": "{{count}} sessioon avatud",
       "sessionsOpen_other": "{{count}} sessiooni avatud",
       "tunnelsActive_one": "{{count}} tunnel aktiivne",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} ebaõnnestus",
     "uploading": "{{name}} üleslaadimine",
     "uploadingFiles": "{{count}} faili üleslaadimine",
-    "downloadingToFilesOnMy": "Allalaadimine failidesse, iPhone'il, Termix",
+    "downloadingToFilesOnMy": "Allalaadimine failidesse, iPhone'il, ShellPad",
     "downloading": "{{name}} allalaadimine",
     "downloadingFiles": "{{count}} faili allalaadimine",
     "openALargeFile": "Ava suur fail?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} sisaldab rohkem kui {{limit}} faili. Laadi alla väiksemaid kaustu."
     },
-    "downloadingToFilesOnMyIpad": "Laadin alla Failidesse, Minu iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Laadin alla Failidesse, Minu iPad, ShellPad",
     "size": "Suurus",
     "date": "Kuupäev"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Link kopeeritud",
       "shareHost": "Jaga peremees",
       "thatHostNoLongerExists": "Seda peremeest ei eksisteeri enam",
-      "scanThisInTermixOn": "Skaneeri see Termixis teises {{deviceWord}}is, menüüs Import ja eksport. Kood sisaldab aadressi, porti ja kasutajat. See ei sisalda parooli ega võtit.",
+      "scanThisInTermixOn": "Skaneeri see ShellPadis teises {{deviceWord}}is, menüüs Import ja eksport. Kood sisaldab aadressi, porti ja kasutajat. See ei sisalda parooli ega võtit.",
       "copyLink": "Kopeeri link",
       "copyLinkWithPassword": "Kopeeri link koos parooliga"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Skaneeri peremehe kood",
       "pointTheCameraAtA": "Suunage kaamera Termixi peremehe QR-koodile.",
-      "termixNeedsTheCameraTo": "Termix vajab koodi skaneerimiseks kaamerat. Midagi ei salvestata.",
+      "termixNeedsTheCameraTo": "ShellPad vajab koodi skaneerimiseks kaamerat. Midagi ei salvestata.",
       "allowTheCamera": "Luba kaamera"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Tagasi tmux-i sessioonis {{tmuxName}}",
     "backInScreenSession": "Tagasi screeni sessioonis {{name}}",
     "theServerSessionEndedThis": "Serveri sessioon lõppes. See on uus käsurea keskkond.",
-    "termixWasClosedSoThe": "Termix suleti, seega lõppes vana käsurea keskkond. See on uus käsurea keskkond.",
+    "termixWasClosedSoThe": "ShellPad suleti, seega lõppes vana käsurea keskkond. See on uus käsurea keskkond.",
     "theConnectionDroppedAndThe": "Ühendus katkes ja vana käsurea keskkond lõppes. See on uus käsurea keskkond.",
     "disconnectedFrom": "Ühendus hostiga {{hostName}} katkenud"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Kas jagada anonüümseid kasutusstatistikaid?",
-      "termixWouldSendAShort": "Termix saadab lühikese aruande üks kord päevas. Seda seadet saate igal ajal Seadistustes muuta.",
+      "termixWouldSendAShort": "ShellPad saadab lühikese aruande üks kord päevas. Seda seadet saate igal ajal Seadistustes muuta.",
       "noThanks": "Ei, tänu",
       "share": "Jaga",
       "theReportHasTheApp": "Aruanne sisaldab rakenduse versiooni, {{deviceWord}} tüüpi, hostide ja sessioonide ligikaudset arvu, kasutatud funktsioone ning ühenduse loomise edu. See ei sisalda kunagi hostinimesi, kasutajanimi, aadresse, teekondi, käske ega serverite nimesid.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Hoia sessioonid töötamas",
       "showsANotificationWhileSessions": "Kuvab teavituse, kui sessioonid on avatud, et Android hoiab neid töötamas, kui lahkud rakendusest",
       "batteryOptimization": "Akutoitluse optimeerimine",
-      "termixIsNotRestrictedSo": "Termix pole piiratud, seega saavad sessioonid jääda avatuks ka ekraaniga kinni.",
-      "androidMayStillStopSessions": "Android võib ikkagi sessioone peatada aku säästmiseks. Ava akuseaded, leia Termix ja vali Mitte optimeeritud või Piiramatu.",
+      "termixIsNotRestrictedSo": "ShellPad pole piiratud, seega saavad sessioonid jääda avatuks ka ekraaniga kinni.",
+      "androidMayStillStopSessions": "Android võib ikkagi sessioone peatada aku säästmiseks. Ava akuseaded, leia ShellPad ja vali Mitte optimeeritud või Piiramatu.",
       "openBatterySettings": "Ava akuseaded",
       "notificationsAreOff": "Teavitused on väljas",
       "sessionsStillRunButThe": "Sessioonid töötavad endiselt, kuid avatud sessioonide loend ja nupp Ühenda kõik lahti jäävad peidetud.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "See versioon ei suuda sessioone taustal töötavaks hoida. Need ühenduvad uuesti, kui sa tagasi tuled.",
       "lowPowerMode": "Madala energiatarbega režiim",
       "batterySaver": "Akusäästja",
-      "isOnTermixChecksConnections": "{{value}} on sees. Termix kontrollib ühendusi harvemini ja ootab pikemat aega ühenduse taastamise katsete vahel.",
+      "isOnTermixChecksConnections": "{{value}} on sees. ShellPad kontrollib ühendusi harvemini ja ootab pikemat aega ühenduse taastamise katsete vahel.",
       "backgroundSessions": "Taustsessioonid",
       "iosStopsAppsSoonAfter": "iOS peatab rakendused peagi pärast nende sulgemist, seega ei saa sessioonid taustal töötada. Need ühenduvad uuesti, kui sa tagasi tuled, ja tmux või screen jätkab sealt, kus sa olid."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Uuenduste kontrollimine ei õnnestunud",
         "versionIsOutUpdateFrom": "Versioon {{version}} on saadaval. Uuenda oma poodist.",
         "youHaveTheNewestVersion": "Sul on uusim versioon",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Uuendused",
         "check": "Kontrolli"
       },
@@ -3280,7 +3280,7 @@
       "next": "Järgmine",
       "typeItAgain": "Kirjuta see uuesti",
       "export": "Eksportimine",
-      "saveYourTermixBackup": "Salvesta oma Termix varundus"
+      "saveYourTermixBackup": "Salvesta oma ShellPad varundus"
     },
     "logs": {
       "logs": "Logid",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Mis server lisab ja kus see töötab",
         "localData": "Kohalikud andmed",
         "backupRestoreAndDeleteWhat": "Varunda, taasta ja kustuta see, mis on salvestatud sellele {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versioon ja uuendused",
         "logs": "Logid",
         "latestLinesFromThisRun": "Viimased read selle käivitusest, veearuannete jaoks",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Otsi seadetest",
     "noSettingsMatch": "Ükski seade ei vasta otsingule.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Koodilõikude laadimine ebaõnnestus",
       "copied": "Kopeeritud: {{name}}",

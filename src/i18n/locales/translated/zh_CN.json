@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "取消",
       "tooManyTriesWaitSeconds": "尝试次数过多。请等待 {{value}} 秒",
-      "termixLocked": "Termix 已锁定",
+      "termixLocked": "ShellPad 已锁定",
       "enterYourPinToContinue": "输入您的 PIN 码以继续"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "使用 PIN 码",
-      "unlockTermix": "解锁 Termix",
-      "unlockTermixFirst": "请先解锁 Termix。"
+      "unlockTermix": "解锁 ShellPad",
+      "unlockTermixFirst": "请先解锁 ShellPad。"
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "服务器上已关闭此功能。",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "在下方“代理”中更改",
-      "updateTermixMobileFromYour": "从应用商店更新 Termix Mobile"
+      "updateTermixMobileFromYour": "从应用商店更新 ShellPad"
     },
     "savedLogin": {
       "signInToTermix": "登录 Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "请使用至少 8 个字符的密码短语。",
       "thisIsNotATermix": "这不是 Termix 备份文件。",
-      "thisBackupIsFromA": "此备份来自更新版本的 Termix。请先更新应用。",
+      "thisBackupIsFromA": "此备份来自更新版本的 ShellPad。请先更新应用。",
       "wrongPassphraseOrTheFile": "密码错误，或文件已损坏。"
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "此版本无法加密本地数据。"
     },
     "keys": {
-      "unlockTermixFirst": "请先解锁 Termix。",
+      "unlockTermixFirst": "请先解锁 ShellPad。",
       "thatIsNotADatabase": "这不是数据库密钥。",
       "couldNotSaveTheDatabase": "无法保存数据库密钥。"
     },
     "migrate": {
-      "thisDataWasSavedBy": "此数据由更新版本的 Termix 保存。请更新应用以打开它。"
+      "thisDataWasSavedBy": "此数据由更新版本的 ShellPad 保存。请更新应用以打开它。"
     },
     "stores": {
       "thisDeviceDoesNotSync": "此设备不同步。",
       "localDataIsNotAvailable": "此处不可用本地数据。",
-      "unlockTermixFirst": "请先解锁 Termix。"
+      "unlockTermixFirst": "请先解锁 ShellPad。"
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "使用密码短语锁定密钥需要 Termix 应用，而非网页预览。"
+      "lockingAKeyWithA": "使用密码短语锁定密钥需要 ShellPad 应用，而非网页预览。"
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "更新应用",
-      "onYourServerNeedsA": "您服务器上的 {{name}} 需要此 {{deviceWord}} 上更新版本的 Termix。",
+      "onYourServerNeedsA": "您服务器上的 {{name}} 需要此 {{deviceWord}} 上更新版本的 ShellPad。",
       "updateThePlugin": "更新插件",
       "onYourServerIsToo": "您服务器上的 {{name}} 版本过旧，不兼容此应用。请联系管理员在“插件”中更新它。"
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "断开所有连接",
       "showOpenSessions": "显示打开的会话",
-      "termixShowsANotificationWhile": "当会话处于打开状态时，Termix 会显示通知，以便 Android 在后台保持它们运行。",
+      "termixShowsANotificationWhile": "当会话处于打开状态时，ShellPad 会显示通知，以便 Android 在后台保持它们运行。",
       "sessionsOpen_other": "{{count}} 个会话已打开",
       "tunnelsActive_other": "{{count}} 个隧道处于活动状态",
       "notConnected": "未连接",
@@ -1056,7 +1056,7 @@
     "failed": "{{label}} 失败",
     "uploading": "正在上传 {{name}}",
     "uploadingFiles": "正在上传 {{count}} 个文件",
-    "downloadingToFilesOnMy": "正在下载到“文件”应用中的“我的 iPhone” > “Termix”",
+    "downloadingToFilesOnMy": "正在下载到“文件”应用中的“我的 iPhone” > “ShellPad”",
     "downloading": "正在下载 {{name}}",
     "downloadingFiles": "正在下载 {{count}} 个文件",
     "openALargeFile": "要打开这个大文件吗？",
@@ -1234,7 +1234,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} 包含超过 {{limit}} 个文件。请下载较小的文件夹。"
     },
-    "downloadingToFilesOnMyIpad": "正在下载至“文件”App 中的“我的 iPad” > Termix",
+    "downloadingToFilesOnMyIpad": "正在下载至“文件”App 中的“我的 iPad” > ShellPad",
     "size": "大小",
     "date": "日期"
   },
@@ -1479,7 +1479,7 @@
       "copiedTheLink": "已复制链接",
       "shareHost": "共享主机",
       "thatHostNoLongerExists": "该主机已不存在",
-      "scanThisInTermixOn": "在另一台 {{deviceWord}} 上的 Termix 中，通过“导入和导出”扫描此代码。代码包含地址、端口和用户，但不包含密码或密钥。",
+      "scanThisInTermixOn": "在另一台 {{deviceWord}} 上的 ShellPad 中，通过“导入和导出”扫描此代码。代码包含地址、端口和用户，但不包含密码或密钥。",
       "copyLink": "复制链接",
       "copyLinkWithPassword": "复制含密码的链接"
     },
@@ -1526,7 +1526,7 @@
     "scanSheet": {
       "scanAHostCode": "扫描主机代码",
       "pointTheCameraAtA": "将摄像头对准 Termix 主机二维码。",
-      "termixNeedsTheCameraTo": "Termix 需要摄像头权限才能扫描二维码。不会记录任何内容。",
+      "termixNeedsTheCameraTo": "ShellPad 需要摄像头权限才能扫描二维码。不会记录任何内容。",
       "allowTheCamera": "允许使用摄像头"
     },
     "read": {
@@ -2220,7 +2220,7 @@
     "backInTmuxSession": "返回 tmux 会话 {{tmuxName}}",
     "backInScreenSession": "返回 screen 会话 {{name}}",
     "theServerSessionEndedThis": "服务器会话已结束。这是一个新的 Shell。",
-    "termixWasClosedSoThe": "Termix 已关闭，因此旧的 Shell 已结束。这是一个新的 Shell。",
+    "termixWasClosedSoThe": "ShellPad 已关闭，因此旧的 Shell 已结束。这是一个新的 Shell。",
     "theConnectionDroppedAndThe": "连接已断开，旧的 Shell 已结束。这是一个新的 Shell。",
     "disconnectedFrom": "已与 {{hostName}} 断开连接"
   },
@@ -2253,7 +2253,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "是否分享匿名使用统计信息？",
-      "termixWouldSendAShort": "Termix 每天会发送一份简短报告。您可以随时在设置中更改此选项。",
+      "termixWouldSendAShort": "ShellPad 每天会发送一份简短报告。您可以随时在设置中更改此选项。",
       "noThanks": "不用了，谢谢",
       "share": "分享",
       "theReportHasTheApp": "报告包含应用版本、{{deviceWord}} 类型、主机和会话的大致数量、您使用的功能以及连接是否成功。报告绝不会包含主机名、用户名、地址、路径、命令或服务器名称。",
@@ -3058,8 +3058,8 @@
       "keepSessionsRunning": "保持会话运行",
       "showsANotificationWhileSessions": "在会话打开时显示通知，以便在您离开应用时 Android 保持会话运行",
       "batteryOptimization": "电池优化",
-      "termixIsNotRestrictedSo": "Termix 未受限制，因此即使屏幕关闭，会话也可以保持打开状态。",
-      "androidMayStillStopSessions": "Android 仍可能会为了节省电量而停止会话。请打开电池设置，找到 Termix 并选择“不优化”或“无限制”。",
+      "termixIsNotRestrictedSo": "ShellPad 未受限制，因此即使屏幕关闭，会话也可以保持打开状态。",
+      "androidMayStillStopSessions": "Android 仍可能会为了节省电量而停止会话。请打开电池设置，找到 ShellPad 并选择“不优化”或“无限制”。",
       "openBatterySettings": "打开电池设置",
       "notificationsAreOff": "通知已关闭",
       "sessionsStillRunButThe": "会话仍在运行，但打开的会话列表和“全部断开”按钮将保持隐藏。",
@@ -3067,7 +3067,7 @@
       "thisBuildCanTKeep": "此版本无法在后台保持会话运行。当您返回时，它们会重新连接。",
       "lowPowerMode": "低电量模式",
       "batterySaver": "省电模式",
-      "isOnTermixChecksConnections": "{{value}} 已开启。Termix 检查连接的频率较低，且重试重新连接的等待时间较长。",
+      "isOnTermixChecksConnections": "{{value}} 已开启。ShellPad 检查连接的频率较低，且重试重新连接的等待时间较长。",
       "backgroundSessions": "后台会话",
       "iosStopsAppsSoonAfter": "iOS 在您离开应用后很快就会停止应用，因此会话无法在后台运行。当您返回时，它们会重新连接，tmux 或 screen 会从您离开的位置继续。"
     },
@@ -3139,7 +3139,7 @@
         "couldNotCheckForUpdates": "无法检查更新",
         "versionIsOutUpdateFrom": "版本 {{version}} 已发布。请从应用商店更新。",
         "youHaveTheNewestVersion": "你已拥有最新版本",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "更新",
         "check": "检查"
       },
@@ -3260,7 +3260,7 @@
       "next": "下一步",
       "typeItAgain": "再次输入",
       "export": "导出",
-      "saveYourTermixBackup": "保存您的 Termix 备份"
+      "saveYourTermixBackup": "保存您的 ShellPad 备份"
     },
     "logs": {
       "logs": "日志",
@@ -3365,7 +3365,7 @@
         "whatTheServerAddsAnd": "服务器添加的功能及其运行位置",
         "localData": "本地数据",
         "backupRestoreAndDeleteWhat": "备份、恢复或删除此 {{deviceWord}} 上保存的数据",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "版本与更新",
         "logs": "日志",
         "latestLinesFromThisRun": "本次运行的最新日志行，用于提交错误报告",
@@ -3399,7 +3399,7 @@
     "searchSettings": "搜索设置",
     "noSettingsMatch": "没有匹配的设置。",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "加载代码片段失败",
       "copied": "已复制：{{name}}",

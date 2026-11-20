@@ -44,16 +44,16 @@ test("names are made safe and never overwrite", () => {
   expect(mimeFor("x.unknown")).toBe("application/octet-stream");
 });
 
-test("downloads land in Documents/Termix/<host> with free names", () => {
+test("downloads land in Documents/ShellPad/<host> with free names", () => {
   const dir = downloadsDir("web 1", "srv");
-  expect(dir.uri).toBe("file:///doc/Termix/web 1/srv");
-  fs.__files.set("file:///doc/Termix/web 1/srv/a.txt", new Uint8Array(1));
+  expect(dir.uri).toBe("file:///doc/ShellPad/web 1/srv");
+  fs.__files.set("file:///doc/ShellPad/web 1/srv/a.txt", new Uint8Array(1));
   const reserved = new Set<string>();
   expect(localTarget(dir, "a.txt", reserved)).toBe(
-    "/doc/Termix/web 1/srv/a (2).txt",
+    "/doc/ShellPad/web 1/srv/a (2).txt",
   );
   expect(localTarget(dir, "a.txt", reserved)).toBe(
-    "/doc/Termix/web 1/srv/a (3).txt",
+    "/doc/ShellPad/web 1/srv/a (3).txt",
   );
 });
 
@@ -73,11 +73,11 @@ test("phone files are read and written in slices", () => {
 });
 
 test("saving to a folder asks once, keeps the layout and the name free", async () => {
-  fs.__files.set("file:///doc/Termix/h/a.txt", new Uint8Array([7]));
+  fs.__files.set("file:///doc/ShellPad/h/a.txt", new Uint8Array([7]));
   fs.__picks.push("content://tree/Downloads");
   expect(
     await saveToFolder([
-      { path: "/doc/Termix/h/a.txt", relative: ["site", "css"] },
+      { path: "/doc/ShellPad/h/a.txt", relative: ["site", "css"] },
     ]),
   ).toBe(1);
   expect(fs.__files.get("content://tree/Downloads/site/css/a.txt")).toEqual(
@@ -89,7 +89,7 @@ test("saving to a folder asks once, keeps the layout and the name free", async (
   // The second time it uses the saved folder and picks a free name.
   expect(
     await saveToFolder([
-      { path: "/doc/Termix/h/a.txt", relative: ["site", "css"] },
+      { path: "/doc/ShellPad/h/a.txt", relative: ["site", "css"] },
     ]),
   ).toBe(1);
   expect(fs.__files.has("content://tree/Downloads/site/css/a (2).txt")).toBe(

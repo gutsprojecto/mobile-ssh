@@ -116,7 +116,7 @@ export function Button({
       hitSlop={hitSlop ?? hitSlopFor(height)}
       accessibilityRole="button"
       accessibilityState={{ disabled: !!isDisabled, busy: loading }}
-      className={`flex-row items-center justify-center gap-1.5 ${box} ${BUTTON_CONTAINER[variant]} ${isDisabled ? "opacity-50" : BUTTON_PRESSED[variant]} ${className ?? ""}`}
+      className={`flex-row items-center justify-center gap-1.5 rounded ${box} ${BUTTON_CONTAINER[variant]} ${isDisabled ? "opacity-50" : BUTTON_PRESSED[variant]} ${className ?? ""}`}
       {...props}
     >
       {loading ? (

@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "বাতিল",
       "tooManyTriesWaitSeconds": "অনেকবার চেষ্টা করা হয়েছে। {{value}} সেকেন্ড অপেক্ষা করুন",
-      "termixLocked": "Termix লক করা আছে",
+      "termixLocked": "ShellPad লক করা আছে",
       "enterYourPinToContinue": "চালিয়ে যেতে আপনার PIN লিখুন"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "PIN ব্যবহার করুন",
-      "unlockTermix": "Termix আনলক করুন",
-      "unlockTermixFirst": "প্রথমে Termix আনলক করুন।"
+      "unlockTermix": "ShellPad আনলক করুন",
+      "unlockTermixFirst": "প্রথমে ShellPad আনলক করুন।"
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "এই ফিচারটি সার্ভারে বন্ধ আছে।",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "নিচে প্রক্সির অধীনে এটি পরিবর্তন করুন",
-      "updateTermixMobileFromYour": "আপনার অ্যাপ স্টোর থেকে Termix Mobile আপডেট করুন"
+      "updateTermixMobileFromYour": "আপনার অ্যাপ স্টোর থেকে ShellPad আপডেট করুন"
     },
     "savedLogin": {
       "signInToTermix": "Termix-এ সাইন ইন করুন",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "অন্তত ৮ অক্ষরের একটি পাসফ্রেজ ব্যবহার করুন।",
       "thisIsNotATermix": "এটি একটি Termix ব্যাকআপ ফাইল নয়।",
-      "thisBackupIsFromA": "এই ব্যাকআপটি Termix-এর একটি নতুন সংস্করণ থেকে। প্রথমে অ্যাপটি আপডেট করুন।",
+      "thisBackupIsFromA": "এই ব্যাকআপটি ShellPad-এর একটি নতুন সংস্করণ থেকে। প্রথমে অ্যাপটি আপডেট করুন।",
       "wrongPassphraseOrTheFile": "ভুল পাসফ্রেজ, অথবা ফাইলটি ক্ষতিগ্রস্ত।"
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "এই বিল্ডটি স্থানীয় ডেটা এনক্রিপ্ট করতে পারে না।"
     },
     "keys": {
-      "unlockTermixFirst": "প্রথমে Termix আনলক করুন।",
+      "unlockTermixFirst": "প্রথমে ShellPad আনলক করুন।",
       "thatIsNotADatabase": "এটি কোনো ডেটাবেস কী নয়।",
       "couldNotSaveTheDatabase": "ডেটাবেস কী সেভ করা যায়নি।"
     },
     "migrate": {
-      "thisDataWasSavedBy": "এই ডেটাটি Termix-এর নতুনতর সংস্করণ দ্বারা সংরক্ষিত হয়েছিল। এটি খুলতে অ্যাপটি আপডেট করুন।"
+      "thisDataWasSavedBy": "এই ডেটাটি ShellPad-এর নতুনতর সংস্করণ দ্বারা সংরক্ষিত হয়েছিল। এটি খুলতে অ্যাপটি আপডেট করুন।"
     },
     "stores": {
       "thisDeviceDoesNotSync": "এই ডিভাইসটি সিঙ্ক করে না।",
       "localDataIsNotAvailable": "এখানে স্থানীয় ডেটা উপলব্ধ নয়।",
-      "unlockTermixFirst": "প্রথমে Termix আনলক করুন।"
+      "unlockTermixFirst": "প্রথমে ShellPad আনলক করুন।"
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "পাসফ্রেজ দিয়ে কী লক করার জন্য Termix অ্যাপ প্রয়োজন, ওয়েব প্রিভিউ নয়।"
+      "lockingAKeyWithA": "পাসফ্রেজ দিয়ে কী লক করার জন্য ShellPad অ্যাপ প্রয়োজন, ওয়েব প্রিভিউ নয়।"
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "অ্যাপটি আপডেট করুন",
-      "onYourServerNeedsA": "আপনার সার্ভারে {{name}} এর জন্য এই {{deviceWord}} এ Termix এর নতুনতর সংস্করণ প্রয়োজন।",
+      "onYourServerNeedsA": "আপনার সার্ভারে {{name}} এর জন্য এই {{deviceWord}} এ ShellPad এর নতুনতর সংস্করণ প্রয়োজন।",
       "updateThePlugin": "প্লাগইনটি আপডেট করুন",
       "onYourServerIsToo": "আপনার সার্ভারে {{name}} এই অ্যাপের জন্য খুব পুরনো। একজন প্রশাসককে প্লাগইন থেকে এটি আপডেট করতে বলুন।"
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "সব ডিসকানেক্ট করুন",
       "showOpenSessions": "খোলা সেশন দেখান",
-      "termixShowsANotificationWhile": "সেশন খোলা থাকাকালীন Termix একটি নোটিফিকেশন দেখায়, যাতে Android এটি ব্যাকগ্রাউন্ডে চালু রাখে।",
+      "termixShowsANotificationWhile": "সেশন খোলা থাকাকালীন ShellPad একটি নোটিফিকেশন দেখায়, যাতে Android এটি ব্যাকগ্রাউন্ডে চালু রাখে।",
       "sessionsOpen_one": "{{count}} সেশন খোলা",
       "sessionsOpen_other": "{{count}} সেশন খোলা",
       "tunnelsActive_one": "{{count}} টানেল সক্রিয়",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} ব্যর্থ হয়েছে",
     "uploading": "{{name}} আপলোড হচ্ছে",
     "uploadingFiles": "{{count}} ফাইল আপলোড হচ্ছে",
-    "downloadingToFilesOnMy": "Files, On My iPhone, Termix এ ডাউনলোড হচ্ছে",
+    "downloadingToFilesOnMy": "Files, On My iPhone, ShellPad এ ডাউনলোড হচ্ছে",
     "downloading": "{{name}} ডাউনলোড হচ্ছে",
     "downloadingFiles": "{{count}} ফাইল ডাউনলোড হচ্ছে",
     "openALargeFile": "একটি বড় ফাইল খুলবেন?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}}-এর {{limit}}-এর বেশি ফাইল আছে। ছোট ফোল্ডার ডাউনলোড করুন।"
     },
-    "downloadingToFilesOnMyIpad": "Files-এ ডাউনলোড হচ্ছে, On My iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Files-এ ডাউনলোড হচ্ছে, On My iPad, ShellPad",
     "size": "আকার",
     "date": "তারিখ"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "লিংক কপি করা হয়েছে",
       "shareHost": "হোস্ট শেয়ার করুন",
       "thatHostNoLongerExists": "সেই হোস্টটি আর বিদ্যমান নেই",
-      "scanThisInTermixOn": "আন্য {{deviceWord}}-এ Termix-এ ইমপোর্ট এবং এক্সপোর্ট বিভাগে এটি স্ক্যান করুন। কোডে ঠিকানা, পোর্ট এবং ব্যবহারকারী রয়েছে। এতে কোনো পাসওয়ার্ড বা কী নেই।",
+      "scanThisInTermixOn": "আন্য {{deviceWord}}-এ ShellPad-এ ইমপোর্ট এবং এক্সপোর্ট বিভাগে এটি স্ক্যান করুন। কোডে ঠিকানা, পোর্ট এবং ব্যবহারকারী রয়েছে। এতে কোনো পাসওয়ার্ড বা কী নেই।",
       "copyLink": "লিংক কপি করুন",
       "copyLinkWithPassword": "পাসওয়ার্ড সহ লিংক কপি করুন"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "একটি হোস্ট কোড স্ক্যান করুন",
       "pointTheCameraAtA": "ক্যামেরাটি একটি Termix হোস্ট QR কোডের দিকে তাক করান।",
-      "termixNeedsTheCameraTo": "কোড স্ক্যান করতে Termix-এর ক্যামেরা প্রয়োজন। কিছুই রেকর্ড করা হয় না।",
+      "termixNeedsTheCameraTo": "কোড স্ক্যান করতে ShellPad-এর ক্যামেরা প্রয়োজন। কিছুই রেকর্ড করা হয় না।",
       "allowTheCamera": "ক্যামেরা অনুমতি দিন"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "tmux সেশন {{tmuxName}}-এ ফিরে যাওয়া হচ্ছে",
     "backInScreenSession": "screen সেশন {{name}}-এ ফিরে যাওয়া হচ্ছে",
     "theServerSessionEndedThis": "সার্ভার সেশন শেষ হয়েছে। এটি একটি নতুন শেল।",
-    "termixWasClosedSoThe": "Termix বন্ধ ছিল, তাই পুরানো শেল শেষ হয়ে গেছে। এটি একটি নতুন শেল।",
+    "termixWasClosedSoThe": "ShellPad বন্ধ ছিল, তাই পুরানো শেল শেষ হয়ে গেছে। এটি একটি নতুন শেল।",
     "theConnectionDroppedAndThe": "সংযোগ বিচ্ছিন্ন হয়েছিল এবং পুরানো শেল শেষ হয়ে গেছে। এটি একটি নতুন শেল।",
     "disconnectedFrom": "{{hostName}} থেকে সংযোগ বিচ্ছিন্ন"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "অনন্যমিত ব্যবহার পরিসংখ্যান শেয়ার করবেন?",
-      "termixWouldSendAShort": "Termix প্রতিদিন একটি ছোট রিপোর্ট পাঠাবে। আপনি যেকোনো সময় সেটিংস থেকে এটি পরিবর্তন করতে পারেন।",
+      "termixWouldSendAShort": "ShellPad প্রতিদিন একটি ছোট রিপোর্ট পাঠাবে। আপনি যেকোনো সময় সেটিংস থেকে এটি পরিবর্তন করতে পারেন।",
       "noThanks": "না, ধন্যবাদ",
       "share": "শেয়ার করুন",
       "theReportHasTheApp": "রিপোর্টে অ্যাপের সংস্করণ, {{deviceWord}} টাইপ, হোস্ট এবং সেশনের আনুমানিক সংখ্যা, আপনি কোন ফিচার ব্যবহার করেন এবং সংযোগ কাজ করেছে কিনা তা থাকে। এতে কখনো হোস্টনেম, ব্যবহারকারীর নাম, ঠিকানা, পথ, কমান্ড বা সার্ভারের নাম থাকে না।",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Keep sessions running",
       "showsANotificationWhileSessions": "Shows a notification while sessions are open, so Android keeps them going when you leave the app",
       "batteryOptimization": "Battery optimization",
-      "termixIsNotRestrictedSo": "Termix is not restricted, so sessions can stay open with the screen off.",
-      "androidMayStillStopSessions": "Android may still stop sessions to save battery. Open the battery settings, find Termix and pick Not optimized or Unrestricted.",
+      "termixIsNotRestrictedSo": "ShellPad is not restricted, so sessions can stay open with the screen off.",
+      "androidMayStillStopSessions": "Android may still stop sessions to save battery. Open the battery settings, find ShellPad and pick Not optimized or Unrestricted.",
       "openBatterySettings": "Open battery settings",
       "notificationsAreOff": "Notifications are off",
       "sessionsStillRunButThe": "Sessions still run, but the list of open sessions and the Disconnect all button stay hidden.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "This build can't keep sessions running in the background. They reconnect when you come back.",
       "lowPowerMode": "Low Power Mode",
       "batterySaver": "Battery saver",
-      "isOnTermixChecksConnections": "{{value}} is on. Termix checks connections less often and waits longer between reconnect tries.",
+      "isOnTermixChecksConnections": "{{value}} is on. ShellPad checks connections less often and waits longer between reconnect tries.",
       "backgroundSessions": "Background sessions",
       "iosStopsAppsSoonAfter": "iOS stops apps soon after you leave them, so sessions can't run in the background. They reconnect when you come back, and tmux or screen picks up where you were."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "আপডেট চেক করা যায়নি",
         "versionIsOutUpdateFrom": "ভার্সন {{version}} এসেছে। আপনার স্টোর থেকে আপডেট করুন।",
         "youHaveTheNewestVersion": "আপনার কাছে সর্বশেষ ভার্সন আছে",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "আপডেট",
         "check": "চেক করুন"
       },
@@ -3280,7 +3280,7 @@
       "next": "পরবর্তী",
       "typeItAgain": "আবার টাইপ করুন",
       "export": "রপ্তানি",
-      "saveYourTermixBackup": "আপনার Termix ব্যাকআপ সংরক্ষণ করুন"
+      "saveYourTermixBackup": "আপনার ShellPad ব্যাকআপ সংরক্ষণ করুন"
     },
     "logs": {
       "logs": "লগ",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "সার্ভার কী যোগ করে এবং কোথায় চলে",
         "localData": "স্থানীয় ডেটা",
         "backupRestoreAndDeleteWhat": "এই {{deviceWord}}-এ সংরক্ষিত ডেটার ব্যাকআপ, পুনরুদ্ধার এবং মুছুন",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "ভার্সন এবং আপডেট",
         "logs": "লগ",
         "latestLinesFromThisRun": "বাগ রিপোর্টের জন্য এই রান থেকে সর্বশেষ লাইন",
@@ -3419,7 +3419,7 @@
     "searchSettings": "সেটিংস খুঁজুন",
     "noSettingsMatch": "কোনো সেটিংস মিলছে না।",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "স্নিপেট লোড করা যায়নি",
       "copied": "কপি করা হয়েছে: {{name}}",

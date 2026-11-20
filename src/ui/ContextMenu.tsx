@@ -56,7 +56,7 @@ export function menuPosition(
 }
 
 export function menuHeight(count: number): number {
-  return count * ITEM_HEIGHT + 2;
+  return count * ITEM_HEIGHT + 10;
 }
 
 /**
@@ -128,6 +128,9 @@ export function ContextMenu({
             borderWidth: 1,
             borderColor: ui.border,
             backgroundColor: ui.card,
+            borderRadius: 14,
+            padding: 4,
+            overflow: "hidden",
           }}
         >
           {items.map((item) => (
@@ -138,7 +141,7 @@ export function ContextMenu({
                 onClose();
                 item.onPress();
               }}
-              className="justify-center px-3 hover:bg-muted/50 active:bg-muted/50"
+              className="justify-center rounded-md px-3 hover:bg-muted/50 active:bg-muted/50"
               style={{ height: ITEM_HEIGHT }}
             >
               <Text

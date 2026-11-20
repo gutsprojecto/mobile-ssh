@@ -16,7 +16,7 @@ import { openTab } from "@/screens/shell/navigate";
 import { t } from "@/i18n";
 
 /**
- * Handles `termix-mobile://open` links: picks the account for the link's
+ * Handles `shellpad://open` links: picks the account for the link's
  * server, switches to it and opens the host. A link that needs a sign in or
  * arrives before the app is up waits and runs after.
  */

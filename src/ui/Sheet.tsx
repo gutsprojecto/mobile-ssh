@@ -190,7 +190,7 @@ export function Sheet({
         <Animated.View
           accessibilityViewIsModal
           onAccessibilityEscape={close}
-          className={`border-t bg-popover ${fullWidth ? "" : "border-x"} ${tone === "destructive" ? "border-destructive/40" : "border-border"}`}
+          className={`overflow-hidden rounded-t-xl border-t bg-popover ${fullWidth ? "" : "border-x"} ${tone === "destructive" ? "border-destructive/40" : "border-border"}`}
           style={[
             slideStyle,
             {
@@ -208,7 +208,7 @@ export function Sheet({
           ]}
         >
           <View className="items-center pb-1 pt-2">
-            <View className="h-1 w-9 bg-muted-foreground/30" />
+            <View className="h-1 w-9 rounded-full bg-muted-foreground/30" />
           </View>
           {title ? (
             <View className="flex-row items-start gap-2.5 px-4 pb-3 pt-2">
@@ -329,7 +329,7 @@ export function SheetRow({
       disabled={disabled}
       accessibilityRole="button"
       accessibilityState={{ selected: !!selected, disabled: !!disabled }}
-      className={`min-h-12 flex-row items-center gap-3 border-b border-l-2 border-b-border/40 px-4 py-3 active:bg-muted/50 ${selected ? "border-l-accent-brand bg-accent-brand/10" : "border-l-transparent"} ${disabled ? "opacity-50" : ""}`}
+      className={`min-h-12 flex-row items-center gap-3 border-b border-b-border/40 px-4 py-3 active:bg-muted/50 ${selected ? "bg-accent-brand/10" : ""} ${disabled ? "opacity-50" : ""}`}
     >
       {icon ? <View className="w-5 items-center">{icon}</View> : null}
       <View className="min-w-0 flex-1">

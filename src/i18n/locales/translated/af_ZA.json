@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Kanselleer",
       "tooManyTriesWaitSeconds": "Te veel pogings. Wag {{value}} sekondes",
-      "termixLocked": "Termix Gesluit",
+      "termixLocked": "ShellPad Gesluit",
       "enterYourPinToContinue": "Voer jou PIN in om voort te gaan"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Gebruik PIN",
-      "unlockTermix": "Ontsluit Termix",
-      "unlockTermixFirst": "Ontsluit eers Termix."
+      "unlockTermix": "Ontsluit ShellPad",
+      "unlockTermixFirst": "Ontsluit eers ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Hierdie funksie is op die bediener afgeskakel.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Verander dit onder Proxy hieronder",
-      "updateTermixMobileFromYour": "Dateer Termix Mobile op vanaf jou toepassingswinkel"
+      "updateTermixMobileFromYour": "Dateer ShellPad op vanaf jou toepassingswinkel"
     },
     "savedLogin": {
       "signInToTermix": "Meld aan by Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Gebruik 'n wagwoordfrasie met ten minste 8 karakters.",
       "thisIsNotATermix": "Hierdie is nie 'n Termix-terugvoerlêer nie.",
-      "thisBackupIsFromA": "Hierdie gelykstelling is van 'n nuwer weergawe van Termix. Werk die program eers op.",
+      "thisBackupIsFromA": "Hierdie gelykstelling is van 'n nuwer weergawe van ShellPad. Werk die program eers op.",
       "wrongPassphraseOrTheFile": "Verkeerde wagwoordfrase, of die lêer is beskadig."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Hierdie bou kan plaaslike data nie versleutel nie."
     },
     "keys": {
-      "unlockTermixFirst": "Ontsluit Termix eers.",
+      "unlockTermixFirst": "Ontsluit ShellPad eers.",
       "thatIsNotADatabase": "Dit is nie 'n databasis-sleutel nie.",
       "couldNotSaveTheDatabase": "Kon nie die databasis-sleutel stoor nie."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Hierdie data is deur 'n nuwer weergawe van Termix gestoor. Werk die program op om dit oop te maak."
+      "thisDataWasSavedBy": "Hierdie data is deur 'n nuwer weergawe van ShellPad gestoor. Werk die program op om dit oop te maak."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Hierdie toestel sinkroniseer nie.",
       "localDataIsNotAvailable": "Plaaslike data is nie hier beskikbaar nie.",
-      "unlockTermixFirst": "Ontsluit Termix eers."
+      "unlockTermixFirst": "Ontsluit ShellPad eers."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Om 'n sleutel met 'n wagwoordfrase te sluit, benodig jy die Termix-program, nie 'n webvoorskou nie."
+      "lockingAKeyWithA": "Om 'n sleutel met 'n wagwoordfrase te sluit, benodig jy die ShellPad-program, nie 'n webvoorskou nie."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Dateer die program op",
-      "onYourServerNeedsA": "{{name}} op jou bediener benodig 'n nuwer weergawe van Termix op hierdie {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} op jou bediener benodig 'n nuwer weergawe van ShellPad op hierdie {{deviceWord}}.",
       "updateThePlugin": "Dateer die invoegtoepassing op",
       "onYourServerIsToo": "{{name}} op jou bediener is te oud vir hierdie program. Vra 'n admin om dit op te dateer in Invoegtoepassings."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Ontkoppel alles",
       "showOpenSessions": "Wys oop sessies",
-      "termixShowsANotificationWhile": "Termix wys 'n kennisgewing terwyl sessies oop is, sodat Android hulle in die agtergrond laat loop.",
+      "termixShowsANotificationWhile": "ShellPad wys 'n kennisgewing terwyl sessies oop is, sodat Android hulle in die agtergrond laat loop.",
       "sessionsOpen_one": "{{count}} sessie oop",
       "sessionsOpen_other": "{{count}} sessies oop",
       "tunnelsActive_one": "{{count}} tunnel aktief",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} het misluk",
     "uploading": "Laai {{name}} op",
     "uploadingFiles": "Laai {{count}} lêers op",
-    "downloadingToFilesOnMy": "Laai af na Lêers, Op My iPhone, Termix",
+    "downloadingToFilesOnMy": "Laai af na Lêers, Op My iPhone, ShellPad",
     "downloading": "Laai {{name}} af",
     "downloadingFiles": "Laai {{count}} lêers af",
     "openALargeFile": "Maak 'n groot lêer oop?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} het meer as {{limit}} lêers. Laai kleiner vouers af."
     },
-    "downloadingToFilesOnMyIpad": "Aflaai na Lêers, Op My iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Aflaai na Lêers, Op My iPad, ShellPad",
     "size": "Grootte",
     "date": "Datum"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Skakel gekopieer",
       "shareHost": "Deel gasheer",
       "thatHostNoLongerExists": "Daardie gasheer bestaan nie meer nie",
-      "scanThisInTermixOn": "Skandeer dit in Termix op 'n ander {{deviceWord}}, onder Invoer en uitvoer. Die kode bevat die adres, poort en gebruiker. Dit bevat geen wagwoord of sleutel nie.",
+      "scanThisInTermixOn": "Skandeer dit in ShellPad op 'n ander {{deviceWord}}, onder Invoer en uitvoer. Die kode bevat die adres, poort en gebruiker. Dit bevat geen wagwoord of sleutel nie.",
       "copyLink": "Kopieer skakel",
       "copyLinkWithPassword": "Kopieer skakel met wagwoord"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Skandeer 'n gasheerkode",
       "pointTheCameraAtA": "Rig die kamera na 'n Termix-gasheer QR-kode.",
-      "termixNeedsTheCameraTo": "Termix benodig die kamera om 'n kode te skandeer. Niks word opgeneem nie.",
+      "termixNeedsTheCameraTo": "ShellPad benodig die kamera om 'n kode te skandeer. Niks word opgeneem nie.",
       "allowTheCamera": "Staaf die kamera toe"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Terug in tmux-sessie {{tmuxName}}",
     "backInScreenSession": "Terug in screen-sessie {{name}}",
     "theServerSessionEndedThis": "Die bedienerseisie het geëindig. Dit is 'n nuwe shell.",
-    "termixWasClosedSoThe": "Termix is toe, dus het die ou shell geëindig. Dit is 'n nuwe shell.",
+    "termixWasClosedSoThe": "ShellPad is toe, dus het die ou shell geëindig. Dit is 'n nuwe shell.",
     "theConnectionDroppedAndThe": "Die verbinding is verbroken en die ou shell het geëindig. Dit is 'n nuwe shell.",
     "disconnectedFrom": "Ontkoppel van {{hostName}}"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Deel anonieme gebruiksstatistieke?",
-      "termixWouldSendAShort": "Termix sal een keer per dag 'n kort verslag stuur. Jy kan dit enige tyd in Instellings verander.",
+      "termixWouldSendAShort": "ShellPad sal een keer per dag 'n kort verslag stuur. Jy kan dit enige tyd in Instellings verander.",
       "noThanks": "Nee, dankie",
       "share": "Deel",
       "theReportHasTheApp": "Die verslag bevat die toepassingweergawe, {{deviceWord}}-tipe, grof tellings van gasheer en sessies, watter kenmerke jy gebruik, en of die verbinding gewerk het. Dit bevat nooit gasheernamme, gebruikersname, adresse, paaie, opdragte of bedienername nie.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Hou sessies aktief",
       "showsANotificationWhileSessions": "Wys 'n kennisgewing terwyl sessies oop is, sodat Android hulle laat loop wanneer jy die app verlaat",
       "batteryOptimization": "Batteryoptimalisering",
-      "termixIsNotRestrictedSo": "Termix is nie beperk nie, dus kan sessies oop bly met die skerm af.",
-      "androidMayStillStopSessions": "Android mag steeds sessies stop om batterylewe te bespaar. Open die batterystellings, vind Termix en kies Nie geoptimaliseer of Onbeperkt.",
+      "termixIsNotRestrictedSo": "ShellPad is nie beperk nie, dus kan sessies oop bly met die skerm af.",
+      "androidMayStillStopSessions": "Android mag steeds sessies stop om batterylewe te bespaar. Open die batterystellings, vind ShellPad en kies Nie geoptimaliseer of Onbeperkt.",
       "openBatterySettings": "Open batterystellings",
       "notificationsAreOff": "Kennisgewings is af",
       "sessionsStillRunButThe": "Sessies loop steeds, maar die lys van oop sessies en die Koppel alles los-knoppie bly versteek.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Hierdie bou kan nie sessies in die agtergrond laat loop nie. Hulle herkoppel wanneer jy terugkeer.",
       "lowPowerMode": "Laagkragmodus",
       "batterySaver": "Batteryspaarder",
-      "isOnTermixChecksConnections": "{{value}} is aan. Termix kontroleer verbindinge minder gereeld en wag langer tussen herkoppel-pogings.",
+      "isOnTermixChecksConnections": "{{value}} is aan. ShellPad kontroleer verbindinge minder gereeld en wag langer tussen herkoppel-pogings.",
       "backgroundSessions": "Agtergrondsessies",
       "iosStopsAppsSoonAfter": "iOS stop apps kort nadat jy hulle verlaat, dus kan sessies nie in die agtergrond loop nie. Hulle herkoppel wanneer jy terugkeer, en tmux of screen neem op waar jy gebleef het."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Kon nie vir opdaterings kyk nie",
         "versionIsOutUpdateFrom": "Weergawe {{version}} is uit. Werk op vanaf jou winkel.",
         "youHaveTheNewestVersion": "Jy het die nuutste weergawe",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Opdaterings",
         "check": "Kontroleer"
       },
@@ -3280,7 +3280,7 @@
       "next": "Volgende",
       "typeItAgain": "Tik dit weer",
       "export": "Voer uit",
-      "saveYourTermixBackup": "Stoor jou Termix-terugvoer"
+      "saveYourTermixBackup": "Stoor jou ShellPad-terugvoer"
     },
     "logs": {
       "logs": "Logboeke",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Wat die bediener byvoeg en waar dit loop",
         "localData": "Plaklike data",
         "backupRestoreAndDeleteWhat": "Back-up, herstel en verwyder wat op hierdie {{deviceWord}} gestoor is",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Weergawe en opdaterings",
         "logs": "Logboeke",
         "latestLinesFromThisRun": "Nuutste reëls van hierdie loop, vir foutverslae",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Soek instellings",
     "noSettingsMatch": "Geen instellings pas nie.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Kon nie snippets laai nie",
       "copied": "Gekopieer: {{name}}",

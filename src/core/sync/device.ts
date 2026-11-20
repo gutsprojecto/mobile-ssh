@@ -18,6 +18,6 @@ export async function deviceId(kv: JsonKV = secureStore): Promise<string> {
 /** The name the server shows for this phone in its sessions list. */
 export function deviceName(): string {
   const model = Device.modelName?.trim();
-  if (model) return `Termix Mobile on ${model}`;
-  return Platform.OS === "ios" ? "Termix Mobile on iPhone" : "Termix Mobile";
+  if (model) return `ShellPad on ${model}`;
+  return Platform.OS === "ios" ? "ShellPad on iPhone" : "ShellPad";
 }

@@ -3,6 +3,7 @@ import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { ChevronsUpDown } from "lucide-react-native";
 import { Sheet, SheetRow, Text } from "@/ui";
 import { useUiColors } from "@/contexts/ThemeContext";
+import { Glass } from "@/ui/Glass";
 import { useWindowInfo } from "@/utils/window-class";
 import type { TerminalInputHandle } from "@/core/features/types";
 import type { SSHHost } from "@/types";
@@ -56,106 +57,110 @@ export default function KeyRowBar({
     <View
       style={{
         flex: 1,
-        backgroundColor: ui.background,
         paddingBottom: isKeyboardIntentionallyHidden ? bottomInset : 0,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderTopColor: ui.border,
-        flexDirection: "row",
-        alignItems: "stretch",
-        overflow: "hidden",
+        paddingHorizontal: 8,
       }}
     >
-      {multi ? (
-        <Pressable
-          onPress={() => setRowIndex((i) => (i + 1) % layout.rows.length)}
-          onLongPress={() => setPicking(true)}
-          accessibilityRole="button"
-          accessibilityLabel={t("terminal.keys.keyRowBar.keyRow", {
-            label: row.label,
-          })}
-          accessibilityHint={t("terminal.keys.keyRowBar.tapForTheNextRow")}
-          className="active:bg-muted"
-          style={{
-            width: 48,
-            gap: 2,
-            alignItems: "center",
-            justifyContent: "center",
-            borderRightWidth: StyleSheet.hairlineWidth,
-            borderRightColor: ui.border,
-          }}
-        >
-          <ChevronsUpDown size={12} color={ui.textMuted} />
-          <Text
-            className="text-2xs uppercase text-muted-foreground"
-            numberOfLines={1}
-          >
-            {row.label}
-          </Text>
-        </Pressable>
-      ) : null}
-      {/* Only sideways: a fixed height and no vertical bounce. */}
-      <ScrollView
-        horizontal
-        style={{ flex: 1 }}
-        showsHorizontalScrollIndicator={false}
-        alwaysBounceVertical={false}
-        directionalLockEnabled
-        overScrollMode="never"
-        contentContainerStyle={{
-          paddingHorizontal: 6,
-          alignItems: "center",
-          gap: isLandscape ? 3 : 4,
+      <Glass
+        radius={14}
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "stretch",
         }}
-        keyboardShouldPersistTaps="handled"
       >
-        {row.groups.map((group, gi) => (
-          <Fragment key={group.id}>
-            {gi > 0 ? (
-              <View
-                style={{
-                  width: StyleSheet.hairlineWidth,
-                  height: 18,
-                  backgroundColor: ui.border,
-                  marginHorizontal: 4,
-                }}
-              />
-            ) : null}
-            {group.keys.map((key, ki) => (
-              <KeyView
-                key={`${key.id}-${ki}`}
-                def={key}
-                mods={pad.mods}
-                settings={
-                  isShort
-                    ? {
-                        ...settings,
-                        keySize: compactKeySize(settings.keySize, true),
-                      }
-                    : settings
-                }
-                onPress={pad.press}
-              />
-            ))}
-          </Fragment>
-        ))}
-      </ScrollView>
-      <Sheet
-        visible={picking}
-        onClose={() => setPicking(false)}
-        title={t("terminal.keys.keyRowBar.keyRows")}
-      >
-        {layout.rows.map((r, i) => (
-          <SheetRow
-            key={r.id}
-            label={r.label}
-            selected={i === rowIndex}
-            onPress={() => {
-              setRowIndex(i);
-              setPicking(false);
+        {multi ? (
+          <Pressable
+            onPress={() => setRowIndex((i) => (i + 1) % layout.rows.length)}
+            onLongPress={() => setPicking(true)}
+            accessibilityRole="button"
+            accessibilityLabel={t("terminal.keys.keyRowBar.keyRow", {
+              label: row.label,
+            })}
+            accessibilityHint={t("terminal.keys.keyRowBar.tapForTheNextRow")}
+            className="active:bg-muted"
+            style={{
+              width: 48,
+              gap: 2,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRightWidth: StyleSheet.hairlineWidth,
+              borderRightColor: ui.border,
             }}
-          />
-        ))}
-      </Sheet>
+          >
+            <ChevronsUpDown size={12} color={ui.textMuted} />
+            <Text
+              className="text-2xs uppercase text-muted-foreground"
+              numberOfLines={1}
+            >
+              {row.label}
+            </Text>
+          </Pressable>
+        ) : null}
+        {/* Only sideways: a fixed height and no vertical bounce. */}
+        <ScrollView
+          horizontal
+          style={{ flex: 1 }}
+          showsHorizontalScrollIndicator={false}
+          alwaysBounceVertical={false}
+          directionalLockEnabled
+          overScrollMode="never"
+          contentContainerStyle={{
+            paddingHorizontal: 6,
+            alignItems: "center",
+            gap: isLandscape ? 3 : 4,
+          }}
+          keyboardShouldPersistTaps="handled"
+        >
+          {row.groups.map((group, gi) => (
+            <Fragment key={group.id}>
+              {gi > 0 ? (
+                <View
+                  style={{
+                    width: StyleSheet.hairlineWidth,
+                    height: 18,
+                    backgroundColor: ui.border,
+                    marginHorizontal: 4,
+                  }}
+                />
+              ) : null}
+              {group.keys.map((key, ki) => (
+                <KeyView
+                  key={`${key.id}-${ki}`}
+                  def={key}
+                  mods={pad.mods}
+                  settings={
+                    isShort
+                      ? {
+                          ...settings,
+                          keySize: compactKeySize(settings.keySize, true),
+                        }
+                      : settings
+                  }
+                  onPress={pad.press}
+                />
+              ))}
+            </Fragment>
+          ))}
+        </ScrollView>
+        <Sheet
+          visible={picking}
+          onClose={() => setPicking(false)}
+          title={t("terminal.keys.keyRowBar.keyRows")}
+        >
+          {layout.rows.map((r, i) => (
+            <SheetRow
+              key={r.id}
+              label={r.label}
+              selected={i === rowIndex}
+              onPress={() => {
+                setRowIndex(i);
+                setPicking(false);
+              }}
+            />
+          ))}
+        </Sheet>
+      </Glass>
     </View>
   );
 }

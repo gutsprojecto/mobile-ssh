@@ -214,10 +214,10 @@ function Tab({
           style={{
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: active || lifted ? ui.card : "transparent",
-            // The open tab gets a brand line, like core's tab bar.
-            borderBottomWidth: 2,
-            borderBottomColor: active ? ui.brand : "transparent",
+            // The open tab is a soft pill on the glass dock.
+            backgroundColor:
+              active || lifted ? `${ui.text.slice(0, 7)}1a` : "transparent",
+            borderRadius: 11,
             minWidth: compact ? 88 : 104,
             maxWidth: 180,
             height,

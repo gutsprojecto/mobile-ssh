@@ -38,6 +38,7 @@ import {
   useSideInsets,
 } from "@/ui/bottom-inset";
 import { reduceMotionOn } from "@/ui/motion";
+import { GlassBackdrop, glassTarget } from "@/ui/Glass";
 import TabBar from "@/screens/sessions/navigation/TabBar";
 import { SessionMenu } from "@/screens/sessions/SessionMenu";
 import { keyBarHeight } from "@/features/terminal/keys/compact";
@@ -162,6 +163,11 @@ export default function Sessions() {
   } | null>(null);
   const { keyboardHeight, isKeyboardVisible } = useKeyboard();
   const keyRowOn = useKeyRowShown();
+  const glassRef = useRef<View>(null);
+  useEffect(() => {
+    glassTarget.set(glassRef);
+    return () => glassTarget.set(null);
+  }, []);
   const hiddenInputRef = useRef<TerminalImeInputHandle | null>(null);
   // Tab handles by session id. Tabs with "terminal-input" hand out a TerminalHandle.
   // Tool tabs hand out other handles, so call terminal methods with ?.().
@@ -977,7 +983,9 @@ export default function Sessions() {
           backgroundColor: stageColor,
         }}
       >
-        <View
+        {/* The terminals are what ShellPad's glass bars and rail blur. */}
+        <GlassBackdrop
+          ref={glassRef}
           style={{
             flex: 1,
             marginBottom: getBottomMargin(activeSession?.type),
@@ -1137,7 +1145,7 @@ export default function Sessions() {
               <TabSwipeEdge side="right" onSwipe={() => stepTab(1)} />
             </>
           ) : null}
-        </View>
+        </GlassBackdrop>
 
         {/* Connections panel: full screen when no sessions, overlay when sessions exist */}
         {(sessions.length === 0 || showConnectionsPanel) && (

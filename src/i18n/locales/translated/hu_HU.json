@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Mégse",
       "tooManyTriesWaitSeconds": "Túl sok próbálkozás. Várjon {{value}} másodpercet",
-      "termixLocked": "Termix zárolva",
+      "termixLocked": "ShellPad zárolva",
       "enterYourPinToContinue": "Adja meg a PIN-kódját a folytatáshoz"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "PIN használata",
-      "unlockTermix": "Termix feloldása",
-      "unlockTermixFirst": "Először oldja fel a Termixet."
+      "unlockTermix": "ShellPad feloldása",
+      "unlockTermixFirst": "Először oldja fel a ShellPadet."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Ez a funkció kikapcsolva van a szerveren.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Módosítsa lentebb a Proxy alatt",
-      "updateTermixMobileFromYour": "Frissítse a Termix Mobile alkalmazást az alkalmazásboltból"
+      "updateTermixMobileFromYour": "Frissítse a ShellPad alkalmazást az alkalmazásboltból"
     },
     "savedLogin": {
       "signInToTermix": "Bejelentkezés a Termixbe",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Használjon legalább 8 karakteres jelszót.",
       "thisIsNotATermix": "Ez nem Termix biztonsági mentési fájl.",
-      "thisBackupIsFromA": "Ez a biztonsági mentés egy újabb Termix-verzióból származik. Először frissítse az alkalmazást.",
+      "thisBackupIsFromA": "Ez a biztonsági mentés egy újabb ShellPad-verzióból származik. Először frissítse az alkalmazást.",
       "wrongPassphraseOrTheFile": "Helytelen jelszófráza, vagy a fájl sérült."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Ez a verzió nem képes helyi adatokat titkosítani."
     },
     "keys": {
-      "unlockTermixFirst": "Először oldja fel a Termix zárolását.",
+      "unlockTermixFirst": "Először oldja fel a ShellPad zárolását.",
       "thatIsNotADatabase": "Ez nem adatbázis-kulcs.",
       "couldNotSaveTheDatabase": "Nem sikerült menteni az adatbázis-kulcsot."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Ezt az adatot a Termix újabb verziója mentette. Frissítse az alkalmazást a megnyitáshoz."
+      "thisDataWasSavedBy": "Ezt az adatot a ShellPad újabb verziója mentette. Frissítse az alkalmazást a megnyitáshoz."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Ez az eszköz nem szinkronizál.",
       "localDataIsNotAvailable": "A helyi adatok itt nem érhetők el.",
-      "unlockTermixFirst": "Először oldja fel a Termix zárolását."
+      "unlockTermixFirst": "Először oldja fel a ShellPad zárolását."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Egy kulcs jelszófrázissal való zárolásához a Termix alkalmazásra van szükség, nem webes előnézetre."
+      "lockingAKeyWithA": "Egy kulcs jelszófrázissal való zárolásához a ShellPad alkalmazásra van szükség, nem webes előnézetre."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Alkalmazás frissítése",
-      "onYourServerNeedsA": "A(z) {{name}} a szerveren újabb Termix-verziót igényel ezen a(z) {{deviceWord}} eszközön.",
+      "onYourServerNeedsA": "A(z) {{name}} a szerveren újabb ShellPad-verziót igényel ezen a(z) {{deviceWord}} eszközön.",
       "updateThePlugin": "Bővítmény frissítése",
       "onYourServerIsToo": "A(z) {{name}} a szerveren túl régi ehhez az alkalmazáshoz. Kérjen egy rendszergazdát, hogy frissítse a Bővítmények menüpontban."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Összes leválasztása",
       "showOpenSessions": "Nyitott munkamenetek megjelenítése",
-      "termixShowsANotificationWhile": "Termix értesítést jelenít meg, amíg munkamenetek nyitva vannak, így az Android háttérben is futtatja őket.",
+      "termixShowsANotificationWhile": "ShellPad értesítést jelenít meg, amíg munkamenetek nyitva vannak, így az Android háttérben is futtatja őket.",
       "sessionsOpen_one": "{{count}} nyitott munkamenet",
       "sessionsOpen_other": "{{count}} nyitott munkamenet",
       "tunnelsActive_one": "{{count}} aktív alagút",
@@ -1064,7 +1064,7 @@
     "failed": "A(z) {{label}} sikertelen",
     "uploading": "{{name}} feltöltése",
     "uploadingFiles": "{{count}} fájl feltöltése",
-    "downloadingToFilesOnMy": "Letöltés a Fájlok alkalmazásba, Az én iPhone-omra, Termix",
+    "downloadingToFilesOnMy": "Letöltés a Fájlok alkalmazásba, Az én iPhone-omra, ShellPad",
     "downloading": "{{name}} letöltése",
     "downloadingFiles": "{{count}} fájl letöltése",
     "openALargeFile": "Nagy fájl megnyitása?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "A(z) {{name}} több mint {{limit}} fájlt tartalmaz. Töltsön le kisebb mappákat."
     },
-    "downloadingToFilesOnMyIpad": "Letöltés a Fájlok alkalmazásba, Az én iPad-om, Termix",
+    "downloadingToFilesOnMyIpad": "Letöltés a Fájlok alkalmazásba, Az én iPad-om, ShellPad",
     "size": "Méret",
     "date": "Dátum"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Link másolva",
       "shareHost": "Host megosztása",
       "thatHostNoLongerExists": "Ez a host már nem létezik",
-      "scanThisInTermixOn": "Olvasd be ezt a kódot egy másik {{deviceWord}}-on a Termixben, az Importálás és exportálás menüpont alatt. A kód tartalmazza a címet, a portot és a felhasználót. Nem tartalmaz jelszót vagy kulcsot.",
+      "scanThisInTermixOn": "Olvasd be ezt a kódot egy másik {{deviceWord}}-on a ShellPadben, az Importálás és exportálás menüpont alatt. A kód tartalmazza a címet, a portot és a felhasználót. Nem tartalmaz jelszót vagy kulcsot.",
       "copyLink": "Link másolása",
       "copyLinkWithPassword": "Link másolása jelszóval"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Hostkód beolvasása",
       "pointTheCameraAtA": "Irányítsd a kamerát egy Termix host QR-kódra.",
-      "termixNeedsTheCameraTo": "A Termixnek szüksége van a kamerára a kód beolvasásához. Nem történik rögzítés.",
+      "termixNeedsTheCameraTo": "A ShellPadnek szüksége van a kamerára a kód beolvasásához. Nem történik rögzítés.",
       "allowTheCamera": "Kamera engedélyezése"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Vissza a(z) {{tmuxName}} tmux munkamenetbe",
     "backInScreenSession": "Vissza a(z) {{name}} screen munkamenetbe",
     "theServerSessionEndedThis": "A kiszolgálói munkamenet véget ért. Ez egy új shell.",
-    "termixWasClosedSoThe": "A Termix bezárult, így a régi shell véget ért. Ez egy új shell.",
+    "termixWasClosedSoThe": "A ShellPad bezárult, így a régi shell véget ért. Ez egy új shell.",
     "theConnectionDroppedAndThe": "A kapcsolat megszakadt, és a régi shell véget ért. Ez egy új shell.",
     "disconnectedFrom": "Kapcsolat bontása a(z) {{hostName}} hoszttal"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Megosztja a névtelen használati statisztikákat?",
-      "termixWouldSendAShort": "A Termix naponta egyszer rövid jelentést küld. Ezt bármikor módosíthatja a Beállításokban.",
+      "termixWouldSendAShort": "A ShellPad naponta egyszer rövid jelentést küld. Ezt bármikor módosíthatja a Beállításokban.",
       "noThanks": "Nem, köszönöm",
       "share": "Megosztás",
       "theReportHasTheApp": "A jelentés tartalmazza az alkalmazás verzióját, az {{deviceWord}} típusát, a gazdagépek és munkamenetek hozzávetőleges számát, az Ön által használt funkciókat, valamint azt, hogy a csatlakozás sikeres volt-e. Soha nem tartalmaz gazdagépnévket, felhasználóneveket, címeket, elérési utakat, parancsokat vagy kiszolgálóneveket.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Munkamenetek futtatása háttérben",
       "showsANotificationWhileSessions": "Értesítést jelenít meg, amíg a munkamenetek nyitva vannak, így az Android tovább futtatja őket, amikor elhagyod az alkalmazást",
       "batteryOptimization": "Akkumulátor-optimalizálás",
-      "termixIsNotRestrictedSo": "A Termix nem korlátozott, így a munkamenetek nyitva maradhatnak kikapcsolt képernyő mellett is.",
-      "androidMayStillStopSessions": "Az Android mégis leállíthatja a munkameneteket az akkumulátor kímélése érdekében. Nyisd meg az akkumulátor-beállításokat, keresd meg a Termixet, és válaszd a Nem optimalizált vagy Korlátlan lehetőséget.",
+      "termixIsNotRestrictedSo": "A ShellPad nem korlátozott, így a munkamenetek nyitva maradhatnak kikapcsolt képernyő mellett is.",
+      "androidMayStillStopSessions": "Az Android mégis leállíthatja a munkameneteket az akkumulátor kímélése érdekében. Nyisd meg az akkumulátor-beállításokat, keresd meg a ShellPadet, és válaszd a Nem optimalizált vagy Korlátlan lehetőséget.",
       "openBatterySettings": "Akkumulátor-beállítások megnyitása",
       "notificationsAreOff": "Az értesítések kikapcsolva",
       "sessionsStillRunButThe": "A munkamenetek továbbra is futnak, de a nyitott munkamenetek listája és az Összes leválasztás gomb rejtve marad.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Ez a verzió nem tudja háttérben futtatni a munkameneteket. Visszakapcsoláskor újra csatlakoznak.",
       "lowPowerMode": "Alacsony energiafogyasztású mód",
       "batterySaver": "Akkumulátorkímélő mód",
-      "isOnTermixChecksConnections": "{{value}} bekapcsolva. A Termix ritkábban ellenőrzi a kapcsolatokat, és tovább vár a újracsatlakozási kísérletek között.",
+      "isOnTermixChecksConnections": "{{value}} bekapcsolva. A ShellPad ritkábban ellenőrzi a kapcsolatokat, és tovább vár a újracsatlakozási kísérletek között.",
       "backgroundSessions": "Háttérben futó munkamenetek",
       "iosStopsAppsSoonAfter": "Az iOS hamarosan leállítja az alkalmazásokat, amikor elhagyod őket, így a munkamenetek nem futtathatók háttérben. Visszatérésedkor újra csatlakoznak, és a tmux vagy a screen folytatja, ahol abbahagytad."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Nem sikerült ellenőrizni a frissítéseket",
         "versionIsOutUpdateFrom": "A(z) {{version}} verzió elérhető. Frissítsen az áruházából.",
         "youHaveTheNewestVersion": "A legújabb verziót használja",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Frissítések",
         "check": "Ellenőrzés"
       },
@@ -3280,7 +3280,7 @@
       "next": "Tovább",
       "typeItAgain": "Írd be újra",
       "export": "Exportálás",
-      "saveYourTermixBackup": "Mentsd el a Termix biztonsági mentést"
+      "saveYourTermixBackup": "Mentsd el a ShellPad biztonsági mentést"
     },
     "logs": {
       "logs": "Naplók",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Mit ad hozzá a szerver, és hol fut",
         "localData": "Helyi adatok",
         "backupRestoreAndDeleteWhat": "Biztonsági mentés, visszaállítás és törlés, ami ezen a(z) {{deviceWord}}n van mentve",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Verzió és frissítések",
         "logs": "Naplók",
         "latestLinesFromThisRun": "A legutóbbi sorok ebből a futtatásból, hibajelentésekhez",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Beállítások keresése",
     "noSettingsMatch": "Nincs találat a beállítások között.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "A kódrészletek betöltése sikertelen",
       "copied": "Másolva: {{name}}",

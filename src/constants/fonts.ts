@@ -3,6 +3,11 @@ import {
   JetBrainsMono_500Medium,
   JetBrainsMono_700Bold,
 } from "@expo-google-fonts/jetbrains-mono";
+import {
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+} from "@expo-google-fonts/inter";
 
 /**
  * Font families registered with expo-font. We register weight-specific
@@ -14,7 +19,19 @@ export const FONT_MAP = {
   JetBrainsMono: JetBrainsMono_400Regular,
   "JetBrainsMono-Medium": JetBrainsMono_500Medium,
   "JetBrainsMono-Bold": JetBrainsMono_700Bold,
+  Inter: Inter_400Regular,
+  "Inter-Medium": Inter_500Medium,
+  "Inter-SemiBold": Inter_600SemiBold,
 };
+
+/**
+ * ShellPad's interface font. Text is Inter unless it asks for `font-mono`;
+ * code, addresses and logs keep JetBrains Mono. Bold is SemiBold, which reads
+ * cleaner on dark glass.
+ */
+export const UI_FONT = "Inter";
+export const UI_FONT_MEDIUM = "Inter-Medium";
+export const UI_FONT_BOLD = "Inter-SemiBold";
 
 export const MONO_FONT = "JetBrainsMono";
 export const MONO_FONT_MEDIUM = "JetBrainsMono-Medium";

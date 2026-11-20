@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Hủy",
       "tooManyTriesWaitSeconds": "Quá nhiều lần thử. Vui lòng chờ {{value}} giây",
-      "termixLocked": "Termix đã khóa",
+      "termixLocked": "ShellPad đã khóa",
       "enterYourPinToContinue": "Nhập mã PIN để tiếp tục"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Sử dụng mã PIN",
-      "unlockTermix": "Mở khóa Termix",
-      "unlockTermixFirst": "Vui lòng mở khóa Termix trước."
+      "unlockTermix": "Mở khóa ShellPad",
+      "unlockTermixFirst": "Vui lòng mở khóa ShellPad trước."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Tính năng này đã bị tắt trên máy chủ.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Thay đổi nó trong phần Proxy bên dưới",
-      "updateTermixMobileFromYour": "Cập nhật Termix Mobile từ cửa hàng ứng dụng của bạn"
+      "updateTermixMobileFromYour": "Cập nhật ShellPad từ cửa hàng ứng dụng của bạn"
     },
     "savedLogin": {
       "signInToTermix": "Đăng nhập vào Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Sử dụng mật khẩu có ít nhất 8 ký tự.",
       "thisIsNotATermix": "Đây không phải là tệp sao lưu Termix.",
-      "thisBackupIsFromA": "Bản sao lưu này từ phiên bản mới hơn của Termix. Vui lòng cập nhật ứng dụng trước.",
+      "thisBackupIsFromA": "Bản sao lưu này từ phiên bản mới hơn của ShellPad. Vui lòng cập nhật ứng dụng trước.",
       "wrongPassphraseOrTheFile": "Mật khẩu sai hoặc tệp bị hỏng."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Phiên bản này không thể mã hóa dữ liệu cục bộ."
     },
     "keys": {
-      "unlockTermixFirst": "Mở khóa Termix trước.",
+      "unlockTermixFirst": "Mở khóa ShellPad trước.",
       "thatIsNotADatabase": "Đó không phải là khóa cơ sở dữ liệu.",
       "couldNotSaveTheDatabase": "Không thể lưu khóa cơ sở dữ liệu."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Dữ liệu này được lưu bởi phiên bản mới hơn của Termix. Cập nhật ứng dụng để mở nó."
+      "thisDataWasSavedBy": "Dữ liệu này được lưu bởi phiên bản mới hơn của ShellPad. Cập nhật ứng dụng để mở nó."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Thiết bị này không đồng bộ.",
       "localDataIsNotAvailable": "Dữ liệu cục bộ không khả dụng ở đây.",
-      "unlockTermixFirst": "Mở khóa Termix trước."
+      "unlockTermixFirst": "Mở khóa ShellPad trước."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Khóa khóa bằng mật khẩu cần ứng dụng Termix, không phải bản xem trước web."
+      "lockingAKeyWithA": "Khóa khóa bằng mật khẩu cần ứng dụng ShellPad, không phải bản xem trước web."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Cập nhật ứng dụng",
-      "onYourServerNeedsA": "{{name}} trên máy chủ của bạn cần phiên bản Termix mới hơn trên {{deviceWord}} này.",
+      "onYourServerNeedsA": "{{name}} trên máy chủ của bạn cần phiên bản ShellPad mới hơn trên {{deviceWord}} này.",
       "updateThePlugin": "Cập nhật plugin",
       "onYourServerIsToo": "{{name}} trên máy chủ của bạn quá cũ so với ứng dụng này. Hãy yêu cầu quản trị viên cập nhật nó trong mục Plugins."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Ngắt kết nối tất cả",
       "showOpenSessions": "Hiển thị các phiên đang mở",
-      "termixShowsANotificationWhile": "Termix hiển thị thông báo khi các phiên đang mở, để Android giữ chúng chạy ở chế độ nền.",
+      "termixShowsANotificationWhile": "ShellPad hiển thị thông báo khi các phiên đang mở, để Android giữ chúng chạy ở chế độ nền.",
       "sessionsOpen_other": "{{count}} phiên đang mở",
       "tunnelsActive_other": "{{count}} đường hầm đang hoạt động",
       "notConnected": "Chưa kết nối",
@@ -1057,7 +1057,7 @@
     "failed": "{{label}} thất bại",
     "uploading": "Đang tải lên {{name}}",
     "uploadingFiles": "Đang tải lên {{count}} tệp",
-    "downloadingToFilesOnMy": "Đang tải xuống vào Files, On My iPhone, Termix",
+    "downloadingToFilesOnMy": "Đang tải xuống vào Files, On My iPhone, ShellPad",
     "downloading": "Đang tải xuống {{name}}",
     "downloadingFiles": "Đang tải xuống {{count}} tệp",
     "openALargeFile": "Mở một tệp lớn?",
@@ -1235,7 +1235,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} có nhiều hơn {{limit}} tệp. Hãy tải xuống các thư mục nhỏ hơn."
     },
-    "downloadingToFilesOnMyIpad": "Đang tải xuống vào Files, Trên iPad của tôi, Termix",
+    "downloadingToFilesOnMyIpad": "Đang tải xuống vào Files, Trên iPad của tôi, ShellPad",
     "size": "Kích thước",
     "date": "Ngày"
   },
@@ -1480,7 +1480,7 @@
       "copiedTheLink": "Đã sao chép liên kết",
       "shareHost": "Chia sẻ máy chủ",
       "thatHostNoLongerExists": "Máy chủ đó không còn tồn tại",
-      "scanThisInTermixOn": "Quét mã này trong Termix trên {{deviceWord}} khác, ở mục Nhập và xuất. Mã này chứa địa chỉ, cổng và người dùng. Nó không chứa mật khẩu hoặc khóa.",
+      "scanThisInTermixOn": "Quét mã này trong ShellPad trên {{deviceWord}} khác, ở mục Nhập và xuất. Mã này chứa địa chỉ, cổng và người dùng. Nó không chứa mật khẩu hoặc khóa.",
       "copyLink": "Sao chép liên kết",
       "copyLinkWithPassword": "Sao chép liên kết kèm mật khẩu"
     },
@@ -1527,7 +1527,7 @@
     "scanSheet": {
       "scanAHostCode": "Quét mã máy chủ",
       "pointTheCameraAtA": "Đưa camera hướng vào mã QR máy chủ Termix.",
-      "termixNeedsTheCameraTo": "Termix cần quyền truy cập camera để quét mã. Không có gì được ghi lại.",
+      "termixNeedsTheCameraTo": "ShellPad cần quyền truy cập camera để quét mã. Không có gì được ghi lại.",
       "allowTheCamera": "Cho phép camera"
     },
     "read": {
@@ -2221,7 +2221,7 @@
     "backInTmuxSession": "Quay lại phiên tmux {{tmuxName}}",
     "backInScreenSession": "Quay lại phiên screen {{name}}",
     "theServerSessionEndedThis": "Phiên máy chủ đã kết thúc. Đây là một shell mới.",
-    "termixWasClosedSoThe": "Termix đã đóng nên shell cũ đã kết thúc. Đây là một shell mới.",
+    "termixWasClosedSoThe": "ShellPad đã đóng nên shell cũ đã kết thúc. Đây là một shell mới.",
     "theConnectionDroppedAndThe": "Kết nối bị ngắt và shell cũ đã kết thúc. Đây là một shell mới.",
     "disconnectedFrom": "Đã ngắt kết nối từ {{hostName}}"
   },
@@ -2254,7 +2254,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Chia sẻ thống kê sử dụng ẩn danh?",
-      "termixWouldSendAShort": "Termix sẽ gửi một báo cáo ngắn mỗi ngày. Bạn có thể thay đổi cài đặt này bất cứ lúc nào trong Cài đặt.",
+      "termixWouldSendAShort": "ShellPad sẽ gửi một báo cáo ngắn mỗi ngày. Bạn có thể thay đổi cài đặt này bất cứ lúc nào trong Cài đặt.",
       "noThanks": "Không, cảm ơn",
       "share": "Chia sẻ",
       "theReportHasTheApp": "Báo cáo bao gồm phiên bản ứng dụng, loại {{deviceWord}}, số lượng ước tính của máy chủ và phiên, các tính năng bạn sử dụng, và việc kết nối có thành công hay không. Báo cáo không bao giờ chứa tên máy chủ, tên người dùng, địa chỉ, đường dẫn, lệnh hoặc tên máy chủ.",
@@ -3059,8 +3059,8 @@
       "keepSessionsRunning": "Giữ phiên chạy",
       "showsANotificationWhileSessions": "Hiển thị thông báo khi có phiên đang mở, giúp Android duy trì chúng khi bạn rời khỏi ứng dụng",
       "batteryOptimization": "Tối ưu hóa pin",
-      "termixIsNotRestrictedSo": "Termix không bị hạn chế, nên các phiên có thể giữ nguyên khi màn hình tắt.",
-      "androidMayStillStopSessions": "Android vẫn có thể dừng các phiên để tiết kiệm pin. Mở cài đặt pin, tìm Termix và chọn Không tối ưu hóa hoặc Không hạn chế.",
+      "termixIsNotRestrictedSo": "ShellPad không bị hạn chế, nên các phiên có thể giữ nguyên khi màn hình tắt.",
+      "androidMayStillStopSessions": "Android vẫn có thể dừng các phiên để tiết kiệm pin. Mở cài đặt pin, tìm ShellPad và chọn Không tối ưu hóa hoặc Không hạn chế.",
       "openBatterySettings": "Mở cài đặt pin",
       "notificationsAreOff": "Thông báo đã tắt",
       "sessionsStillRunButThe": "Các phiên vẫn chạy, nhưng danh sách phiên đang mở và nút Ngắt kết nối tất cả sẽ bị ẩn.",
@@ -3068,7 +3068,7 @@
       "thisBuildCanTKeep": "Phiên bản này không thể giữ các phiên chạy ở nền. Chúng sẽ kết nối lại khi bạn quay lại.",
       "lowPowerMode": "Chế độ tiết kiệm pin",
       "batterySaver": "Tiết kiệm pin",
-      "isOnTermixChecksConnections": "{{value}} đang bật. Termix kiểm tra kết nối ít thường xuyên hơn và chờ lâu hơn giữa các lần thử kết nối lại.",
+      "isOnTermixChecksConnections": "{{value}} đang bật. ShellPad kiểm tra kết nối ít thường xuyên hơn và chờ lâu hơn giữa các lần thử kết nối lại.",
       "backgroundSessions": "Phiên nền",
       "iosStopsAppsSoonAfter": "iOS dừng ứng dụng ngay sau khi bạn rời khỏi, nên các phiên không thể chạy ở nền. Chúng sẽ kết nối lại khi bạn quay lại, và tmux hoặc screen sẽ tiếp tục từ nơi bạn đã dừng."
     },
@@ -3140,7 +3140,7 @@
         "couldNotCheckForUpdates": "Không thể kiểm tra cập nhật",
         "versionIsOutUpdateFrom": "Phiên bản {{version}} đã ra mắt. Cập nhật từ cửa hàng của bạn.",
         "youHaveTheNewestVersion": "Bạn đang dùng phiên bản mới nhất",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Cập nhật",
         "check": "Kiểm tra"
       },
@@ -3261,7 +3261,7 @@
       "next": "Tiếp theo",
       "typeItAgain": "Nhập lại",
       "export": "Xuất",
-      "saveYourTermixBackup": "Lưu bản sao lưu Termix của bạn"
+      "saveYourTermixBackup": "Lưu bản sao lưu ShellPad của bạn"
     },
     "logs": {
       "logs": "Nhật ký",
@@ -3366,7 +3366,7 @@
         "whatTheServerAddsAnd": "Những gì máy chủ thêm vào và nơi chúng chạy",
         "localData": "Dữ liệu cục bộ",
         "backupRestoreAndDeleteWhat": "Sao lưu, khôi phục và xóa những gì được lưu trên {{deviceWord}} này",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Phiên bản và cập nhật",
         "logs": "Nhật ký",
         "latestLinesFromThisRun": "Các dòng mới nhất từ lần chạy này, dùng cho báo cáo lỗi",
@@ -3400,7 +3400,7 @@
     "searchSettings": "Tìm kiếm cài đặt",
     "noSettingsMatch": "Không có cài đặt nào khớp.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Không thể tải snippets",
       "copied": "Đã sao chép: {{name}}",

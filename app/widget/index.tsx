@@ -1,6 +1,6 @@
 import { Redirect } from "expo-router";
 
-// Bare `termix-mobile://widget`.
+// Bare `shellpad://widget`.
 export default function WidgetIndex() {
   return <Redirect href="/(tabs)/hosts" />;
 }

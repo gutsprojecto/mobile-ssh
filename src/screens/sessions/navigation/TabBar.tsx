@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Keyboard, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Keyboard } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   ArrowLeft,
@@ -23,6 +23,7 @@ import { getTabBarHeight, getButtonSize } from "@/utils/responsive";
 import { useUiColors } from "@/contexts/ThemeContext";
 import { features } from "@/core/features";
 import { TabStrip } from "./TabStrip";
+import { Glass, useGlassColors } from "@/ui/Glass";
 import { t } from "@/i18n";
 
 interface TabBarProps {
@@ -109,15 +110,15 @@ export default function TabBar({
   return (
     <View
       style={{
-        backgroundColor: ui.background,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderTopColor: ui.border,
         height: tabBarHeight + (needsBottomPadding ? insets.bottom : 0),
         paddingBottom: needsBottomPadding ? insets.bottom : 0,
+        paddingHorizontal: DOCK_GAP,
       }}
       focusable={false}
     >
-      <View
+      {/* A floating glass dock, like the rail. */}
+      <Glass
+        radius={16}
         style={{
           flexDirection: "row",
           alignItems: "center",
@@ -227,12 +228,15 @@ export default function TabBar({
             )}
           </BarButton>
         ) : null}
-      </View>
+      </Glass>
     </View>
   );
 }
 
-/** A square bar button, flat like the app's muted Button. */
+/** Space between the glass dock and the screen edges. */
+const DOCK_GAP = 8;
+
+/** A rounded bar button sitting on the glass dock. */
 function BarButton({
   label,
   size,
@@ -247,6 +251,7 @@ function BarButton({
   children: React.ReactNode;
 }) {
   const ui = useUiColors();
+  const glass = useGlassColors();
   return (
     <TouchableOpacity
       accessibilityRole="button"
@@ -258,7 +263,8 @@ function BarButton({
       style={{
         width: size,
         height: size,
-        backgroundColor: active ? `${ui.brand}26` : ui.muted,
+        borderRadius: 11,
+        backgroundColor: active ? `${ui.brand}2e` : glass.chip,
       }}
     >
       {children}

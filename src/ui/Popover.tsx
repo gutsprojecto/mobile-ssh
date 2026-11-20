@@ -64,8 +64,10 @@ export function Popover({
               top: Math.max(4, anchor.y - height - 8),
               flexDirection: "row",
               borderWidth: 1,
-              borderColor: ui.brand,
+              borderColor: ui.border,
               backgroundColor: ui.card,
+              borderRadius: 14,
+              overflow: "hidden",
             }}
           >
             {children}

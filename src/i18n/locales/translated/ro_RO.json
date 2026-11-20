@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Anulează",
       "tooManyTriesWaitSeconds": "Prea multe încercări. Așteaptă {{value}} secunde",
-      "termixLocked": "Termix este blocat",
+      "termixLocked": "ShellPad este blocat",
       "enterYourPinToContinue": "Introdu PIN-ul pentru a continua"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Folosește PIN",
-      "unlockTermix": "Deblochează Termix",
-      "unlockTermixFirst": "Deblochează mai întâi Termix."
+      "unlockTermix": "Deblochează ShellPad",
+      "unlockTermixFirst": "Deblochează mai întâi ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Această funcție este dezactivată pe server.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Modifică-l la Proxy mai jos",
-      "updateTermixMobileFromYour": "Actualizează Termix Mobile din magazinul de aplicații"
+      "updateTermixMobileFromYour": "Actualizează ShellPad din magazinul de aplicații"
     },
     "savedLogin": {
       "signInToTermix": "Autentificare în Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Folosește o frază de parolă cu cel puțin 8 caractere.",
       "thisIsNotATermix": "Acesta nu este un fișier de rezervă Termix.",
-      "thisBackupIsFromA": "Această rezervă este de la o versiune mai nouă a Termix. Actualizează mai întâi aplicația.",
+      "thisBackupIsFromA": "Această rezervă este de la o versiune mai nouă a ShellPad. Actualizează mai întâi aplicația.",
       "wrongPassphraseOrTheFile": "Frază de parolă incorectă sau fișierul este corupt."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Această versiune nu poate cripta datele locale."
     },
     "keys": {
-      "unlockTermixFirst": "Deblocați Termix mai întâi.",
+      "unlockTermixFirst": "Deblocați ShellPad mai întâi.",
       "thatIsNotADatabase": "Acesta nu este o cheie de bază de date.",
       "couldNotSaveTheDatabase": "Nu s-a putut salva cheia bazei de date."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Aceste date au fost salvate de o versiune mai nouă a Termix. Actualizați aplicația pentru a le deschide."
+      "thisDataWasSavedBy": "Aceste date au fost salvate de o versiune mai nouă a ShellPad. Actualizați aplicația pentru a le deschide."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Acest dispozitiv nu se sincronizează.",
       "localDataIsNotAvailable": "Datele locale nu sunt disponibile aici.",
-      "unlockTermixFirst": "Deblocați Termix mai întâi."
+      "unlockTermixFirst": "Deblocați ShellPad mai întâi."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Blocarea unei chei cu o frază de parolă necesită aplicația Termix, nu o previzualizare web."
+      "lockingAKeyWithA": "Blocarea unei chei cu o frază de parolă necesită aplicația ShellPad, nu o previzualizare web."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Actualizează aplicația",
-      "onYourServerNeedsA": "{{name}} de pe serverul tău necesită o versiune mai nouă a Termix pe acest {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} de pe serverul tău necesită o versiune mai nouă a ShellPad pe acest {{deviceWord}}.",
       "updateThePlugin": "Actualizează pluginul",
       "onYourServerIsToo": "{{name}} de pe serverul tău este prea vechi pentru această aplicație. Cere unui administrator să îl actualizeze în Plugins."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Deconectează tot",
       "showOpenSessions": "Afișează sesiunile deschise",
-      "termixShowsANotificationWhile": "Termix afișează o notificare cât timp sesiunile sunt deschise, astfel încât Android să le mențină active în fundal.",
+      "termixShowsANotificationWhile": "ShellPad afișează o notificare cât timp sesiunile sunt deschise, astfel încât Android să le mențină active în fundal.",
       "sessionsOpen_one": "{{count}} sesiune deschisă",
       "sessionsOpen_few": "{{count}} sesiuni deschise",
       "sessionsOpen_other": "{{count}} sesiuni deschise",
@@ -1071,7 +1071,7 @@
     "failed": "{{label}} a eșuat",
     "uploading": "Se încarcă {{name}}",
     "uploadingFiles": "Se încarcă {{count}} fișiere",
-    "downloadingToFilesOnMy": "Se descarcă în Fișiere, Pe iPhone-ul meu, Termix",
+    "downloadingToFilesOnMy": "Se descarcă în Fișiere, Pe iPhone-ul meu, ShellPad",
     "downloading": "Se descarcă {{name}}",
     "downloadingFiles": "Se descarcă {{count}} fișiere",
     "openALargeFile": "Deschizi un fișier mare?",
@@ -1251,7 +1251,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} conține mai mult de {{limit}} fișiere. Descarcă foldere mai mici."
     },
-    "downloadingToFilesOnMyIpad": "Se descarcă în Fișiere, Pe iPad-ul meu, Termix",
+    "downloadingToFilesOnMyIpad": "Se descarcă în Fișiere, Pe iPad-ul meu, ShellPad",
     "size": "Dimensiune",
     "date": "Dată"
   },
@@ -1496,7 +1496,7 @@
       "copiedTheLink": "Link copiat",
       "shareHost": "Distribuie gazdă",
       "thatHostNoLongerExists": "Această gazdă nu mai există",
-      "scanThisInTermixOn": "Scanează acest cod în Termix pe un alt {{deviceWord}}, sub Import și export. Codul conține adresa, portul și utilizatorul. Nu conține parolă sau cheie.",
+      "scanThisInTermixOn": "Scanează acest cod în ShellPad pe un alt {{deviceWord}}, sub Import și export. Codul conține adresa, portul și utilizatorul. Nu conține parolă sau cheie.",
       "copyLink": "Copiază link",
       "copyLinkWithPassword": "Copiază link cu parolă"
     },
@@ -1543,7 +1543,7 @@
     "scanSheet": {
       "scanAHostCode": "Scanează un cod de gazdă",
       "pointTheCameraAtA": "Indreaptă camera către un cod QR de gazdă Termix.",
-      "termixNeedsTheCameraTo": "Termix are nevoie de cameră pentru a scana un cod. Nimic nu este înregistrat.",
+      "termixNeedsTheCameraTo": "ShellPad are nevoie de cameră pentru a scana un cod. Nimic nu este înregistrat.",
       "allowTheCamera": "Permite camera"
     },
     "read": {
@@ -2249,7 +2249,7 @@
     "backInTmuxSession": "Înapoi în sesiunea tmux {{tmuxName}}",
     "backInScreenSession": "Înapoi în sesiunea screen {{name}}",
     "theServerSessionEndedThis": "Sesiunea serverului s-a încheiat. Acesta este un shell nou.",
-    "termixWasClosedSoThe": "Termix a fost închis, așa că shell-ul vechi s-a încheiat. Acesta este un shell nou.",
+    "termixWasClosedSoThe": "ShellPad a fost închis, așa că shell-ul vechi s-a încheiat. Acesta este un shell nou.",
     "theConnectionDroppedAndThe": "Conexiunea s-a întrerupt și shell-ul vechi s-a încheiat. Acesta este un shell nou.",
     "disconnectedFrom": "Deconectat de la {{hostName}}"
   },
@@ -2282,7 +2282,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Doriți să partajați statistici anonime de utilizare?",
-      "termixWouldSendAShort": "Termix va trimite un raport scurt o dată pe zi. Puteți modifica acest lucru oricând în Setări.",
+      "termixWouldSendAShort": "ShellPad va trimite un raport scurt o dată pe zi. Puteți modifica acest lucru oricând în Setări.",
       "noThanks": "Nu, mulțumesc",
       "share": "Partajează",
       "theReportHasTheApp": "Raportul conține versiunea aplicației, tipul {{deviceWord}}, numărul aproximativ de gazde și sesiuni, funcțiile pe care le folosiți și dacă conectarea a reușit. Nu conține niciodată nume de gazde, nume de utilizator, adrese, căi, comenzi sau nume de server.",
@@ -3097,8 +3097,8 @@
       "keepSessionsRunning": "Păstrează sesiunile active",
       "showsANotificationWhileSessions": "Afișează o notificare cât timp sesiunile sunt deschise, astfel încât Android să le mențină active când părăsești aplicația",
       "batteryOptimization": "Optimizare baterie",
-      "termixIsNotRestrictedSo": "Termix nu este restricționat, deci sesiunile pot rămâne deschise cu ecranul oprit.",
-      "androidMayStillStopSessions": "Android poate totuși să oprească sesiunile pentru a economisi bateria. Deschide setările bateriei, caută Termix și selectează Neoptimizat sau Fără restricții.",
+      "termixIsNotRestrictedSo": "ShellPad nu este restricționat, deci sesiunile pot rămâne deschise cu ecranul oprit.",
+      "androidMayStillStopSessions": "Android poate totuși să oprească sesiunile pentru a economisi bateria. Deschide setările bateriei, caută ShellPad și selectează Neoptimizat sau Fără restricții.",
       "openBatterySettings": "Deschide setările bateriei",
       "notificationsAreOff": "Notificările sunt dezactivate",
       "sessionsStillRunButThe": "Sesiunile continuă să ruleze, dar lista de sesiuni deschise și butonul Deconectează totul rămân ascunse.",
@@ -3106,7 +3106,7 @@
       "thisBuildCanTKeep": "Această versiune nu poate menține sesiunile active în fundal. Ele se reconectează când revii.",
       "lowPowerMode": "Modul de economisire a energiei",
       "batterySaver": "Economisitor de baterie",
-      "isOnTermixChecksConnections": "{{value}} este activat. Termix verifică conexiunile mai rar și așteaptă mai mult între încercările de reconectare.",
+      "isOnTermixChecksConnections": "{{value}} este activat. ShellPad verifică conexiunile mai rar și așteaptă mai mult între încercările de reconectare.",
       "backgroundSessions": "Sesiuni în fundal",
       "iosStopsAppsSoonAfter": "iOS oprește aplicațiile curând după ce le părăsești, deci sesiunile nu pot rula în fundal. Ele se reconectează când revii, iar tmux sau screen preiau de unde ai rămas."
     },
@@ -3178,7 +3178,7 @@
         "couldNotCheckForUpdates": "Nu s-a putut verifica dacă există actualizări",
         "versionIsOutUpdateFrom": "Versiunea {{version}} este disponibilă. Actualizează din magazinul tău.",
         "youHaveTheNewestVersion": "Ai cea mai nouă versiune",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Actualizări",
         "check": "Verifică"
       },
@@ -3299,7 +3299,7 @@
       "next": "Înainte",
       "typeItAgain": "Scrie-o din nou",
       "export": "Exportă",
-      "saveYourTermixBackup": "Salvează copia de siguranță Termix"
+      "saveYourTermixBackup": "Salvează copia de siguranță ShellPad"
     },
     "logs": {
       "logs": "Jurnale",
@@ -3404,7 +3404,7 @@
         "whatTheServerAddsAnd": "Ce adaugă serverul și unde rulează",
         "localData": "Date locale",
         "backupRestoreAndDeleteWhat": "Salvează, restaurează și șterge ceea ce este păstrat pe acest {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versiune și actualizări",
         "logs": "Jurnale",
         "latestLinesFromThisRun": "Ultimele linii din această execuție, pentru rapoarte de erori",
@@ -3438,7 +3438,7 @@
     "searchSettings": "Caută în setări",
     "noSettingsMatch": "Nicio setare nu corespunde.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Nu s-au putut încărca fragmentele",
       "copied": "Copiat: {{name}}",

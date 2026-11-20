@@ -8,6 +8,7 @@ import {
   useKeyRepeat,
 } from "@/constants/keyboard-repeat-config";
 import { useUiColors } from "@/contexts/ThemeContext";
+import { useGlassColors } from "@/ui/Glass";
 import { t } from "@/i18n";
 
 interface KeyButtonProps {
@@ -43,6 +44,7 @@ export default function KeyButton({
   keyRepeatInitialDelay = DEFAULT_KEY_REPEAT_INITIAL_DELAY,
 }: KeyButtonProps) {
   const ui = useUiColors();
+  const glass = useGlassColors();
   const [isPressed, setIsPressed] = useState(false);
   const onPressRef = useRef(onPress);
   const hapticFeedbackRef = useRef(hapticFeedback);
@@ -112,12 +114,12 @@ export default function KeyButton({
     }
   };
 
-  // Flat keys; an on modifier gets a brand tint instead of a border.
+  // Soft keycaps on glass; an on modifier gets a brand tint instead of a border.
   const bgColor = isActive
     ? isModifier
       ? `${ui.brand}2e`
       : ui.active
-    : ui.muted;
+    : glass.chip;
 
   return (
     <TouchableOpacity
@@ -125,7 +127,7 @@ export default function KeyButton({
       style={{
         ...style,
         backgroundColor: bgColor,
-        borderRadius: 0,
+        borderRadius: 9,
       }}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}

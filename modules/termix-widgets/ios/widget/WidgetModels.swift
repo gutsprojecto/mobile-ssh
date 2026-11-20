@@ -158,9 +158,9 @@ struct WidgetPalette: Codable, Hashable {
 struct WidgetSnapshot: Codable, Hashable {
   /// Payload version understood by this build. Newer payloads are ignored.
   static let supportedVersion = 1
-  static let fallbackLink = URL(string: "termix-mobile://widget/open")!
+  static let fallbackLink = URL(string: "shellpad://widget/open")!
   /// Opens the snippets list without copying anything.
-  static let snippetsLink = URL(string: "termix-mobile://widget/snippets")!
+  static let snippetsLink = URL(string: "shellpad://widget/snippets")!
 
   let version: Int
   let updatedAt: Double
@@ -252,27 +252,27 @@ struct WidgetSnapshot: Codable, Hashable {
     hosts: [
       HostEntry(id: 1, name: "web-01", subtitle: "root@10.0.0.11", folder: "Production",
                 status: .online, cpu: 34, mem: 61, pinned: true,
-                url: "termix-mobile://widget/connect?hostId=1&type=terminal"),
+                url: "shellpad://widget/connect?hostId=1&type=terminal"),
       HostEntry(id: 2, name: "db-primary", subtitle: "postgres@10.0.0.12", folder: "Production",
                 status: .online, cpu: 72, mem: 48, pinned: false,
-                url: "termix-mobile://widget/connect?hostId=2&type=terminal"),
+                url: "shellpad://widget/connect?hostId=2&type=terminal"),
       HostEntry(id: 3, name: "build-runner", subtitle: "ci@10.0.0.21", folder: "CI",
                 status: .online, cpu: 12, mem: 22, pinned: false,
-                url: "termix-mobile://widget/connect?hostId=3&type=terminal"),
+                url: "shellpad://widget/connect?hostId=3&type=terminal"),
       HostEntry(id: 4, name: "backup-nas", subtitle: "admin@10.0.0.30", folder: "Storage",
                 status: .offline, cpu: nil, mem: nil, pinned: false,
-                url: "termix-mobile://widget/connect?hostId=4&type=terminal"),
+                url: "shellpad://widget/connect?hostId=4&type=terminal"),
     ],
     snippets: [
       SnippetEntry(id: 1, name: "Tail syslog", folder: "Ops",
                    preview: "tail -f /var/log/syslog",
-                   url: "termix-mobile://widget/snippet?snippetId=1"),
+                   url: "shellpad://widget/snippet?snippetId=1"),
       SnippetEntry(id: 2, name: "Disk usage", folder: "Ops",
                    preview: "df -h --total …",
-                   url: "termix-mobile://widget/snippet?snippetId=2"),
+                   url: "shellpad://widget/snippet?snippetId=2"),
       SnippetEntry(id: 3, name: "Restart nginx", folder: "",
                    preview: "sudo systemctl restart nginx",
-                   url: "termix-mobile://widget/snippet?snippetId=3"),
+                   url: "shellpad://widget/snippet?snippetId=3"),
     ]
   )
 

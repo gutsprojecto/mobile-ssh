@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { BottomTabBarProps } from "expo-router/tabs";
-import { Text } from "@/ui";
+import { Glass, Text } from "@/ui";
 import { useThemeColor } from "@/contexts/ThemeContext";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { useSessionStatuses } from "@/core/sessions/status";
@@ -29,10 +29,13 @@ export function SideBar({
   navigation,
   side = "left",
   inBar = false,
+  floating = false,
 }: BottomTabBarProps & {
   side?: "left" | "right";
   /** Inside the system's bar column, which is as wide as that side's safe area. */
   inBar?: boolean;
+  /** Drawn on glass over the terminal: no fill or edge of its own, no insets. */
+  floating?: boolean;
 }) {
   const insets = useSafeAreaInsets();
   const win = useWindowInfo();
@@ -53,27 +56,30 @@ export function SideBar({
   const belowCrease =
     shellLayout(win, 0).laptop && fold ? win.height - fold.start : 0;
   const bottom = Math.max(insets.bottom, belowCrease);
-  // Items mark the selected tab on the screen edge side.
-  const markSide = side === "left" ? "borderLeft" : "borderRight";
   return (
     <View
-      className={`items-stretch border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"} ${inBar ? "justify-end" : ""}`}
+      className={`items-stretch ${floating ? "" : `border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"}`} ${inBar ? "justify-end" : ""}`}
       style={
-        inBar
-          ? {
-              // The column is the safe area, so the rail fills it and adds nothing.
-              width: edgeInset,
-              paddingTop: insets.top,
-              paddingBottom: bottom + 8,
-            }
-          : {
-              // The notch side inset comes on top of the rail, not out of it.
-              width:
-                (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + edgeInset,
-              paddingTop: insets.top + (isShort ? 4 : 8),
-              paddingBottom: bottom + (isShort ? 4 : 8),
-              [side === "left" ? "paddingLeft" : "paddingRight"]: edgeInset,
-            }
+        floating
+          ? { flex: 1, paddingVertical: 10, paddingHorizontal: 6, gap: 4 }
+          : inBar
+            ? {
+                // The column is the safe area, so the rail fills it and adds nothing.
+                width: edgeInset,
+                paddingTop: insets.top,
+                paddingBottom: bottom + 8,
+              }
+            : {
+                // The notch side inset comes on top of the rail, not out of it.
+                width:
+                  (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + edgeInset,
+                paddingTop: insets.top + (isShort ? 4 : 8),
+                paddingBottom: bottom + (isShort ? 4 : 8),
+                paddingHorizontal: 6,
+                gap: 4,
+                [side === "left" ? "paddingLeft" : "paddingRight"]:
+                  edgeInset + 6,
+              }
       }
     >
       {state.routes.map((route, index) => {
@@ -105,11 +111,7 @@ export function SideBar({
                 ? tr("shell.sideBar.open", { label: tab.label, count })
                 : tab.label
             }
-            className={`items-center justify-center gap-1 hover:bg-muted/30 ${isShort ? "flex-1" : "py-3"}`}
-            style={{
-              [`${markSide}Width`]: 2,
-              [`${markSide}Color`]: focused ? accent : "transparent",
-            }}
+            className={`items-center justify-center gap-1 rounded-lg ${focused ? "bg-accent-brand/15" : "hover:bg-muted/40"} ${isShort ? "flex-1" : "py-3"}`}
           >
             <View>
               {tab.icon({ color: tint, size: isShort ? 20 : 22 })}
@@ -149,6 +151,9 @@ export function SideBar({
     </View>
   );
 }
+
+/** Space around the floating glass rail. */
+const FLOAT_GAP = 10;
 
 /** How long the rail stays out on the sessions tab once the pointer has left it. */
 const AUTO_HIDE_MS = 5000;
@@ -192,6 +197,8 @@ export function AutoHideSideBar(
   useEffect(() => clearTimer, []);
 
   const expanded = !onSessions || open;
+  // Out over the terminal it floats as a glass pill, clear of the edges.
+  const floatingOut = onSessions && open;
   const { isShort } = useWindowInfo();
   const railWidth = isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH;
   const edgeInset = side === "left" ? insets.left : insets.right;
@@ -202,7 +209,12 @@ export function AutoHideSideBar(
         top: 0,
         bottom: 0,
         [side]: 0,
-        width: (expanded ? railWidth : SIDEBAR_PEEK_WIDTH) + edgeInset,
+        width:
+          (floatingOut
+            ? railWidth + 2 * FLOAT_GAP
+            : expanded
+              ? railWidth
+              : SIDEBAR_PEEK_WIDTH) + edgeInset,
         zIndex: 1100,
         elevation: 12,
       }}
@@ -216,7 +228,20 @@ export function AutoHideSideBar(
         if (onSessions) scheduleHide();
       }}
     >
-      {expanded ? (
+      {floatingOut ? (
+        <Glass
+          radius={22}
+          style={{
+            position: "absolute",
+            top: insets.top + FLOAT_GAP,
+            bottom: insets.bottom + FLOAT_GAP,
+            [side]: edgeInset + FLOAT_GAP,
+            width: railWidth,
+          }}
+        >
+          <SideBar {...props} side={side} floating />
+        </Glass>
+      ) : expanded ? (
         <SideBar {...props} side={side} />
       ) : (
         <Pressable
@@ -227,11 +252,17 @@ export function AutoHideSideBar(
             scheduleHide();
           }}
           hitSlop={{ [side === "left" ? "right" : "left"]: 10 }}
-          className={`flex-1 border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"}`}
+          className="flex-1 items-center justify-center"
           style={{
             [side === "left" ? "paddingLeft" : "paddingRight"]: edgeInset,
           }}
-        />
+        >
+          {/* A thin glowing line in the accent color marks where the rail waits. */}
+          <View
+            className="w-[3px] rounded-full bg-accent-brand/60"
+            style={{ height: "40%" }}
+          />
+        </Pressable>
       )}
     </View>
   );

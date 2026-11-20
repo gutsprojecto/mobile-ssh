@@ -1,6 +1,6 @@
-/** Opens the inbox of one server: termix-mobile://alert?account=<id>. */
+/** Opens the inbox of one server: shellpad://alert?account=<id>. */
 export function alertLink(accountId: string): string {
-  return `termix-mobile://alert?account=${encodeURIComponent(accountId)}`;
+  return `shellpad://alert?account=${encodeURIComponent(accountId)}`;
 }
 
 /** The account a push was sent for, from its data. */

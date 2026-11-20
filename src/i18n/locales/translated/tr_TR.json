@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "İptal",
       "tooManyTriesWaitSeconds": "Çok fazla deneme. {{value}} saniye bekleyin",
-      "termixLocked": "Termix Kilitli",
+      "termixLocked": "ShellPad Kilitli",
       "enterYourPinToContinue": "Devam etmek için PIN kodunuzu girin"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "PIN kullan",
-      "unlockTermix": "Termix'in kilidini aç",
-      "unlockTermixFirst": "Önce Termix'in kilidini açın."
+      "unlockTermix": "ShellPad'in kilidini aç",
+      "unlockTermixFirst": "Önce ShellPad'in kilidini açın."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Bu özellik sunucuda devre dışı bırakıldı.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Aşağıda Vekil Sunucu altında değiştirin",
-      "updateTermixMobileFromYour": "Termix Mobile'ı uygulama mağazanızdan güncelleyin"
+      "updateTermixMobileFromYour": "ShellPad'ı uygulama mağazanızdan güncelleyin"
     },
     "savedLogin": {
       "signInToTermix": "Termix'e oturum aç",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "En az 8 karakter içeren bir parola cümlesi kullanın.",
       "thisIsNotATermix": "Bu bir Termix yedekleme dosyası değil.",
-      "thisBackupIsFromA": "Bu yedekleme, Termix'in daha yeni bir sürümünden. Önce uygulamayı güncelleyin.",
+      "thisBackupIsFromA": "Bu yedekleme, ShellPad'in daha yeni bir sürümünden. Önce uygulamayı güncelleyin.",
       "wrongPassphraseOrTheFile": "Yanlış şifre cümlesi veya dosya bozuk."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Bu derleme yerel verileri şifreleyemez."
     },
     "keys": {
-      "unlockTermixFirst": "Önce Termix'i kilidini açın.",
+      "unlockTermixFirst": "Önce ShellPad'i kilidini açın.",
       "thatIsNotADatabase": "Bu bir veritabanı anahtarı değil.",
       "couldNotSaveTheDatabase": "Veritabanı anahtarı kaydedilemedi."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Bu veriler Termix'in daha yeni bir sürümü tarafından kaydedildi. Açmak için uygulamayı güncelleyin."
+      "thisDataWasSavedBy": "Bu veriler ShellPad'in daha yeni bir sürümü tarafından kaydedildi. Açmak için uygulamayı güncelleyin."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Bu cihaz senkronize edilmiyor.",
       "localDataIsNotAvailable": "Yerel veriler burada mevcut değil.",
-      "unlockTermixFirst": "Önce Termix'i kilidini açın."
+      "unlockTermixFirst": "Önce ShellPad'i kilidini açın."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Bir anahtarı şifre cümlesiyle kilitlemek için web önizlemesi değil, Termix uygulaması gerekir."
+      "lockingAKeyWithA": "Bir anahtarı şifre cümlesiyle kilitlemek için web önizlemesi değil, ShellPad uygulaması gerekir."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Uygulamayı güncelle",
-      "onYourServerNeedsA": "Sunucunuzdaki {{name}}, bu {{deviceWord}} üzerinde Termix'in daha yeni bir sürümüne ihtiyaç duyuyor.",
+      "onYourServerNeedsA": "Sunucunuzdaki {{name}}, bu {{deviceWord}} üzerinde ShellPad'in daha yeni bir sürümüne ihtiyaç duyuyor.",
       "updateThePlugin": "Eklentiyi güncelle",
       "onYourServerIsToo": "Sunucunuzdaki {{name}}, bu uygulama için çok eski. Bir yöneticiden Eklentiler bölümünde güncellemesini isteyin."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Tümünü bağlantıyı kes",
       "showOpenSessions": "Açık oturumları göster",
-      "termixShowsANotificationWhile": "Termix, oturumlar açıkken bir bildirim gösterir, böylece Android onları arka planda çalışır durumda tutar.",
+      "termixShowsANotificationWhile": "ShellPad, oturumlar açıkken bir bildirim gösterir, böylece Android onları arka planda çalışır durumda tutar.",
       "sessionsOpen_one": "{{count}} oturum açık",
       "sessionsOpen_other": "{{count}} oturum açık",
       "tunnelsActive_one": "{{count}} tünelleme aktif",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} başarısız oldu",
     "uploading": "{{name}} yükleniyor",
     "uploadingFiles": "Dosyalar yükleniyor: {{count}}",
-    "downloadingToFilesOnMy": "Dosyalara, iPhone’umda, Termix’e indiriliyor",
+    "downloadingToFilesOnMy": "Dosyalara, iPhone’umda, ShellPad’e indiriliyor",
     "downloading": "{{name}} indiriliyor",
     "downloadingFiles": "Dosyalar indiriliyor: {{count}}",
     "openALargeFile": "Büyük bir dosya açılsın mı?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}}, {{limit}} dosyadan fazla içeriyor. Daha küçük klasörleri indirin."
     },
-    "downloadingToFilesOnMyIpad": "Dosyalar'a, iPad'im'de, Termix'e indiriliyor",
+    "downloadingToFilesOnMyIpad": "Dosyalar'a, iPad'im'de, ShellPad'e indiriliyor",
     "size": "Boyut",
     "date": "Tarih"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Bağlantı kopyalandı",
       "shareHost": "Sunucuyu paylaş",
       "thatHostNoLongerExists": "Bu sunucu artık mevcut değil",
-      "scanThisInTermixOn": "Bu kodu başka bir {{deviceWord}}'daki Termix uygulamasında, İçe ve dışa aktar bölümünde tarayın. Kod, adresi, bağlantı noktasını ve kullanıcıyı içerir. Şifre veya anahtar içermez.",
+      "scanThisInTermixOn": "Bu kodu başka bir {{deviceWord}}'daki ShellPad uygulamasında, İçe ve dışa aktar bölümünde tarayın. Kod, adresi, bağlantı noktasını ve kullanıcıyı içerir. Şifre veya anahtar içermez.",
       "copyLink": "Bağlantıyı kopyala",
       "copyLinkWithPassword": "Şifre ile bağlantıyı kopyala"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Sunucu kodunu tara",
       "pointTheCameraAtA": "Kamerayı bir Termix sunucu QR koduna doğrultun.",
-      "termixNeedsTheCameraTo": "Termix, bir kodu taramak için kameraya ihtiyaç duyar. Hiçbir şey kaydedilmez.",
+      "termixNeedsTheCameraTo": "ShellPad, bir kodu taramak için kameraya ihtiyaç duyar. Hiçbir şey kaydedilmez.",
       "allowTheCamera": "Kameraya izin ver"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "{{tmuxName}} tmux oturumuna geri dön",
     "backInScreenSession": "{{name}} screen oturumuna geri dön",
     "theServerSessionEndedThis": "Sunucu oturumu sona erdi. Bu yeni bir kabuk.",
-    "termixWasClosedSoThe": "Termix kapatıldığı için eski kabuk sona erdi. Bu yeni bir kabuk.",
+    "termixWasClosedSoThe": "ShellPad kapatıldığı için eski kabuk sona erdi. Bu yeni bir kabuk.",
     "theConnectionDroppedAndThe": "Bağlantı koptu ve eski kabuk sona erdi. Bu yeni bir kabuk.",
     "disconnectedFrom": "{{hostName}} bağlantısı kesildi"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Anonim kullanım istatistikleri paylaşılmalı mı?",
-      "termixWouldSendAShort": "Termix günde bir kez kısa bir rapor gönderir. Bunu Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.",
+      "termixWouldSendAShort": "ShellPad günde bir kez kısa bir rapor gönderir. Bunu Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.",
       "noThanks": "Hayır teşekkürler",
       "share": "Paylaş",
       "theReportHasTheApp": "Rapor; uygulama sürümü, {{deviceWord}} türü, ana bilgisayar ve oturum sayılarının yaklaşık değerleri, kullandığınız özellikler ve bağlantının başarılı olup olmadığını içerir. Asla ana bilgisayar adları, kullanıcı adları, adresler, yollar, komutlar veya sunucu adları içermez.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Oturumları çalışır durumda tut",
       "showsANotificationWhileSessions": "Oturumlar açıkken bir bildirim gösterir, böylece Android uygulamadan ayrıldığınızda oturumların devam etmesini sağlar",
       "batteryOptimization": "Pil optimizasyonu",
-      "termixIsNotRestrictedSo": "Termix kısıtlanmadı, bu nedenle ekran kapalıyken oturumlar açık kalabilir.",
-      "androidMayStillStopSessions": "Android yine de pil tasarrufu sağlamak için oturumları durdurabilir. Pil ayarlarını açın, Termix'i bulun ve Optimize edilmemiş veya Kısıtsız seçeneğini seçin.",
+      "termixIsNotRestrictedSo": "ShellPad kısıtlanmadı, bu nedenle ekran kapalıyken oturumlar açık kalabilir.",
+      "androidMayStillStopSessions": "Android yine de pil tasarrufu sağlamak için oturumları durdurabilir. Pil ayarlarını açın, ShellPad'i bulun ve Optimize edilmemiş veya Kısıtsız seçeneğini seçin.",
       "openBatterySettings": "Pil ayarlarını aç",
       "notificationsAreOff": "Bildirimler kapalı",
       "sessionsStillRunButThe": "Oturumlar yine de çalışır, ancak açık oturumların listesi ve Tüm bağlantıları kes düğmesi gizli kalır.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Bu sürüm oturumları arka planda çalışır durumda tutamaz. Geri döndüğünüzde yeniden bağlanırlar.",
       "lowPowerMode": "Düşük Güç Modu",
       "batterySaver": "Pil tasarrufu",
-      "isOnTermixChecksConnections": "{{value}} açık. Termix bağlantıları daha az sıklıkla kontrol eder ve yeniden bağlanma denemeleri arasında daha uzun bekler.",
+      "isOnTermixChecksConnections": "{{value}} açık. ShellPad bağlantıları daha az sıklıkla kontrol eder ve yeniden bağlanma denemeleri arasında daha uzun bekler.",
       "backgroundSessions": "Arka plan oturumları",
       "iosStopsAppsSoonAfter": "iOS, uygulamalardan ayrıldıktan kısa süre sonra uygulamaları durdurur, bu nedenle oturumlar arka planda çalışamaz. Geri döndüğünüzde yeniden bağlanırlar ve tmux veya screen kaldığınız yerden devam eder."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Güncellemeler kontrol edilemedi",
         "versionIsOutUpdateFrom": "{{version}} sürümü yayınlandı. Mağazanızdan güncelleyin.",
         "youHaveTheNewestVersion": "En yeni sürüme sahipsiniz",
-        "termixMobile": "Termix Mobil",
+        "termixMobile": "ShellPad Mobil",
         "updates": "Güncellemeler",
         "check": "Kontrol et"
       },
@@ -3280,7 +3280,7 @@
       "next": "İleri",
       "typeItAgain": "Tekrar yazın",
       "export": "Dışa aktar",
-      "saveYourTermixBackup": "Termix yedeklemenizi kaydedin"
+      "saveYourTermixBackup": "ShellPad yedeklemenizi kaydedin"
     },
     "logs": {
       "logs": "Günlükler",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Sunucunun ne eklediği ve nerede çalıştığı",
         "localData": "Yerel veriler",
         "backupRestoreAndDeleteWhat": "Bu {{deviceWord}} üzerinde kaydedilenleri yedekleyin, geri yükleyin ve silin",
-        "termixMobile": "Termix Mobil",
+        "termixMobile": "ShellPad Mobil",
         "versionAndUpdates": "Sürüm ve güncellemeler",
         "logs": "Günlükler",
         "latestLinesFromThisRun": "Hata raporları için bu çalışmadan en son satırlar",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Ayarları ara",
     "noSettingsMatch": "Eşleşen ayar bulunamadı.",
     "termixMobileV": "Termix Mobil v{{appVersion}}",
-    "termixMobile": "Termix Mobil",
+    "termixMobile": "ShellPad Mobil",
     "snippets": {
       "failedToLoadSnippets": "Kod parçaları yüklenemedi",
       "copied": "Kopyalandı: {{name}}",

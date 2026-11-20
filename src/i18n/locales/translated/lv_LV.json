@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Atcelt",
       "tooManyTriesWaitSeconds": "Pārāk daudz mēģinājumu. Pagaidiet {{value}} sekundes",
-      "termixLocked": "Termix ir aizslēgts",
+      "termixLocked": "ShellPad ir aizslēgts",
       "enterYourPinToContinue": "Ievadiet savu PIN kodu, lai turpinātu"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Izmantot PIN kodu",
-      "unlockTermix": "Atslēgt Termix",
-      "unlockTermixFirst": "Vispirms atslēdziet Termix."
+      "unlockTermix": "Atslēgt ShellPad",
+      "unlockTermixFirst": "Vispirms atslēdziet ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Šī funkcija serverī ir izslēgta.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Mainiet to zemāk sadaļā Starpniekserveris",
-      "updateTermixMobileFromYour": "Atjauniniet Termix Mobile no savas lietotņu veikala"
+      "updateTermixMobileFromYour": "Atjauniniet ShellPad no savas lietotņu veikala"
     },
     "savedLogin": {
       "signInToTermix": "Pieslēgties Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Izmantojiet paroli ar vismaz 8 rakstzīmēm.",
       "thisIsNotATermix": "Šis nav Termix rezerves kopijas fails.",
-      "thisBackupIsFromA": "Šī rezerves kopija ir no jaunākas Termix versijas. Vispirms atjauniniet lietotni.",
+      "thisBackupIsFromA": "Šī rezerves kopija ir no jaunākas ShellPad versijas. Vispirms atjauniniet lietotni.",
       "wrongPassphraseOrTheFile": "Nepareiza parolas frāze vai fails ir bojāts."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Šī versija nevar šifrēt vietējos datus."
     },
     "keys": {
-      "unlockTermixFirst": "Vispirms atbloķējiet Termix.",
+      "unlockTermixFirst": "Vispirms atbloķējiet ShellPad.",
       "thatIsNotADatabase": "Tas nav datubāzes atslēga.",
       "couldNotSaveTheDatabase": "Neizdevās saglabāt datubāzes atslēgu."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Šie dati tika saglabāti ar jaunāku Termix versiju. Atjauniniet lietotni, lai tos atvērtu."
+      "thisDataWasSavedBy": "Šie dati tika saglabāti ar jaunāku ShellPad versiju. Atjauniniet lietotni, lai tos atvērtu."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Šī ierīce nesinhronizējas.",
       "localDataIsNotAvailable": "Vietējie dati šeit nav pieejami.",
-      "unlockTermixFirst": "Vispirms atbloķējiet Termix."
+      "unlockTermixFirst": "Vispirms atbloķējiet ShellPad."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Atslēgas aizslēgšana ar parolas frāzi prasa Termix lietotni, nevis tīmekļa priekšskatījumu."
+      "lockingAKeyWithA": "Atslēgas aizslēgšana ar parolas frāzi prasa ShellPad lietotni, nevis tīmekļa priekšskatījumu."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Atjaunināt lietotni",
-      "onYourServerNeedsA": "Lai izmantotu {{name}} jūsu serverī, šajā {{deviceWord}} ir nepieciešama jaunāka Termix versija.",
+      "onYourServerNeedsA": "Lai izmantotu {{name}} jūsu serverī, šajā {{deviceWord}} ir nepieciešama jaunāka ShellPad versija.",
       "updateThePlugin": "Atjaunināt spraudni",
       "onYourServerIsToo": "{{name}} jūsu serverī ir pārāk veca šai lietotnei. Lūdziet administratoru to atjaunināt sadaļā Spraudņi."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Atvienot visus",
       "showOpenSessions": "Rādīt atvērtās sesijas",
-      "termixShowsANotificationWhile": "Termix rāda paziņojumu, kamēr sesijas ir atvērtas, lai Android turpinātu tās palaist fonā.",
+      "termixShowsANotificationWhile": "ShellPad rāda paziņojumu, kamēr sesijas ir atvērtas, lai Android turpinātu tās palaist fonā.",
       "sessionsOpen_zero": "Nav atvērtu sesiju",
       "sessionsOpen_one": "{{count}} atvērta sesija",
       "sessionsOpen_other": "{{count}} atvērtas sesijas",
@@ -1071,7 +1071,7 @@
     "failed": "{{label}} neizdevās",
     "uploading": "Augšupielādē {{name}}",
     "uploadingFiles": "Augšupielādē {{count}} failus",
-    "downloadingToFilesOnMy": "Lejupielādē uz Failiem, Uz mana iPhone, Termix",
+    "downloadingToFilesOnMy": "Lejupielādē uz Failiem, Uz mana iPhone, ShellPad",
     "downloading": "Lejupielādē {{name}}",
     "downloadingFiles": "Lejupielādē {{count}} failus",
     "openALargeFile": "Atvērt lielu failu?",
@@ -1251,7 +1251,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} satur vairāk nekā {{limit}} failus. Lejupielādējiet mazākas mapes."
     },
-    "downloadingToFilesOnMyIpad": "Lejupielādē uz Failiem, Uz mana iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Lejupielādē uz Failiem, Uz mana iPad, ShellPad",
     "size": "Izmērs",
     "date": "Datums"
   },
@@ -1496,7 +1496,7 @@
       "copiedTheLink": "Saite nokopēta",
       "shareHost": "Kopīgot vērzni",
       "thatHostNoLongerExists": "Šis vērzis vairs neeksistē",
-      "scanThisInTermixOn": "Skenējiet šo Termix citā {{deviceWord}}, sadaļā Importēt un eksportēt. Kodā ir adrese, ports un lietotājs. Tajā nav paroles vai atslēgas.",
+      "scanThisInTermixOn": "Skenējiet šo ShellPad citā {{deviceWord}}, sadaļā Importēt un eksportēt. Kodā ir adrese, ports un lietotājs. Tajā nav paroles vai atslēgas.",
       "copyLink": "Kopēt saiti",
       "copyLinkWithPassword": "Kopēt saiti ar paroli"
     },
@@ -1543,7 +1543,7 @@
     "scanSheet": {
       "scanAHostCode": "Skenēt vērzis kodu",
       "pointTheCameraAtA": "Novirziet kameru uz Termix vērzis QR kodu.",
-      "termixNeedsTheCameraTo": "Termix nepieciešama kamera, lai skenētu kodu. Nekas netiek ierakstīts.",
+      "termixNeedsTheCameraTo": "ShellPad nepieciešama kamera, lai skenētu kodu. Nekas netiek ierakstīts.",
       "allowTheCamera": "Atļaut kameru"
     },
     "read": {
@@ -2249,7 +2249,7 @@
     "backInTmuxSession": "Atpakaļ tmux sesijā {{tmuxName}}",
     "backInScreenSession": "Atpakaļ screen sesijā {{name}}",
     "theServerSessionEndedThis": "Servera sesija beidzās. Šis ir jauns čauls.",
-    "termixWasClosedSoThe": "Termix tika aizvērts, tāpēc vecais čauls beidzās. Šis ir jauns čauls.",
+    "termixWasClosedSoThe": "ShellPad tika aizvērts, tāpēc vecais čauls beidzās. Šis ir jauns čauls.",
     "theConnectionDroppedAndThe": "Savienojums tika pārtraukts un vecais čauls beidzās. Šis ir jauns čauls.",
     "disconnectedFrom": "Atvienots no {{hostName}}"
   },
@@ -2282,7 +2282,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Vai dalīties ar anonīmu lietošanas statistiku?",
-      "termixWouldSendAShort": "Termix reizi dienā nosūtīs īsu ziņojumu. Šo iestatījumu varat mainīt jebkurā laikā Iestatījumos.",
+      "termixWouldSendAShort": "ShellPad reizi dienā nosūtīs īsu ziņojumu. Šo iestatījumu varat mainīt jebkurā laikā Iestatījumos.",
       "noThanks": "Nē, paldies",
       "share": "Dalīties",
       "theReportHasTheApp": "Ziņojumā ir lietotnes versija, {{deviceWord}} tips, aptuvenais hostu un sesiju skaits, kuras funkcijas jūs izmantojat, un vai savienojums izdevās. Tajā nekad nav hostu nosaukumu, lietotāju vārdu, adresu, ceļu, komandu vai serveru nosaukumu.",
@@ -3097,8 +3097,8 @@
       "keepSessionsRunning": "Turpināt sesijas darbību",
       "showsANotificationWhileSessions": "Rāda paziņojumu, kamēr sesijas ir atvērtas, lai Android turpinātu tās darbināt, kad atstājat lietotni",
       "batteryOptimization": "Akumulatora optimizācija",
-      "termixIsNotRestrictedSo": "Termix nav ierobežots, tāpēc sesijas var palikt atvērtas, pat izslēdzot ekrānu.",
-      "androidMayStillStopSessions": "Android joprojām var apturēt sesijas, lai ietaupītu akumulatoru. Atveriet akumulatora iestatījumus, atradiet Termix un izvēlieties Neoptimizēts vai Neierobežots.",
+      "termixIsNotRestrictedSo": "ShellPad nav ierobežots, tāpēc sesijas var palikt atvērtas, pat izslēdzot ekrānu.",
+      "androidMayStillStopSessions": "Android joprojām var apturēt sesijas, lai ietaupītu akumulatoru. Atveriet akumulatora iestatījumus, atradiet ShellPad un izvēlieties Neoptimizēts vai Neierobežots.",
       "openBatterySettings": "Atvērt akumulatora iestatījumus",
       "notificationsAreOff": "Paziņojumi ir izslēgti",
       "sessionsStillRunButThe": "Sesijas joprojām darbojas, taču atvērto sesiju saraksts un poga Atslēgt visas paliek slēpti.",
@@ -3106,7 +3106,7 @@
       "thisBuildCanTKeep": "Šī versija nevar turpināt sesijas darbību fonā. Tās atkārtoti savienojas, kad atgriežaties.",
       "lowPowerMode": "Zemas jaudas režīms",
       "batterySaver": "Akumulatora taupīšana",
-      "isOnTermixChecksConnections": "{{value}} ir ieslēgts. Termix retāk pārbauda savienojumus un ilgāk gaida starp atkārtota savienojuma mēģinājumiem.",
+      "isOnTermixChecksConnections": "{{value}} ir ieslēgts. ShellPad retāk pārbauda savienojumus un ilgāk gaida starp atkārtota savienojuma mēģinājumiem.",
       "backgroundSessions": "Fona sesijas",
       "iosStopsAppsSoonAfter": "iOS drīz pēc tam, kad tās atstājat, aptur lietotnes, tāpēc sesijas nevar darboties fonā. Tās atkārtoti savienojas, kad atgriežaties, un tmux vai screen turpina tur, kur apstājāties."
     },
@@ -3178,7 +3178,7 @@
         "couldNotCheckForUpdates": "Neizdevās pārbaudīt atjauninājumus",
         "versionIsOutUpdateFrom": "Ir pieejama versija {{version}}. Atjauniniet no veikala.",
         "youHaveTheNewestVersion": "Jums ir jaunākā versija",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Atjauninājumi",
         "check": "Pārbaudīt"
       },
@@ -3299,7 +3299,7 @@
       "next": "Tālāk",
       "typeItAgain": "Ievadiet vēlreiz",
       "export": "Eksportēt",
-      "saveYourTermixBackup": "Saglabājiet savu Termix rezerves kopiju"
+      "saveYourTermixBackup": "Saglabājiet savu ShellPad rezerves kopiju"
     },
     "logs": {
       "logs": "Žurnāli",
@@ -3404,7 +3404,7 @@
         "whatTheServerAddsAnd": "Ko serveris pievieno un kur tas darbojas",
         "localData": "Vietējie dati",
         "backupRestoreAndDeleteWhat": "Rezerves kopija, atjaunošana un dzēšana tam, kas saglabāts šajā {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versija un atjauninājumi",
         "logs": "Žurnāli",
         "latestLinesFromThisRun": "Jaunākās rindas no šīs darbības, kļūdu ziņojumiem",
@@ -3438,7 +3438,7 @@
     "searchSettings": "Meklēt iestatījumos",
     "noSettingsMatch": "Nav atbilstošu iestatījumu.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Neizdevās ielādēt fragmentus",
       "copied": "Kopēts: {{name}}",

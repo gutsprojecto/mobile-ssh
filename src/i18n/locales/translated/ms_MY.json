@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Batal",
       "tooManyTriesWaitSeconds": "Terlalu banyak percubaan. Tunggu {{value}} saat",
-      "termixLocked": "Termix Dikunci",
+      "termixLocked": "ShellPad Dikunci",
       "enterYourPinToContinue": "Masukkan PIN anda untuk meneruskan"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Gunakan PIN",
-      "unlockTermix": "Buka kunci Termix",
-      "unlockTermixFirst": "Buka kunci Termix terlebih dahulu."
+      "unlockTermix": "Buka kunci ShellPad",
+      "unlockTermixFirst": "Buka kunci ShellPad terlebih dahulu."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Ciri ini dimatikan pada pelayan.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Ubah di bawah Proksi di bawah",
-      "updateTermixMobileFromYour": "Kemas kini Termix Mobile dari kedai aplikasi anda"
+      "updateTermixMobileFromYour": "Kemas kini ShellPad dari kedai aplikasi anda"
     },
     "savedLogin": {
       "signInToTermix": "Log masuk ke Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Gunakan frasa laluan dengan sekurang-kurangnya 8 aksara.",
       "thisIsNotATermix": "Ini bukan fail sandaran Termix.",
-      "thisBackupIsFromA": "Sandaran ini adalah dari versi Termix yang lebih baru. Kemas kini aplikasi terlebih dahulu.",
+      "thisBackupIsFromA": "Sandaran ini adalah dari versi ShellPad yang lebih baru. Kemas kini aplikasi terlebih dahulu.",
       "wrongPassphraseOrTheFile": "Frasa laluan salah, atau fail rosak."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Binaan ini tidak boleh mengenkripsi data tempatan."
     },
     "keys": {
-      "unlockTermixFirst": "Buka kunci Termix terlebih dahulu.",
+      "unlockTermixFirst": "Buka kunci ShellPad terlebih dahulu.",
       "thatIsNotADatabase": "Bukan kunci pangkalan data.",
       "couldNotSaveTheDatabase": "Tidak dapat menyimpan kunci pangkalan data."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Data ini disimpan oleh versi Termix yang lebih baru. Kemas kini aplikasi untuk membukanya."
+      "thisDataWasSavedBy": "Data ini disimpan oleh versi ShellPad yang lebih baru. Kemas kini aplikasi untuk membukanya."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Peranti ini tidak disegerakkan.",
       "localDataIsNotAvailable": "Data tempatan tidak tersedia di sini.",
-      "unlockTermixFirst": "Buka kunci Termix terlebih dahulu."
+      "unlockTermixFirst": "Buka kunci ShellPad terlebih dahulu."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Mengunci kunci dengan frasa laluan memerlukan aplikasi Termix, bukan pratonton web."
+      "lockingAKeyWithA": "Mengunci kunci dengan frasa laluan memerlukan aplikasi ShellPad, bukan pratonton web."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Kemas kini aplikasi",
-      "onYourServerNeedsA": "{{name}} pada pelayan anda memerlukan versi Termix yang lebih baru pada {{deviceWord}} ini.",
+      "onYourServerNeedsA": "{{name}} pada pelayan anda memerlukan versi ShellPad yang lebih baru pada {{deviceWord}} ini.",
       "updateThePlugin": "Kemas kini plugin",
       "onYourServerIsToo": "{{name}} pada pelayan anda terlalu lama untuk aplikasi ini. Minta pentadbir untuk mengemas kini plugin tersebut."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Putuskan sambungan semua",
       "showOpenSessions": "Tunjukkan sesi terbuka",
-      "termixShowsANotificationWhile": "Termix memaparkan pemberitahuan semasa sesi terbuka, supaya Android mengekalkannya berjalan di latar belakang.",
+      "termixShowsANotificationWhile": "ShellPad memaparkan pemberitahuan semasa sesi terbuka, supaya Android mengekalkannya berjalan di latar belakang.",
       "sessionsOpen_other": "{{count}} sesi terbuka",
       "tunnelsActive_other": "{{count}} terowong aktif",
       "notConnected": "Tidak disambungkan",
@@ -1057,7 +1057,7 @@
     "failed": "{{label}} gagal",
     "uploading": "Memuat naik {{name}}",
     "uploadingFiles": "Memuat naik {{count}} fail",
-    "downloadingToFilesOnMy": "Memuat turun ke Fail, Pada iPhone Saya, Termix",
+    "downloadingToFilesOnMy": "Memuat turun ke Fail, Pada iPhone Saya, ShellPad",
     "downloading": "Memuat turun {{name}}",
     "downloadingFiles": "Memuat turun {{count}} fail",
     "openALargeFile": "Buka fail yang besar?",
@@ -1235,7 +1235,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} mempunyai lebih daripada {{limit}} fail. Muat turun folder yang lebih kecil."
     },
-    "downloadingToFilesOnMyIpad": "Memuat turun ke Fail, Pada iPad Saya, Termix",
+    "downloadingToFilesOnMyIpad": "Memuat turun ke Fail, Pada iPad Saya, ShellPad",
     "size": "Saiz",
     "date": "Tarikh"
   },
@@ -1480,7 +1480,7 @@
       "copiedTheLink": "Pautan disalin",
       "shareHost": "Kongsi hos",
       "thatHostNoLongerExists": "Hos tersebut tidak lagi wujud",
-      "scanThisInTermixOn": "Imbas kod ini dalam Termix pada {{deviceWord}} lain, di bawah Import dan eksport. Kod ini mengandungi alamat, port dan pengguna. Ia tidak mengandungi kata laluan atau kunci.",
+      "scanThisInTermixOn": "Imbas kod ini dalam ShellPad pada {{deviceWord}} lain, di bawah Import dan eksport. Kod ini mengandungi alamat, port dan pengguna. Ia tidak mengandungi kata laluan atau kunci.",
       "copyLink": "Salin pautan",
       "copyLinkWithPassword": "Salin pautan dengan kata laluan"
     },
@@ -1527,7 +1527,7 @@
     "scanSheet": {
       "scanAHostCode": "Imbas kod hos",
       "pointTheCameraAtA": "Arahkan kamera ke kod QR hos Termix.",
-      "termixNeedsTheCameraTo": "Termix memerlukan kamera untuk mengimbas kod. Tiada apa-apa yang direkodkan.",
+      "termixNeedsTheCameraTo": "ShellPad memerlukan kamera untuk mengimbas kod. Tiada apa-apa yang direkodkan.",
       "allowTheCamera": "Benarkan kamera"
     },
     "read": {
@@ -2221,7 +2221,7 @@
     "backInTmuxSession": "Kembali ke sesi tmux {{tmuxName}}",
     "backInScreenSession": "Kembali ke sesi screen {{name}}",
     "theServerSessionEndedThis": "Sesi pelayan telah tamat. Ini adalah shell baru.",
-    "termixWasClosedSoThe": "Termix telah ditutup, jadi shell lama telah tamat. Ini adalah shell baru.",
+    "termixWasClosedSoThe": "ShellPad telah ditutup, jadi shell lama telah tamat. Ini adalah shell baru.",
     "theConnectionDroppedAndThe": "Sambungan terputus dan shell lama telah tamat. Ini adalah shell baru.",
     "disconnectedFrom": "Terputus dari {{hostName}}"
   },
@@ -2254,7 +2254,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Kongsi statistik penggunaan tanpa nama?",
-      "termixWouldSendAShort": "Termix akan menghantar laporan ringkas sekali sehari. Anda boleh mengubahnya bila-bila masa dalam Tetapan.",
+      "termixWouldSendAShort": "ShellPad akan menghantar laporan ringkas sekali sehari. Anda boleh mengubahnya bila-bila masa dalam Tetapan.",
       "noThanks": "Tidak, terima kasih",
       "share": "Kongsi",
       "theReportHasTheApp": "Laporan ini mengandungi versi aplikasi, jenis {{deviceWord}}, anggaran bilangan hos dan sesi, ciri yang anda gunakan, dan sama ada sambungan berjaya. Ia tidak pernah mengandungi nama hos, nama pengguna, alamat, laluan, arahan atau nama pelayan.",
@@ -3059,8 +3059,8 @@
       "keepSessionsRunning": "Kekalkan sesi berjalan",
       "showsANotificationWhileSessions": "Menunjukkan pemberitahuan semasa sesi dibuka, supaya Android mengekalkannya berjalan apabila anda meninggalkan aplikasi",
       "batteryOptimization": "Pengoptimuman bateri",
-      "termixIsNotRestrictedSo": "Termix tidak terhad, jadi sesi boleh kekal terbuka dengan skrin dimatikan.",
-      "androidMayStillStopSessions": "Android mungkin masih menghentikan sesi untuk menjimatkan bateri. Buka tetapan bateri, cari Termix dan pilih Tidak dioptimumkan atau Tidak terhad.",
+      "termixIsNotRestrictedSo": "ShellPad tidak terhad, jadi sesi boleh kekal terbuka dengan skrin dimatikan.",
+      "androidMayStillStopSessions": "Android mungkin masih menghentikan sesi untuk menjimatkan bateri. Buka tetapan bateri, cari ShellPad dan pilih Tidak dioptimumkan atau Tidak terhad.",
       "openBatterySettings": "Buka tetapan bateri",
       "notificationsAreOff": "Pemberitahuan dimatikan",
       "sessionsStillRunButThe": "Sesi masih berjalan, tetapi senarai sesi terbuka dan butang Putuskan semua kekal tersembunyi.",
@@ -3068,7 +3068,7 @@
       "thisBuildCanTKeep": "Binaan ini tidak dapat mengekalkan sesi berjalan di latar belakang. Ia menyambung semula apabila anda kembali.",
       "lowPowerMode": "Mod Kuasa Rendah",
       "batterySaver": "Penjimatan bateri",
-      "isOnTermixChecksConnections": "{{value}} dihidupkan. Termix memeriksa sambungan kurang kerap dan menunggu lebih lama antara cubaan sambungan semula.",
+      "isOnTermixChecksConnections": "{{value}} dihidupkan. ShellPad memeriksa sambungan kurang kerap dan menunggu lebih lama antara cubaan sambungan semula.",
       "backgroundSessions": "Sesi latar belakang",
       "iosStopsAppsSoonAfter": "iOS menghentikan aplikasi tidak lama selepas anda meninggalkannya, jadi sesi tidak dapat berjalan di latar belakang. Ia menyambung semula apabila anda kembali, dan tmux atau screen mengambil alih dari tempat anda berhenti."
     },
@@ -3140,7 +3140,7 @@
         "couldNotCheckForUpdates": "Tidak dapat memeriksa kemas kini",
         "versionIsOutUpdateFrom": "Versi {{version}} telah keluar. Kemaskini dari kedai anda.",
         "youHaveTheNewestVersion": "Anda mempunyai versi terkini",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Kemas kini",
         "check": "Periksa"
       },
@@ -3261,7 +3261,7 @@
       "next": "Seterusnya",
       "typeItAgain": "Taipkan semula",
       "export": "Eksport",
-      "saveYourTermixBackup": "Simpan sandaran Termix anda"
+      "saveYourTermixBackup": "Simpan sandaran ShellPad anda"
     },
     "logs": {
       "logs": "Log",
@@ -3366,7 +3366,7 @@
         "whatTheServerAddsAnd": "Apa yang ditambah oleh pelayan dan di mana ia berjalan",
         "localData": "Data tempatan",
         "backupRestoreAndDeleteWhat": "Sandaran, pulihkan dan padam apa yang disimpan pada {{deviceWord}} ini",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versi dan kemas kini",
         "logs": "Log",
         "latestLinesFromThisRun": "Baris terkini daripada larian ini, untuk laporan pepijat",
@@ -3400,7 +3400,7 @@
     "searchSettings": "Cari tetapan",
     "noSettingsMatch": "Tiada tetapan sepadan.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Gagal memuatkan snippet",
       "copied": "Disalin: {{name}}",

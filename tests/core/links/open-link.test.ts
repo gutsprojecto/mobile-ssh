@@ -25,13 +25,15 @@ const list: Account[] = [
 test("reads the server, view and host", () => {
   expect(
     parseOpenLink(
-      "termix-mobile://open?server=https%3A%2F%2Ftermix.example%2F&view=terminal&hostId=12",
+      "shellpad://open?server=https%3A%2F%2Ftermix.example%2F&view=terminal&hostId=12",
     ),
   ).toEqual({ server: "https://termix.example", hostId: 12, type: "terminal" });
-  expect(
-    parseOpenLink("termix-mobile://open/?view=file-manager&hostId=3"),
-  ).toEqual({ server: null, hostId: 3, type: "filemanager" });
-  expect(parseOpenLink("termix-mobile://open")).toEqual({
+  expect(parseOpenLink("shellpad://open/?view=file-manager&hostId=3")).toEqual({
+    server: null,
+    hostId: 3,
+    type: "filemanager",
+  });
+  expect(parseOpenLink("shellpad://open")).toEqual({
     server: null,
     hostId: null,
     type: null,
@@ -41,7 +43,7 @@ test("reads the server, view and host", () => {
 test("takes a whole Termix web link", () => {
   const web = "https://termix.example/team/?view=server-stats&hostId=7";
   expect(
-    parseOpenLink(`termix-mobile://open?url=${encodeURIComponent(web)}`),
+    parseOpenLink(`shellpad://open?url=${encodeURIComponent(web)}`),
   ).toEqual({
     server: "https://termix.example/team",
     hostId: 7,
@@ -50,14 +52,14 @@ test("takes a whole Termix web link", () => {
 });
 
 test("refuses links that aren't ours or are broken", () => {
-  expect(parseOpenLink("termix-mobile://opener?hostId=1")).toBeNull();
-  expect(parseOpenLink("termix-mobile://widget/open")).toBeNull();
-  expect(parseOpenLink("termix-mobile://open?hostId=-1")).toBeNull();
-  expect(parseOpenLink("termix-mobile://open?hostId=1.5")).toBeNull();
+  expect(parseOpenLink("shellpad://opener?hostId=1")).toBeNull();
+  expect(parseOpenLink("shellpad://widget/open")).toBeNull();
+  expect(parseOpenLink("shellpad://open?hostId=-1")).toBeNull();
+  expect(parseOpenLink("shellpad://open?hostId=1.5")).toBeNull();
   expect(
-    parseOpenLink("termix-mobile://open?server=javascript:alert(1)"),
+    parseOpenLink("shellpad://open?server=javascript:alert(1)"),
   ).toBeNull();
-  expect(parseOpenLink("termix-mobile://open?view=nope&hostId=2")).toEqual({
+  expect(parseOpenLink("shellpad://open?view=nope&hostId=2")).toEqual({
     server: null,
     hostId: 2,
     type: null,

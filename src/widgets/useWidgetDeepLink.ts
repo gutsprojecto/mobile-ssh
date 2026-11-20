@@ -1,8 +1,8 @@
 /**
  * Handles taps on home-screen widgets.
  *
- * Widgets open `termix-mobile://widget/...` links. This hook owns that prefix
- * (the OIDC flow owns `termix-mobile://oidc-callback`, so the two never
+ * Widgets open `shellpad://widget/...` links. This hook owns that prefix
+ * (the OIDC flow owns `shellpad://oidc-callback`, so the two never
  * collide) and turns a link into the same in-app navigation a tap on the Hosts
  * list would produce.
  *

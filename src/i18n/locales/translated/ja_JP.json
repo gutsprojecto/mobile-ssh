@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "キャンセル",
       "tooManyTriesWaitSeconds": "試行回数が多すぎます。{{value}}秒お待ちください",
-      "termixLocked": "Termix がロックされています",
+      "termixLocked": "ShellPad がロックされています",
       "enterYourPinToContinue": "続行するには PIN を入力してください"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "PIN を使用する",
-      "unlockTermix": "Termix のロックを解除",
-      "unlockTermixFirst": "まず Termix のロックを解除してください。"
+      "unlockTermix": "ShellPad のロックを解除",
+      "unlockTermixFirst": "まず ShellPad のロックを解除してください。"
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "この機能はサーバーで無効になっています。",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "下の「プロキシ」で変更してください",
-      "updateTermixMobileFromYour": "アプリストアから Termix Mobile を更新してください"
+      "updateTermixMobileFromYour": "アプリストアから ShellPad を更新してください"
     },
     "savedLogin": {
       "signInToTermix": "Termix にサインイン",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "8文字以上のパスフレーズを使用してください。",
       "thisIsNotATermix": "これは Termix のバックアップファイルではありません。",
-      "thisBackupIsFromA": "このバックアップは、より新しいバージョンの Termix から作成されたものです。まずアプリを更新してください。",
+      "thisBackupIsFromA": "このバックアップは、より新しいバージョンの ShellPad から作成されたものです。まずアプリを更新してください。",
       "wrongPassphraseOrTheFile": "パスフレーズが間違っているか、ファイルが破損しています。"
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "このビルドではローカルデータを暗号化できません。"
     },
     "keys": {
-      "unlockTermixFirst": "まず Termix をアンロックしてください。",
+      "unlockTermixFirst": "まず ShellPad をアンロックしてください。",
       "thatIsNotADatabase": "データベースキーではありません。",
       "couldNotSaveTheDatabase": "データベースキーを保存できませんでした。"
     },
     "migrate": {
-      "thisDataWasSavedBy": "このデータは、より新しいバージョンの Termix によって保存されました。アプリを更新して開いてください。"
+      "thisDataWasSavedBy": "このデータは、より新しいバージョンの ShellPad によって保存されました。アプリを更新して開いてください。"
     },
     "stores": {
       "thisDeviceDoesNotSync": "このデバイスは同期しません。",
       "localDataIsNotAvailable": "ローカルデータはここで利用できません。",
-      "unlockTermixFirst": "まず Termix をアンロックしてください。"
+      "unlockTermixFirst": "まず ShellPad をアンロックしてください。"
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "パスフレーズでキーをロックするには、ウェブプレビューではなく Termix アプリが必要です。"
+      "lockingAKeyWithA": "パスフレーズでキーをロックするには、ウェブプレビューではなく ShellPad アプリが必要です。"
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "アプリを更新",
-      "onYourServerNeedsA": "サーバー上の {{name}} は、この {{deviceWord}} でより新しいバージョンの Termix が必要です。",
+      "onYourServerNeedsA": "サーバー上の {{name}} は、この {{deviceWord}} でより新しいバージョンの ShellPad が必要です。",
       "updateThePlugin": "プラグインを更新",
       "onYourServerIsToo": "サーバー上の {{name}} は、このアプリには古すぎます。管理者にプラグインで更新を依頼してください。"
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "すべて切断",
       "showOpenSessions": "開いているセッションを表示",
-      "termixShowsANotificationWhile": "セッションが開いている間、Termix は通知を表示し、Android がバックグラウンドでそれらを維持します。",
+      "termixShowsANotificationWhile": "セッションが開いている間、ShellPad は通知を表示し、Android がバックグラウンドでそれらを維持します。",
       "sessionsOpen_other": "{{count}} セッションが開いています",
       "tunnelsActive_other": "{{count}} つのトンネルがアクティブです",
       "notConnected": "接続されていません",
@@ -1057,7 +1057,7 @@
     "failed": "{{label}} に失敗しました",
     "uploading": "{{name}} をアップロード中",
     "uploadingFiles": "ファイル {{count}} 個をアップロード中",
-    "downloadingToFilesOnMy": "「ファイル」アプリの「iPhone 上のファイル」>「Termix」にダウンロード中",
+    "downloadingToFilesOnMy": "「ファイル」アプリの「iPhone 上のファイル」>「ShellPad」にダウンロード中",
     "downloading": "{{name}} をダウンロード中",
     "downloadingFiles": "ファイル {{count}} 個をダウンロード中",
     "openALargeFile": "大きなファイルを開きますか？",
@@ -1235,7 +1235,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "「{{name}}」には {{limit}} 個を超えるファイルが含まれています。小さなフォルダをダウンロードしてください。"
     },
-    "downloadingToFilesOnMyIpad": "「ファイル」アプリの「iPad 内」>「Termix」にダウンロード中",
+    "downloadingToFilesOnMyIpad": "「ファイル」アプリの「iPad 内」>「ShellPad」にダウンロード中",
     "size": "サイズ",
     "date": "日付"
   },
@@ -1479,7 +1479,7 @@
       "copiedTheLink": "リンクをコピーしました",
       "shareHost": "ホストを共有",
       "thatHostNoLongerExists": "そのホストは存在しません",
-      "scanThisInTermixOn": "別の {{deviceWord}} で Termix を開き、「インポートとエクスポート」からスキャンしてください。コードにはアドレス、ポート、ユーザーが含まれますが、パスワードや鍵は含まれません。",
+      "scanThisInTermixOn": "別の {{deviceWord}} で ShellPad を開き、「インポートとエクスポート」からスキャンしてください。コードにはアドレス、ポート、ユーザーが含まれますが、パスワードや鍵は含まれません。",
       "copyLink": "リンクをコピー",
       "copyLinkWithPassword": "パスワード付きリンクをコピー"
     },
@@ -1526,7 +1526,7 @@
     "scanSheet": {
       "scanAHostCode": "ホストコードをスキャン",
       "pointTheCameraAtA": "カメラを Termix ホストの QR コードに向けてください。",
-      "termixNeedsTheCameraTo": "Termix はコードをスキャンするためにカメラが必要です。何も記録されません。",
+      "termixNeedsTheCameraTo": "ShellPad はコードをスキャンするためにカメラが必要です。何も記録されません。",
       "allowTheCamera": "カメラを許可"
     },
     "read": {
@@ -2220,7 +2220,7 @@
     "backInTmuxSession": "tmuxセッション {{tmuxName}} に戻る",
     "backInScreenSession": "screenセッション {{name}} に戻る",
     "theServerSessionEndedThis": "サーバーセッションが終了しました。新しいシェルです。",
-    "termixWasClosedSoThe": "Termixが閉じられたため、以前のシェルは終了しました。新しいシェルです。",
+    "termixWasClosedSoThe": "ShellPadが閉じられたため、以前のシェルは終了しました。新しいシェルです。",
     "theConnectionDroppedAndThe": "接続が切断され、以前のシェルは終了しました。新しいシェルです。",
     "disconnectedFrom": "{{hostName}} から切断されました"
   },
@@ -2253,7 +2253,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "匿名の使用統計を共有しますか？",
-      "termixWouldSendAShort": "Termix は1日1回、短いレポートを送信します。設定でいつでも変更できます。",
+      "termixWouldSendAShort": "ShellPad は1日1回、短いレポートを送信します。設定でいつでも変更できます。",
       "noThanks": "いいえ",
       "share": "共有する",
       "theReportHasTheApp": "レポートには、アプリのバージョン、{{deviceWord}} の種類、ホストとセッションの概数、使用している機能、接続が成功したかどうかが含まれます。ホスト名、ユーザー名、アドレス、パス、コマンド、またはサーバー名は含まれません。",
@@ -3058,8 +3058,8 @@
       "keepSessionsRunning": "セッションを維持する",
       "showsANotificationWhileSessions": "セッションが開いている間に通知を表示し、アプリを離れても Android がセッションを維持します",
       "batteryOptimization": "バッテリー最適化",
-      "termixIsNotRestrictedSo": "Termix は制限されていないため、画面がオフでもセッションを開いたままにできます。",
-      "androidMayStillStopSessions": "Android はバッテリー節約のためにセッションを停止する場合があります。バッテリー設定を開き、Termix を見つけて「最適化しない」または「無制限」を選択してください。",
+      "termixIsNotRestrictedSo": "ShellPad は制限されていないため、画面がオフでもセッションを開いたままにできます。",
+      "androidMayStillStopSessions": "Android はバッテリー節約のためにセッションを停止する場合があります。バッテリー設定を開き、ShellPad を見つけて「最適化しない」または「無制限」を選択してください。",
       "openBatterySettings": "バッテリー設定を開く",
       "notificationsAreOff": "通知がオフになっています",
       "sessionsStillRunButThe": "セッションは実行され続けますが、開いているセッションのリストと「すべて切断」ボタンは非表示のままです。",
@@ -3067,7 +3067,7 @@
       "thisBuildCanTKeep": "このビルドではバックグラウンドでセッションを維持できません。戻ってきたときに再接続されます。",
       "lowPowerMode": "低電力モード",
       "batterySaver": "バッテリーセーバー",
-      "isOnTermixChecksConnections": "{{value}} がオンになっています。Termix は接続チェックの間隔を延ばし、再接続試行の間隔も長くなります。",
+      "isOnTermixChecksConnections": "{{value}} がオンになっています。ShellPad は接続チェックの間隔を延ばし、再接続試行の間隔も長くなります。",
       "backgroundSessions": "バックグラウンドセッション",
       "iosStopsAppsSoonAfter": "iOS はアプリを離れるとすぐにアプリを停止するため、バックグラウンドでセッションを実行することはできません。戻ってきたときに再接続され、tmux または screen が中断したところから再開します。"
     },
@@ -3139,7 +3139,7 @@
         "couldNotCheckForUpdates": "アップデートを確認できませんでした",
         "versionIsOutUpdateFrom": "バージョン {{version}} がリリースされました。ストアからアップデートしてください。",
         "youHaveTheNewestVersion": "最新バージョンを使用しています",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "アップデート",
         "check": "確認"
       },
@@ -3260,7 +3260,7 @@
       "next": "次へ",
       "typeItAgain": "もう一度入力してください",
       "export": "エクスポート",
-      "saveYourTermixBackup": "Termix バックアップを保存"
+      "saveYourTermixBackup": "ShellPad バックアップを保存"
     },
     "logs": {
       "logs": "ログ",
@@ -3365,7 +3365,7 @@
         "whatTheServerAddsAnd": "サーバーが追加する機能と実行場所",
         "localData": "ローカルデータ",
         "backupRestoreAndDeleteWhat": "この {{deviceWord}} に保存されているデータのバックアップ、復元、削除",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "バージョンとアップデート",
         "logs": "ログ",
         "latestLinesFromThisRun": "バグ報告用の、今回の実行からの最新ログ",
@@ -3399,7 +3399,7 @@
     "searchSettings": "設定を検索",
     "noSettingsMatch": "一致する設定がありません。",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "スニペットの読み込みに失敗しました",
       "copied": "コピーしました: {{name}}",

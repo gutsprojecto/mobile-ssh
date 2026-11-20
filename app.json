@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "Termix",
-    "slug": "termix",
+    "name": "ShellPad",
+    "slug": "shellpad",
     "version": "2.1.0",
     "orientation": "default",
     "icon": "./assets/images/icon.png",
-    "scheme": "termix-mobile",
-    "githubUrl": "https://github.com/Termix-SSH/Mobile",
+    "scheme": "shellpad",
+    "githubUrl": "https://github.com/gutsprojecto/mobile-ssh",
     "backgroundColor": "#141513",
     "userInterfaceStyle": "automatic",
     "ios": {
       "appleTeamId": "2CPC5YZYFN",
       "supportsTablet": true,
-      "bundleIdentifier": "com.karmaa.termix",
+      "bundleIdentifier": "io.github.gutsprojecto.shellpad",
       "entitlements": {
         "com.apple.developer.networking.multicast": true
       },
@@ -24,7 +24,7 @@
       "infoPlist": {
         "CFBundleAllowMixedLocalizations": true,
         "ITSAppUsesNonExemptEncryption": false,
-        "NSFaceIDUsageDescription": "Use Face ID to unlock Termix.",
+        "NSFaceIDUsageDescription": "Use Face ID to unlock ShellPad.",
         "NSLocalNetworkUsageDescription": "Check if your hosts are online and wake them on your network.",
         "UIFileSharingEnabled": true,
         "LSSupportsOpeningDocumentsInPlace": true,
@@ -32,7 +32,7 @@
       }
     },
     "android": {
-      "package": "com.karmaa.termix",
+      "package": "io.github.gutsprojecto.shellpad",
       "versionCode": 20100,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
@@ -65,7 +65,7 @@
       [
         "expo-local-authentication",
         {
-          "faceIDPermission": "Use Face ID to unlock Termix."
+          "faceIDPermission": "Use Face ID to unlock ShellPad."
         }
       ],
       [
@@ -198,8 +198,8 @@
         {
           "ios": {
             "enabled": true,
-            "extensionBundleIdentifier": "com.karmaa.termix.ShareExtension",
-            "appGroupId": "group.com.karmaa.termix",
+            "extensionBundleIdentifier": "io.github.gutsprojecto.shellpad.ShareExtension",
+            "appGroupId": "group.io.github.gutsprojecto.shellpad",
             "activationRule": {
               "supportsText": true,
               "supportsFileWithMaxCount": 20,
@@ -232,10 +232,10 @@
               "appExtensions": [
                 {
                   "targetName": "TermixWidgetsExtension",
-                  "bundleIdentifier": "com.karmaa.termix.widgets",
+                  "bundleIdentifier": "io.github.gutsprojecto.shellpad.widgets",
                   "entitlements": {
                     "com.apple.security.application-groups": [
-                      "group.com.karmaa.termix.widgets"
+                      "group.io.github.gutsprojecto.shellpad.widgets"
                     ]
                   }
                 }

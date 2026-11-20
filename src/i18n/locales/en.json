@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Cancel",
       "tooManyTriesWaitSeconds": "Too many tries. Wait {{value}} seconds",
-      "termixLocked": "Termix Locked",
+      "termixLocked": "ShellPad Locked",
       "enterYourPinToContinue": "Enter your PIN to continue"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Use PIN",
-      "unlockTermix": "Unlock Termix",
-      "unlockTermixFirst": "Unlock Termix first."
+      "unlockTermix": "Unlock ShellPad",
+      "unlockTermixFirst": "Unlock ShellPad first."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "This feature is turned off on the server.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Change it under Proxy below",
-      "updateTermixMobileFromYour": "Update Termix Mobile from your app store"
+      "updateTermixMobileFromYour": "Update ShellPad from your app store"
     },
     "savedLogin": {
       "signInToTermix": "Sign in to Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Use a passphrase with at least 8 characters.",
       "thisIsNotATermix": "This is not a Termix backup file.",
-      "thisBackupIsFromA": "This backup is from a newer version of Termix. Update the app first.",
+      "thisBackupIsFromA": "This backup is from a newer version of ShellPad. Update the app first.",
       "wrongPassphraseOrTheFile": "Wrong passphrase, or the file is damaged."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "This build can't encrypt local data."
     },
     "keys": {
-      "unlockTermixFirst": "Unlock Termix first.",
+      "unlockTermixFirst": "Unlock ShellPad first.",
       "thatIsNotADatabase": "That is not a database key.",
       "couldNotSaveTheDatabase": "Could not save the database key."
     },
     "migrate": {
-      "thisDataWasSavedBy": "This data was saved by a newer version of Termix. Update the app to open it."
+      "thisDataWasSavedBy": "This data was saved by a newer version of ShellPad. Update the app to open it."
     },
     "stores": {
       "thisDeviceDoesNotSync": "This device does not sync.",
       "localDataIsNotAvailable": "Local data is not available here.",
-      "unlockTermixFirst": "Unlock Termix first."
+      "unlockTermixFirst": "Unlock ShellPad first."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Locking a key with a passphrase needs the Termix app, not a web preview."
+      "lockingAKeyWithA": "Locking a key with a passphrase needs the ShellPad app, not a web preview."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Update the app",
-      "onYourServerNeedsA": "{{name}} on your server needs a newer version of Termix on this {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} on your server needs a newer version of ShellPad on this {{deviceWord}}.",
       "updateThePlugin": "Update the plugin",
       "onYourServerIsToo": "{{name}} on your server is too old for this app. Ask an admin to update it in Plugins."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Disconnect all",
       "showOpenSessions": "Show open sessions",
-      "termixShowsANotificationWhile": "Termix shows a notification while sessions are open, so Android keeps them running in the background.",
+      "termixShowsANotificationWhile": "ShellPad shows a notification while sessions are open, so Android keeps them running in the background.",
       "sessionsOpen_one": "{{count}} session open",
       "sessionsOpen_other": "{{count}} sessions open",
       "tunnelsActive_one": "{{count}} tunnel active",
@@ -1066,7 +1066,7 @@
     "failed": "{{label}} failed",
     "uploading": "Uploading {{name}}",
     "uploadingFiles": "Uploading {{count}} files",
-    "downloadingToFilesOnMy": "Downloading to Files, On My iPhone, Termix",
+    "downloadingToFilesOnMy": "Downloading to Files, On My iPhone, ShellPad",
     "downloading": "Downloading {{name}}",
     "downloadingFiles": "Downloading {{count}} files",
     "openALargeFile": "Open a large file?",
@@ -1245,7 +1245,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} has more than {{limit}} files. Download smaller folders."
     },
-    "downloadingToFilesOnMyIpad": "Downloading to Files, On My iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Downloading to Files, On My iPad, ShellPad",
     "size": "Size",
     "date": "Date"
   },
@@ -1490,7 +1490,7 @@
       "copiedTheLink": "Copied the link",
       "shareHost": "Share host",
       "thatHostNoLongerExists": "That host no longer exists",
-      "scanThisInTermixOn": "Scan this in Termix on another {{deviceWord}}, under Import and export. The code has the address, port and user. It has no password or key.",
+      "scanThisInTermixOn": "Scan this in ShellPad on another {{deviceWord}}, under Import and export. The code has the address, port and user. It has no password or key.",
       "copyLink": "Copy link",
       "copyLinkWithPassword": "Copy link with password"
     },
@@ -1537,7 +1537,7 @@
     "scanSheet": {
       "scanAHostCode": "Scan a host code",
       "pointTheCameraAtA": "Point the camera at a Termix host QR code.",
-      "termixNeedsTheCameraTo": "Termix needs the camera to scan a code. Nothing is recorded.",
+      "termixNeedsTheCameraTo": "ShellPad needs the camera to scan a code. Nothing is recorded.",
       "allowTheCamera": "Allow the camera"
     },
     "read": {
@@ -2237,7 +2237,7 @@
     "backInTmuxSession": "Back in tmux session {{tmuxName}}",
     "backInScreenSession": "Back in screen session {{name}}",
     "theServerSessionEndedThis": "The server session ended. This is a new shell.",
-    "termixWasClosedSoThe": "Termix was closed, so the old shell ended. This is a new shell.",
+    "termixWasClosedSoThe": "ShellPad was closed, so the old shell ended. This is a new shell.",
     "theConnectionDroppedAndThe": "The connection dropped and the old shell ended. This is a new shell.",
     "disconnectedFrom": "Disconnected from {{hostName}}"
   },
@@ -2270,7 +2270,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Share anonymous usage statistics?",
-      "termixWouldSendAShort": "Termix would send a short report once a day. You can change this any time in Settings.",
+      "termixWouldSendAShort": "ShellPad would send a short report once a day. You can change this any time in Settings.",
       "noThanks": "No thanks",
       "share": "Share",
       "theReportHasTheApp": "The report has the app version, {{deviceWord}} type, rough counts of hosts and sessions, which features you use, and whether connecting worked. It never has hostnames, usernames, addresses, paths, commands or server names.",
@@ -3080,8 +3080,8 @@
       "keepSessionsRunning": "Keep sessions running",
       "showsANotificationWhileSessions": "Shows a notification while sessions are open, so Android keeps them going when you leave the app",
       "batteryOptimization": "Battery optimization",
-      "termixIsNotRestrictedSo": "Termix is not restricted, so sessions can stay open with the screen off.",
-      "androidMayStillStopSessions": "Android may still stop sessions to save battery. Open the battery settings, find Termix and pick Not optimized or Unrestricted.",
+      "termixIsNotRestrictedSo": "ShellPad is not restricted, so sessions can stay open with the screen off.",
+      "androidMayStillStopSessions": "Android may still stop sessions to save battery. Open the battery settings, find ShellPad and pick Not optimized or Unrestricted.",
       "openBatterySettings": "Open battery settings",
       "notificationsAreOff": "Notifications are off",
       "sessionsStillRunButThe": "Sessions still run, but the list of open sessions and the Disconnect all button stay hidden.",
@@ -3089,7 +3089,7 @@
       "thisBuildCanTKeep": "This build can't keep sessions running in the background. They reconnect when you come back.",
       "lowPowerMode": "Low Power Mode",
       "batterySaver": "Battery saver",
-      "isOnTermixChecksConnections": "{{value}} is on. Termix checks connections less often and waits longer between reconnect tries.",
+      "isOnTermixChecksConnections": "{{value}} is on. ShellPad checks connections less often and waits longer between reconnect tries.",
       "backgroundSessions": "Background sessions",
       "iosStopsAppsSoonAfter": "iOS stops apps soon after you leave them, so sessions can't run in the background. They reconnect when you come back, and tmux or screen picks up where you were."
     },
@@ -3161,7 +3161,7 @@
         "couldNotCheckForUpdates": "Could not check for updates",
         "versionIsOutUpdateFrom": "Version {{version}} is out. Update from your store.",
         "youHaveTheNewestVersion": "You have the newest version",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Updates",
         "check": "Check"
       },
@@ -3282,7 +3282,7 @@
       "next": "Next",
       "typeItAgain": "Type it again",
       "export": "Export",
-      "saveYourTermixBackup": "Save your Termix backup"
+      "saveYourTermixBackup": "Save your ShellPad backup"
     },
     "logs": {
       "logs": "Logs",
@@ -3387,7 +3387,7 @@
         "whatTheServerAddsAnd": "What the server adds and where it runs",
         "localData": "Local data",
         "backupRestoreAndDeleteWhat": "Backup, restore and delete what is saved on this {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Version and updates",
         "logs": "Logs",
         "latestLinesFromThisRun": "Latest lines from this run, for bug reports",
@@ -3421,7 +3421,7 @@
     "searchSettings": "Search settings",
     "noSettingsMatch": "No settings match.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Failed to load snippets",
       "copied": "Copied: {{name}}",

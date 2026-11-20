@@ -124,6 +124,10 @@ export function Screen({
   const topInset = useTopInset();
   const side = useSideInsets();
   const body = <View className="flex-1">{children}</View>;
+  const color = useThemeColor();
+  // A faint glow of the accent in one corner and teal in the other, so the
+  // glass cards and bars have something to sit on.
+  const glow = `radial-gradient(circle at 92% 0%, ${color("accent-brand", 0.15)}, transparent 42%), radial-gradient(circle at 12% 100%, rgba(60,170,160,0.1), transparent 45%)`;
 
   return (
     <View
@@ -134,6 +138,17 @@ export function Screen({
         paddingRight: side.right,
       }}
     >
+      <View
+        pointerEvents="none"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          experimental_backgroundImage: glow,
+        }}
+      />
       {(title || titleNode) && !scrollableHeader ? (
         <ScreenHeader
           title={title}

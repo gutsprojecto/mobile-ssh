@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Annuler",
       "tooManyTriesWaitSeconds": "Trop de tentatives. Attendez {{value}} secondes",
-      "termixLocked": "Termix verrouillé",
+      "termixLocked": "ShellPad verrouillé",
       "enterYourPinToContinue": "Entrez votre code PIN pour continuer"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Utiliser un code PIN",
-      "unlockTermix": "Déverrouiller Termix",
-      "unlockTermixFirst": "Déverrouillez d'abord Termix."
+      "unlockTermix": "Déverrouiller ShellPad",
+      "unlockTermixFirst": "Déverrouillez d'abord ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Cette fonctionnalité est désactivée sur le serveur.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Modifiez-le dans la section Proxy ci-dessous",
-      "updateTermixMobileFromYour": "Mettez à jour Termix Mobile depuis votre magasin d'applications"
+      "updateTermixMobileFromYour": "Mettez à jour ShellPad depuis votre magasin d'applications"
     },
     "savedLogin": {
       "signInToTermix": "Se connecter à Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Utilisez une phrase de passe d'au moins 8 caractères.",
       "thisIsNotATermix": "Ce n'est pas un fichier de sauvegarde Termix.",
-      "thisBackupIsFromA": "Cette sauvegarde provient d'une version plus récente de Termix. Mettez d'abord l'application à jour.",
+      "thisBackupIsFromA": "Cette sauvegarde provient d'une version plus récente de ShellPad. Mettez d'abord l'application à jour.",
       "wrongPassphraseOrTheFile": "Mauvaise phrase de passe, ou le fichier est corrompu."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Cette version ne peut pas chiffrer les données locales."
     },
     "keys": {
-      "unlockTermixFirst": "Déverrouillez Termix en premier.",
+      "unlockTermixFirst": "Déverrouillez ShellPad en premier.",
       "thatIsNotADatabase": "Ce n'est pas une clé de base de données.",
       "couldNotSaveTheDatabase": "Impossible d'enregistrer la clé de base de données."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Ces données ont été enregistrées par une version plus récente de Termix. Mettez à jour l'application pour les ouvrir."
+      "thisDataWasSavedBy": "Ces données ont été enregistrées par une version plus récente de ShellPad. Mettez à jour l'application pour les ouvrir."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Cet appareil ne synchronise pas.",
       "localDataIsNotAvailable": "Les données locales ne sont pas disponibles ici.",
-      "unlockTermixFirst": "Déverrouillez Termix en premier."
+      "unlockTermixFirst": "Déverrouillez ShellPad en premier."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Verrouiller une clé avec une phrase de passe nécessite l'application Termix, pas une prévisualisation web."
+      "lockingAKeyWithA": "Verrouiller une clé avec une phrase de passe nécessite l'application ShellPad, pas une prévisualisation web."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Mettre à jour l'application",
-      "onYourServerNeedsA": "{{name}} sur votre serveur nécessite une version plus récente de Termix sur cet appareil {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} sur votre serveur nécessite une version plus récente de ShellPad sur cet appareil {{deviceWord}}.",
       "updateThePlugin": "Mettre à jour le plugin",
       "onYourServerIsToo": "{{name}} sur votre serveur est trop ancien pour cette application. Demandez à un administrateur de le mettre à jour dans Plugins."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Tout déconnecter",
       "showOpenSessions": "Afficher les sessions ouvertes",
-      "termixShowsANotificationWhile": "Termix affiche une notification tant que des sessions sont ouvertes, afin qu'Android les maintienne en arrière-plan.",
+      "termixShowsANotificationWhile": "ShellPad affiche une notification tant que des sessions sont ouvertes, afin qu'Android les maintienne en arrière-plan.",
       "sessionsOpen_one": "{{count}} session ouverte",
       "sessionsOpen_many": "{{count}} sessions ouvertes",
       "sessionsOpen_other": "{{count}} sessions ouvertes",
@@ -1071,7 +1071,7 @@
     "failed": "{{label}} a échoué",
     "uploading": "Téléchargement de {{name}}",
     "uploadingFiles": "Téléchargement de {{count}} fichiers",
-    "downloadingToFilesOnMy": "Téléchargement vers Fichiers, Sur mon iPhone, Termix",
+    "downloadingToFilesOnMy": "Téléchargement vers Fichiers, Sur mon iPhone, ShellPad",
     "downloading": "Téléchargement de {{name}}",
     "downloadingFiles": "Téléchargement de {{count}} fichiers",
     "openALargeFile": "Ouvrir un fichier volumineux ?",
@@ -1251,7 +1251,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} contient plus de {{limit}} fichiers. Téléchargez des dossiers plus petits."
     },
-    "downloadingToFilesOnMyIpad": "Téléchargement vers Fichiers, Sur mon iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Téléchargement vers Fichiers, Sur mon iPad, ShellPad",
     "size": "Taille",
     "date": "Date"
   },
@@ -1496,7 +1496,7 @@
       "copiedTheLink": "Lien copié",
       "shareHost": "Partager l'hôte",
       "thatHostNoLongerExists": "Cet hôte n'existe plus",
-      "scanThisInTermixOn": "Scannez ceci dans Termix sur un autre {{deviceWord}}, sous Import et export. Le code contient l'adresse, le port et l'utilisateur. Il ne contient ni mot de passe ni clé.",
+      "scanThisInTermixOn": "Scannez ceci dans ShellPad sur un autre {{deviceWord}}, sous Import et export. Le code contient l'adresse, le port et l'utilisateur. Il ne contient ni mot de passe ni clé.",
       "copyLink": "Copier le lien",
       "copyLinkWithPassword": "Copier le lien avec mot de passe"
     },
@@ -1543,7 +1543,7 @@
     "scanSheet": {
       "scanAHostCode": "Scanner un code d'hôte",
       "pointTheCameraAtA": "Pointez la caméra vers un code QR d'hôte Termix.",
-      "termixNeedsTheCameraTo": "Termix a besoin de la caméra pour scanner un code. Rien n'est enregistré.",
+      "termixNeedsTheCameraTo": "ShellPad a besoin de la caméra pour scanner un code. Rien n'est enregistré.",
       "allowTheCamera": "Autoriser la caméra"
     },
     "read": {
@@ -2249,7 +2249,7 @@
     "backInTmuxSession": "Retour dans la session tmux {{tmuxName}}",
     "backInScreenSession": "Retour dans la session screen {{name}}",
     "theServerSessionEndedThis": "La session serveur a pris fin. Ceci est un nouveau shell.",
-    "termixWasClosedSoThe": "Termix a été fermé, donc l'ancien shell a pris fin. Ceci est un nouveau shell.",
+    "termixWasClosedSoThe": "ShellPad a été fermé, donc l'ancien shell a pris fin. Ceci est un nouveau shell.",
     "theConnectionDroppedAndThe": "La connexion a été interrompue et l'ancien shell a pris fin. Ceci est un nouveau shell.",
     "disconnectedFrom": "Déconnecté de {{hostName}}"
   },
@@ -2282,7 +2282,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Partager des statistiques d'utilisation anonymes ?",
-      "termixWouldSendAShort": "Termix enverra un bref rapport une fois par jour. Vous pouvez modifier ce paramètre à tout moment dans les Paramètres.",
+      "termixWouldSendAShort": "ShellPad enverra un bref rapport une fois par jour. Vous pouvez modifier ce paramètre à tout moment dans les Paramètres.",
       "noThanks": "Non, merci",
       "share": "Partager",
       "theReportHasTheApp": "Le rapport contient la version de l'application, le type d'{{deviceWord}}, le nombre approximatif d'hôtes et de sessions, les fonctionnalités que vous utilisez et si la connexion a réussi. Il ne contient jamais de noms d'hôtes, de noms d'utilisateur, d'adresses, de chemins, de commandes ou de noms de serveurs.",
@@ -3097,8 +3097,8 @@
       "keepSessionsRunning": "Garder les sessions actives",
       "showsANotificationWhileSessions": "Affiche une notification tant que des sessions sont ouvertes, afin qu'Android les maintienne en cours d'exécution lorsque vous quittez l'application",
       "batteryOptimization": "Optimisation de la batterie",
-      "termixIsNotRestrictedSo": "Termix n'est pas restreint, les sessions peuvent donc rester ouvertes même avec l'écran éteint.",
-      "androidMayStillStopSessions": "Android peut tout de même arrêter les sessions pour économiser la batterie. Ouvrez les paramètres de la batterie, trouvez Termix et sélectionnez Non optimisé ou Sans restriction.",
+      "termixIsNotRestrictedSo": "ShellPad n'est pas restreint, les sessions peuvent donc rester ouvertes même avec l'écran éteint.",
+      "androidMayStillStopSessions": "Android peut tout de même arrêter les sessions pour économiser la batterie. Ouvrez les paramètres de la batterie, trouvez ShellPad et sélectionnez Non optimisé ou Sans restriction.",
       "openBatterySettings": "Ouvrir les paramètres de la batterie",
       "notificationsAreOff": "Les notifications sont désactivées",
       "sessionsStillRunButThe": "Les sessions continuent de s'exécuter, mais la liste des sessions ouvertes et le bouton Tout déconnecter restent masqués.",
@@ -3106,7 +3106,7 @@
       "thisBuildCanTKeep": "Cette version ne peut pas maintenir les sessions en arrière-plan. Elles se reconnectent à votre retour.",
       "lowPowerMode": "Mode économie d'énergie",
       "batterySaver": "Économiseur de batterie",
-      "isOnTermixChecksConnections": "{{value}} est activé. Termix vérifie les connexions moins souvent et attend plus longtemps entre les tentatives de reconnexion.",
+      "isOnTermixChecksConnections": "{{value}} est activé. ShellPad vérifie les connexions moins souvent et attend plus longtemps entre les tentatives de reconnexion.",
       "backgroundSessions": "Sessions en arrière-plan",
       "iosStopsAppsSoonAfter": "iOS arrête les applications peu après leur fermeture, les sessions ne peuvent donc pas s'exécuter en arrière-plan. Elles se reconnectent à votre retour, et tmux ou screen reprend là où vous vous étiez arrêté."
     },
@@ -3178,7 +3178,7 @@
         "couldNotCheckForUpdates": "Impossible de vérifier les mises à jour",
         "versionIsOutUpdateFrom": "La version {{version}} est disponible. Mettez à jour depuis votre boutique.",
         "youHaveTheNewestVersion": "Vous avez la dernière version",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Mises à jour",
         "check": "Vérifier"
       },
@@ -3299,7 +3299,7 @@
       "next": "Suivant",
       "typeItAgain": "Tapez-la à nouveau",
       "export": "Exporter",
-      "saveYourTermixBackup": "Enregistrer votre sauvegarde Termix"
+      "saveYourTermixBackup": "Enregistrer votre sauvegarde ShellPad"
     },
     "logs": {
       "logs": "Journaux",
@@ -3404,7 +3404,7 @@
         "whatTheServerAddsAnd": "Ce que le serveur ajoute et où il s'exécute",
         "localData": "Données locales",
         "backupRestoreAndDeleteWhat": "Sauvegarder, restaurer et supprimer ce qui est enregistré sur cet {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Version et mises à jour",
         "logs": "Journaux",
         "latestLinesFromThisRun": "Dernières lignes de cette exécution, pour les rapports de bugs",
@@ -3438,7 +3438,7 @@
     "searchSettings": "Rechercher dans les paramètres",
     "noSettingsMatch": "Aucun paramètre ne correspond.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Échec du chargement des extraits",
       "copied": "Copié : {{name}}",

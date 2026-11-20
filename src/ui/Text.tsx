@@ -3,7 +3,14 @@ import {
   Text as RNText,
   type TextProps as RNTextProps,
 } from "react-native";
-import { MONO_FONT, MONO_FONT_BOLD, MONO_FONT_MEDIUM } from "@/constants/fonts";
+import {
+  MONO_FONT,
+  MONO_FONT_BOLD,
+  MONO_FONT_MEDIUM,
+  UI_FONT,
+  UI_FONT_BOLD,
+  UI_FONT_MEDIUM,
+} from "@/constants/fonts";
 import { textScale, useUiPrefs } from "@/core/ui-prefs";
 import { scaledTextStyle } from "./text-scale";
 
@@ -28,14 +35,20 @@ const FONT_PADDING = Platform.select({
 export const MAX_FONT_SCALE = 2;
 
 const FONT_BY_WEIGHT: Record<TextWeight, string> = {
+  regular: UI_FONT,
+  medium: UI_FONT_MEDIUM,
+  bold: UI_FONT_BOLD,
+};
+
+const MONO_BY_WEIGHT: Record<TextWeight, string> = {
   regular: MONO_FONT,
   medium: MONO_FONT_MEDIUM,
   bold: MONO_FONT_BOLD,
 };
 
 /**
- * App-wide text. Always monospace (JetBrains Mono), defaults to the theme
- * foreground color. Use `weight` for medium/bold since RN cannot synthesize
+ * App-wide text in Inter, or JetBrains Mono with `font-mono` in className
+ * (code, addresses, logs). Defaults to the theme foreground color. Use `weight` for medium/bold since RN cannot synthesize
  * weights for custom fonts.
  */
 export function Text({
@@ -51,7 +64,11 @@ export function Text({
       maxFontSizeMultiplier={MAX_FONT_SCALE}
       className={`text-foreground ${className ?? ""}`}
       style={[
-        { fontFamily: FONT_BY_WEIGHT[weight] },
+        {
+          fontFamily: (className?.includes("font-mono")
+            ? MONO_BY_WEIGHT
+            : FONT_BY_WEIGHT)[weight],
+        },
         FONT_PADDING,
         scaled,
         style,

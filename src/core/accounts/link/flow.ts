@@ -9,7 +9,7 @@ import { toBase64 } from "@/core/db/bytes";
 
 /**
  * One browser sign in at a time. Its id rides in the callback path
- * (termix-mobile://oidc-callback/<id>), so a link from an old or someone
+ * (shellpad://oidc-callback/<id>), so a link from an old or someone
  * else's sign in is dropped, and each one works only once. Kept in storage
  * because Android may close the app while the browser is open.
  */

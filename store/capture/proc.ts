@@ -90,5 +90,5 @@ export function showcaseUrl(
   if (opts.theme) q.set("theme", opts.theme);
   if (opts.accent) q.set("accent", opts.accent.replace(/^#/, ""));
   if (opts.video) q.set("video", "1");
-  return `termix-mobile://showcase/${scenario}?${q}`;
+  return `shellpad://showcase/${scenario}?${q}`;
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Redirect, useLocalSearchParams } from "expo-router";
 import { accounts } from "@/core/accounts";
 
-// termix-mobile://alert?account=<id>, from a tapped alert notification.
+// shellpad://alert?account=<id>, from a tapped alert notification.
 // Switches to that server, then opens its inbox.
 export default function AlertLink() {
   const { account } = useLocalSearchParams<{ account?: string }>();

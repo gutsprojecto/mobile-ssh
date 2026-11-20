@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Скасувати",
       "tooManyTriesWaitSeconds": "Забагато спроб. Зачекайте {{value}} секунд",
-      "termixLocked": "Termix заблоковано",
+      "termixLocked": "ShellPad заблоковано",
       "enterYourPinToContinue": "Введіть PIN-код, щоб продовжити"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Використовувати PIN",
-      "unlockTermix": "Розблокувати Termix",
-      "unlockTermixFirst": "Спочатку розблокуйте Termix."
+      "unlockTermix": "Розблокувати ShellPad",
+      "unlockTermixFirst": "Спочатку розблокуйте ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Ця функція вимкнена на сервері.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Змініть це в розділі Проксі нижче",
-      "updateTermixMobileFromYour": "Оновіть Termix Mobile зі свого магазину додатків"
+      "updateTermixMobileFromYour": "Оновіть ShellPad зі свого магазину додатків"
     },
     "savedLogin": {
       "signInToTermix": "Увійти в Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Використовуйте парольну фразу з мінімум 8 символами.",
       "thisIsNotATermix": "Це не файл резервної копії Termix.",
-      "thisBackupIsFromA": "Ця резервна копія створена в новішій версії Termix. Спочатку оновіть додаток.",
+      "thisBackupIsFromA": "Ця резервна копія створена в новішій версії ShellPad. Спочатку оновіть додаток.",
       "wrongPassphraseOrTheFile": "Неправильна фраза-пароль або файл пошкоджено."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Ця версія не може шифрувати локальні дані."
     },
     "keys": {
-      "unlockTermixFirst": "Спочатку розблокуйте Termix.",
+      "unlockTermixFirst": "Спочатку розблокуйте ShellPad.",
       "thatIsNotADatabase": "Це не ключ бази даних.",
       "couldNotSaveTheDatabase": "Не вдалося зберегти ключ бази даних."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Ці дані збережено новішою версією Termix. Оновіть додаток, щоб відкрити їх."
+      "thisDataWasSavedBy": "Ці дані збережено новішою версією ShellPad. Оновіть додаток, щоб відкрити їх."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Цей пристрій не синхронізується.",
       "localDataIsNotAvailable": "Локальні дані тут недоступні.",
-      "unlockTermixFirst": "Спочатку розблокуйте Termix."
+      "unlockTermixFirst": "Спочатку розблокуйте ShellPad."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Для блокування ключа фразою-паролем потрібен додаток Termix, а не веб-перегляд."
+      "lockingAKeyWithA": "Для блокування ключа фразою-паролем потрібен додаток ShellPad, а не веб-перегляд."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Оновити застосунок",
-      "onYourServerNeedsA": "{{name}} на вашому сервері потребує новішої версії Termix на цьому {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} на вашому сервері потребує новішої версії ShellPad на цьому {{deviceWord}}.",
       "updateThePlugin": "Оновити плагін",
       "onYourServerIsToo": "{{name}} на вашому сервері застарів для цього застосунку. Попросіть адміністратора оновити його в розділі Плагіни."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Від'єднати всі",
       "showOpenSessions": "Показати відкриті сесії",
-      "termixShowsANotificationWhile": "Termix показує сповіщення, поки сесії відкриті, щоб Android тримав їх активними у фоновому режимі.",
+      "termixShowsANotificationWhile": "ShellPad показує сповіщення, поки сесії відкриті, щоб Android тримав їх активними у фоновому режимі.",
       "sessionsOpen_one": "{{count}} сесія відкрита",
       "sessionsOpen_few": "{{count}} сесії відкриті",
       "sessionsOpen_many": "{{count}} сесій відкрито",
@@ -1078,7 +1078,7 @@
     "failed": "{{label}} не вдалося",
     "uploading": "Завантаження {{name}}",
     "uploadingFiles": "Завантаження {{count}} файлів",
-    "downloadingToFilesOnMy": "Завантаження в «Файли», «На моєму iPhone», Termix",
+    "downloadingToFilesOnMy": "Завантаження в «Файли», «На моєму iPhone», ShellPad",
     "downloading": "Завантаження {{name}}",
     "downloadingFiles": "Завантаження {{count}} файлів",
     "openALargeFile": "Відкрити великий файл?",
@@ -1259,7 +1259,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "У {{name}} більше ніж {{limit}} файлів. Завантажуйте менші папки."
     },
-    "downloadingToFilesOnMyIpad": "Завантаження в «Файли», «На моєму iPad», Termix",
+    "downloadingToFilesOnMyIpad": "Завантаження в «Файли», «На моєму iPad», ShellPad",
     "size": "Розмір",
     "date": "Дата"
   },
@@ -1504,7 +1504,7 @@
       "copiedTheLink": "Скопійовано посилання",
       "shareHost": "Поділитися хостом",
       "thatHostNoLongerExists": "Цей хост більше не існує",
-      "scanThisInTermixOn": "Скануйте це в Termix на іншому {{deviceWord}} у розділі «Імпорт та експорт». Код містить адресу, порт та користувача. Він не містить пароля чи ключа.",
+      "scanThisInTermixOn": "Скануйте це в ShellPad на іншому {{deviceWord}} у розділі «Імпорт та експорт». Код містить адресу, порт та користувача. Він не містить пароля чи ключа.",
       "copyLink": "Копіювати посилання",
       "copyLinkWithPassword": "Копіювати посилання з паролем"
     },
@@ -1551,7 +1551,7 @@
     "scanSheet": {
       "scanAHostCode": "Сканувати код хоста",
       "pointTheCameraAtA": "Наведіть камеру на QR-код хоста Termix.",
-      "termixNeedsTheCameraTo": "Termix потребує доступу до камери для сканування коду. Нічого не записується.",
+      "termixNeedsTheCameraTo": "ShellPad потребує доступу до камери для сканування коду. Нічого не записується.",
       "allowTheCamera": "Дозволити камеру"
     },
     "read": {
@@ -2263,7 +2263,7 @@
     "backInTmuxSession": "Повернення до сеансу tmux {{tmuxName}}",
     "backInScreenSession": "Повернення до сеансу screen {{name}}",
     "theServerSessionEndedThis": "Сеанс на сервері завершено. Це нова оболонка.",
-    "termixWasClosedSoThe": "Termix було закрито, тому стару оболонку завершено. Це нова оболонка.",
+    "termixWasClosedSoThe": "ShellPad було закрито, тому стару оболонку завершено. Це нова оболонка.",
     "theConnectionDroppedAndThe": "З'єднання втрачено, і стару оболонку завершено. Це нова оболонка.",
     "disconnectedFrom": "Відключено від {{hostName}}"
   },
@@ -2296,7 +2296,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Поділитися анонімною статистикою використання?",
-      "termixWouldSendAShort": "Termix надсилатиме короткий звіт раз на день. Ви можете змінити це будь-коли в Налаштуваннях.",
+      "termixWouldSendAShort": "ShellPad надсилатиме короткий звіт раз на день. Ви можете змінити це будь-коли в Налаштуваннях.",
       "noThanks": "Ні, дякую",
       "share": "Поділитися",
       "theReportHasTheApp": "Звіт містить версію програми, тип {{deviceWord}}, приблизну кількість хостів і сесій, які функції ви використовуєте, і чи вдалося підключитися. Він ніколи не містить імен хостів, імен користувачів, адрес, шляхів, команд або назв серверів.",
@@ -3116,8 +3116,8 @@
       "keepSessionsRunning": "Залишати сесії активними",
       "showsANotificationWhileSessions": "Показує сповіщення, поки сесії відкриті, щоб Android продовжував їх роботу, коли ви виходите з додатка",
       "batteryOptimization": "Оптимізація батареї",
-      "termixIsNotRestrictedSo": "Termix не обмежено, тому сесії можуть залишатися відкритими навіть із вимкненим екраном.",
-      "androidMayStillStopSessions": "Android все одно може зупиняти сесії для економії батареї. Відкрийте налаштування батареї, знайдіть Termix і виберіть «Не оптимізовано» або «Без обмежень».",
+      "termixIsNotRestrictedSo": "ShellPad не обмежено, тому сесії можуть залишатися відкритими навіть із вимкненим екраном.",
+      "androidMayStillStopSessions": "Android все одно може зупиняти сесії для економії батареї. Відкрийте налаштування батареї, знайдіть ShellPad і виберіть «Не оптимізовано» або «Без обмежень».",
       "openBatterySettings": "Відкрити налаштування батареї",
       "notificationsAreOff": "Сповіщення вимкнено",
       "sessionsStillRunButThe": "Сесії продовжують працювати, але список відкритих сесій і кнопка «Від’єднати всі» залишаються прихованими.",
@@ -3125,7 +3125,7 @@
       "thisBuildCanTKeep": "Ця версія не може підтримувати сесії у фоновому режимі. Вони перепідключаються, коли ви повертаєтеся.",
       "lowPowerMode": "Режим енергозбереження",
       "batterySaver": "Економія батареї",
-      "isOnTermixChecksConnections": "{{value}} увімкнено. Termix перевіряє з’єднання рідше і довше чекає між спробами перепідключення.",
+      "isOnTermixChecksConnections": "{{value}} увімкнено. ShellPad перевіряє з’єднання рідше і довше чекає між спробами перепідключення.",
       "backgroundSessions": "Фонові сесії",
       "iosStopsAppsSoonAfter": "iOS зупиняє додатки незабаром після виходу з них, тому сесії не можуть працювати у фоновому режимі. Вони перепідключаються, коли ви повертаєтеся, а tmux або screen відновлюють роботу з того місця, де ви зупинилися."
     },
@@ -3197,7 +3197,7 @@
         "couldNotCheckForUpdates": "Не вдалося перевірити наявність оновлень",
         "versionIsOutUpdateFrom": "Вийшла версія {{version}}. Оновіть додаток у магазині.",
         "youHaveTheNewestVersion": "У вас остання версія",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Оновлення",
         "check": "Перевірити"
       },
@@ -3318,7 +3318,7 @@
       "next": "Далі",
       "typeItAgain": "Введіть ще раз",
       "export": "Експорт",
-      "saveYourTermixBackup": "Збережіть резервну копію Termix"
+      "saveYourTermixBackup": "Збережіть резервну копію ShellPad"
     },
     "logs": {
       "logs": "Журнали",
@@ -3423,7 +3423,7 @@
         "whatTheServerAddsAnd": "Що додає сервер і де він працює",
         "localData": "Локальні дані",
         "backupRestoreAndDeleteWhat": "Резервне копіювання, відновлення та видалення того, що збережено на цьому {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Версія та оновлення",
         "logs": "Журнали",
         "latestLinesFromThisRun": "Останні рядки з цього запуску, для звітів про помилки",
@@ -3457,7 +3457,7 @@
     "searchSettings": "Пошук налаштувань",
     "noSettingsMatch": "Налаштувань не знайдено.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Не вдалося завантажити фрагменти",
       "copied": "Скопійовано: {{name}}",

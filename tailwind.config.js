@@ -75,7 +75,7 @@ module.exports = {
       },
       fontFamily: {
         mono: ["JetBrainsMono", "monospace"],
-        sans: ["JetBrainsMono", "monospace"],
+        sans: ["Inter", "sans-serif"],
       },
       // Core type scale (classic-layout): 10 labels, 11 meta, 12 body,
       // 13 row titles, 14 headings, 17 screen titles.
@@ -87,15 +87,16 @@ module.exports = {
         sm: ["14px", "20px"],
         title: ["17px", "22px"],
       },
-      // Square corners everywhere like core. Only dots, avatars and
-      // spinners use rounded-full.
+      // ShellPad's soft corners: controls 10, cards and sheets 16, floating
+      // glass bars 18.
       borderRadius: {
         none: "0px",
-        sm: "0px",
-        DEFAULT: "0px",
-        md: "0px",
-        lg: "0px",
-        xl: "0px",
+        sm: "6px",
+        DEFAULT: "10px",
+        md: "10px",
+        lg: "14px",
+        xl: "18px",
+        "2xl": "22px",
         full: "9999px",
       },
     },

@@ -35,7 +35,7 @@ export function formatConnectionLog(
   now: number = Date.now(),
 ): string {
   const head = [
-    `Termix Mobile ${meta.appVersion} | ${meta.platform}`,
+    `ShellPad ${meta.appVersion} | ${meta.platform}`,
     `Host: ${meta.hostName} | Way: ${meta.transport ?? "unknown"} | State: ${meta.state}`,
   ];
   if (meta.network || meta.lowPower) {

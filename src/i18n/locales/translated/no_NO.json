@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Avbryt",
       "tooManyTriesWaitSeconds": "For mange forsøk. Vent {{value}} sekunder",
-      "termixLocked": "Termix er låst",
+      "termixLocked": "ShellPad er låst",
       "enterYourPinToContinue": "Skriv inn PIN-koden din for å fortsette"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Bruk PIN-kode",
-      "unlockTermix": "Lås opp Termix",
-      "unlockTermixFirst": "Lås opp Termix først."
+      "unlockTermix": "Lås opp ShellPad",
+      "unlockTermixFirst": "Lås opp ShellPad først."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Denne funksjonen er slått av på serveren.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Endre det under Proxy nedenfor",
-      "updateTermixMobileFromYour": "Oppdater Termix Mobile fra appbutikken din"
+      "updateTermixMobileFromYour": "Oppdater ShellPad fra appbutikken din"
     },
     "savedLogin": {
       "signInToTermix": "Logg inn på Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Bruk en passfrase med minst 8 tegn.",
       "thisIsNotATermix": "Dette er ikke en Termix-sikkerhetskopi.",
-      "thisBackupIsFromA": "Denne sikkerhetskopien er fra en nyere versjon av Termix. Oppdater appen først.",
+      "thisBackupIsFromA": "Denne sikkerhetskopien er fra en nyere versjon av ShellPad. Oppdater appen først.",
       "wrongPassphraseOrTheFile": "Feil passfrase, eller filen er skadet."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Denne versjonen kan ikke kryptere lokale data."
     },
     "keys": {
-      "unlockTermixFirst": "Lås opp Termix først.",
+      "unlockTermixFirst": "Lås opp ShellPad først.",
       "thatIsNotADatabase": "Dette er ikke en database-nøkkel.",
       "couldNotSaveTheDatabase": "Kunne ikke lagre database-nøkkelen."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Disse dataene ble lagret av en nyere versjon av Termix. Oppdater appen for å åpne dem."
+      "thisDataWasSavedBy": "Disse dataene ble lagret av en nyere versjon av ShellPad. Oppdater appen for å åpne dem."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Denne enheten synkroniserer ikke.",
       "localDataIsNotAvailable": "Lokale data er ikke tilgjengelig her.",
-      "unlockTermixFirst": "Lås opp Termix først."
+      "unlockTermixFirst": "Lås opp ShellPad først."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Å låse en nøkkel med en passfrase krever Termix-appen, ikke en web-forhåndsvisning."
+      "lockingAKeyWithA": "Å låse en nøkkel med en passfrase krever ShellPad-appen, ikke en web-forhåndsvisning."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Oppdater appen",
-      "onYourServerNeedsA": "{{name}} på tjeneren din krever en nyere versjon av Termix på denne {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} på tjeneren din krever en nyere versjon av ShellPad på denne {{deviceWord}}.",
       "updateThePlugin": "Oppdater programtillegget",
       "onYourServerIsToo": "{{name}} på tjeneren din er for gammel for denne appen. Be en administrator om å oppdatere den i Programtillegg."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Koble fra alle",
       "showOpenSessions": "Vis åpne økter",
-      "termixShowsANotificationWhile": "Termix viser en varsling mens økter er åpne, slik at Android holder dem kørende i bakgrunnen.",
+      "termixShowsANotificationWhile": "ShellPad viser en varsling mens økter er åpne, slik at Android holder dem kørende i bakgrunnen.",
       "sessionsOpen_one": "{{count}} økt åpen",
       "sessionsOpen_other": "{{count}} økter åpne",
       "tunnelsActive_one": "{{count}} tunnel aktiv",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} feilet",
     "uploading": "Laster opp {{name}}",
     "uploadingFiles": "Laster opp {{count}} filer",
-    "downloadingToFilesOnMy": "Laster ned til Filer, På min iPhone, Termix",
+    "downloadingToFilesOnMy": "Laster ned til Filer, På min iPhone, ShellPad",
     "downloading": "Laster ned {{name}}",
     "downloadingFiles": "Laster ned {{count}} filer",
     "openALargeFile": "Åpne en stor fil?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} har mer enn {{limit}} filer. Last ned mindre mapper."
     },
-    "downloadingToFilesOnMyIpad": "Laster ned til Filer, På min iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Laster ned til Filer, På min iPad, ShellPad",
     "size": "Størrelse",
     "date": "Dato"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Kopierte lenken",
       "shareHost": "Del vert",
       "thatHostNoLongerExists": "Den verten finnes ikke lenger",
-      "scanThisInTermixOn": "Skann dette i Termix på en annen {{deviceWord}}, under Import og eksport. Koden inneholder adresse, port og bruker. Den inneholder ikke passord eller nøkkel.",
+      "scanThisInTermixOn": "Skann dette i ShellPad på en annen {{deviceWord}}, under Import og eksport. Koden inneholder adresse, port og bruker. Den inneholder ikke passord eller nøkkel.",
       "copyLink": "Kopier lenke",
       "copyLinkWithPassword": "Kopier lenke med passord"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Skann en vertkode",
       "pointTheCameraAtA": "Ret kameraet mot en Termix-vert QR-kode.",
-      "termixNeedsTheCameraTo": "Termix trenger kameraet for å skanne en kode. Det blir ikke tatt opp noe.",
+      "termixNeedsTheCameraTo": "ShellPad trenger kameraet for å skanne en kode. Det blir ikke tatt opp noe.",
       "allowTheCamera": "Tillat kameraet"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Tilbake i tmux-økt {{tmuxName}}",
     "backInScreenSession": "Tilbake i screen-økt {{name}}",
     "theServerSessionEndedThis": "Serverøkten ble avsluttet. Dette er en ny skal.",
-    "termixWasClosedSoThe": "Termix ble lukket, så den gamle skalen ble avsluttet. Dette er en ny skal.",
+    "termixWasClosedSoThe": "ShellPad ble lukket, så den gamle skalen ble avsluttet. Dette er en ny skal.",
     "theConnectionDroppedAndThe": "Tilkoblingen ble brutt og den gamle skalen ble avsluttet. Dette er en ny skal.",
     "disconnectedFrom": "Frakoblet {{hostName}}"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Vil du dele anonyme bruksstatistikk?",
-      "termixWouldSendAShort": "Termix vil sende en kort rapport en gang i døgnet. Du kan endre dette når som helst i Innstillinger.",
+      "termixWouldSendAShort": "ShellPad vil sende en kort rapport en gang i døgnet. Du kan endre dette når som helst i Innstillinger.",
       "noThanks": "Nei takk",
       "share": "Del",
       "theReportHasTheApp": "Rapporten inneholder appversjon, {{deviceWord}}-type, omtrentlige antall vertener og økter, hvilke funksjoner du bruker, og om tilkoblingen fungerte. Den inneholder aldri vertsnavn, brukernavn, adresser, stier, kommandoer eller servernavn.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Hold økter i gang",
       "showsANotificationWhileSessions": "Viser en varsling mens økter er åpne, slik at Android holder dem i gang når du forlater appen",
       "batteryOptimization": "Batterioptimalisering",
-      "termixIsNotRestrictedSo": "Termix er ikke begrenset, så økter kan holdes åpne med skjermen av.",
-      "androidMayStillStopSessions": "Android kan fortsatt stoppe økter for å spare batteri. Åpne batteriinnstillingene, finn Termix og velg Ikke optimalisert eller Ubegrenset.",
+      "termixIsNotRestrictedSo": "ShellPad er ikke begrenset, så økter kan holdes åpne med skjermen av.",
+      "androidMayStillStopSessions": "Android kan fortsatt stoppe økter for å spare batteri. Åpne batteriinnstillingene, finn ShellPad og velg Ikke optimalisert eller Ubegrenset.",
       "openBatterySettings": "Åpne batteriinnstillinger",
       "notificationsAreOff": "Varslinger er av",
       "sessionsStillRunButThe": "Økter kjører fortsatt, men listen over åpne økter og knappen Koble fra alle forblir skjult.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Denne versjonen kan ikke holde økter i gang i bakgrunnen. De kobler til på nytt når du kommer tilbake.",
       "lowPowerMode": "Lav strømforbruk",
       "batterySaver": "Batterisparer",
-      "isOnTermixChecksConnections": "{{value}} er på. Termix sjekker tilkoblinger mindre ofte og venter lenger mellom gjenkoblingsforsøk.",
+      "isOnTermixChecksConnections": "{{value}} er på. ShellPad sjekker tilkoblinger mindre ofte og venter lenger mellom gjenkoblingsforsøk.",
       "backgroundSessions": "Bakgrunnsøkter",
       "iosStopsAppsSoonAfter": "iOS stopper apper kort tid etter at du forlater dem, så økter kan ikke kjøre i bakgrunnen. De kobler til på nytt når du kommer tilbake, og tmux eller screen tar opp der du slapp."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Kunne ikke sjekke etter oppdateringer",
         "versionIsOutUpdateFrom": "Versjon {{version}} er tilgjengelig. Oppdater fra appbutikken.",
         "youHaveTheNewestVersion": "Du har den nyeste versjonen",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Oppdateringer",
         "check": "Sjekk"
       },
@@ -3280,7 +3280,7 @@
       "next": "Neste",
       "typeItAgain": "Skriv den igjen",
       "export": "Eksporter",
-      "saveYourTermixBackup": "Lagre Termix-sikkerhetskopien"
+      "saveYourTermixBackup": "Lagre ShellPad-sikkerhetskopien"
     },
     "logs": {
       "logs": "Logger",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Hva serveren legger til og hvor den kjører",
         "localData": "Lokale data",
         "backupRestoreAndDeleteWhat": "Sikkerhetskopi, gjenopprett og slett det som er lagret på denne {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versjon og oppdateringer",
         "logs": "Logger",
         "latestLinesFromThisRun": "Siste linjer fra denne kjøringen, for feilrapporter",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Søk i innstillinger",
     "noSettingsMatch": "Ingen innstillinger matcher.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Kunne ikke laste inn utdrag",
       "copied": "Kopiert: {{name}}",

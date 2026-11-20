@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Toaster as SonnerToaster } from "sonner-native";
 import { CircleCheck, CircleX, Info, TriangleAlert } from "lucide-react-native";
 import { useTheme, useThemeColor } from "@/contexts/ThemeContext";
-import { MONO_FONT, MONO_FONT_MEDIUM } from "@/constants/fonts";
+import { UI_FONT, UI_FONT_MEDIUM } from "@/constants/fonts";
 import { setToastPalette } from "@/utils/toast";
 import { THEME_VARS, tripletToHex } from "@/constants/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -58,15 +58,15 @@ export function Toaster() {
           backgroundColor: color("card"),
           borderWidth: 1,
           borderColor: color("border"),
-          borderRadius: 0,
+          borderRadius: 14,
         },
         titleStyle: {
-          fontFamily: MONO_FONT_MEDIUM,
+          fontFamily: UI_FONT_MEDIUM,
           fontSize: 12,
           color: color("foreground"),
         },
         descriptionStyle: {
-          fontFamily: MONO_FONT,
+          fontFamily: UI_FONT,
           fontSize: 11,
           color: color("muted-foreground"),
         },
@@ -75,10 +75,10 @@ export function Toaster() {
           backgroundColor: color("accent-brand", 0.15),
           borderWidth: 1,
           borderColor: color("accent-brand", 0.4),
-          borderRadius: 0,
+          borderRadius: 14,
         },
         actionButtonTextStyle: {
-          fontFamily: MONO_FONT_MEDIUM,
+          fontFamily: UI_FONT_MEDIUM,
           color: color("foreground"),
         },
         closeButtonStyle: { borderRadius: 0 },

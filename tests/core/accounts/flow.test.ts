@@ -68,8 +68,8 @@ test("the flow survives the app being closed while the browser is open", async (
 });
 
 test("links that only start like the callback are not ours", () => {
-  expect(parseCallback("termix-mobile://oidc-callbackx?token=a")).toBeNull();
-  expect(parseCallback("termix-mobile://oidc-callback/a?token=b")).toEqual({
+  expect(parseCallback("shellpad://oidc-callbackx?token=a")).toBeNull();
+  expect(parseCallback("shellpad://oidc-callback/a?token=b")).toEqual({
     kind: "token",
     token: "b",
     flow: null,

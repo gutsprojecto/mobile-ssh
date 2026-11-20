@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Ακύρωση",
       "tooManyTriesWaitSeconds": "Πάρα πολλές προσπάθειες. Περιμένετε {{value}} δευτερόλεπτα",
-      "termixLocked": "Το Termix είναι κλειδωμένο",
+      "termixLocked": "Το ShellPad είναι κλειδωμένο",
       "enterYourPinToContinue": "Εισάγετε τον κωδικό PIN για να συνεχίσετε"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Χρήση PIN",
-      "unlockTermix": "Ξεκλείδωμα Termix",
-      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το Termix."
+      "unlockTermix": "Ξεκλείδωμα ShellPad",
+      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Αυτή η λειτουργία είναι απενεργοποιημένη στον διακομιστή.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Αλλάξτε το κάτω από Proxy παρακάτω",
-      "updateTermixMobileFromYour": "Ενημερώστε το Termix Mobile από το app store σας"
+      "updateTermixMobileFromYour": "Ενημερώστε το ShellPad από το app store σας"
     },
     "savedLogin": {
       "signInToTermix": "Σύνδεση στο Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Χρησιμοποιήστε μια φράση κωδικού με τουλάχιστον 8 χαρακτήρες.",
       "thisIsNotATermix": "Αυτό δεν είναι αρχείο backup του Termix.",
-      "thisBackupIsFromA": "Αυτό το backup είναι από νεότερη έκδοση του Termix. Ενημερώστε πρώτα την εφαρμογή.",
+      "thisBackupIsFromA": "Αυτό το backup είναι από νεότερη έκδοση του ShellPad. Ενημερώστε πρώτα την εφαρμογή.",
       "wrongPassphraseOrTheFile": "Λάθος κωδικός πρόσβασης ή το αρχείο είναι κατεστραμμένο."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Αυτή η έκδοση δεν μπορεί να κρυπτογραφήσει τα τοπικά δεδομένα."
     },
     "keys": {
-      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το Termix.",
+      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το ShellPad.",
       "thatIsNotADatabase": "Αυτό δεν είναι κλειδί βάσης δεδομένων.",
       "couldNotSaveTheDatabase": "Αδυναμία αποθήκευσης του κλειδιού της βάσης δεδομένων."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Αυτά τα δεδομένα αποθηκεύτηκαν από νεότερη έκδοση του Termix. Ενημερώστε την εφαρμογή για να τα ανοίξετε."
+      "thisDataWasSavedBy": "Αυτά τα δεδομένα αποθηκεύτηκαν από νεότερη έκδοση του ShellPad. Ενημερώστε την εφαρμογή για να τα ανοίξετε."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Αυτή η συσκευή δεν συγχρονίζεται.",
       "localDataIsNotAvailable": "Τα τοπικά δεδομένα δεν είναι διαθέσιμα εδώ.",
-      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το Termix."
+      "unlockTermixFirst": "Ξεκλειδώστε πρώτα το ShellPad."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Η κλείδωση ενός κλειδιού με κωδικό πρόσβασης απαιτεί την εφαρμογή Termix, όχι μια προεπισκόπηση ιστού."
+      "lockingAKeyWithA": "Η κλείδωση ενός κλειδιού με κωδικό πρόσβασης απαιτεί την εφαρμογή ShellPad, όχι μια προεπισκόπηση ιστού."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Ενημέρωση της εφαρμογής",
-      "onYourServerNeedsA": "Το {{name}} στον διακομιστή σας χρειάζεται νεότερη έκδοση του Termix σε αυτή την {{deviceWord}}.",
+      "onYourServerNeedsA": "Το {{name}} στον διακομιστή σας χρειάζεται νεότερη έκδοση του ShellPad σε αυτή την {{deviceWord}}.",
       "updateThePlugin": "Ενημέρωση του plugin",
       "onYourServerIsToo": "Το {{name}} στον διακομιστή σας είναι πολύ παλιό για αυτή την εφαρμογή. Ζητήστε από έναν διαχειριστή να το ενημερώσει στα Plugins."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Αποσύνδεση όλων",
       "showOpenSessions": "Εμφάνιση ανοιχτών συνεδριών",
-      "termixShowsANotificationWhile": "Το Termix εμφανίζει μια ειδοποίηση όσο οι συνεδρίες είναι ανοιχτές, ώστε το Android να τις διατηρεί ενεργές στο παρασκήνιο.",
+      "termixShowsANotificationWhile": "Το ShellPad εμφανίζει μια ειδοποίηση όσο οι συνεδρίες είναι ανοιχτές, ώστε το Android να τις διατηρεί ενεργές στο παρασκήνιο.",
       "sessionsOpen_one": "{{count}} συνεδρία ανοιχτή",
       "sessionsOpen_other": "{{count}} συνεδρίες ανοιχτές",
       "tunnelsActive_one": "{{count}} τούνελ ενεργό",
@@ -1064,7 +1064,7 @@
     "failed": "Αποτυχία {{label}}",
     "uploading": "Μεταφόρτωση {{name}}",
     "uploadingFiles": "Μεταφόρτωση {{count}} αρχείων",
-    "downloadingToFilesOnMy": "Λήψη στα Files, On My iPhone, Termix",
+    "downloadingToFilesOnMy": "Λήψη στα Files, On My iPhone, ShellPad",
     "downloading": "Λήψη {{name}}",
     "downloadingFiles": "Λήψη {{count}} αρχείων",
     "openALargeFile": "Άνοιγμα μεγάλου αρχείου;",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "Το {{name}} περιέχει περισσότερα από {{limit}} αρχεία. Κατεβάστε μικρότερους φακέλους."
     },
-    "downloadingToFilesOnMyIpad": "Κατεβάστε στο Files, On My iPad, Termix",
+    "downloadingToFilesOnMyIpad": "Κατεβάστε στο Files, On My iPad, ShellPad",
     "size": "Μέγεθος",
     "date": "Ημερομηνία"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Αντιγράφηκε ο σύνδεσμος",
       "shareHost": "Κοινοποίηση υποδοχής",
       "thatHostNoLongerExists": "Αυτή η υποδοχή δεν υπάρχει πια",
-      "scanThisInTermixOn": "Σαρώστε το στο Termix σε άλλη {{deviceWord}}, στην ενότητα Εισαγωγή και εξαγωγή. Ο κωδικός περιέχει τη διεύθυνση, τη θύρα και τον χρήστη. Δεν περιέχει κωδικό πρόσβασης ή κλειδί.",
+      "scanThisInTermixOn": "Σαρώστε το στο ShellPad σε άλλη {{deviceWord}}, στην ενότητα Εισαγωγή και εξαγωγή. Ο κωδικός περιέχει τη διεύθυνση, τη θύρα και τον χρήστη. Δεν περιέχει κωδικό πρόσβασης ή κλειδί.",
       "copyLink": "Αντιγραφή συνδέσμου",
       "copyLinkWithPassword": "Αντιγραφή συνδέσμου με κωδικό πρόσβασης"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Σάρωση κωδικού υποδοχής",
       "pointTheCameraAtA": "Στοχεύστε την κάμερα σε έναν QR κωδικό υποδοχής Termix.",
-      "termixNeedsTheCameraTo": "Το Termix χρειάζεται την κάμερα για να σαρώσει έναν κωδικό. Δεν καταγράφεται τίποτα.",
+      "termixNeedsTheCameraTo": "Το ShellPad χρειάζεται την κάμερα για να σαρώσει έναν κωδικό. Δεν καταγράφεται τίποτα.",
       "allowTheCamera": "Επιτρέψτε την κάμερα"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Επιστροφή στη συνεδρία tmux {{tmuxName}}",
     "backInScreenSession": "Επιστροφή στη συνεδρία screen {{name}}",
     "theServerSessionEndedThis": "Η συνεδρία του διακομιστή τερματίστηκε. Αυτό είναι ένα νέο shell.",
-    "termixWasClosedSoThe": "Το Termix έκλεισε, οπότε το παλιό shell τερματίστηκε. Αυτό είναι ένα νέο shell.",
+    "termixWasClosedSoThe": "Το ShellPad έκλεισε, οπότε το παλιό shell τερματίστηκε. Αυτό είναι ένα νέο shell.",
     "theConnectionDroppedAndThe": "Η σύνδεση διακόπηκε και το παλιό shell τερματίστηκε. Αυτό είναι ένα νέο shell.",
     "disconnectedFrom": "Αποσυνδέθηκε από {{hostName}}"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Μοιραστείτε ανώνυμα στατιστικά χρήσης;",
-      "termixWouldSendAShort": "Το Termix θα στέλνει μια σύντομη αναφορά μία φορά την ημέρα. Μπορείτε να αλλάξετε αυτή τη ρύθμιση ανά πάσα στιγμή στις Ρυθμίσεις.",
+      "termixWouldSendAShort": "Το ShellPad θα στέλνει μια σύντομη αναφορά μία φορά την ημέρα. Μπορείτε να αλλάξετε αυτή τη ρύθμιση ανά πάσα στιγμή στις Ρυθμίσεις.",
       "noThanks": "Όχι, ευχαριστώ",
       "share": "Μοιραστείτε",
       "theReportHasTheApp": "Η αναφορά περιέχει την έκδοση της εφαρμογής, τον τύπο {{deviceWord}}, κατά προσέγγιση αριθμούς hosts και συνεδριών, ποιες λειτουργίες χρησιμοποιείτε και αν η σύνδεση ήταν επιτυχής. Δεν περιέχει ποτέ ονόματα hosts, ονόματα χρηστών, διευθύνσεις, διαδρομές, εντολές ή ονόματα server.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Διατήρηση των συνεδριών ενεργών",
       "showsANotificationWhileSessions": "Εμφανίζει μια ειδοποίηση όταν οι συνεδρίες είναι ανοιχτές, ώστε το Android να τις διατηρεί ενεργές όταν απομακρύνεστε από την εφαρμογή",
       "batteryOptimization": "Βελτιστοποίηση μπαταρίας",
-      "termixIsNotRestrictedSo": "Το Termix δεν έχει περιορισμούς, οπότε οι συνεδρίες μπορούν να παραμείνουν ανοιχτές με κλειστή την οθόνη.",
-      "androidMayStillStopSessions": "Το Android ενδέχεται να σταματήσει τις συνεδρίες για εξοικονόμηση μπαταρίας. Ανοίξτε τις ρυθμίσεις μπαταρίας, βρείτε το Termix και επιλέξτε «Χωρίς βελτιστοποίηση» ή «Χωρίς περιορισμούς».",
+      "termixIsNotRestrictedSo": "Το ShellPad δεν έχει περιορισμούς, οπότε οι συνεδρίες μπορούν να παραμείνουν ανοιχτές με κλειστή την οθόνη.",
+      "androidMayStillStopSessions": "Το Android ενδέχεται να σταματήσει τις συνεδρίες για εξοικονόμηση μπαταρίας. Ανοίξτε τις ρυθμίσεις μπαταρίας, βρείτε το ShellPad και επιλέξτε «Χωρίς βελτιστοποίηση» ή «Χωρίς περιορισμούς».",
       "openBatterySettings": "Άνοιγμα ρυθμίσεων μπαταρίας",
       "notificationsAreOff": "Οι ειδοποιήσεις είναι απενεργοποιημένες",
       "sessionsStillRunButThe": "Οι συνεδρίες συνεχίζουν να εκτελούνται, αλλά η λίστα των ανοιχτών συνεδριών και το κουμπί «Αποσύνδεση όλων» παραμένουν κρυφά.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Αυτή η έκδοση δεν μπορεί να διατηρήσει τις συνεδρίες ενεργές στο παρασκήνιο. Θα επανασυνδεθούν όταν επιστρέψετε.",
       "lowPowerMode": "Λειτουργία χαμηλής κατανάλωσης",
       "batterySaver": "Εξοικονόμηση μπαταρίας",
-      "isOnTermixChecksConnections": "Το {{value}} είναι ενεργό. Το Termix ελέγχει τις συνδέσεις λιγότερο συχνά και περιμένει περισσότερο μεταξύ των προσπαθειών επανασύνδεσης.",
+      "isOnTermixChecksConnections": "Το {{value}} είναι ενεργό. Το ShellPad ελέγχει τις συνδέσεις λιγότερο συχνά και περιμένει περισσότερο μεταξύ των προσπαθειών επανασύνδεσης.",
       "backgroundSessions": "Συνεδρίες στο παρασκήνιο",
       "iosStopsAppsSoonAfter": "Το iOS σταματά τις εφαρμογές σύντομα μετά την απομάκρυνσή σας, οπότε οι συνεδρίες δεν μπορούν να εκτελούνται στο παρασκήνιο. Θα επανασυνδεθούν όταν επιστρέψετε, και το tmux ή το screen θα συνεχίσουν από εκεί που σταματήσατε."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Αδυναμία έλεγχου για ενημερώσεις",
         "versionIsOutUpdateFrom": "Η έκδοση {{version}} είναι διαθέσιμη. Ενημερώστε από το κατάστημά σας.",
         "youHaveTheNewestVersion": "Έχετε την πιο πρόσφατη έκδοση",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Ενημερώσεις",
         "check": "Έλεγχος"
       },
@@ -3280,7 +3280,7 @@
       "next": "Επόμενο",
       "typeItAgain": "Πληκτρολογήστε το ξανά",
       "export": "Εξαγωγή",
-      "saveYourTermixBackup": "Αποθήκευση του αντίγραφου ασφαλείας Termix"
+      "saveYourTermixBackup": "Αποθήκευση του αντίγραφου ασφαλείας ShellPad"
     },
     "logs": {
       "logs": "Καταγραφές",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Τι προσθέτει ο διακομιστής και πού εκτελείται",
         "localData": "Τοπικά δεδομένα",
         "backupRestoreAndDeleteWhat": "Αντίγραφο ασφαλείας, επαναφορά και διαγραφή ό,τι είναι αποθηκευμένο σε αυτή την {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Έκδοση και ενημερώσεις",
         "logs": "Αρχεία καταγραφής",
         "latestLinesFromThisRun": "Τελευταίες γραμμές από αυτή την εκτέλεση, για αναφορές σφαλμάτων",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Αναζήτηση ρυθμίσεων",
     "noSettingsMatch": "Δεν βρέθηκαν αντίστοιχες ρυθμίσεις.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Αποτυχία φόρτωσης snippets",
       "copied": "Αντιγράφηκε: {{name}}",

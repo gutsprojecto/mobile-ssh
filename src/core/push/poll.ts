@@ -44,7 +44,7 @@ export async function checkAlerts(): Promise<number> {
         for (const item of show) {
           const ok = showAlertNotification({
             id: hashId(account.id, item.num),
-            title: item.title || "Termix",
+            title: item.title || "ShellPad",
             body: item.message,
             url: alertLink(account.id),
             critical: item.severity === "critical",

@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "ביטול",
       "tooManyTriesWaitSeconds": "ניסיונות רבים מדי. המתן {{value}} שניות",
-      "termixLocked": "Termix נעול",
+      "termixLocked": "ShellPad נעול",
       "enterYourPinToContinue": "הזן את קוד ה-PIN שלך כדי להמשיך"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "שימוש ב-PIN",
-      "unlockTermix": "פתיחת נעילת Termix",
-      "unlockTermixFirst": "פתח תחילה את נעילת Termix."
+      "unlockTermix": "פתיחת נעילת ShellPad",
+      "unlockTermixFirst": "פתח תחילה את נעילת ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "תכונה זו כבויה בשרת.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "שנה זאת תחת פרוקסי למטה",
-      "updateTermixMobileFromYour": "עדכן את Termix Mobile מחנות האפליקציות שלך"
+      "updateTermixMobileFromYour": "עדכן את ShellPad מחנות האפליקציות שלך"
     },
     "savedLogin": {
       "signInToTermix": "התחבר ל-Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "השתמש במשפט סיסמה עם לפחות 8 תווים.",
       "thisIsNotATermix": "זהו לא קובץ גיבוי של Termix.",
-      "thisBackupIsFromA": "גיבוי זה הוא מגרסה חדשה יותר של Termix. עדכן את האפליקציה תחילה.",
+      "thisBackupIsFromA": "גיבוי זה הוא מגרסה חדשה יותר של ShellPad. עדכן את האפליקציה תחילה.",
       "wrongPassphraseOrTheFile": "מילת הסיסמה שגויה, או שהקובץ פגום."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "גרסה זו אינה יכולה להצפין נתונים מקומיים."
     },
     "keys": {
-      "unlockTermixFirst": "נא לפתוח את Termix תחילה.",
+      "unlockTermixFirst": "נא לפתוח את ShellPad תחילה.",
       "thatIsNotADatabase": "זהו לא מפתח למסד נתונים.",
       "couldNotSaveTheDatabase": "לא ניתן לשמור את מפתח מסד הנתונים."
     },
     "migrate": {
-      "thisDataWasSavedBy": "נתונים אלה נשמרו על ידי גרסה חדשה יותר של Termix. נא לעדכן את האפליקציה כדי לפתוח אותם."
+      "thisDataWasSavedBy": "נתונים אלה נשמרו על ידי גרסה חדשה יותר של ShellPad. נא לעדכן את האפליקציה כדי לפתוח אותם."
     },
     "stores": {
       "thisDeviceDoesNotSync": "מכשיר זה אינו מסנכרן.",
       "localDataIsNotAvailable": "הנתונים המקומיים אינם זמינים כאן.",
-      "unlockTermixFirst": "נא לפתוח את Termix תחילה."
+      "unlockTermixFirst": "נא לפתוח את ShellPad תחילה."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "נעילת מפתח עם מילת סיסמה דורשת את אפליקציית Termix, לא תצוגה מקדימה בדפדפן."
+      "lockingAKeyWithA": "נעילת מפתח עם מילת סיסמה דורשת את אפליקציית ShellPad, לא תצוגה מקדימה בדפדפן."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "עדכן את האפליקציה",
-      "onYourServerNeedsA": "הגרסה של {{name}} בשרת שלך דורשת גרסה חדשה יותר של Termix ב-{{deviceWord}} הזה.",
+      "onYourServerNeedsA": "הגרסה של {{name}} בשרת שלך דורשת גרסה חדשה יותר של ShellPad ב-{{deviceWord}} הזה.",
       "updateThePlugin": "עדכן את התוסף",
       "onYourServerIsToo": "הגרסה של {{name}} בשרת שלך ישנה מדי עבור אפליקציה זו. בקש ממנהל מערכת לעדכן אותה בתוספים."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "נתק הכל",
       "showOpenSessions": "הצג פגישות פתוחות",
-      "termixShowsANotificationWhile": "Termix מציג התראה כל עוד הפגישות פתוחות, כך ש-Android שומר אותן פועלות ברקע.",
+      "termixShowsANotificationWhile": "ShellPad מציג התראה כל עוד הפגישות פתוחות, כך ש-Android שומר אותן פועלות ברקע.",
       "sessionsOpen_one": "פגישה אחת פתוחה",
       "sessionsOpen_two": "{{count}} פגישות פתוחות",
       "sessionsOpen_other": "{{count}} פגישות פתוחות",
@@ -1071,7 +1071,7 @@
     "failed": "{{label}} נכשל",
     "uploading": "מעלה את {{name}}",
     "uploadingFiles": "מעלה {{count}} קבצים",
-    "downloadingToFilesOnMy": "מוריד ל-Files, On My iPhone, Termix",
+    "downloadingToFilesOnMy": "מוריד ל-Files, On My iPhone, ShellPad",
     "downloading": "מוריד את {{name}}",
     "downloadingFiles": "מוריד {{count}} קבצים",
     "openALargeFile": "לפתוח קובץ גדול?",
@@ -1251,7 +1251,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "ב-{{name}} יש יותר מ-{{limit}} קבצים. הורד תיקיות קטנות יותר."
     },
-    "downloadingToFilesOnMyIpad": "מוריד ל-Files, On My iPad, Termix",
+    "downloadingToFilesOnMyIpad": "מוריד ל-Files, On My iPad, ShellPad",
     "size": "גודל",
     "date": "תאריך"
   },
@@ -1496,7 +1496,7 @@
       "copiedTheLink": "הקישור הועתק",
       "shareHost": "שיתוף מארח",
       "thatHostNoLongerExists": "המארח הזה כבר לא קיים",
-      "scanThisInTermixOn": "סרוק את זה ב-Termix ב-{{deviceWord}} אחר, תחת ייבוא וייצוא. הקוד כולל את הכתובת, הפורט והמשתמש. הוא לא כולל סיסמה או מפתח.",
+      "scanThisInTermixOn": "סרוק את זה ב-ShellPad ב-{{deviceWord}} אחר, תחת ייבוא וייצוא. הקוד כולל את הכתובת, הפורט והמשתמש. הוא לא כולל סיסמה או מפתח.",
       "copyLink": "העתק קישור",
       "copyLinkWithPassword": "העתק קישור עם סיסמה"
     },
@@ -1543,7 +1543,7 @@
     "scanSheet": {
       "scanAHostCode": "סרוק קוד מארח",
       "pointTheCameraAtA": "כוון את המצלמה לקוד QR של מארח Termix.",
-      "termixNeedsTheCameraTo": "ל-Termix נדרשת גישה למצלמה כדי לסרוק קוד. כלום לא מתועד.",
+      "termixNeedsTheCameraTo": "ל-ShellPad נדרשת גישה למצלמה כדי לסרוק קוד. כלום לא מתועד.",
       "allowTheCamera": "אפשר גישה למצלמה"
     },
     "read": {
@@ -2249,7 +2249,7 @@
     "backInTmuxSession": "חזרה לסשן tmux {{tmuxName}}",
     "backInScreenSession": "חזרה לסשן screen {{name}}",
     "theServerSessionEndedThis": "סשן השרת הסתיים. זהו shell חדש.",
-    "termixWasClosedSoThe": "Termix נסגר, ולכן ה-shell הישן הסתיים. זהו shell חדש.",
+    "termixWasClosedSoThe": "ShellPad נסגר, ולכן ה-shell הישן הסתיים. זהו shell חדש.",
     "theConnectionDroppedAndThe": "החיבור נותק וה-shell הישן הסתיים. זהו shell חדש.",
     "disconnectedFrom": "החיבור ל-{{hostName}} נותק"
   },
@@ -2282,7 +2282,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "לשתף סטטיסטיקות שימוש אנונימיות?",
-      "termixWouldSendAShort": "Termix תשלח דוח קצר אחת ליום. תוכל לשנות זאת בכל עת בהגדרות.",
+      "termixWouldSendAShort": "ShellPad תשלח דוח קצר אחת ליום. תוכל לשנות זאת בכל עת בהגדרות.",
       "noThanks": "לא תודה",
       "share": "שתף",
       "theReportHasTheApp": "הדוח כולל את גרסת האפליקציה, סוג {{deviceWord}}, מספר משוער של מכשירים וסשנים, אילו תכונות אתה משתמש בהן, והאם החיבור הצליח. הוא לעולם לא כולל שמות מכשירים, שמות משתמשים, כתובות, נתיבים, פקודות או שמות שרתים.",
@@ -3097,8 +3097,8 @@
       "keepSessionsRunning": "שמור על הפעלת הפעלות ברקע",
       "showsANotificationWhileSessions": "מציג התראה כאשר הפעלות פתוחות, כך ש-Android ימשיך להפעיל אותן גם כשאתה עוזב את האפליקציה",
       "batteryOptimization": "אופטימיזציית סוללה",
-      "termixIsNotRestrictedSo": "Termix אינו מוגבל, כך שהפעלות יכולות להישאר פתוחות גם כשהמסך כבוי.",
-      "androidMayStillStopSessions": "Android עשוי עדיין לעצור פעלות כדי לחסוך בסוללה. פתח את הגדרות הסוללה, חפש את Termix ובחר 'לא מותאם' או 'ללא הגבלה'.",
+      "termixIsNotRestrictedSo": "ShellPad אינו מוגבל, כך שהפעלות יכולות להישאר פתוחות גם כשהמסך כבוי.",
+      "androidMayStillStopSessions": "Android עשוי עדיין לעצור פעלות כדי לחסוך בסוללה. פתח את הגדרות הסוללה, חפש את ShellPad ובחר 'לא מותאם' או 'ללא הגבלה'.",
       "openBatterySettings": "פתח הגדרות סוללה",
       "notificationsAreOff": "התראות כבויות",
       "sessionsStillRunButThe": "הפעלות עדיין רצות, אך רשימת הפעלות הפתוחות וכפתור 'נתק הכל' נשארים מוסתרים.",
@@ -3106,7 +3106,7 @@
       "thisBuildCanTKeep": "גרסה זו אינה יכולה לשמור על הפעלות רצות ברקע. הן יתחברו מחדש כשתחזור.",
       "lowPowerMode": "מצב חיסכון בסוללה",
       "batterySaver": "חוסך סוללה",
-      "isOnTermixChecksConnections": "{{value}} פעיל. Termix בודק חיבורים פחות לעיתים וממתין זמן רב יותר בין ניסיונות חיבור מחדש.",
+      "isOnTermixChecksConnections": "{{value}} פעיל. ShellPad בודק חיבורים פחות לעיתים וממתין זמן רב יותר בין ניסיונות חיבור מחדש.",
       "backgroundSessions": "פעלות ברקע",
       "iosStopsAppsSoonAfter": "iOS עוצר אפליקציות זמן קצר לאחר שעוזבים אותן, כך שהפעלות אינן יכולות לרוץ ברקע. הן יתחברו מחדש כשתחזור, ו-tmux או screen ימשיכו מאיפה שהפסקת."
     },
@@ -3178,7 +3178,7 @@
         "couldNotCheckForUpdates": "לא ניתן לבדוק עדכונים",
         "versionIsOutUpdateFrom": "גרסה {{version}} זמינה. עדכן מהחנות שלך.",
         "youHaveTheNewestVersion": "יש לך את הגרסה העדכנית ביותר",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "עדכונים",
         "check": "בדוק"
       },
@@ -3299,7 +3299,7 @@
       "next": "הבא",
       "typeItAgain": "הקלד שוב",
       "export": "ייצוא",
-      "saveYourTermixBackup": "שמור את הגיבוי של Termix"
+      "saveYourTermixBackup": "שמור את הגיבוי של ShellPad"
     },
     "logs": {
       "logs": "יומנים",
@@ -3404,7 +3404,7 @@
         "whatTheServerAddsAnd": "מה השרת מוסיף ואיפה הוא רץ",
         "localData": "נתונים מקומיים",
         "backupRestoreAndDeleteWhat": "גיבוי, שחזור ומחיקת מה שמאוחסן על ה{{deviceWord}} הזה",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "גרסה ועדכונים",
         "logs": "יומנים",
         "latestLinesFromThisRun": "שורות אחרונות מהרץ הזה, לדוחות באגים",
@@ -3438,7 +3438,7 @@
     "searchSettings": "חיפוש בהגדרות",
     "noSettingsMatch": "לא נמצאו הגדרות תואמות.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "טעינת הקטעים נכשלה",
       "copied": "הועתק: {{name}}",

@@ -12,8 +12,8 @@ test("app scheme intent filters only open oidc-callback, widget and open", () =>
               "intent-filter": [
                 {
                   data: [
-                    { $: { "android:scheme": "termix-mobile" } },
-                    { $: { "android:scheme": "exp+termix" } },
+                    { $: { "android:scheme": "shellpad" } },
+                    { $: { "android:scheme": "exp+shellpad" } },
                   ],
                 },
                 { data: [{ $: { "android:scheme": "https" } }] },
@@ -35,12 +35,12 @@ test("app scheme intent filters only open oidc-callback, widget and open", () =>
       d.$["android:host"],
     ]),
   ).toEqual([
-    ["termix-mobile", "oidc-callback"],
-    ["termix-mobile", "widget"],
-    ["termix-mobile", "open"],
-    ["exp+termix", "oidc-callback"],
-    ["exp+termix", "widget"],
-    ["exp+termix", "open"],
+    ["shellpad", "oidc-callback"],
+    ["shellpad", "widget"],
+    ["shellpad", "open"],
+    ["exp+shellpad", "oidc-callback"],
+    ["exp+shellpad", "widget"],
+    ["exp+shellpad", "open"],
   ]);
   expect(filters[1].data[0].$["android:host"]).toBeUndefined();
 });

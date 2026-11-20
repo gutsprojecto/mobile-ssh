@@ -8,7 +8,7 @@ import {
 import { useFieldLabel } from "./Field";
 import { MAX_FONT_SCALE } from "./Text";
 import { Platform, TextInput, type TextInputProps, View } from "react-native";
-import { MONO_FONT } from "@/constants/fonts";
+import { UI_FONT } from "@/constants/fonts";
 import { useThemeColor } from "@/contexts/ThemeContext";
 
 export type InputSize = "sm" | "default";
@@ -28,7 +28,7 @@ interface InputProps extends TextInputProps {
 // iOS centres single line text itself, and a line height there makes each JS
 // update replace the typed text, so it drops a few pixels and the cursor jumps.
 const BASE_TEXT_STYLE = {
-  fontFamily: MONO_FONT,
+  fontFamily: UI_FONT,
   paddingTop: 0,
   paddingBottom: 0,
   paddingLeft: 0,
@@ -84,7 +84,7 @@ export const Input = forwardRef<TextInput, InputProps>(function Input(
 
   return (
     <View
-      className={`${layout} border bg-input/30 ${focused ? "border-ring" : "border-input"} ${editable === false ? "opacity-50" : ""} ${containerClassName ?? ""}`}
+      className={`${layout} rounded border bg-input/30 ${focused ? "border-ring" : "border-input"} ${editable === false ? "opacity-50" : ""} ${containerClassName ?? ""}`}
     >
       {leading ? <View className="shrink-0">{leading}</View> : null}
       <TextInput

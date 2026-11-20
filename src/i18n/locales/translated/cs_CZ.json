@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Zrušit",
       "tooManyTriesWaitSeconds": "Příliš mnoho pokusů. Počkejte {{value}} sekund",
-      "termixLocked": "Termix je uzamčen",
+      "termixLocked": "ShellPad je uzamčen",
       "enterYourPinToContinue": "Pro pokračování zadejte PIN"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Použít PIN",
-      "unlockTermix": "Odemknout Termix",
-      "unlockTermixFirst": "Nejprve odemkněte Termix."
+      "unlockTermix": "Odemknout ShellPad",
+      "unlockTermixFirst": "Nejprve odemkněte ShellPad."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Tato funkce je na serveru vypnuta.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Změňte to níže v sekci Proxy",
-      "updateTermixMobileFromYour": "Aktualizujte Termix Mobile z obchodu s aplikacemi"
+      "updateTermixMobileFromYour": "Aktualizujte ShellPad z obchodu s aplikacemi"
     },
     "savedLogin": {
       "signInToTermix": "Přihlásit se do Termix",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Použijte heslo s alespoň 8 znaky.",
       "thisIsNotATermix": "Toto není záložní soubor Termix.",
-      "thisBackupIsFromA": "Tato záloha pochází z novější verze Termix. Nejprve aktualizujte aplikaci.",
+      "thisBackupIsFromA": "Tato záloha pochází z novější verze ShellPad. Nejprve aktualizujte aplikaci.",
       "wrongPassphraseOrTheFile": "Špatné heslo nebo je soubor poškozený."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Tato verze neumí šifrovat lokální data."
     },
     "keys": {
-      "unlockTermixFirst": "Nejprve odemkněte Termix.",
+      "unlockTermixFirst": "Nejprve odemkněte ShellPad.",
       "thatIsNotADatabase": "Toto není klíč databáze.",
       "couldNotSaveTheDatabase": "Klíč databáze se nepodařilo uložit."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Tato data byla uložena novější verzí Termix. Pro otevření aktualizujte aplikaci."
+      "thisDataWasSavedBy": "Tato data byla uložena novější verzí ShellPad. Pro otevření aktualizujte aplikaci."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Toto zařízení nesynchronizuje.",
       "localDataIsNotAvailable": "Lokální data zde nejsou k dispozici.",
-      "unlockTermixFirst": "Nejprve odemkněte Termix."
+      "unlockTermixFirst": "Nejprve odemkněte ShellPad."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Zamknutí klíče heslem vyžaduje aplikaci Termix, ne webový náhled."
+      "lockingAKeyWithA": "Zamknutí klíče heslem vyžaduje aplikaci ShellPad, ne webový náhled."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Aktualizovat aplikaci",
-      "onYourServerNeedsA": "{{name}} na vašem serveru vyžaduje novější verzi Termixu na tomto {{deviceWord}}.",
+      "onYourServerNeedsA": "{{name}} na vašem serveru vyžaduje novější verzi ShellPadu na tomto {{deviceWord}}.",
       "updateThePlugin": "Aktualizovat plugin",
       "onYourServerIsToo": "{{name}} na vašem serveru je příliš starý pro tuto aplikaci. Požádejte administrátora, aby ho aktualizoval v sekci Pluginy."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Odpojit vše",
       "showOpenSessions": "Zobrazit otevřené relace",
-      "termixShowsANotificationWhile": "Termix zobrazuje oznámení, zatímco jsou relace otevřené, aby je Android udržoval běžet na pozadí.",
+      "termixShowsANotificationWhile": "ShellPad zobrazuje oznámení, zatímco jsou relace otevřené, aby je Android udržoval běžet na pozadí.",
       "sessionsOpen_one": "{{count}} otevřená relace",
       "sessionsOpen_few": "{{count}} otevřené relace",
       "sessionsOpen_many": "{{count}} otevřených relací",
@@ -1078,7 +1078,7 @@
     "failed": "{{label}} selhalo",
     "uploading": "Nahrávání {{name}}",
     "uploadingFiles": "Nahrávání {{count}} souborů",
-    "downloadingToFilesOnMy": "Stahování do Souborů, Na mém iPhonu, Termix",
+    "downloadingToFilesOnMy": "Stahování do Souborů, Na mém iPhonu, ShellPad",
     "downloading": "Stahování {{name}}",
     "downloadingFiles": "Stahování {{count}} souborů",
     "openALargeFile": "Otevřít velký soubor?",
@@ -1259,7 +1259,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "{{name}} obsahuje více než {{limit}} souborů. Stáhněte menší složky."
     },
-    "downloadingToFilesOnMyIpad": "Stahování do Soubory, Na mém iPadu, Termix",
+    "downloadingToFilesOnMyIpad": "Stahování do Soubory, Na mém iPadu, ShellPad",
     "size": "Velikost",
     "date": "Datum"
   },
@@ -1504,7 +1504,7 @@
       "copiedTheLink": "Odkaz zkopírován",
       "shareHost": "Sdílet hostitele",
       "thatHostNoLongerExists": "Tento hostitel již neexistuje",
-      "scanThisInTermixOn": "Naskenujte toto v Termixu na jiném {{deviceWord}} v sekci Import a export. Kód obsahuje adresu, port a uživatele. Neobsahuje heslo ani klíč.",
+      "scanThisInTermixOn": "Naskenujte toto v ShellPadu na jiném {{deviceWord}} v sekci Import a export. Kód obsahuje adresu, port a uživatele. Neobsahuje heslo ani klíč.",
       "copyLink": "Kopírovat odkaz",
       "copyLinkWithPassword": "Kopírovat odkaz s heslem"
     },
@@ -1551,7 +1551,7 @@
     "scanSheet": {
       "scanAHostCode": "Naskenovat kód hostitele",
       "pointTheCameraAtA": "Namířte kameru na QR kód hostitele Termix.",
-      "termixNeedsTheCameraTo": "Termix potřebuje kameru pro skenování kódu. Nic se neukládá.",
+      "termixNeedsTheCameraTo": "ShellPad potřebuje kameru pro skenování kódu. Nic se neukládá.",
       "allowTheCamera": "Povolit kameru"
     },
     "read": {
@@ -2263,7 +2263,7 @@
     "backInTmuxSession": "Zpět v relaci tmux {{tmuxName}}",
     "backInScreenSession": "Zpět v relaci screen {{name}}",
     "theServerSessionEndedThis": "Relace na serveru skončila. Toto je nový shell.",
-    "termixWasClosedSoThe": "Termix byl zavřen, takže starý shell skončil. Toto je nový shell.",
+    "termixWasClosedSoThe": "ShellPad byl zavřen, takže starý shell skončil. Toto je nový shell.",
     "theConnectionDroppedAndThe": "Připojení bylo přerušeno a starý shell skončil. Toto je nový shell.",
     "disconnectedFrom": "Odpojeno od {{hostName}}"
   },
@@ -2296,7 +2296,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Sdílet anonymní statistiky používání?",
-      "termixWouldSendAShort": "Termix by jednou denně odesílal krátkou zprávu. Toto můžete kdykoli změnit v Nastavení.",
+      "termixWouldSendAShort": "ShellPad by jednou denně odesílal krátkou zprávu. Toto můžete kdykoli změnit v Nastavení.",
       "noThanks": "Ne, děkuji",
       "share": "Sdílet",
       "theReportHasTheApp": "Zpráva obsahuje verzi aplikace, typ {{deviceWord}}, přibližný počet hostitelů a relací, které funkce používáte a zda se připojení podařilo. Nikdy neobsahuje názvy hostitelů, uživatelská jména, adresy, cesty, příkazy ani názvy serverů.",
@@ -3116,8 +3116,8 @@
       "keepSessionsRunning": "Ponechat relace spuštěné",
       "showsANotificationWhileSessions": "Zobrazuje oznámení, když jsou relace otevřené, takže Android ponechá jejich běh i po opuštění aplikace",
       "batteryOptimization": "Optimalizace baterie",
-      "termixIsNotRestrictedSo": "Termix není omezen, takže relace mohou zůstat otevřené i s vypnutou obrazovkou.",
-      "androidMayStillStopSessions": "Android může relace stále ukončit pro úsporu baterie. Otevřete nastavení baterie, najděte Termix a vyberte Neoptimalizováno nebo Bez omezení.",
+      "termixIsNotRestrictedSo": "ShellPad není omezen, takže relace mohou zůstat otevřené i s vypnutou obrazovkou.",
+      "androidMayStillStopSessions": "Android může relace stále ukončit pro úsporu baterie. Otevřete nastavení baterie, najděte ShellPad a vyberte Neoptimalizováno nebo Bez omezení.",
       "openBatterySettings": "Otevřít nastavení baterie",
       "notificationsAreOff": "Oznámení jsou vypnutá",
       "sessionsStillRunButThe": "Relace stále běží, ale seznam otevřených relací a tlačítko Odpojit vše zůstávají skryté.",
@@ -3125,7 +3125,7 @@
       "thisBuildCanTKeep": "Tato verze neumí udržovat relace spuštěné na pozadí. Po návratu se znovu připojí.",
       "lowPowerMode": "Režim úspory energie",
       "batterySaver": "Úspora baterie",
-      "isOnTermixChecksConnections": "{{value}} je zapnuto. Termix kontroluje připojení méně často a déle čeká mezi pokusy o opětovné připojení.",
+      "isOnTermixChecksConnections": "{{value}} je zapnuto. ShellPad kontroluje připojení méně často a déle čeká mezi pokusy o opětovné připojení.",
       "backgroundSessions": "Relace na pozadí",
       "iosStopsAppsSoonAfter": "iOS zastaví aplikace brzy po jejich opuštění, takže relace nemohou běžet na pozadí. Po návratu se znovu připojí a tmux nebo screen naváže tam, kde jste skončili."
     },
@@ -3197,7 +3197,7 @@
         "couldNotCheckForUpdates": "Nelze zkontrolovat aktualizace",
         "versionIsOutUpdateFrom": "Je k dispozici verze {{version}}. Aktualizujte ji z obchodu.",
         "youHaveTheNewestVersion": "Máte nejnovější verzi",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Aktualizace",
         "check": "Zkontrolovat"
       },
@@ -3318,7 +3318,7 @@
       "next": "Další",
       "typeItAgain": "Zadejte znovu",
       "export": "Exportovat",
-      "saveYourTermixBackup": "Uložit zálohu Termix"
+      "saveYourTermixBackup": "Uložit zálohu ShellPad"
     },
     "logs": {
       "logs": "Protokoly",
@@ -3423,7 +3423,7 @@
         "whatTheServerAddsAnd": "Co server přidává a kde běží",
         "localData": "Lokální data",
         "backupRestoreAndDeleteWhat": "Zálohovat, obnovit a smazat to, co je uloženo na tomto {{deviceWord}}",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Verze a aktualizace",
         "logs": "Protokoly",
         "latestLinesFromThisRun": "Nejnovější řádky z tohoto spuštění, pro hlášení chyb",
@@ -3457,7 +3457,7 @@
     "searchSettings": "Hledat v nastavení",
     "noSettingsMatch": "Žádné nastavení neodpovídá.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Nepodařilo se načíst úryvky",
       "copied": "Zkopírováno: {{name}}",

@@ -25,13 +25,13 @@ export function freeName(name: string, taken: (name: string) => boolean) {
 }
 
 /**
- * Where downloads land: Documents/Termix/<host>. On iOS the Files app shows
- * this folder under On My iPhone, Termix.
+ * Where downloads land: Documents/ShellPad/<host>. On iOS the Files app shows
+ * this folder under On My iPhone, ShellPad.
  */
 export function downloadsDir(hostName: string, ...sub: string[]): Directory {
   const dir = new Directory(
     Paths.document,
-    "Termix",
+    "ShellPad",
     safeName(hostName),
     ...sub.map(safeName),
   );

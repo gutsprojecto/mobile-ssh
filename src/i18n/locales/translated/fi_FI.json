@@ -10,7 +10,7 @@
     "lockScreen": {
       "cancel": "Peruuta",
       "tooManyTriesWaitSeconds": "Liian monta yritystä. Odota {{value}} sekuntia",
-      "termixLocked": "Termix on lukittu",
+      "termixLocked": "ShellPad on lukittu",
       "enterYourPinToContinue": "Syötä PIN-koodisi jatkaaksesi"
     }
   },
@@ -36,8 +36,8 @@
   "contexts": {
     "appLockContext": {
       "usePin": "Käytä PIN-koodia",
-      "unlockTermix": "Avaa Termixin lukitus",
-      "unlockTermixFirst": "Avaa Termixin lukitus ensin."
+      "unlockTermix": "Avaa ShellPadin lukitus",
+      "unlockTermixFirst": "Avaa ShellPadin lukitus ensin."
     },
     "terminalSessionsContext": {
       "thisFeatureIsTurnedOff": "Tämä ominaisuus on poistettu käytöstä palvelimella.",
@@ -175,7 +175,7 @@
     },
     "useSyncFix": {
       "changeItUnderProxyBelow": "Muuta se alla olevassa Välityspalvelin-osiosta",
-      "updateTermixMobileFromYour": "Päivitä Termix Mobile sovelluskaupastasi"
+      "updateTermixMobileFromYour": "Päivitä ShellPad sovelluskaupastasi"
     },
     "savedLogin": {
       "signInToTermix": "Kirjaudu Termixiin",
@@ -256,24 +256,24 @@
     "backup": {
       "useAPassphraseWithAt": "Käytä salasanaa, jossa on vähintään 8 merkkiä.",
       "thisIsNotATermix": "Tämä ei ole Termix-varmuuskopiointitiedosto.",
-      "thisBackupIsFromA": "Tämä varmuuskopio on uudemmalta Termix-versiolta. Päivitä sovellus ensin.",
+      "thisBackupIsFromA": "Tämä varmuuskopio on uudemmalta ShellPad-versiolta. Päivitä sovellus ensin.",
       "wrongPassphraseOrTheFile": "Väärä salasanalause tai tiedosto on vaurioitunut."
     },
     "expoDriver": {
       "thisBuildCanTEncrypt": "Tämä versio ei voi salata paikallisia tietoja."
     },
     "keys": {
-      "unlockTermixFirst": "Avaa Termixin lukitus ensin.",
+      "unlockTermixFirst": "Avaa ShellPadin lukitus ensin.",
       "thatIsNotADatabase": "Tämä ei ole tietokannan avain.",
       "couldNotSaveTheDatabase": "Tietokannan avainta ei voitu tallentaa."
     },
     "migrate": {
-      "thisDataWasSavedBy": "Nämä tiedot on tallennettu uudemmalla Termix-versiolla. Päivitä sovellus avataksesi ne."
+      "thisDataWasSavedBy": "Nämä tiedot on tallennettu uudemmalla ShellPad-versiolla. Päivitä sovellus avataksesi ne."
     },
     "stores": {
       "thisDeviceDoesNotSync": "Tämä laite ei synkronoi.",
       "localDataIsNotAvailable": "Paikallisia tietoja ei ole saatavilla täällä.",
-      "unlockTermixFirst": "Avaa Termixin lukitus ensin."
+      "unlockTermixFirst": "Avaa ShellPadin lukitus ensin."
     }
   },
   "exec": {
@@ -345,7 +345,7 @@
   "keys": {
     "generate": {
       "ecdsaP256": "ECDSA P-256",
-      "lockingAKeyWithA": "Avaimen lukitseminen salasanalauseella vaatii Termix-sovelluksen, ei verkkoesikatselua."
+      "lockingAKeyWithA": "Avaimen lukitseminen salasanalauseella vaatii ShellPad-sovelluksen, ei verkkoesikatselua."
     }
   },
   "lock": {
@@ -367,7 +367,7 @@
   "plugins": {
     "compat": {
       "updateTheApp": "Päivitä sovellus",
-      "onYourServerNeedsA": "{{name}} palvelimellasi vaatii uudemman version Termixistä tässä {{deviceWord}}-laitteessa.",
+      "onYourServerNeedsA": "{{name}} palvelimellasi vaatii uudemman version ShellPadistä tässä {{deviceWord}}-laitteessa.",
       "updateThePlugin": "Päivitä lisäosa",
       "onYourServerIsToo": "{{name}} palvelimellasi on liian vanha tähän sovellukseen. Pyydä ylläpitäjää päivittämään se Lisäosista."
     },
@@ -428,7 +428,7 @@
     "background": {
       "disconnectAll": "Katkaise kaikki",
       "showOpenSessions": "Näytä avoimet istunnot",
-      "termixShowsANotificationWhile": "Termix näyttää ilmoituksen, kun istuntoja on auki, jotta Android pitää ne käynnissä taustalla.",
+      "termixShowsANotificationWhile": "ShellPad näyttää ilmoituksen, kun istuntoja on auki, jotta Android pitää ne käynnissä taustalla.",
       "sessionsOpen_one": "{{count}} istunto auki",
       "sessionsOpen_other": "{{count}} istuntoa auki",
       "tunnelsActive_one": "{{count}} tunneli aktiivinen",
@@ -1064,7 +1064,7 @@
     "failed": "{{label}} epäonnistui",
     "uploading": "Ladataan {{name}}",
     "uploadingFiles": "Tiedostoja {{count}} ladattavana",
-    "downloadingToFilesOnMy": "Ladataan tiedostoihin, iPhone-tiedostoihin, Termixiin",
+    "downloadingToFilesOnMy": "Ladataan tiedostoihin, iPhone-tiedostoihin, ShellPadiin",
     "downloading": "Ladataan {{name}}",
     "downloadingFiles": "Tiedostoja {{count}} ladattavana",
     "openALargeFile": "Avataanko suuri tiedosto?",
@@ -1243,7 +1243,7 @@
     "actions": {
       "hasMoreThanFilesDownload": "Kohteessa {{name}} on yli {{limit}} tiedostoa. Lataa pienempiä kansioita."
     },
-    "downloadingToFilesOnMyIpad": "Ladataan Tiedostot-sovellukseen, iPadilleni, Termix",
+    "downloadingToFilesOnMyIpad": "Ladataan Tiedostot-sovellukseen, iPadilleni, ShellPad",
     "size": "Koko",
     "date": "Päivämäärä"
   },
@@ -1488,7 +1488,7 @@
       "copiedTheLink": "Linkki kopioitu",
       "shareHost": "Jaa isäntä",
       "thatHostNoLongerExists": "Tätä isäntää ei enää ole olemassa",
-      "scanThisInTermixOn": "Skannaa tämä Termixissä toisella {{deviceWord}}:lla kohdassa Tuo ja vie. Koodi sisältää osoitteen, portin ja käyttäjän. Siinä ei ole salasanaa tai avainta.",
+      "scanThisInTermixOn": "Skannaa tämä ShellPadissä toisella {{deviceWord}}:lla kohdassa Tuo ja vie. Koodi sisältää osoitteen, portin ja käyttäjän. Siinä ei ole salasanaa tai avainta.",
       "copyLink": "Kopioi linkki",
       "copyLinkWithPassword": "Kopioi linkki salasanalla"
     },
@@ -1535,7 +1535,7 @@
     "scanSheet": {
       "scanAHostCode": "Skannaa isäntäkoodi",
       "pointTheCameraAtA": "Suuntaa kamera Termix-isäntä QR-koodiin.",
-      "termixNeedsTheCameraTo": "Termix tarvitsee kameran koodin skannaamiseen. Mitään ei tallenneta.",
+      "termixNeedsTheCameraTo": "ShellPad tarvitsee kameran koodin skannaamiseen. Mitään ei tallenneta.",
       "allowTheCamera": "Salli kamera"
     },
     "read": {
@@ -2235,7 +2235,7 @@
     "backInTmuxSession": "Takaisin tmux-istuntoon {{tmuxName}}",
     "backInScreenSession": "Takaisin screen-istuntoon {{name}}",
     "theServerSessionEndedThis": "Palvelimen istunto päättyi. Tämä on uusi komentorivi.",
-    "termixWasClosedSoThe": "Termix suljettiin, joten vanha komentorivi päättyi. Tämä on uusi komentorivi.",
+    "termixWasClosedSoThe": "ShellPad suljettiin, joten vanha komentorivi päättyi. Tämä on uusi komentorivi.",
     "theConnectionDroppedAndThe": "Yhteys katkesi ja vanha komentorivi päättyi. Tämä on uusi komentorivi.",
     "disconnectedFrom": "Yhteys katkaistu palvelimelle {{hostName}}"
   },
@@ -2268,7 +2268,7 @@
   "analytics": {
     "consentPrompt": {
       "shareAnonymousUsageStatistics": "Jaa anonyymejä käyttötilastoja?",
-      "termixWouldSendAShort": "Termix lähettää lyhyen raportin kerran päivässä. Voit muuttaa tätä milloin tahansa Asetuksista.",
+      "termixWouldSendAShort": "ShellPad lähettää lyhyen raportin kerran päivässä. Voit muuttaa tätä milloin tahansa Asetuksista.",
       "noThanks": "Ei kiitos",
       "share": "Jaa",
       "theReportHasTheApp": "Raportti sisältää sovelluksen version, {{deviceWord}}-tyypin, isäntälaitteiden ja istuntojen suuntaavat määrät, käyttämäsi ominaisuudet sekä onnistuiko yhteys. Se ei koskaan sisällä isäntänimiä, käyttäjänimiä, osoitteita, polkuja, komentoja tai palvelinten nimiä.",
@@ -3078,8 +3078,8 @@
       "keepSessionsRunning": "Pidä istunnot käynnissä",
       "showsANotificationWhileSessions": "Näyttää ilmoituksen, kun istunnot ovat auki, jotta Android pitää ne käynnissä, kun poistut sovelluksesta",
       "batteryOptimization": "Akun optimointi",
-      "termixIsNotRestrictedSo": "Termix ei ole rajoitettu, joten istunnot voivat pysyä auki, vaikka näyttö on sammutettu.",
-      "androidMayStillStopSessions": "Android voi silti lopettaa istunnot akun säästämiseksi. Avaa akun asetukset, etsi Termix ja valitse Ei optimoitu tai Rajoittamaton.",
+      "termixIsNotRestrictedSo": "ShellPad ei ole rajoitettu, joten istunnot voivat pysyä auki, vaikka näyttö on sammutettu.",
+      "androidMayStillStopSessions": "Android voi silti lopettaa istunnot akun säästämiseksi. Avaa akun asetukset, etsi ShellPad ja valitse Ei optimoitu tai Rajoittamaton.",
       "openBatterySettings": "Avaa akun asetukset",
       "notificationsAreOff": "Ilmoitukset ovat pois päältä",
       "sessionsStillRunButThe": "Istunnot toimivat edelleen, mutta avoimien istuntojen lista ja Irrota kaikki -painike pysyvät piilossa.",
@@ -3087,7 +3087,7 @@
       "thisBuildCanTKeep": "Tämä versio ei voi pitää istuntoja käynnissä taustalla. Ne yhdistyvät uudelleen, kun palaat takaisin.",
       "lowPowerMode": "Virransäästötila",
       "batterySaver": "Virransäästö",
-      "isOnTermixChecksConnections": "{{value}} on päällä. Termix tarkistaa yhteydet harvemmin ja odottaa pidempään uudelleenyhdistystenttien välillä.",
+      "isOnTermixChecksConnections": "{{value}} on päällä. ShellPad tarkistaa yhteydet harvemmin ja odottaa pidempään uudelleenyhdistystenttien välillä.",
       "backgroundSessions": "Taustalla toimivat istunnot",
       "iosStopsAppsSoonAfter": "iOS pysäyttää sovellukset pian poistumisen jälkeen, joten istunnot eivät voi toimia taustalla. Ne yhdistyvät uudelleen, kun palaat takaisin, ja tmux tai screen jatkaa siitä, missä olit."
     },
@@ -3159,7 +3159,7 @@
         "couldNotCheckForUpdates": "Päivityksiä ei voitu tarkistaa",
         "versionIsOutUpdateFrom": "Versio {{version}} on julkaistu. Päivitä kaupastasi.",
         "youHaveTheNewestVersion": "Sinulla on uusin versio",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "updates": "Päivitykset",
         "check": "Tarkista"
       },
@@ -3280,7 +3280,7 @@
       "next": "Seuraava",
       "typeItAgain": "Kirjoita se uudelleen",
       "export": "Vie",
-      "saveYourTermixBackup": "Tallenna Termix-varmuuskopiosi"
+      "saveYourTermixBackup": "Tallenna ShellPad-varmuuskopiosi"
     },
     "logs": {
       "logs": "Lokit",
@@ -3385,7 +3385,7 @@
         "whatTheServerAddsAnd": "Mitä palvelin lisää ja missä se ajaa",
         "localData": "Paikalliset tiedot",
         "backupRestoreAndDeleteWhat": "Varmuuskopioi, palauta ja poista tämässä {{deviceWord}}ssa tallennetut tiedot",
-        "termixMobile": "Termix Mobile",
+        "termixMobile": "ShellPad",
         "versionAndUpdates": "Versio ja päivitykset",
         "logs": "Lokit",
         "latestLinesFromThisRun": "Viimeisimmät rivit tästä ajosta, virheraportteja varten",
@@ -3419,7 +3419,7 @@
     "searchSettings": "Hae asetuksia",
     "noSettingsMatch": "Asetuksia ei löytynyt.",
     "termixMobileV": "Termix Mobile v{{appVersion}}",
-    "termixMobile": "Termix Mobile",
+    "termixMobile": "ShellPad",
     "snippets": {
       "failedToLoadSnippets": "Koodinpätkien lataaminen epäonnistui",
       "copied": "Kopioitu: {{name}}",

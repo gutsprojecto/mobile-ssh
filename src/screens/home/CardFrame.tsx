@@ -34,7 +34,7 @@ export function CardFrame({
   return (
     <Box
       onPress={onPress}
-      className="gap-2 border border-border bg-card px-3 py-2.5 active:bg-muted/30"
+      className="gap-2 rounded-lg border border-border bg-card/70 px-4 py-3 active:bg-muted/30"
     >
       <View className="flex-row items-center gap-2">
         <Icon size={13} color={muted} />

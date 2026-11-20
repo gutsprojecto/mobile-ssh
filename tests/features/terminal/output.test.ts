@@ -52,7 +52,7 @@ test("only web links open", () => {
   expect(isOpenableLink("http://10.0.0.1:8080")).toBe(true);
   expect(isOpenableLink("file:///etc/passwd")).toBe(false);
   expect(isOpenableLink("javascript:alert(1)")).toBe(false);
-  expect(isOpenableLink("termix-mobile://oidc-callback")).toBe(false);
+  expect(isOpenableLink("shellpad://oidc-callback")).toBe(false);
   expect(isOpenableLink("https://a b")).toBe(false);
 });
 
