@@ -23,7 +23,8 @@ const GLYPH_CY = (GLYPH.y0 + GLYPH.y1) / 2;
 // color icons. Single color variants (themed, notification) stay flat.
 const DEFS =
   `<defs>` +
-  `<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">` +
+  // In glyph units, so a flat stroke like the cursor still gets painted.
+  `<linearGradient id="accent" gradientUnits="userSpaceOnUse" x1="260" y1="220" x2="800" y2="800">` +
   `<stop offset="0" stop-color="${BRAND.accentLight}"/><stop offset="1" stop-color="${BRAND.accentDeep}"/>` +
   `</linearGradient>` +
   `<radialGradient id="glow" cx="0.8" cy="0.16" r="0.55">` +
@@ -94,8 +95,7 @@ const safeScale = safeRadius / glyphRadius(SIZE);
 write(
   OUT.icon,
   svg(SIZE, {
-    bg: BRAND.tile,
-    glow: true,
+    bg: BRAND.iconTile,
     white: BRAND.white,
     accent: "url(#accent)",
     place: "logo",
@@ -130,8 +130,7 @@ write(
 write(
   OUT.adaptiveBackground,
   svg(SIZE, {
-    bg: BRAND.tile,
-    glow: true,
+    bg: BRAND.iconTile,
     white: "none",
     accent: "none",
     scale: 0,

@@ -38,7 +38,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "monochromeImage": "./assets/images/adaptive-monochrome.png",
         "backgroundImage": "./assets/images/adaptive-background.png",
-        "backgroundColor": "#141513"
+        "backgroundColor": "#fbf8f3"
       },
       "allowBackup": false,
       "blockedPermissions": ["android.permission.READ_MEDIA_IMAGES"]

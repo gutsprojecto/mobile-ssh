@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { Pressable, View } from "react-native";
 import Animated, {
   FadeIn,
+  FadeInLeft,
+  FadeInRight,
+  FadeOutLeft,
+  FadeOutRight,
   ReduceMotion,
-  SlideInLeft,
-  SlideInRight,
-  SlideOutLeft,
-  SlideOutRight,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { BottomTabBarProps } from "expo-router/tabs";
@@ -170,6 +170,9 @@ export function dismissFloatingRail() {
   dismissListeners.forEach((l) => l());
 }
 
+/** A short, soft fade for the rail coming and going. */
+const RAIL_FADE_MS = 180;
+
 /** Space around the floating glass rail. */
 const FLOAT_GAP = 10;
 
@@ -263,13 +266,11 @@ export function AutoHideSideBar(
     >
       {floatingOut ? (
         <Animated.View
-          entering={(side === "left" ? SlideInLeft : SlideInRight)
-            .springify()
-            .damping(20)
-            .stiffness(180)
+          entering={(side === "left" ? FadeInLeft : FadeInRight)
+            .duration(RAIL_FADE_MS)
             .reduceMotion(ReduceMotion.System)}
-          exiting={(side === "left" ? SlideOutLeft : SlideOutRight)
-            .duration(200)
+          exiting={(side === "left" ? FadeOutLeft : FadeOutRight)
+            .duration(RAIL_FADE_MS)
             .reduceMotion(ReduceMotion.System)}
           style={{
             position: "absolute",
@@ -284,11 +285,21 @@ export function AutoHideSideBar(
           </Glass>
         </Animated.View>
       ) : expanded ? (
-        <SideBar {...props} side={side} />
+        // Beside files or tools it fades in place instead of popping up.
+        <Animated.View
+          style={{ flexDirection: "row" }}
+          entering={
+            onSessions
+              ? FadeIn.duration(RAIL_FADE_MS).reduceMotion(ReduceMotion.System)
+              : undefined
+          }
+        >
+          <SideBar {...props} side={side} />
+        </Animated.View>
       ) : (
         <AnimatedPressable
-          entering={FadeIn.delay(120)
-            .duration(220)
+          entering={FadeIn.delay(RAIL_FADE_MS / 2)
+            .duration(RAIL_FADE_MS)
             .reduceMotion(ReduceMotion.System)}
           accessibilityRole="button"
           accessibilityLabel={tr("shell.sideBar.showNavigation")}

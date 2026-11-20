@@ -74,7 +74,7 @@ const notWhite = (r: number, g: number, b: number, a: number) =>
 
 test("app.json uses the brand tile color everywhere", () => {
   expect(config.backgroundColor).toBe(spec.BRAND.tile);
-  expect(config.android.adaptiveIcon.backgroundColor).toBe(spec.BRAND.tile);
+  expect(config.android.adaptiveIcon.backgroundColor).toBe(spec.BRAND.iconTile);
   expect(splash.backgroundColor).toBe(spec.BRAND.tile);
   expect(splash.dark.backgroundColor).toBe(spec.BRAND.tile);
 });
@@ -102,8 +102,8 @@ test("iOS light icon is full bleed and opaque", () => {
   const png = load(spec.OUT.icon);
   expect([png.width, png.height]).toEqual([1024, 1024]);
   expect(count(png, (_r, _g, _b, a) => a !== 255)).toBe(0);
-  expect(hex(png, 0, 0)).toBe(spec.BRAND.tile);
-  expect(hex(png, 1023, 1023)).toBe(spec.BRAND.tile);
+  expect(hex(png, 0, 0)).toBe(spec.BRAND.iconTile);
+  expect(hex(png, 1023, 1023)).toBe(spec.BRAND.iconTile);
 });
 
 test("iOS dark icon has a transparent background", () => {

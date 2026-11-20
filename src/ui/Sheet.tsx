@@ -29,6 +29,8 @@ import { t } from "@/i18n";
 /** Sheets stop growing wider than this, so a sideways phone or tablet keeps them readable. */
 const SHEET_MAX_WIDTH = 640;
 const SLIDE_MS = 220;
+/** Space between a sheet and the window edges. */
+const SHEET_GAP = 10;
 
 /**
  * Keyboard height while the sheet is open. The sheet pads its own bottom by
@@ -128,9 +130,6 @@ export function Sheet({
   const padBottom = area.y + area.height >= height ? insets.bottom : 0;
   // Above a laptop fold the keyboard may not reach the sheet at all.
   const keyboardIn = keyboardOver(area, height, keyboard);
-  // A full width sheet keeps its rows clear of a notch held sideways.
-  const fullWidth =
-    area.width <= SHEET_MAX_WIDTH + 2 * Math.max(padLeft, padRight);
   // On a short window any sheet can run past its cap, so it always scrolls.
   const scrolls = scroll || height < 500;
   useEffect(() => {
@@ -190,19 +189,23 @@ export function Sheet({
         <Animated.View
           accessibilityViewIsModal
           onAccessibilityEscape={close}
-          className={`overflow-hidden rounded-t-xl border-t bg-popover ${fullWidth ? "" : "border-x"} ${tone === "destructive" ? "border-destructive/40" : "border-border"}`}
+          // A floating card, round on every corner and clear of the system
+          // bars, instead of a panel running under the navigation bar.
+          className={`overflow-hidden rounded-xl border bg-popover ${tone === "destructive" ? "border-destructive/40" : "border-border"}`}
           style={[
             slideStyle,
             {
-              paddingBottom: Math.max(padBottom, keyboardIn),
-              paddingLeft: fullWidth ? padLeft : 0,
-              paddingRight: fullWidth ? padRight : 0,
-              // 85% of the space above the keyboard, plus the part behind it.
+              marginBottom: keyboardIn > 0 ? keyboardIn : padBottom + SHEET_GAP,
+              marginLeft: padLeft + SHEET_GAP,
+              marginRight: padRight + SHEET_GAP,
+              // 85% of the space above the keyboard or the bars.
               maxHeight: keyboardIn
-                ? (area.height - keyboardIn) * 0.85 + keyboardIn
-                : "85%",
-              width: "100%",
-              maxWidth: SHEET_MAX_WIDTH,
+                ? (area.height - keyboardIn) * 0.85
+                : (area.height - padBottom - SHEET_GAP) * 0.85,
+              width: Math.min(
+                SHEET_MAX_WIDTH,
+                area.width - padLeft - padRight - 2 * SHEET_GAP,
+              ),
               alignSelf: "center",
             },
           ]}

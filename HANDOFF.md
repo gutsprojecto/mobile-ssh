@@ -48,6 +48,14 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - Terminal hat links/rechts 10 px Abstand (`TerminalView.tsx`).
 - Logo neu: Glasfläche mit Verlauf-Prompt `>_` (`assets/brand/logo.svg`), Icons mit Akzentverlauf und Schimmer, adaptives Icon mit eigenem Hintergrundbild (`adaptive-background.png`); `npm run icons` erzeugt alles.
 
+### Dritte Runde (2026-11-20)
+
+- Leiste: kein Federn mehr, nur kurzes weiches Ein-/Ausblenden (180 ms, Fade mit leichter Bewegung); feste Leiste neben Files blendet weich ein; Tastenleiste blendet weich ein/aus.
+- Hostliste eingeblendet + feste Leiste (Files): die Leiste sitzt vor der Liste, die Liste gibt den Platz ab (Bühne/Terminals behalten ihre Breite), keine Lücke mehr neben Files.
+- Sheets (Popups unten) sind schwebende Karten: rundum abgerundet, 10 px Abstand, nie unter der Android-Navigationsleiste.
+- Icon: helles Feld (`BRAND.iconTile` #fbf8f3) mit orangem Verlauf-„S_“, wie aktuelle Google-App-Icons; Startbild bleibt dunkel.
+- Offen/analysiert: türkiser Android-Griff oben links → siehe „Offene Punkte“.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -67,6 +75,8 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Offene Punkte
 
+- **Türkiser Punkt oben links (Systemgriff)**: wahrscheinlich zeichnet die Tastatur/Android ihren Cursor-Griff an Position 0,0, weil sich das Terminal als Texteingabe meldet (`onCheckIsTextEditor`), aber nie mitteilt, wo der Cursor steht (kein `requestCursorUpdates`/`CursorAnchorInfo` in `GhosttyTerminalView`). Lösung: Cursor-Position per `CursorAnchorInfo` melden bzw. Handschrift/Griffe abschalten.
+
 - **Auf dem Tablet testen**: Maus (Rad, Ziehen in tmux, Rechtsklick), Hover-Leiste, Glas-Blur über dem Terminal, Performance.
 - Noch nicht umgesetzt aus der Ideenliste: Shift+PgUp/PgDn & Shift+Home/End für Scrollback, Shift+Insert/Ctrl+Insert, Hover/Rechtsklick auf Hosts & Tabs, Tab/Pfeil/Enter-Navigation in Listen.
 - Push (eigenes Firebase), eigener Release-Schlüssel statt Debug-Signatur.
@@ -75,6 +85,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-20 (spät): weiche Übergänge, Hostliste/Leiste, Sheet-Karten, helles S-Icon.
 - 2026-11-20 (abends): weißer Blitz, zentrierte/animierte Leiste, Terminal-Abstand, neues Logo.
 - 2026-11-20 (später): Tablet-Test-Fixes, Server-Oberfläche entfernt, neues Logo.
 - 2026-11-20: Fork geklont; Maus/Tastatur-Verbesserungen, einklappbare Leiste, Tastenleisten-Button; Umbenennung in ShellPad; Frosted-Glass-Redesign; Statistik entfernt.

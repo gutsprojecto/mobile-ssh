@@ -39,6 +39,11 @@ import {
 } from "@/ui/bottom-inset";
 import { reduceMotionOn } from "@/ui/motion";
 import { GlassBackdrop, glassTarget } from "@/ui/Glass";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  ReduceMotion,
+} from "react-native-reanimated";
 import {
   dismissFloatingRail,
   useSessionsRailInset,
@@ -46,7 +51,7 @@ import {
 import TabBar from "@/screens/sessions/navigation/TabBar";
 import { SessionMenu } from "@/screens/sessions/SessionMenu";
 import { keyBarHeight } from "@/features/terminal/keys/compact";
-import { shellLayout } from "@/screens/shell/layout";
+import { HOSTS_PANE_MIN_WIDTH, shellLayout } from "@/screens/shell/layout";
 import {
   HOSTS_PANE_WIDTH_KEY,
   HostsPane,
@@ -110,6 +115,9 @@ const NO_MODIFIERS = { ctrl: false, alt: false, shift: false };
 const OFFSCREEN = 100000;
 // Stands in until a new tab's ref exists
 const NO_TERMINAL: React.RefObject<TerminalHandle | null> = { current: null };
+
+/** Soft fade for bars that come and go, like the key row. */
+const UI_FADE_MS = 160;
 
 export default function Sessions() {
   const ui = useUiColors();
@@ -887,6 +895,18 @@ export default function Sessions() {
     available: paneSpace,
   });
   const paneOnFold = !!(layout.foldSplit && fold && paneWidth == null);
+  // The rail stays beside tabs without a terminal. With the host list out it
+  // sits in front of the list, which gives up that room so the stage (and the
+  // terminals in it) keep their width; otherwise the stage's own content moves.
+  const stageRailInset = showHostsPane ? 0 : railInset;
+  const listWidth =
+    showHostsPane && railInset > 0
+      ? Math.max(
+          HOSTS_PANE_MIN_WIDTH,
+          (paneWidth ?? hostsPaneWidth(paneLeft.current, paneFoldEdge)) -
+            railInset,
+        )
+      : paneWidth;
 
   const activeTerminalBgColor =
     activeIsTerminal && activeSessionId
@@ -943,10 +963,13 @@ export default function Sessions() {
         backgroundColor: stageColor,
       }}
     >
+      {showHostsPane && railInset > 0 ? (
+        <View style={{ width: railInset }} />
+      ) : null}
       {showHostsPane ? (
         <HostsPane
           edge={paneFoldEdge}
-          width={paneWidth}
+          width={listWidth}
           tweenKey={paneOnBentFold}
           onLeft={(x) => {
             paneLeft.current = x;
@@ -1020,8 +1043,9 @@ export default function Sessions() {
                 // A tab without a terminal sits beside the rail, not under it.
                 const type = sessions.find((s) => s.id === id)?.type;
                 const clear =
-                  railInset > 0 && !features.sessionHas(type, "terminal-input")
-                    ? railInset
+                  stageRailInset > 0 &&
+                  !features.sessionHas(type, "terminal-input")
+                    ? stageRailInset
                     : 0;
                 return [
                   StyleSheet.absoluteFill,
@@ -1165,7 +1189,7 @@ export default function Sessions() {
 
         {/* Connections panel: full screen when no sessions, overlay when sessions exist */}
         {(sessions.length === 0 || showConnectionsPanel) && (
-          <StageOverlay zIndex={1010} left={railInset}>
+          <StageOverlay zIndex={1010} left={stageRailInset}>
             {sessions.length === 0 ? (
               <Screen title={t("sessions.connections")}>
                 <ConnectionsPanel besideHosts={showHostsPane} />
@@ -1186,7 +1210,13 @@ export default function Sessions() {
           KeyRowBar &&
           keyRowOn &&
           !isCustomKeyboardVisible && (
-            <View
+            <Animated.View
+              entering={FadeIn.duration(UI_FADE_MS).reduceMotion(
+                ReduceMotion.System,
+              )}
+              exiting={FadeOut.duration(UI_FADE_MS).reduceMotion(
+                ReduceMotion.System,
+              )}
               style={{
                 position: "absolute",
                 bottom:
@@ -1216,7 +1246,7 @@ export default function Sessions() {
                   onCommand={handleKeyCommand}
                 />
               </SessionAccountProvider>
-            </View>
+            </Animated.View>
           )}
 
         {sessions.length > 0 &&
@@ -1239,7 +1269,7 @@ export default function Sessions() {
           style={{
             position: "absolute",
             bottom: getTabBarBottomPosition(),
-            left: railInset,
+            left: stageRailInset,
             right: 0,
             height: SESSION_TAB_BAR_HEIGHT,
             zIndex: 1004,
@@ -1361,7 +1391,7 @@ export default function Sessions() {
         />
 
         {featureView?.item.view ? (
-          <StageOverlay zIndex={1020} left={railInset}>
+          <StageOverlay zIndex={1020} left={stageRailInset}>
             <SessionAccountProvider
               accountId={featureView.ctx.session.accountId}
             >

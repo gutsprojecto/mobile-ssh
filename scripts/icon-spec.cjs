@@ -2,6 +2,8 @@
 
 const BRAND = {
   tile: "#141513",
+  // The launcher icon's own light tile, like current Google app icons.
+  iconTile: "#fbf8f3",
   white: "#ffffff",
   accent: "#f59145",
   // Ends of the accent gradient in the full color icons.
@@ -12,7 +14,7 @@ const BRAND = {
 };
 
 // Visual bounds of the glyph inside assets/brand/logo.svg (1024 units).
-const GLYPH = { x0: 231, y0: 251, x1: 793, y1: 793 };
+const GLYPH = { x0: 252, y0: 218, x1: 768, y1: 802 };
 
 // Android adaptive icons: 108dp layers, content kept in the center 66dp.
 // We keep the glyph inside a circle of that diameter so round masks never
