@@ -39,7 +39,10 @@ import {
 } from "@/ui/bottom-inset";
 import { reduceMotionOn } from "@/ui/motion";
 import { GlassBackdrop, glassTarget } from "@/ui/Glass";
-import { useSessionsRailInset } from "@/screens/shell/SideBar";
+import {
+  dismissFloatingRail,
+  useSessionsRailInset,
+} from "@/screens/shell/SideBar";
 import TabBar from "@/screens/sessions/navigation/TabBar";
 import { SessionMenu } from "@/screens/sessions/SessionMenu";
 import { keyBarHeight } from "@/features/terminal/keys/compact";
@@ -988,6 +991,8 @@ export default function Sessions() {
         {/* The terminals are what ShellPad's glass bars and rail blur. */}
         <GlassBackdrop
           ref={glassRef}
+          // A click or tap into a session puts the floating rail away.
+          onTouchStart={dismissFloatingRail}
           style={{
             flex: 1,
             marginBottom: getBottomMargin(activeSession?.type),

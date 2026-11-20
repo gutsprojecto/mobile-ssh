@@ -19,10 +19,29 @@ const glyphMarkup = logo
 const GLYPH_CX = (GLYPH.x0 + GLYPH.x1) / 2;
 const GLYPH_CY = (GLYPH.y0 + GLYPH.y1) / 2;
 
-function svg(size, { bg, scale = 1, white, accent, place = "center" }) {
-  const body = glyphMarkup
-    .replaceAll(`fill="${BRAND.white}"`, `fill="${white}"`)
-    .replaceAll(`fill="${BRAND.accent}"`, `fill="${accent}"`);
+// The accent as a warm gradient and a soft glow on the tile, for the full
+// color icons. Single color variants (themed, notification) stay flat.
+const DEFS =
+  `<defs>` +
+  `<linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">` +
+  `<stop offset="0" stop-color="${BRAND.accentLight}"/><stop offset="1" stop-color="${BRAND.accentDeep}"/>` +
+  `</linearGradient>` +
+  `<radialGradient id="glow" cx="0.8" cy="0.16" r="0.55">` +
+  `<stop offset="0" stop-color="${BRAND.accent}" stop-opacity="0.2"/><stop offset="1" stop-color="${BRAND.accent}" stop-opacity="0"/>` +
+  `</radialGradient>` +
+  `</defs>`;
+
+function svg(
+  size,
+  { bg, glow = false, scale = 1, white, accent, place = "center" },
+) {
+  const paint = (attr, from, to) => (m) =>
+    m.replaceAll(`${attr}="${from}"`, `${attr}="${to}"`);
+  let body = glyphMarkup;
+  for (const attr of ["fill", "stroke"]) {
+    body = paint(attr, BRAND.white, white)(body);
+    body = paint(attr, BRAND.accent, accent)(body);
+  }
   // "logo" keeps the exact layout of the web and desktop icon.
   const transform =
     place === "logo"
@@ -30,7 +49,9 @@ function svg(size, { bg, scale = 1, white, accent, place = "center" }) {
       : `translate(${size / 2} ${size / 2}) scale(${scale}) translate(${-GLYPH_CX} ${-GLYPH_CY})`;
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
+    DEFS +
     (bg ? `<rect width="${size}" height="${size}" fill="${bg}"/>` : "") +
+    (glow ? `<rect width="${size}" height="${size}" fill="url(#glow)"/>` : "") +
     `<g transform="${transform}">${body}</g></svg>`
   );
 }
@@ -74,15 +95,16 @@ write(
   OUT.icon,
   svg(SIZE, {
     bg: BRAND.tile,
+    glow: true,
     white: BRAND.white,
-    accent: BRAND.accent,
+    accent: "url(#accent)",
     place: "logo",
   }),
 );
 // iOS dark: transparent so the system dark background shows through.
 write(
   OUT.iosDark,
-  svg(SIZE, { white: BRAND.white, accent: BRAND.accent, place: "logo" }),
+  svg(SIZE, { white: BRAND.white, accent: "url(#accent)", place: "logo" }),
 );
 // iOS tinted: grayscale, the system adds the tint.
 write(
@@ -98,7 +120,22 @@ write(
 // Android adaptive foreground and themed icon, inside the safe circle.
 write(
   OUT.adaptive,
-  svg(SIZE, { white: BRAND.white, accent: BRAND.accent, scale: safeScale }),
+  svg(SIZE, {
+    white: BRAND.white,
+    accent: "url(#accent)",
+    scale: safeScale,
+  }),
+);
+// Its background: the tile with the same glow as the full icon.
+write(
+  OUT.adaptiveBackground,
+  svg(SIZE, {
+    bg: BRAND.tile,
+    glow: true,
+    white: "none",
+    accent: "none",
+    scale: 0,
+  }),
 );
 write(
   OUT.monochrome,
@@ -108,7 +145,11 @@ write(
 // Android 12+ masks the splash icon to the same center circle.
 write(
   OUT.splash,
-  svg(SIZE, { white: BRAND.white, accent: BRAND.accent, scale: safeScale }),
+  svg(SIZE, {
+    white: BRAND.white,
+    accent: "url(#accent)",
+    scale: safeScale,
+  }),
 );
 
 // Status bar icon, white on transparent.

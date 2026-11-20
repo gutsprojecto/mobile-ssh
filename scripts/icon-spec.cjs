@@ -4,12 +4,15 @@ const BRAND = {
   tile: "#141513",
   white: "#ffffff",
   accent: "#f59145",
+  // Ends of the accent gradient in the full color icons.
+  accentLight: "#ffb36b",
+  accentDeep: "#ec7429",
   // Accent as gray for the tinted iOS icon.
   tintedAccent: "#a6a6a6",
 };
 
 // Visual bounds of the glyph inside assets/brand/logo.svg (1024 units).
-const GLYPH = { x0: 227, y0: 244, x1: 797, y1: 824 };
+const GLYPH = { x0: 231, y0: 251, x1: 793, y1: 793 };
 
 // Android adaptive icons: 108dp layers, content kept in the center 66dp.
 // We keep the glyph inside a circle of that diameter so round masks never
@@ -32,6 +35,7 @@ const OUT = {
   iosDark: "assets/images/ios-dark.png",
   iosTinted: "assets/images/ios-tinted.png",
   adaptive: "assets/images/adaptive-icon.png",
+  adaptiveBackground: "assets/images/adaptive-background.png",
   monochrome: "assets/images/adaptive-monochrome.png",
   splash: "assets/images/splash-icon.png",
   notificationDir: "assets/images/notification",

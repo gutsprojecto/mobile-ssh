@@ -32,6 +32,9 @@ import {
 } from "./output";
 import { t } from "@/i18n";
 
+/** Space between the screen edges and the terminal text. */
+const TERMINAL_SIDE_PAD = 10;
+
 export interface ModifierState {
   ctrl: StickyState;
   alt: StickyState;
@@ -188,7 +191,14 @@ export const TerminalView = forwardRef<TerminalViewApi, Props>(
     );
 
     return (
-      <View style={{ flex: 1, backgroundColor: settings.colors.background }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: settings.colors.background,
+          // A little air on the sides, so the first column never looks cut off.
+          paddingHorizontal: TERMINAL_SIDE_PAD,
+        }}
+      >
         <NativeTerminalView
           ref={native}
           style={{ flex: 1 }}
@@ -235,6 +245,7 @@ export const TerminalView = forwardRef<TerminalViewApi, Props>(
               bottom: 16,
               width: 40,
               height: 40,
+              borderRadius: 20,
               backgroundColor: ui.card,
               borderWidth: 1,
               borderColor: ui.brand,

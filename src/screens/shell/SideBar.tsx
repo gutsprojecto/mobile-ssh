@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Pressable, View } from "react-native";
+import Animated, {
+  FadeIn,
+  ReduceMotion,
+  SlideInLeft,
+  SlideInRight,
+  SlideOutLeft,
+  SlideOutRight,
+} from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { BottomTabBarProps } from "expo-router/tabs";
 import { Glass, Text } from "@/ui";
@@ -59,7 +67,7 @@ export function SideBar({
   const bottom = Math.max(insets.bottom, belowCrease);
   return (
     <View
-      className={`items-stretch ${floating ? "" : `border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"}`} ${inBar ? "justify-end" : ""}`}
+      className={`items-stretch ${floating ? "" : `border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"}`} ${inBar ? "justify-end" : "justify-center"}`}
       style={
         floating
           ? { flex: 1, paddingVertical: 10, paddingHorizontal: 6, gap: 4 }
@@ -153,6 +161,15 @@ export function SideBar({
   );
 }
 
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+const dismissListeners = new Set<() => void>();
+
+/** Puts the floating rail away at once, like a click into the terminal does. */
+export function dismissFloatingRail() {
+  dismissListeners.forEach((l) => l());
+}
+
 /** Space around the floating glass rail. */
 const FLOAT_GAP = 10;
 
@@ -198,6 +215,17 @@ export function AutoHideSideBar(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onSessions]);
   useEffect(() => clearTimer, []);
+  useEffect(() => {
+    const dismiss = () => {
+      clearTimer();
+      hovering.current = false;
+      setOpen(false);
+    };
+    dismissListeners.add(dismiss);
+    return () => {
+      dismissListeners.delete(dismiss);
+    };
+  }, []);
 
   const expanded = !onSessions || open || pinned;
   // Out over the terminal it floats as a glass pill, clear of the edges.
@@ -234,8 +262,15 @@ export function AutoHideSideBar(
       }}
     >
       {floatingOut ? (
-        <Glass
-          radius={22}
+        <Animated.View
+          entering={(side === "left" ? SlideInLeft : SlideInRight)
+            .springify()
+            .damping(20)
+            .stiffness(180)
+            .reduceMotion(ReduceMotion.System)}
+          exiting={(side === "left" ? SlideOutLeft : SlideOutRight)
+            .duration(200)
+            .reduceMotion(ReduceMotion.System)}
           style={{
             position: "absolute",
             top: insets.top + FLOAT_GAP,
@@ -244,12 +279,17 @@ export function AutoHideSideBar(
             width: railWidth,
           }}
         >
-          <SideBar {...props} side={side} floating />
-        </Glass>
+          <Glass radius={22} style={{ flex: 1 }}>
+            <SideBar {...props} side={side} floating />
+          </Glass>
+        </Animated.View>
       ) : expanded ? (
         <SideBar {...props} side={side} />
       ) : (
-        <Pressable
+        <AnimatedPressable
+          entering={FadeIn.delay(120)
+            .duration(220)
+            .reduceMotion(ReduceMotion.System)}
           accessibilityRole="button"
           accessibilityLabel={tr("shell.sideBar.showNavigation")}
           onPress={() => {
@@ -270,7 +310,7 @@ export function AutoHideSideBar(
               backgroundColor: "rgba(128, 128, 128, 0.22)",
             }}
           />
-        </Pressable>
+        </AnimatedPressable>
       )}
     </View>
   );

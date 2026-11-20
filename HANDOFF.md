@@ -41,6 +41,13 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - Kein Termix-Server in der Oberfläche: kein Willkommensbildschirm, Kopf zeigt „ShellPad“ statt Konto-Umschalter, keine „Server verknüpfen“-Knöpfe, Einstellungen „Konten“/„Plugins“ und Palette-Befehle entfernt (Server-Code bleibt im Hintergrund).
 - Neues Logo `assets/brand/logo.svg` (Tablet mit `>_`), Icons per `npm run icons`.
 
+### Zweite Runde (2026-11-20)
+
+- Kein weißer Blitz mehr beim ersten Öffnen eines Screens: Navigationsthema und Szenen-Hintergrund nutzen die App-Farben (`app/_layout.tsx`, `app/(tabs)/_layout.tsx`).
+- Leiste: Symbole vertikal zentriert (passend zur Öffnungslinie), schwebende Leiste gleitet weich herein/heraus (Reanimated, respektiert „Bewegung reduzieren“), Klick/Tippen ins Terminal blendet sie sofort aus (`dismissFloatingRail`).
+- Terminal hat links/rechts 10 px Abstand (`TerminalView.tsx`).
+- Logo neu: Glasfläche mit Verlauf-Prompt `>_` (`assets/brand/logo.svg`), Icons mit Akzentverlauf und Schimmer, adaptives Icon mit eigenem Hintergrundbild (`adaptive-background.png`); `npm run icons` erzeugt alles.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -68,5 +75,6 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-20 (abends): weißer Blitz, zentrierte/animierte Leiste, Terminal-Abstand, neues Logo.
 - 2026-11-20 (später): Tablet-Test-Fixes, Server-Oberfläche entfernt, neues Logo.
 - 2026-11-20: Fork geklont; Maus/Tastatur-Verbesserungen, einklappbare Leiste, Tastenleisten-Button; Umbenennung in ShellPad; Frosted-Glass-Redesign; Statistik entfernt.

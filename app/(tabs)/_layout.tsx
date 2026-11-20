@@ -52,10 +52,11 @@ export default function TabLayout() {
           screenOptions={({ route }) => ({
             headerShown: false,
             tabBarPosition: isWide ? railSide : "bottom",
+            // A tab opened for the first time starts on the theme, never white.
+            sceneStyle: { backgroundColor: ui.background },
             ...(floatingRail && !hideTabBar
               ? {
                   sceneStyle: {
-                    // The strip beside the floating rail shows the theme, never white.
                     backgroundColor: ui.background,
                     [railSide === "left" ? "paddingLeft" : "paddingRight"]:
                       sidebarScenePadding(

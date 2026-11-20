@@ -1,5 +1,10 @@
-import { useEffect } from "react";
-import { Stack } from "expo-router";
+import { useEffect, useMemo } from "react";
+import {
+  DarkTheme,
+  DefaultTheme,
+  Stack,
+  ThemeProvider as NavigationThemeProvider,
+} from "expo-router";
 import {
   allowScreenCaptureAsync,
   preventScreenCaptureAsync,
@@ -13,6 +18,7 @@ import {
   ThemeProvider,
   useTheme,
   useThemeColor,
+  useUiColors,
 } from "@/contexts/ThemeContext";
 import { AppLockProvider, useAppLock } from "@/contexts/AppLockContext";
 import { LockScreen } from "@/components/LockScreen";
@@ -81,6 +87,24 @@ function RootLayoutContent() {
     setIsLoading,
   } = useAppContext();
   const accent = useThemeColor()("accent-brand");
+  const ui = useUiColors();
+  const { isDark } = useTheme();
+  // Screens a navigator mounts or slides in start on this color, so it must be
+  // the theme's, never React Navigation's white.
+  const navigationTheme = useMemo(() => {
+    const base = isDark ? DarkTheme : DefaultTheme;
+    return {
+      ...base,
+      colors: {
+        ...base.colors,
+        background: ui.background,
+        card: ui.card,
+        border: ui.border,
+        text: ui.text,
+        primary: ui.brand,
+      },
+    };
+  }, [isDark, ui]);
   const lock = useAppLock();
   const still = useReduceMotion();
   // While a full screen layer is up, screen readers must not reach what is under it.
@@ -134,15 +158,18 @@ function RootLayoutContent() {
         accessibilityElementsHidden={covered}
         importantForAccessibility={covered ? "no-hide-descendants" : "auto"}
       >
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            animation: still ? "none" : undefined,
-          }}
-        >
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+        <NavigationThemeProvider value={navigationTheme}>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+              animation: still ? "none" : undefined,
+              contentStyle: { backgroundColor: ui.background },
+            }}
+          >
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </NavigationThemeProvider>
       </View>
       {/* Home-screen widget taps: session navigation and the snippet run
           sheet. Mounted here so it is active for the whole session, including
