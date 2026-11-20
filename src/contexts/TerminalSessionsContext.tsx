@@ -19,7 +19,6 @@ import type {
   ConnectionOrigin,
   TransportKind,
 } from "@/core/transport";
-import { noteSessions, trackTabOpened } from "@/core/analytics";
 import { checkOpen, features } from "@/core/features";
 import { recordRecent } from "@/core/hosts/recent";
 import { asServerHost, isSynced, serverHostId } from "@/core/sync";
@@ -232,7 +231,6 @@ export const TerminalSessionsProvider: React.FC<
       const client = clientFor(accountId);
       // Two opens in the same millisecond must not share an id.
       const sessionId = `${host.id}-${type}-${Date.now()}-${uuid().slice(0, 8)}`;
-      if (!opts?.restoredSessionId) trackTabOpened(type);
 
       setSessions((prev) => {
         const existingSessions = prev.filter((session) =>
@@ -647,7 +645,6 @@ export const TerminalSessionsProvider: React.FC<
 
   useEffect(() => {
     sessionStatus.retain(sessions.map((s) => s.id));
-    void noteSessions(sessions.length).catch(() => {});
     backgroundSessions.setTabs(
       sessions.map((s) => ({ id: s.id, title: displayTitle(s) })),
     );

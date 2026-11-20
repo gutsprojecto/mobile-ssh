@@ -37,11 +37,6 @@ import {
   HideSwitcherControl,
   LockDelayControl,
 } from "../controls/SecurityControls";
-import {
-  UsagePreviewControl,
-  UsageResetIdControl,
-  UsageStatsControl,
-} from "../controls/AnalyticsControls";
 import { WidgetsControl } from "../controls/WidgetsControl";
 import { PushNotificationsControl } from "../controls/PushControls";
 import type { SettingsItemDef } from "./types";
@@ -312,36 +307,6 @@ export const SETTINGS_ITEMS: SettingsItemDef[] = [
     order: 20,
     icon: Lock,
     Control: ClearRecentControl,
-  },
-  {
-    id: "usage-stats",
-    section: "privacy",
-    label: t("settings.schema.items.shareAnonymousUsageStatistics"),
-    description: t("settings.schema.items.aShortReportOnceA"),
-    keywords: ["telemetry", "analytics", "stats", "posthog", "tracking"],
-    order: 25,
-    icon: Database,
-    Control: UsageStatsControl,
-  },
-  {
-    id: "usage-preview",
-    section: "privacy",
-    label: t("settings.schema.items.nextReport"),
-    description: t("settings.schema.items.seeExactlyWhatWouldBe"),
-    keywords: ["telemetry", "analytics", "preview"],
-    order: 26,
-    icon: Database,
-    Control: UsagePreviewControl,
-  },
-  {
-    id: "usage-reset-id",
-    section: "privacy",
-    label: t("settings.schema.items.resetInstallId"),
-    description: t("settings.schema.items.futureReportsWillLookLike"),
-    keywords: ["telemetry", "analytics", "id"],
-    order: 27,
-    icon: Database,
-    Control: UsageResetIdControl,
   },
   {
     id: "usage-statistics",

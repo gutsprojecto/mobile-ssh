@@ -3153,7 +3153,7 @@
         "howTallListRowsAnd": "How tall list rows and settings are"
       },
       "miscControls": {
-        "hostsCredentialsAndSnippetsAre": "Hosts, credentials and snippets are kept in an encrypted file on this {{deviceWord}}. Usage statistics are off unless you turn them on below. A linked server only gets what you let it sync.",
+        "hostsCredentialsAndSnippetsAre": "Hosts, credentials and snippets are kept in an encrypted file on this {{deviceWord}}.. A linked server only gets what you let it sync.",
         "recentHosts": "Recent hosts",
         "forgetTheHostsYouOpened": "Forget the hosts you opened lately on every account",
         "recentHostsCleared": "Recent hosts cleared",

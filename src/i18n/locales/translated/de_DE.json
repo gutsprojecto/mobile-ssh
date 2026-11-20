@@ -3153,7 +3153,7 @@
         "howTallListRowsAnd": "Höhe der Listenzeilen und Einstellungen"
       },
       "miscControls": {
-        "hostsCredentialsAndSnippetsAre": "Hosts, Anmeldeinformationen und Code-Schnipsel werden in einer verschlüsselten Datei auf diesem {{deviceWord}} gespeichert. Nutzungsstatistiken sind deaktiviert, es sei denn, du aktivierst sie unten. Ein verknüpfter Server erhält nur das, was du zur Synchronisierung freigibst.",
+        "hostsCredentialsAndSnippetsAre": "Hosts, Anmeldeinformationen und Code-Schnipsel werden in einer verschlüsselten Datei auf diesem {{deviceWord}} gespeichert. Ein verknüpfter Server erhält nur das, was du zur Synchronisierung freigibst.",
         "recentHosts": "Zuletzt verwendete Hosts",
         "forgetTheHostsYouOpened": "Hosts, die du kürzlich auf allen Konten geöffnet hast, vergessen",
         "recentHostsCleared": "Zuletzt verwendete Hosts gelöscht",

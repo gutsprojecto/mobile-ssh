@@ -6,7 +6,6 @@ import { useAppContext } from "@/contexts/AppContext";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { LOCAL_ACCOUNT_ID } from "@/core/accounts/types";
-import { setConsent } from "@/core/analytics/consent";
 import { repositoriesFor } from "@/core/data/repositories";
 import { localStores } from "@/core/db/stores";
 import { markOnboardingDone } from "@/core/onboarding";
@@ -67,7 +66,6 @@ export function ShowcaseHost() {
     };
     const run = async () => {
       const t0 = Date.now();
-      await setConsent("off");
       await markOnboardingDone();
       latest.current.theme.setTheme(launch.theme);
       latest.current.theme.setAccent(launch.accent);

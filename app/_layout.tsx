@@ -17,7 +17,6 @@ import {
 import { AppLockProvider, useAppLock } from "@/contexts/AppLockContext";
 import { LockScreen } from "@/components/LockScreen";
 import LinkFlow from "@/screens/link/LinkFlow";
-import { AnalyticsHost } from "@/screens/analytics/ConsentPrompt";
 import Welcome from "@/screens/onboarding/Welcome";
 import {
   View,
@@ -156,7 +155,6 @@ function RootLayoutContent() {
       <AccountSwitcher />
       <ProxyGateHost />
       <AppLockGate />
-      <AnalyticsHost hold={welcomeVisible || authFlowVisible} />
       {welcomeVisible ? (
         <View
           className="absolute inset-0 bg-background"
