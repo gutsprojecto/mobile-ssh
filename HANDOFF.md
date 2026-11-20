@@ -75,6 +75,14 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Offene Punkte
 
+### Für die nächste Runde (Rückmeldung vom Tablet-Test 2026-11-20)
+
+- **Kopiert manchmal von selbst nach dem Kopieren, vielleicht wegen tmux.** Vermutete Ursache: tmux mit Mausmodus markiert beim Ziehen selbst (Copy-Mode) und schickt die Auswahl beim Loslassen per **OSC 52** ans Terminal (`set-clipboard on`/`external`). ShellPad übernimmt jede OSC-52-Nachricht sofort in die Zwischenablage und zeigt „Kopiert“ (`GhosttyTerminalView.kt`, `nativeTakeClipboard` → `setClipboard` + `onCopied`). Auf dem Server prüfen: `tmux show -g set-clipboard`, `tmux show -g mouse`, Bindings für `MouseDragEnd1Pane`. Mögliche Lösung: OSC-52-Schreiben als Einstellung (an / fragen / aus) oder nur nach eigener Mausaktion, Hinweis „von tmux kopiert“ statt still kopieren.
+- **Navigationsleiste überall wie die ausgeklappte Session-Leiste**: das schwebende Glas-Design (Pille mit Abstand, zentrierte Symbole) auch auf Home/Hosts/Tools/Einstellungen verwenden. Wirkt einheitlich und verhindert, dass die Leiste beim Wechsel zwischen normalem Screen und Session leicht springt. Dabei Breite/Position beider Zustände exakt gleich halten (`AutoHideSideBar`, `sidebarScenePadding` in `src/screens/shell/SideBar.tsx`).
+- **Icon ist noch nicht wie gewünscht** (aktuell: helles Feld, oranges Verlauf-„S_“). Vor dem nächsten Versuch genau klären, was fehlt (z. B. Farbe der Fläche, Form des Buchstabens, „SP“ statt „S“, ohne Cursor, Beispiel-App als Vorbild) und 2–3 Varianten als Vorschau zeigen, bevor gebaut wird. Quelle: `assets/brand/logo.svg` + `scripts/generate-icons.mjs`, Farben in `scripts/icon-spec.cjs`.
+
+### Weitere
+
 - **Türkiser Punkt oben links (Systemgriff)**: wahrscheinlich zeichnet die Tastatur/Android ihren Cursor-Griff an Position 0,0, weil sich das Terminal als Texteingabe meldet (`onCheckIsTextEditor`), aber nie mitteilt, wo der Cursor steht (kein `requestCursorUpdates`/`CursorAnchorInfo` in `GhosttyTerminalView`). Lösung: Cursor-Position per `CursorAnchorInfo` melden bzw. Handschrift/Griffe abschalten.
 
 - **Auf dem Tablet testen**: Maus (Rad, Ziehen in tmux, Rechtsklick), Hover-Leiste, Glas-Blur über dem Terminal, Performance.
