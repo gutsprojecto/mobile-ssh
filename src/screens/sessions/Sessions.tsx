@@ -20,6 +20,10 @@ import { accounts } from "@/core/accounts";
 import { SessionAccountProvider } from "@/core/accounts/session";
 import { LOCAL_ACCOUNT_ID } from "@/core/accounts/types";
 import { useKeyboard } from "@/contexts/KeyboardContext";
+import {
+  keyRowShown,
+  useKeyRowShown,
+} from "@/features/terminal/keys/keyRowShown";
 import type { TerminalHandle } from "@/features/terminal/Terminal";
 import { features, useRegistryVersion } from "@/core/features";
 import { MissingTab } from "@/screens/sessions/MissingTab";
@@ -157,6 +161,7 @@ export default function Sessions() {
     ctx: SessionMenuContext;
   } | null>(null);
   const { keyboardHeight, isKeyboardVisible } = useKeyboard();
+  const keyRowOn = useKeyRowShown();
   const hiddenInputRef = useRef<TerminalImeInputHandle | null>(null);
   // Tab handles by session id. Tabs with "terminal-input" hand out a TerminalHandle.
   // Tool tabs hand out other handles, so call terminal methods with ?.().
@@ -374,6 +379,8 @@ export default function Sessions() {
     if (isCustomKeyboardVisible) {
       return CUSTOM_KEYBOARD_TAB_HEIGHT + customKeyboardHeight;
     }
+    // Key row turned off: the tab bar sits on the keyboard, or at the bottom.
+    if (!keyRowOn) return barsOnKeyboard ? barsKeyboardHeight : insets.bottom;
     if (keyRowBottom !== null) return keyRowBottom + KEYBOARD_BAR_HEIGHT;
 
     return barsOnKeyboard
@@ -1153,6 +1160,7 @@ export default function Sessions() {
         {sessions.length > 0 &&
           activeIsTerminal &&
           KeyRowBar &&
+          keyRowOn &&
           !isCustomKeyboardVisible && (
             <View
               style={{
@@ -1239,6 +1247,7 @@ export default function Sessions() {
             )}
             onTabMenu={setMenuFor}
             onTabMove={moveSession}
+            keyRow={{ shown: keyRowOn, toggle: keyRowShown.toggle }}
             hostsPane={
               hostsPaneFits
                 ? {

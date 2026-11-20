@@ -948,7 +948,9 @@ Java_expo_modules_termixterminal_GhosttyVt_nativeEncodeMouse(
   size.cell_width = static_cast<uint32_t>(cellWidthPx);
   size.cell_height = static_cast<uint32_t>(cellHeightPx);
   ghostty_mouse_encoder_setopt(session->mouseEncoder, GHOSTTY_MOUSE_ENCODER_OPT_SIZE, &size);
-  bool pressed = action == GHOSTTY_MOUSE_ACTION_PRESS;
+  // A motion with a button still held is a drag; button event tracking (1002, tmux) reports it.
+  bool pressed = action == GHOSTTY_MOUSE_ACTION_PRESS ||
+                 (action == GHOSTTY_MOUSE_ACTION_MOTION && button != 0);
   ghostty_mouse_encoder_setopt(session->mouseEncoder,
                                GHOSTTY_MOUSE_ENCODER_OPT_ANY_BUTTON_PRESSED, &pressed);
 

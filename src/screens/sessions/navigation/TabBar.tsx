@@ -7,6 +7,8 @@ import {
   Minus,
   ChevronDown,
   ChevronUp,
+  Keyboard as KeyboardIcon,
+  KeyboardOff,
   Layers,
   PanelLeftClose,
   PanelLeftOpen,
@@ -46,6 +48,8 @@ interface TabBarProps {
   onTabMove?: (sessionId: string, toIndex: number) => void;
   /** Set when the window fits the host list beside sessions. */
   hostsPane?: { shown: boolean; toggle: () => void };
+  /** Shows or hides the key row (Esc, Tab, arrows) under the terminal. */
+  keyRow?: { shown: boolean; toggle: () => void };
 }
 
 export default function TabBar({
@@ -65,6 +69,7 @@ export default function TabBar({
   onTabMenu,
   onTabMove,
   hostsPane,
+  keyRow,
 }: TabBarProps) {
   const ui = useUiColors();
   const router = useRouter();
@@ -153,6 +158,25 @@ export default function TabBar({
             <ArrowLeft size={iconSize} color={ui.text} />
           </BarButton>
         )}
+
+        {hasInput && keyRow ? (
+          <BarButton
+            label={
+              keyRow.shown
+                ? t("sessions.navigation.tabBar.hideKeyRow")
+                : t("sessions.navigation.tabBar.showKeyRow")
+            }
+            size={buttonSize}
+            active={keyRow.shown}
+            onPress={keyRow.toggle}
+          >
+            {keyRow.shown ? (
+              <KeyboardIcon size={iconSize} color={ui.brand} />
+            ) : (
+              <KeyboardOff size={iconSize} color={ui.text} />
+            )}
+          </BarButton>
+        ) : null}
 
         <View style={{ flex: 1, justifyContent: "center" }}>
           <TabStrip

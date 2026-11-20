@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { BottomTabBarProps } from "expo-router/tabs";
@@ -7,7 +8,11 @@ import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { useSessionStatuses } from "@/core/sessions/status";
 import { sessionsMark, TABS } from "@/screens/shell/BottomBar";
 import { useWindowInfo } from "@/utils/window-class";
-import { SIDEBAR_WIDTH, shellLayout } from "@/screens/shell/layout";
+import {
+  SIDEBAR_PEEK_WIDTH,
+  SIDEBAR_WIDTH,
+  shellLayout,
+} from "@/screens/shell/layout";
 import { t as tr } from "@/i18n";
 
 export { SIDEBAR_WIDTH };
@@ -143,4 +148,101 @@ export function SideBar({
       })}
     </View>
   );
+}
+
+/** How long the rail stays out on the sessions tab once the pointer has left it. */
+const AUTO_HIDE_MS = 5000;
+
+/**
+ * The rail for tablets used with a mouse. On the sessions tab it shrinks to a
+ * thin strip on the edge so the terminal gets the room; pointing at the strip
+ * (or tapping it) brings the rail out over the terminal, and it goes back once
+ * the pointer has been away for five seconds while a session is shown. Other
+ * tabs show the full rail. It floats over the screens, which pad for it
+ * themselves (see sidebarScenePadding), so the terminal never resizes.
+ */
+export function AutoHideSideBar(
+  props: BottomTabBarProps & { side?: "left" | "right" },
+) {
+  const { state, side = "left" } = props;
+  const insets = useSafeAreaInsets();
+  const onSessions = state.routes[state.index]?.name === "sessions";
+  const [open, setOpen] = useState(false);
+  const hovering = useRef(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearTimer = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = null;
+  };
+  const scheduleHide = () => {
+    clearTimer();
+    timer.current = setTimeout(() => {
+      timer.current = null;
+      if (!hovering.current) setOpen(false);
+    }, AUTO_HIDE_MS);
+  };
+
+  // Coming to the sessions tab with the rail out starts the countdown there.
+  useEffect(() => {
+    if (onSessions && open && !hovering.current) scheduleHide();
+    if (!onSessions) clearTimer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [onSessions]);
+  useEffect(() => clearTimer, []);
+
+  const expanded = !onSessions || open;
+  const { isShort } = useWindowInfo();
+  const railWidth = isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH;
+  const edgeInset = side === "left" ? insets.left : insets.right;
+  return (
+    <View
+      style={{
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        [side]: 0,
+        width: (expanded ? railWidth : SIDEBAR_PEEK_WIDTH) + edgeInset,
+        zIndex: 1100,
+        elevation: 12,
+      }}
+      onPointerEnter={() => {
+        hovering.current = true;
+        clearTimer();
+        setOpen(true);
+      }}
+      onPointerLeave={() => {
+        hovering.current = false;
+        if (onSessions) scheduleHide();
+      }}
+    >
+      {expanded ? (
+        <SideBar {...props} side={side} />
+      ) : (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={tr("shell.sideBar.showNavigation")}
+          onPress={() => {
+            setOpen(true);
+            scheduleHide();
+          }}
+          hitSlop={{ [side === "left" ? "right" : "left"]: 10 }}
+          className={`flex-1 border-border bg-sidebar ${side === "left" ? "border-r" : "border-l"}`}
+          style={{
+            [side === "left" ? "paddingLeft" : "paddingRight"]: edgeInset,
+          }}
+        />
+      )}
+    </View>
+  );
+}
+
+/** Room each screen leaves for the floating rail. The sessions tab only leaves the strip. */
+export function sidebarScenePadding(
+  routeName: string,
+  edgeInset: number,
+  isShort: boolean,
+) {
+  if (routeName === "sessions") return SIDEBAR_PEEK_WIDTH + edgeInset;
+  return (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + edgeInset;
 }

@@ -1,6 +1,8 @@
 import type { WindowInfo } from "@/utils/window-class";
 
 export const SIDEBAR_WIDTH = 84;
+/** The strip the rail shrinks to on the sessions tab, until the pointer comes. */
+export const SIDEBAR_PEEK_WIDTH = 6;
 /** Narrowest host list that still reads well. */
 export const HOSTS_PANE_MIN_WIDTH = 220;
 /** Narrowest terminal worth putting beside the host list. */

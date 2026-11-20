@@ -20,13 +20,16 @@ import android.view.ActionMode
 import android.view.Choreographer
 import android.view.GestureDetector
 import android.view.HapticFeedbackConstants
+import android.view.InputDevice
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.PointerIcon
 import android.view.ScaleGestureDetector
 import android.view.View
+import android.view.ViewConfiguration
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
 import android.view.inputmethod.BaseInputConnection
@@ -113,6 +116,19 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   @Volatile private var altScreen = false
   @Volatile private var altScroll = false
   @Volatile private var focusEvents = false
+
+  // ── Mouse state (a real mouse or touchpad, not a finger) ──
+  // The button the program is told is held, or 0; only while it tracks the mouse.
+  private var mouseReportButton = 0
+  private var mouseLastCol = -1
+  private var mouseLastRow = -1
+  // A left button drag that selects text here.
+  private var mouseSelecting = false
+  private var mouseClickCount = 0
+  private var mouseLastClickTime = 0L
+  private var mouseLastClickCol = -1
+  private var mouseLastClickRow = -1
+  private var wheelAccum = 0f
 
   // ── Cell metrics ──
   private var fontFamily = DEFAULT_FONT
@@ -990,6 +1006,178 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     }?.takeIf { it.isNotEmpty() }
   }
 
+  private fun isMouse(event: MotionEvent): Boolean =
+    event.getToolType(0) == MotionEvent.TOOL_TYPE_MOUSE ||
+      (event.isFromSource(InputDevice.SOURCE_MOUSE) &&
+        event.getToolType(0) != MotionEvent.TOOL_TYPE_FINGER)
+
+  /** The xterm button for the buttons Android reports, left when none is set. */
+  private fun mouseButtonOf(buttonState: Int): Int = when {
+    buttonState and MotionEvent.BUTTON_SECONDARY != 0 -> MOUSE_RIGHT
+    buttonState and MotionEvent.BUTTON_TERTIARY != 0 -> MOUSE_MIDDLE
+    else -> MOUSE_LEFT
+  }
+
+  private fun handleMouseTouch(event: MotionEvent): Boolean {
+    if (handle == 0L || finished) return true
+    val x = event.x
+    val y = event.y
+    val col = colAt(x)
+    val row = rowAt(y)
+    when (event.actionMasked) {
+      MotionEvent.ACTION_DOWN -> {
+        scroller.abortAnimation()
+        if (!hasFocus()) requestFocus()
+        val button = mouseButtonOf(event.buttonState)
+        // Shift lets the app select even while the program has the mouse, like xterm.
+        if (mouseTracking && !(event.metaState and KeyEvent.META_SHIFT_ON != 0)) {
+          if (selectionMode) clearSelection()
+          encodeMouse(MOUSE_PRESS, button, x, y)?.let { sendBytes(it) }
+          mouseReportButton = button
+          mouseLastCol = col
+          mouseLastRow = row
+          return true
+        }
+        when (button) {
+          MOUSE_RIGHT -> {
+            showMouseMenu(x, y)
+            return true
+          }
+          MOUSE_MIDDLE -> {
+            pasteFromClipboard()
+            return true
+          }
+        }
+        actionMode?.let { if (!selectionMode) it.finish() }
+        val now = event.eventTime
+        mouseClickCount = if (now - mouseLastClickTime <= ViewConfiguration.getDoubleTapTimeout() &&
+          col == mouseLastClickCol && row == mouseLastClickRow
+        ) {
+          mouseClickCount % 3 + 1
+        } else {
+          1
+        }
+        mouseLastClickTime = now
+        mouseLastClickCol = col
+        mouseLastClickRow = row
+        if ((event.metaState and KeyEvent.META_SHIFT_ON != 0) && selectionMode) {
+          // Shift click grows the selection from where it started.
+          setMouseSelection(col, row)
+          mouseSelecting = true
+          return true
+        }
+        when (mouseClickCount) {
+          1 -> {
+            if (selectionMode || actionMode != null) clearSelection()
+            dragAnchorCol = col
+            dragAnchorRow = row
+            mouseSelecting = true
+          }
+          2 -> {
+            selectionMode = synchronized(vtLock) {
+              handle != 0L && GhosttyVt.nativeSelectWord(handle, col, row)
+            }
+            mouseSelecting = false
+            scheduleFrame()
+          }
+          else -> {
+            dragAnchorCol = 0
+            dragAnchorRow = row
+            selectionMode = synchronized(vtLock) {
+              handle != 0L && GhosttyVt.nativeSetSelection(handle, 0, row, cols - 1, row)
+            }
+            mouseSelecting = false
+            scheduleFrame()
+          }
+        }
+      }
+      MotionEvent.ACTION_MOVE -> {
+        if (col == mouseLastCol && row == mouseLastRow) return true
+        mouseLastCol = col
+        mouseLastRow = row
+        if (mouseReportButton != 0) {
+          // Drags for tmux and vim: pane borders, selections, scrollbars.
+          encodeMouse(MOUSE_MOTION, mouseReportButton, x, y)?.let { sendBytes(it) }
+        } else if (mouseSelecting) {
+          setMouseSelection(col, row)
+        }
+      }
+      MotionEvent.ACTION_UP -> {
+        if (mouseReportButton != 0) {
+          encodeMouse(MOUSE_RELEASE, mouseReportButton, x, y)?.let { sendBytes(it) }
+          mouseReportButton = 0
+        } else if (mouseSelecting) {
+          mouseSelecting = false
+          // Ctrl click opens a link, a plain click only places the pointer.
+          if (!selectionMode && (event.metaState and KeyEvent.META_CTRL_ON != 0)) linkAt(x, y)?.let { onLink?.invoke(it) }
+        }
+        mouseLastCol = -1
+        mouseLastRow = -1
+      }
+      MotionEvent.ACTION_CANCEL -> {
+        if (mouseReportButton != 0) {
+          encodeMouse(MOUSE_RELEASE, mouseReportButton, x, y)?.let { sendBytes(it) }
+        }
+        mouseReportButton = 0
+        mouseSelecting = false
+        mouseLastCol = -1
+        mouseLastRow = -1
+      }
+    }
+    return true
+  }
+
+  private fun setMouseSelection(col: Int, row: Int) {
+    selectionMode = synchronized(vtLock) {
+      handle != 0L && GhosttyVt.nativeSetSelection(handle, dragAnchorCol, dragAnchorRow, col, row)
+    }
+    scheduleFrame()
+  }
+
+  /** Right click: copy, paste, open link and the rest, at the pointer. */
+  private fun showMouseMenu(x: Float, y: Float) {
+    lastPressCol = colAt(x)
+    lastPressRow = rowAt(y)
+    pressLink = linkAt(x, y)
+    actionMode?.finish()
+    startTerminalActionMode()
+  }
+
+  override fun onGenericMotionEvent(event: MotionEvent): Boolean {
+    if (event.isFromSource(InputDevice.SOURCE_CLASS_POINTER) &&
+      event.actionMasked == MotionEvent.ACTION_SCROLL && handle != 0L && !finished
+    ) {
+      // Wheel up is positive; rows down are positive here.
+      wheelAccum -= event.getAxisValue(MotionEvent.AXIS_VSCROLL) * WHEEL_ROWS
+      val deltaRows = wheelAccum.toInt()
+      if (deltaRows != 0) {
+        wheelAccum -= deltaRows
+        scroller.abortAnimation()
+        scrollRows(event.x, event.y, deltaRows)
+      }
+      return true
+    }
+    return super.onGenericMotionEvent(event)
+  }
+
+  // Hover asks on every move, so the link lookup only runs when the cell changes.
+  private var iconCol = -1
+  private var iconRow = -1
+  private var iconType = PointerIcon.TYPE_TEXT
+
+  override fun onResolvePointerIcon(event: MotionEvent, pointerIndex: Int): PointerIcon {
+    val x = event.getX(pointerIndex)
+    val y = event.getY(pointerIndex)
+    val col = colAt(x)
+    val row = rowAt(y)
+    if (col != iconCol || row != iconRow) {
+      iconCol = col
+      iconRow = row
+      iconType = if (!mouseTracking && linkAt(x, y) != null) PointerIcon.TYPE_HAND else PointerIcon.TYPE_TEXT
+    }
+    return PointerIcon.getSystemIcon(context, iconType)
+  }
+
   private fun charToKeyCode(char: Char): Int {
     val lower = char.lowercaseChar()
     return when (lower) {
@@ -1693,6 +1881,8 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   // ── Input ──
 
   override fun onTouchEvent(event: MotionEvent): Boolean {
+    // A mouse is not a finger: clicks, drags and buttons work like on a desktop.
+    if (isMouse(event)) return handleMouseTouch(event)
     if (event.actionMasked == MotionEvent.ACTION_DOWN) scroller.abortAnimation()
     scaleDetector.onTouchEvent(event)
     if (scaleDetector.isInProgress) {
@@ -1946,7 +2136,12 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
 
     const val MOUSE_PRESS = 0
     const val MOUSE_RELEASE = 1
+    const val MOUSE_MOTION = 2
     const val MOUSE_LEFT = 1
+    const val MOUSE_RIGHT = 2
+    const val MOUSE_MIDDLE = 3
+    // Rows per wheel notch, as most desktop terminals scroll.
+    const val WHEEL_ROWS = 3f
     const val MOUSE_WHEEL_UP = 4
     const val MOUSE_WHEEL_DOWN = 5
 

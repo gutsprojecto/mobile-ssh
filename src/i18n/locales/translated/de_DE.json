@@ -472,6 +472,8 @@
         "showKeyboard": "Tastatur anzeigen",
         "hideKeyboard": "Tastatur ausblenden",
         "hideKeysPanel": "Tasten-Panel ausblenden",
+        "hideKeyRow": "Tastenleiste ausblenden",
+        "showKeyRow": "Tastenleiste einblenden",
         "showKeysPanel": "Tasten-Panel anzeigen"
       },
       "tabStrip": {
@@ -3681,7 +3683,8 @@
       "open": "{{label}}, {{count}} offen"
     },
     "sideBar": {
-      "open": "{{label}}, {{count}} offen"
+      "open": "{{label}}, {{count}} offen",
+      "showNavigation": "Navigation einblenden"
     }
   },
   "tools": {

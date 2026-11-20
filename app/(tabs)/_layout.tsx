@@ -2,9 +2,14 @@ import { Tabs, usePathname } from "expo-router";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { BottomBar, TABS } from "@/screens/shell/BottomBar";
 import { shellLayout } from "@/screens/shell/layout";
-import { SideBar } from "@/screens/shell/SideBar";
+import {
+  AutoHideSideBar,
+  SideBar,
+  sidebarScenePadding,
+} from "@/screens/shell/SideBar";
 import { BottomBarShown, SideBarShown } from "@/ui/bottom-inset";
 import { useWindowInfo } from "@/utils/window-class";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
   const { sessions } = useTerminalSessions();
@@ -13,6 +18,9 @@ export default function TabLayout() {
   const layout = shellLayout(win, 0);
   const isWide = layout.nav === "side";
   const { railSide, railInBar } = layout;
+  const insets = useSafeAreaInsets();
+  // A rail of its own (not the Duo bar column) floats and hides on the sessions tab.
+  const floatingRail = isWide && !railInBar;
 
   // Phones hide the bar on a full screen session. Tablets keep the sidebar, and
   // so does a Duo, whose bar column stays the system's either way.
@@ -31,16 +39,30 @@ export default function TabLayout() {
           tabBar={
             hideTabBar
               ? () => null
-              : isWide
-                ? (props) => (
-                    <SideBar {...props} side={railSide} inBar={railInBar} />
-                  )
-                : (props) => <BottomBar {...props} />
+              : floatingRail
+                ? (props) => <AutoHideSideBar {...props} side={railSide} />
+                : isWide
+                  ? (props) => (
+                      <SideBar {...props} side={railSide} inBar={railInBar} />
+                    )
+                  : (props) => <BottomBar {...props} />
           }
-          screenOptions={{
+          screenOptions={({ route }) => ({
             headerShown: false,
             tabBarPosition: isWide ? railSide : "bottom",
-          }}
+            ...(floatingRail && !hideTabBar
+              ? {
+                  sceneStyle: {
+                    [railSide === "left" ? "paddingLeft" : "paddingRight"]:
+                      sidebarScenePadding(
+                        route.name,
+                        railSide === "left" ? insets.left : insets.right,
+                        win.isShort,
+                      ),
+                  },
+                }
+              : {}),
+          })}
         >
           {TABS.map((tab) => (
             <Tabs.Screen

@@ -472,6 +472,8 @@
         "showKeyboard": "Show keyboard",
         "hideKeyboard": "Hide keyboard",
         "hideKeysPanel": "Hide keys panel",
+        "hideKeyRow": "Hide key row",
+        "showKeyRow": "Show key row",
         "showKeysPanel": "Show keys panel"
       },
       "tabStrip": {
@@ -3681,7 +3683,8 @@
       "open": "{{label}}, {{count}} open"
     },
     "sideBar": {
-      "open": "{{label}}, {{count}} open"
+      "open": "{{label}}, {{count}} open",
+      "showNavigation": "Show navigation"
     }
   },
   "tools": {
