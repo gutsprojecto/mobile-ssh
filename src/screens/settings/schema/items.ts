@@ -13,7 +13,6 @@ import {
   Timer,
 } from "lucide-react-native";
 import {
-  AccountsControl,
   ChangePasswordControl,
   DeleteAccountControl,
   ServerSessionControl,
@@ -49,16 +48,6 @@ import { t } from "@/i18n";
  */
 export const SETTINGS_ITEMS: SettingsItemDef[] = [
   // Accounts and sync
-  {
-    id: "accounts",
-    section: "accounts",
-    label: t("settings.schema.items.accounts"),
-    description: t("settings.schema.items.thisDeviceAndLinkedServers"),
-    keywords: ["server", "link", "switch", "unlink", "conflicts", "device"],
-    order: 10,
-    icon: RefreshCw,
-    Control: AccountsControl,
-  },
   {
     id: "sync",
     section: "accounts",
@@ -321,16 +310,6 @@ export const SETTINGS_ITEMS: SettingsItemDef[] = [
   },
 
   // Plugins
-  {
-    id: "plugins",
-    section: "plugins",
-    label: t("settings.schema.items.plugins"),
-    description: t("settings.schema.items.whatTheServerAddsAnd"),
-    keywords: ["server", "extensions", "features", "webview"],
-    order: 10,
-    icon: Blocks,
-    href: "/tabs/settings/Plugins",
-  },
 
   // Backup and data
   {

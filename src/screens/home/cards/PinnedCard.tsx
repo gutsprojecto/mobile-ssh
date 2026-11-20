@@ -1,9 +1,7 @@
 import { Pressable, View } from "react-native";
 import { ChevronRight, Pin, Plus, Server } from "lucide-react-native";
-import { useAppContext } from "@/contexts/AppContext";
 import { useThemeColor } from "@/contexts/ThemeContext";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
-import { accounts } from "@/core/accounts";
 import { useDashboardCards } from "@/core/features/hooks";
 import type { HomeCardProps } from "@/core/features/types";
 import { openTab } from "@/screens/shell/navigate";
@@ -29,10 +27,8 @@ export function pinnedHosts(hosts: SSHHost[]): SSHHost[] {
 export function PinnedCard({ accountId, active }: HomeCardProps) {
   const { hosts, hostsLoading, statuses, openHost, showHostMenu } =
     useHomeData();
-  const { openAuthFlow } = useAppContext();
   const color = useThemeColor();
   const pinned = pinnedHosts(hosts);
-  const local = accounts.find(accountId)?.kind === "local";
 
   if (hostsLoading) return null;
 
@@ -51,15 +47,6 @@ export function PinnedCard({ accountId, active }: HomeCardProps) {
             >
               {t("home.cards.pinnedCard.addHost")}
             </Button>
-            {local ? (
-              <Button
-                size="sm"
-                variant="ghost"
-                onPress={() => openAuthFlow("server")}
-              >
-                {t("home.cards.pinnedCard.linkAServer")}
-              </Button>
-            ) : null}
           </View>
         }
       />

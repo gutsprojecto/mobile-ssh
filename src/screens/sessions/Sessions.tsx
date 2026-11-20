@@ -39,6 +39,7 @@ import {
 } from "@/ui/bottom-inset";
 import { reduceMotionOn } from "@/ui/motion";
 import { GlassBackdrop, glassTarget } from "@/ui/Glass";
+import { useSessionsRailInset } from "@/screens/shell/SideBar";
 import TabBar from "@/screens/sessions/navigation/TabBar";
 import { SessionMenu } from "@/screens/sessions/SessionMenu";
 import { keyBarHeight } from "@/features/terminal/keys/compact";
@@ -163,6 +164,7 @@ export default function Sessions() {
   } | null>(null);
   const { keyboardHeight, isKeyboardVisible } = useKeyboard();
   const keyRowOn = useKeyRowShown();
+  const railInset = useSessionsRailInset();
   const glassRef = useRef<View>(null);
   useEffect(() => {
     glassTarget.set(glassRef);
@@ -1010,9 +1012,18 @@ export default function Sessions() {
             const paneStyle = (id: string) => {
               const shown = id === activeSessionId || id === partnerId;
               if (!partnerId || !shown) {
+                // A tab without a terminal sits beside the rail, not under it.
+                const type = sessions.find((s) => s.id === id)?.type;
+                const clear =
+                  railInset > 0 && !features.sessionHas(type, "terminal-input")
+                    ? railInset
+                    : 0;
                 return [
                   StyleSheet.absoluteFill,
-                  { transform: [{ translateX: shown ? 0 : OFFSCREEN }] },
+                  {
+                    left: clear,
+                    transform: [{ translateX: shown ? 0 : OFFSCREEN }],
+                  },
                 ];
               }
               const order = sessions.findIndex((s) => s.id === id);
@@ -1149,7 +1160,7 @@ export default function Sessions() {
 
         {/* Connections panel: full screen when no sessions, overlay when sessions exist */}
         {(sessions.length === 0 || showConnectionsPanel) && (
-          <StageOverlay zIndex={1010}>
+          <StageOverlay zIndex={1010} left={railInset}>
             {sessions.length === 0 ? (
               <Screen title={t("sessions.connections")}>
                 <ConnectionsPanel besideHosts={showHostsPane} />
@@ -1223,7 +1234,7 @@ export default function Sessions() {
           style={{
             position: "absolute",
             bottom: getTabBarBottomPosition(),
-            left: 0,
+            left: railInset,
             right: 0,
             height: SESSION_TAB_BAR_HEIGHT,
             zIndex: 1004,
@@ -1345,7 +1356,7 @@ export default function Sessions() {
         />
 
         {featureView?.item.view ? (
-          <StageOverlay zIndex={1020}>
+          <StageOverlay zIndex={1020} left={railInset}>
             <SessionAccountProvider
               accountId={featureView.ctx.session.accountId}
             >
@@ -1423,9 +1434,12 @@ export default function Sessions() {
 /** A full view over the session stage. The stage already keeps clear of the notch. */
 function StageOverlay({
   zIndex,
+  left = 0,
   children,
 }: {
   zIndex: number;
+  /** Room kept for the rail beside it. */
+  left?: number;
   children: React.ReactNode;
 }) {
   const ui = useUiColors();
@@ -1434,7 +1448,12 @@ function StageOverlay({
     <View
       style={[
         StyleSheet.absoluteFill,
-        { zIndex, paddingTop: insets.top, backgroundColor: ui.background },
+        {
+          zIndex,
+          left,
+          paddingTop: insets.top,
+          backgroundColor: ui.background,
+        },
       ]}
     >
       <SafeAreaPadded.Provider value>{children}</SafeAreaPadded.Provider>

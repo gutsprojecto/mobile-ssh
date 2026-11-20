@@ -110,6 +110,15 @@ internal object GhosttyVt {
     row: Int
   ): Boolean
 
+  /** Like [nativeSetSelection], but rows count from the top of the scrollback. */
+  external fun nativeSetScreenSelection(
+    handle: Long,
+    anchorCol: Int,
+    anchorRow: Int,
+    col: Int,
+    row: Int
+  ): Boolean
+
   external fun nativeClearSelection(handle: Long)
 
   /** Active selection as UTF-8 (plain, unwrapped, trimmed), or null if none. */

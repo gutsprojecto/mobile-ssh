@@ -6,6 +6,7 @@ import { Glass, Text } from "@/ui";
 import { useThemeColor } from "@/contexts/ThemeContext";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { useSessionStatuses } from "@/core/sessions/status";
+import { features } from "@/core/features";
 import { sessionsMark, TABS } from "@/screens/shell/BottomBar";
 import { useWindowInfo } from "@/utils/window-class";
 import {
@@ -172,6 +173,8 @@ export function AutoHideSideBar(
   const { state, side = "left" } = props;
   const insets = useSafeAreaInsets();
   const onSessions = state.routes[state.index]?.name === "sessions";
+  // Tabs without a terminal (files, tools) keep the rail in place, beside them.
+  const pinned = useSessionsRailInset() > 0;
   const [open, setOpen] = useState(false);
   const hovering = useRef(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -196,9 +199,9 @@ export function AutoHideSideBar(
   }, [onSessions]);
   useEffect(() => clearTimer, []);
 
-  const expanded = !onSessions || open;
+  const expanded = !onSessions || open || pinned;
   // Out over the terminal it floats as a glass pill, clear of the edges.
-  const floatingOut = onSessions && open;
+  const floatingOut = onSessions && open && !pinned;
   const { isShort } = useWindowInfo();
   const railWidth = isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH;
   const edgeInset = side === "left" ? insets.left : insets.right;
@@ -217,6 +220,8 @@ export function AutoHideSideBar(
               : SIDEBAR_PEEK_WIDTH) + edgeInset,
         zIndex: 1100,
         elevation: 12,
+        // A row, so the rail inside stretches to the full height.
+        flexDirection: "row",
       }}
       onPointerEnter={() => {
         hovering.current = true;
@@ -257,10 +262,13 @@ export function AutoHideSideBar(
             [side === "left" ? "paddingLeft" : "paddingRight"]: edgeInset,
           }}
         >
-          {/* A thin glowing line in the accent color marks where the rail waits. */}
+          {/* A faint, dark line marks where the rail waits. */}
           <View
-            className="w-[3px] rounded-full bg-accent-brand/60"
-            style={{ height: "40%" }}
+            className="w-[3px] rounded-full"
+            style={{
+              height: "40%",
+              backgroundColor: "rgba(128, 128, 128, 0.22)",
+            }}
           />
         </Pressable>
       )}
@@ -276,4 +284,21 @@ export function sidebarScenePadding(
 ) {
   if (routeName === "sessions") return SIDEBAR_PEEK_WIDTH + edgeInset;
   return (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + edgeInset;
+}
+
+/**
+ * How far the sessions tab must keep its content clear of the rail: the full
+ * rail beside a tab without a terminal (files, tools) or with no tabs open,
+ * nothing beside a terminal, where the rail only floats over it on demand.
+ */
+export function useSessionsRailInset(): number {
+  const win = useWindowInfo();
+  const { sessions, activeSessionId } = useTerminalSessions();
+  const layout = shellLayout(win, 0);
+  if (layout.nav !== "side" || layout.railInBar) return 0;
+  const active = sessions.find((s) => s.id === activeSessionId);
+  if (active && features.sessionHas(active.type, "terminal-input")) return 0;
+  return (
+    (win.isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) - SIDEBAR_PEEK_WIDTH
+  );
 }

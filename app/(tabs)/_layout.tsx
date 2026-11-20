@@ -9,6 +9,7 @@ import {
 } from "@/screens/shell/SideBar";
 import { BottomBarShown, SideBarShown } from "@/ui/bottom-inset";
 import { useWindowInfo } from "@/utils/window-class";
+import { useUiColors } from "@/contexts/ThemeContext";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function TabLayout() {
@@ -19,6 +20,7 @@ export default function TabLayout() {
   const isWide = layout.nav === "side";
   const { railSide, railInBar } = layout;
   const insets = useSafeAreaInsets();
+  const ui = useUiColors();
   // A rail of its own (not the Duo bar column) floats and hides on the sessions tab.
   const floatingRail = isWide && !railInBar;
 
@@ -53,6 +55,8 @@ export default function TabLayout() {
             ...(floatingRail && !hideTabBar
               ? {
                   sceneStyle: {
+                    // The strip beside the floating rail shows the theme, never white.
+                    backgroundColor: ui.background,
                     [railSide === "left" ? "paddingLeft" : "paddingRight"]:
                       sidebarScenePadding(
                         route.name,

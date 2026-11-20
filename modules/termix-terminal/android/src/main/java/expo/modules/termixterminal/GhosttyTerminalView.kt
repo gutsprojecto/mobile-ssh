@@ -129,6 +129,14 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   private var mouseLastClickCol = -1
   private var mouseLastClickRow = -1
   private var wheelAccum = 0f
+  // Where a mouse selection started, in scrollback rows, so it can outgrow the screen.
+  private var mouseAnchorCol = 0
+  private var mouseAnchorRow = 0
+  private var mouseLastX = 0f
+  private var mouseLastY = 0f
+  // The current selection came from the mouse: no touch handles, and it stays
+  // while scrolled away.
+  private var mouseSelection = false
 
   // ── Cell metrics ──
   private var fontFamily = DEFAULT_FONT
@@ -1006,10 +1014,40 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     }?.takeIf { it.isNotEmpty() }
   }
 
-  private fun isMouse(event: MotionEvent): Boolean =
-    event.getToolType(0) == MotionEvent.TOOL_TYPE_MOUSE ||
-      (event.isFromSource(InputDevice.SOURCE_MOUSE) &&
-        event.getToolType(0) != MotionEvent.TOOL_TYPE_FINGER)
+  // A mouse, or a touchpad moving the pointer. Touchpad gestures (two finger
+  // scroll, pinch) keep going through the touch gestures.
+  private fun isMouse(event: MotionEvent): Boolean {
+    if (event.getToolType(0) == MotionEvent.TOOL_TYPE_MOUSE) return true
+    if (!event.isFromSource(InputDevice.SOURCE_MOUSE)) return false
+    return android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q ||
+      event.classification == MotionEvent.CLASSIFICATION_NONE
+  }
+
+  /** The first scrollback row on screen, counted from the top of the scrollback. */
+  private fun viewportTop(): Int = synchronized(vtLock) {
+    if (handle == 0L) 0 else (GhosttyVt.nativeScrollbar(handle)?.get(1) ?: 0L).toInt()
+  }
+
+  // Dragging past the top or bottom edge scrolls and keeps growing the selection.
+  private val selectionAutoScroll = object : Runnable {
+    override fun run() {
+      if (!mouseSelecting || handle == 0L || finished) return
+      val over = when {
+        mouseLastY < 0 -> mouseLastY
+        mouseLastY >= height -> mouseLastY - height + 1
+        else -> 0f
+      }
+      if (over == 0f) return
+      val step = (abs(over) / cellHeight).toInt().coerceIn(1, 5)
+      synchronized(vtLock) {
+        if (handle == 0L) return
+        GhosttyVt.nativeScroll(handle, if (over < 0) -step else step)
+      }
+      markScrollActivity()
+      setMouseSelection(colAt(mouseLastX), rowAt(mouseLastY))
+      postDelayed(this, AUTO_SCROLL_MS)
+    }
+  }
 
   /** The xterm button for the buttons Android reports, left when none is set. */
   private fun mouseButtonOf(buttonState: Int): Int = when {
@@ -1060,7 +1098,9 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
         mouseLastClickTime = now
         mouseLastClickCol = col
         mouseLastClickRow = row
-        if ((event.metaState and KeyEvent.META_SHIFT_ON != 0) && selectionMode) {
+        mouseLastX = x
+        mouseLastY = y
+        if ((event.metaState and KeyEvent.META_SHIFT_ON != 0) && selectionMode && mouseSelection) {
           // Shift click grows the selection from where it started.
           setMouseSelection(col, row)
           mouseSelecting = true
@@ -1069,29 +1109,39 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
         when (mouseClickCount) {
           1 -> {
             if (selectionMode || actionMode != null) clearSelection()
-            dragAnchorCol = col
-            dragAnchorRow = row
+            mouseAnchorCol = col
+            mouseAnchorRow = viewportTop() + row
             mouseSelecting = true
           }
           2 -> {
             selectionMode = synchronized(vtLock) {
               handle != 0L && GhosttyVt.nativeSelectWord(handle, col, row)
             }
+            mouseAnchorCol = col
+            mouseAnchorRow = viewportTop() + row
+            mouseSelection = selectionMode
             mouseSelecting = false
             scheduleFrame()
           }
           else -> {
-            dragAnchorCol = 0
-            dragAnchorRow = row
+            mouseAnchorCol = 0
+            mouseAnchorRow = viewportTop() + row
             selectionMode = synchronized(vtLock) {
               handle != 0L && GhosttyVt.nativeSetSelection(handle, 0, row, cols - 1, row)
             }
+            mouseSelection = selectionMode
             mouseSelecting = false
             scheduleFrame()
           }
         }
       }
       MotionEvent.ACTION_MOVE -> {
+        mouseLastX = x
+        mouseLastY = y
+        if (mouseSelecting && (y < 0 || y >= height)) {
+          removeCallbacks(selectionAutoScroll)
+          post(selectionAutoScroll)
+        }
         if (col == mouseLastCol && row == mouseLastRow) return true
         mouseLastCol = col
         mouseLastRow = row
@@ -1108,6 +1158,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
           mouseReportButton = 0
         } else if (mouseSelecting) {
           mouseSelecting = false
+          removeCallbacks(selectionAutoScroll)
           // Ctrl click opens a link, a plain click only places the pointer.
           if (!selectionMode && (event.metaState and KeyEvent.META_CTRL_ON != 0)) linkAt(x, y)?.let { onLink?.invoke(it) }
         }
@@ -1120,6 +1171,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
         }
         mouseReportButton = 0
         mouseSelecting = false
+        removeCallbacks(selectionAutoScroll)
         mouseLastCol = -1
         mouseLastRow = -1
       }
@@ -1127,10 +1179,14 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     return true
   }
 
+  /** Selects from the mouse anchor to a viewport cell; both may be off screen. */
   private fun setMouseSelection(col: Int, row: Int) {
+    val top = viewportTop()
     selectionMode = synchronized(vtLock) {
-      handle != 0L && GhosttyVt.nativeSetSelection(handle, dragAnchorCol, dragAnchorRow, col, row)
+      handle != 0L &&
+        GhosttyVt.nativeSetScreenSelection(handle, mouseAnchorCol, mouseAnchorRow, col, top + row)
     }
+    mouseSelection = selectionMode
     scheduleFrame()
   }
 
@@ -1354,7 +1410,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
 
   private fun syncSelectionUi() {
     if (!selectionMode) return
-    if (selectionBounds() == null) {
+    if (selectionBounds() == null && !mouseSelection) {
       // Scrolled out of the viewport (or collapsed): drop the whole selection
       // so the UI and terminal state never disagree.
       clearSelection()
@@ -1368,6 +1424,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
       if (handle != 0L) GhosttyVt.nativeClearSelection(handle)
     }
     selectionMode = false
+    mouseSelection = false
     draggingHandle = HANDLE_NONE
     pressLink = null
     actionMode?.finish()
@@ -1542,7 +1599,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   }
 
   private fun drawSelectionHandles(canvas: Canvas) {
-    if (!selectionMode) return
+    if (!selectionMode || mouseSelection) return
     val bounds = selectionBounds() ?: return
     val (top, topCol, bottom, bottomCol) = bounds
     handlePaint.color = handleColor
@@ -2142,6 +2199,7 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     const val MOUSE_MIDDLE = 3
     // Rows per wheel notch, as most desktop terminals scroll.
     const val WHEEL_ROWS = 3f
+    const val AUTO_SCROLL_MS = 40L
     const val MOUSE_WHEEL_UP = 4
     const val MOUSE_WHEEL_DOWN = 5
 

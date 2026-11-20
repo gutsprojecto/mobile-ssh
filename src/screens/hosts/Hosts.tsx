@@ -34,7 +34,6 @@ import {
   Zap,
 } from "lucide-react-native";
 import { Screen } from "@/components/Screen";
-import { useAppContext } from "@/contexts/AppContext";
 import { useThemeColor } from "@/contexts/ThemeContext";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import {
@@ -146,7 +145,6 @@ export default function Hosts() {
   const muted = color("muted-foreground");
   const router = useRouter();
   const confirm = useConfirm();
-  const { openAuthFlow } = useAppContext();
   const { navigateToSessions } = useTerminalSessions();
   const openHost = useOpenHost();
   const hostFilters = useHostFilters();
@@ -602,13 +600,6 @@ export default function Hosts() {
               {importLink.label}
             </Button>
           ) : null}
-          <Button
-            size="sm"
-            variant="ghost"
-            onPress={() => openAuthFlow("server")}
-          >
-            {tr("hosts.linkAServer")}
-          </Button>
         </View>
       }
     />

@@ -179,5 +179,5 @@ test("no hosts guides to the first one", async () => {
   await render(<Hosts />);
   expect(screen.getByText("No hosts yet")).toBeTruthy();
   expect(screen.getAllByText("Add host").length).toBeGreaterThan(0);
-  expect(screen.getByText("Link a server")).toBeTruthy();
+  expect(screen.queryByText("Link a server")).toBeNull();
 });

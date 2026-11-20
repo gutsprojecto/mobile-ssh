@@ -283,8 +283,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
           hasLocalData,
           appLockOn: lockFlag === "true",
         };
-        if (shouldWelcome(state)) setWelcomeVisible(true);
-        else if (alreadySetUp(state)) void markOnboardingDone();
+        // ShellPad opens straight on Home: there is no server to pick first.
+        if (shouldWelcome(state) || alreadySetUp(state)) {
+          void markOnboardingDone();
+        }
       } catch {
         setAuthenticatedState(false);
       } finally {

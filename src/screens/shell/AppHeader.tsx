@@ -1,20 +1,8 @@
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 import { router } from "expo-router";
-import {
-  Bell,
-  ChevronDown,
-  Search,
-  Server,
-  Smartphone,
-} from "lucide-react-native";
-import { useAppContext } from "@/contexts/AppContext";
+import { Bell, Search, SquareTerminal } from "lucide-react-native";
 import { useThemeColor } from "@/contexts/ThemeContext";
-import {
-  accountLabel,
-  useActiveAccount,
-  useActiveClient,
-  type Account,
-} from "@/core/accounts";
+import { useActiveClient, type Account } from "@/core/accounts";
 import { useUnreadAlerts } from "@/screens/notifications/unread";
 import { palette } from "@/screens/palette/store";
 import { Button, Text } from "@/ui";
@@ -42,39 +30,23 @@ export function accountLine(account: Account): string {
     .join(" | ");
 }
 
-/** The account switcher on the left of a screen header. */
+/**
+ * The app name on the left of a screen header. ShellPad keeps everything on
+ * this device, so there is no account to switch.
+ */
 export function AccountButton() {
   const color = useThemeColor();
-  const account = useActiveAccount();
-  const { openAccountSwitcher } = useAppContext();
-  const Icon = account.kind === "local" ? Smartphone : Server;
   return (
-    <Pressable
-      onPress={openAccountSwitcher}
-      accessibilityRole="button"
-      accessibilityLabel={t("shell.appHeader.accountSwitch", {
-        account: accountLabel(account),
-      })}
-      className="flex-row items-center gap-2 active:opacity-70"
-      hitSlop={6}
-    >
-      <Icon size={18} color={color("accent-brand")} />
-      <View className="min-w-0 shrink">
-        <View className="flex-row items-center gap-1">
-          <Text
-            weight="bold"
-            className="shrink text-title text-foreground"
-            numberOfLines={1}
-          >
-            {accountLabel(account)}
-          </Text>
-          <ChevronDown size={16} color={color("muted-foreground")} />
-        </View>
-        <Text className="text-meta text-muted-foreground" numberOfLines={1}>
-          {accountLine(account)}
-        </Text>
-      </View>
-    </Pressable>
+    <View className="flex-row items-center gap-2" accessibilityRole="header">
+      <SquareTerminal size={20} color={color("accent-brand")} />
+      <Text
+        weight="bold"
+        className="shrink text-title text-foreground"
+        numberOfLines={1}
+      >
+        ShellPad
+      </Text>
+    </View>
   );
 }
 

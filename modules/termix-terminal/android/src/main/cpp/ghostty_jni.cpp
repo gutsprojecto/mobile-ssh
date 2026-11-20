@@ -785,6 +785,35 @@ Java_expo_modules_termixterminal_GhosttyVt_nativeSetSelection(
   return installSelection(session, &selection) ? JNI_TRUE : JNI_FALSE;
 }
 
+// A selection between two screen cells (rows counted from the top of the
+// scrollback), so a mouse drag can grow it past what is on screen.
+JNIEXPORT jboolean JNICALL
+Java_expo_modules_termixterminal_GhosttyVt_nativeSetScreenSelection(
+    JNIEnv*, jobject, jlong handle, jint anchorCol, jint anchorRow, jint col, jint row) {
+  auto* session = fromHandle(handle);
+  if (session == nullptr || anchorRow < 0 || row < 0 || anchorCol < 0 || col < 0) {
+    return JNI_FALSE;
+  }
+  GhosttyPoint a{};
+  a.tag = GHOSTTY_POINT_TAG_SCREEN;
+  a.value.coordinate.x = static_cast<uint16_t>(anchorCol);
+  a.value.coordinate.y = static_cast<uint32_t>(anchorRow);
+  GhosttyPoint b{};
+  b.tag = GHOSTTY_POINT_TAG_SCREEN;
+  b.value.coordinate.x = static_cast<uint16_t>(col);
+  b.value.coordinate.y = static_cast<uint32_t>(row);
+  GhosttySelection selection{};
+  selection.size = sizeof(selection);
+  selection.start.size = sizeof(selection.start);
+  selection.end.size = sizeof(selection.end);
+  if (ghostty_terminal_grid_ref(session->term, a, &selection.start) != GHOSTTY_SUCCESS ||
+      ghostty_terminal_grid_ref(session->term, b, &selection.end) != GHOSTTY_SUCCESS) {
+    return JNI_FALSE;
+  }
+  selection.rectangle = false;
+  return installSelection(session, &selection) ? JNI_TRUE : JNI_FALSE;
+}
+
 JNIEXPORT void JNICALL
 Java_expo_modules_termixterminal_GhosttyVt_nativeClearSelection(JNIEnv*, jobject, jlong handle) {
   auto* session = fromHandle(handle);

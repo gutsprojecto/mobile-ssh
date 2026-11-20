@@ -1,16 +1,7 @@
 import { useMemo } from "react";
 import { useRouter } from "expo-router";
 import * as Clipboard from "expo-clipboard";
-import {
-  FileText,
-  Link,
-  Plus,
-  Server,
-  Settings,
-  Users,
-  Zap,
-} from "lucide-react-native";
-import { useAppContext } from "@/contexts/AppContext";
+import { FileText, Plus, Server, Settings, Zap } from "lucide-react-native";
 import { useTerminalSessions } from "@/contexts/TerminalSessionsContext";
 import { useActiveAccount } from "@/core/accounts";
 import { useLiveList, useRepositories } from "@/core/data/hooks";
@@ -52,7 +43,6 @@ export function usePaletteItems({
   const router = useRouter();
   const account = useActiveAccount();
   const repos = useRepositories();
-  const { openAccountSwitcher, openAuthFlow } = useAppContext();
   const { sessions, activeSessionId, navigateToSessions } =
     useTerminalSessions();
   const openHost = useOpenHost();
@@ -153,28 +143,6 @@ export function usePaletteItems({
         },
       });
     }
-    items.push(
-      {
-        id: "action:switch-account",
-        section: "actions",
-        label: t("palette.usePaletteItems.switchAccount"),
-        icon: Users,
-        run: () => {
-          close();
-          openAccountSwitcher();
-        },
-      },
-      {
-        id: "action:link-server",
-        section: "actions",
-        label: t("palette.usePaletteItems.linkAServer"),
-        icon: Link,
-        run: () => {
-          close();
-          openAuthFlow("server");
-        },
-      },
-    );
     for (const tool of tools) {
       items.push({
         id: `tool:${tool.id}`,
@@ -228,15 +196,12 @@ export function usePaletteItems({
     }
     return items;
   }, [
-    account.kind,
     activeSessionId,
     canQuickConnect,
     close,
     hosts.data,
     settingsGroups,
     navigateToSessions,
-    openAccountSwitcher,
-    openAuthFlow,
     openHost,
     pickHost,
     quick,

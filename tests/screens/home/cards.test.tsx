@@ -198,7 +198,7 @@ test("no hosts at all guides to the first one", async () => {
   expect(screen.getByText("Add your first host")).toBeTruthy();
   await fireEvent.press(screen.getByText("Add host"));
   expect(mockOpenTab).toHaveBeenCalledWith("/(tabs)/hosts?action=new");
-  expect(screen.getByText("Link a server")).toBeTruthy();
+  expect(screen.queryByText("Link a server")).toBeNull();
 });
 
 test("each pinned host shows its cards, and a card opens its tab", async () => {
