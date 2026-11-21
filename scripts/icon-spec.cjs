@@ -3,7 +3,7 @@
 const BRAND = {
   tile: "#141513",
   // The launcher icon's own light tile, like current Google app icons.
-  iconTile: "#fbf8f3",
+  iconTile: "#ffffff",
   white: "#ffffff",
   accent: "#f59145",
   // Ends of the accent gradient in the full color icons.
@@ -13,8 +13,9 @@ const BRAND = {
   tintedAccent: "#a6a6a6",
 };
 
-// Visual bounds of the glyph inside assets/brand/logo.svg (1024 units).
-const GLYPH = { x0: 252, y0: 218, x1: 768, y1: 802 };
+// How big the symbol sits inside the safe circle on the white tile: smaller
+// than the circle, like Google Play or Proton Pass.
+const TILE_SYMBOL = 0.7;
 
 // Android adaptive icons: 108dp layers, content kept in the center 66dp.
 // We keep the glyph inside a circle of that diameter so round masks never
@@ -45,7 +46,7 @@ const OUT = {
 
 module.exports = {
   BRAND,
-  GLYPH,
+  TILE_SYMBOL,
   SAFE_CIRCLE,
   SAFE_MARGIN,
   NOTIFICATION_DENSITIES,

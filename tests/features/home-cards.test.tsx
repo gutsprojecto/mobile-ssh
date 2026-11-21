@@ -1,12 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
-import { ApprovalsCard } from "@/features/operations/ApprovalsCard";
 import { homeSnippets, SnippetsCard } from "@/features/snippets/SnippetsCard";
 import { hasTunnels, TunnelsCard } from "@/features/tunnels/TunnelsCard";
 import { WakeCard, wakeTargets } from "@/features/wake-on-lan/WakeCard";
 import { HomeDataContext } from "@/screens/home/HomeData";
 
-const mockDecide = jest.fn(async () => ({ runId: "r", status: "done" }));
-const mockList = jest.fn();
 const mockSendWake = jest.fn(async () => true);
 const mockNavigate = jest.fn();
 let mockSnippets: any[] = [];
@@ -36,11 +33,6 @@ jest.mock("@/core/exec", () => ({
 jest.mock("@/core/accounts", () => ({ useClient: () => mockClient }));
 jest.mock("@/utils/toast", () => ({
   toast: { success: jest.fn(), error: jest.fn() },
-}));
-jest.mock("@/features/operations/api", () => ({
-  listApprovals: (...a: any[]) => mockList(...a),
-  decide: (...a: any[]) => mockDecide(...(a as [])),
-  errorText: (_e: unknown, f: string) => f,
 }));
 jest.mock("@/features/wake-on-lan/wake", () => ({
   sendWake: (...a: any[]) => mockSendWake(...(a as [])),
@@ -97,26 +89,6 @@ const withData = (node: React.ReactNode) => (
 beforeEach(() => {
   jest.clearAllMocks();
   mockSnippets = [];
-});
-
-test("approvals are answered right from Home", async () => {
-  mockList.mockResolvedValue([
-    {
-      id: "ap1",
-      reason: "change window",
-      run: { actionId: "docker.restart", hostName: "web", username: "sam" },
-    },
-  ]);
-  await render(<ApprovalsCard {...props} />);
-  expect(await screen.findByText("docker.restart")).toBeTruthy();
-  await fireEvent.press(screen.getByText("Approve"));
-  expect(mockDecide).toHaveBeenCalledWith(mockClient, "ap1", true);
-});
-
-test("no approvals means no card", async () => {
-  mockList.mockResolvedValue([]);
-  await render(<ApprovalsCard {...props} />);
-  expect(screen.queryByText("Waiting for approval")).toBeNull();
 });
 
 test("snippets skip notes, follow the user's order and run in a sheet", async () => {

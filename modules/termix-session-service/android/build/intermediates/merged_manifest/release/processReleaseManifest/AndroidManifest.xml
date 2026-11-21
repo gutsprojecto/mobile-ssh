@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="expo.modules.termixsessionservice" >
+
+    <uses-sdk android:minSdkVersion="24" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application>
+
+        <!--
+      Keeps open sessions alive while the app is in the background, with a
+      notification that lists them. Merged into the app manifest like the
+      widget receivers.
+        -->
+        <service
+            android:name="expo.modules.termixsessionservice.SessionService"
+            android:exported="false"
+            android:foregroundServiceType="remoteMessaging" />
+    </application>
+
+</manifest>

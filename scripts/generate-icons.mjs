@@ -1,5 +1,9 @@
 // Builds every app icon, splash and notification image from assets/brand/logo.svg.
 // Run with: npm run icons
+//
+// logo.svg holds the full color symbol (with its own gradients) centered at
+// 512,512 in 1024 units. One color variants paint every shape in a single
+// color and drop the shading paths marked data-shade.
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
@@ -8,52 +12,31 @@ import { Resvg } from "@resvg/resvg-js";
 
 const require = createRequire(import.meta.url);
 const spec = require("./icon-spec.cjs");
-const { BRAND, GLYPH, OUT } = spec;
+const { BRAND, OUT } = spec;
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const logo = fs.readFileSync(path.join(root, "assets/brand/logo.svg"), "utf8");
-const glyphMarkup = logo
+const symbol = logo
   .replace(/^[\s\S]*?<svg[^>]*>/, "")
-  .replace(/<\/svg>\s*$/, "");
+  .replace(/<\/svg>\s*$/, "")
+  .replace(/<!--[\s\S]*?-->/g, "");
 
-const GLYPH_CX = (GLYPH.x0 + GLYPH.x1) / 2;
-const GLYPH_CY = (GLYPH.y0 + GLYPH.y1) / 2;
+/** The symbol in one color, without its shading. */
+function flat(color) {
+  return symbol
+    .replace(/<defs>[\s\S]*?<\/defs>/, "")
+    .replace(/<path data-shade[^>]*\/>/g, "")
+    .replace(/fill="[^"]*"/g, `fill="${color}"`);
+}
 
-// The accent as a warm gradient and a soft glow on the tile, for the full
-// color icons. Single color variants (themed, notification) stay flat.
-const DEFS =
-  `<defs>` +
-  // In glyph units, so a flat stroke like the cursor still gets painted.
-  `<linearGradient id="accent" gradientUnits="userSpaceOnUse" x1="260" y1="220" x2="800" y2="800">` +
-  `<stop offset="0" stop-color="${BRAND.accentLight}"/><stop offset="1" stop-color="${BRAND.accentDeep}"/>` +
-  `</linearGradient>` +
-  `<radialGradient id="glow" cx="0.8" cy="0.16" r="0.55">` +
-  `<stop offset="0" stop-color="${BRAND.accent}" stop-opacity="0.2"/><stop offset="1" stop-color="${BRAND.accent}" stop-opacity="0"/>` +
-  `</radialGradient>` +
-  `</defs>`;
-
-function svg(
-  size,
-  { bg, glow = false, scale = 1, white, accent, place = "center" },
-) {
-  const paint = (attr, from, to) => (m) =>
-    m.replaceAll(`${attr}="${from}"`, `${attr}="${to}"`);
-  let body = glyphMarkup;
-  for (const attr of ["fill", "stroke"]) {
-    body = paint(attr, BRAND.white, white)(body);
-    body = paint(attr, BRAND.accent, accent)(body);
-  }
-  // "logo" keeps the exact layout of the web and desktop icon.
-  const transform =
-    place === "logo"
-      ? `scale(${size / 1024})`
-      : `translate(${size / 2} ${size / 2}) scale(${scale}) translate(${-GLYPH_CX} ${-GLYPH_CY})`;
+/** The symbol at `scale` of its 1024 frame, centered in a `size` square. */
+function svg(size, { bg, scale, color }) {
+  const body = color ? flat(color) : symbol;
+  const s = (size / 1024) * scale;
   return (
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +
-    DEFS +
     (bg ? `<rect width="${size}" height="${size}" fill="${bg}"/>` : "") +
-    (glow ? `<rect width="${size}" height="${size}" fill="url(#glow)"/>` : "") +
-    `<g transform="${transform}">${body}</g></svg>`
+    `<g transform="translate(${size / 2} ${size / 2}) scale(${s}) translate(-512 -512)">${body}</g></svg>`
   );
 }
 
@@ -68,12 +51,10 @@ function write(rel, markup) {
   console.log("wrote", rel);
 }
 
-// Farthest painted pixel from the center, for a glyph drawn at scale 1.
-function glyphRadius(size) {
-  const img = render(
-    svg(size, { white: BRAND.white, accent: BRAND.accent, scale: size / 1024 }),
-  );
-  const { pixels, width, height } = img;
+/** Farthest painted pixel from the center at scale 1, in 1024 units. */
+function symbolRadius() {
+  const size = 1024;
+  const { pixels, width, height } = render(svg(size, { scale: 1 }));
   const c = size / 2;
   let max = 0;
   for (let y = 0; y < height; y++) {
@@ -84,80 +65,42 @@ function glyphRadius(size) {
       max = Math.max(max, Math.hypot(dx, dy));
     }
   }
-  return max / (size / 1024);
+  return max;
 }
 
 const SIZE = 1024;
-const safeRadius = ((spec.SAFE_CIRCLE * SIZE) / 2) * spec.SAFE_MARGIN;
-const safeScale = safeRadius / glyphRadius(SIZE);
+const radius = symbolRadius();
+// Adaptive icons: keep the symbol inside the 66dp safe circle.
+const safeScale = (((spec.SAFE_CIRCLE * SIZE) / 2) * spec.SAFE_MARGIN) / radius;
+// The adaptive icon's symbol: smaller than the safe circle, like Google Play
+// or Proton Pass.
+const symbolScale = safeScale * spec.TILE_SYMBOL;
+// Square icons (iOS, web) show the whole tile, the launcher only the middle
+// 72 of 108dp: scale up so both look the same.
+const tileScale = symbolScale * (108 / 72);
 
-// iOS light and the default icon: same as the web and desktop icon.
-write(
-  OUT.icon,
-  svg(SIZE, {
-    bg: BRAND.iconTile,
-    white: BRAND.white,
-    accent: "url(#accent)",
-    place: "logo",
-  }),
-);
+write(OUT.icon, svg(SIZE, { bg: BRAND.iconTile, scale: tileScale }));
 // iOS dark: transparent so the system dark background shows through.
-write(
-  OUT.iosDark,
-  svg(SIZE, { white: BRAND.white, accent: "url(#accent)", place: "logo" }),
-);
+write(OUT.iosDark, svg(SIZE, { scale: tileScale }));
 // iOS tinted: grayscale, the system adds the tint.
 write(
   OUT.iosTinted,
-  svg(SIZE, {
-    bg: "#000000",
-    white: BRAND.white,
-    accent: BRAND.tintedAccent,
-    place: "logo",
-  }),
+  svg(SIZE, { bg: "#000000", scale: tileScale, color: BRAND.tintedAccent }),
 );
 
-// Android adaptive foreground and themed icon, inside the safe circle.
-write(
-  OUT.adaptive,
-  svg(SIZE, {
-    white: BRAND.white,
-    accent: "url(#accent)",
-    scale: safeScale,
-  }),
-);
-// Its background: the tile with the same glow as the full icon.
-write(
-  OUT.adaptiveBackground,
-  svg(SIZE, {
-    bg: BRAND.iconTile,
-    white: "none",
-    accent: "none",
-    scale: 0,
-  }),
-);
-write(
-  OUT.monochrome,
-  svg(SIZE, { white: BRAND.white, accent: BRAND.white, scale: safeScale }),
-);
+// Android adaptive foreground and background, and the themed icon.
+write(OUT.adaptive, svg(SIZE, { scale: symbolScale }));
+write(OUT.adaptiveBackground, svg(SIZE, { bg: BRAND.iconTile, scale: 0 }));
+write(OUT.monochrome, svg(SIZE, { scale: symbolScale, color: "#ffffff" }));
 
 // Android 12+ masks the splash icon to the same center circle.
-write(
-  OUT.splash,
-  svg(SIZE, {
-    white: BRAND.white,
-    accent: "url(#accent)",
-    scale: safeScale,
-  }),
-);
+write(OUT.splash, svg(SIZE, { scale: safeScale }));
 
-// Status bar icon, white on transparent.
+// Status bar icon, white on transparent, filling the center 20dp.
 for (const [density, px] of Object.entries(spec.NOTIFICATION_DENSITIES)) {
-  const scale =
-    (px * spec.NOTIFICATION_FILL) /
-    Math.max(GLYPH.x1 - GLYPH.x0, GLYPH.y1 - GLYPH.y0);
+  const scale = (spec.NOTIFICATION_FILL * 512) / radius;
   write(
     `${OUT.notificationDir}/notification-icon-${density}.png`,
-    svg(px, { white: "#ffffff", accent: "#ffffff", scale }),
+    svg(px, { scale, color: "#ffffff" }),
   );
 }

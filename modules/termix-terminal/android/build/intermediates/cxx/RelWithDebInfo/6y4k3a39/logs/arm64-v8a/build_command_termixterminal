@@ -1,0 +1,4 @@
+/home/guts/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/arm64-v8a \
+  termixterminal

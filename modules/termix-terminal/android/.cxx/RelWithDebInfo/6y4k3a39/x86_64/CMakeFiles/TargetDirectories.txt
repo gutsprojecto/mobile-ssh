@@ -1,0 +1,3 @@
+/home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/x86_64/CMakeFiles/termixterminal.dir
+/home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/x86_64/CMakeFiles/edit_cache.dir
+/home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/x86_64/CMakeFiles/rebuild_cache.dir

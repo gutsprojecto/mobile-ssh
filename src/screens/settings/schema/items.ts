@@ -7,8 +7,6 @@ import {
   Key,
   Keyboard,
   Lock,
-  Monitor,
-  RefreshCw,
   SquareTerminal,
   Timer,
 } from "lucide-react-native";
@@ -49,17 +47,6 @@ import { t } from "@/i18n";
 export const SETTINGS_ITEMS: SettingsItemDef[] = [
   // Accounts and sync
   {
-    id: "sync",
-    section: "accounts",
-    label: t("settings.schema.items.syncAndProxy"),
-    description: t("settings.schema.items.whatSyncsConflictsProxyAnd"),
-    keywords: ["sync now", "offline", "proxy", "certificate", "conflict"],
-    order: 20,
-    icon: RefreshCw,
-    href: "/tabs/settings/Sync",
-    when: (e) => e.hasServer,
-  },
-  {
     id: "server-session",
     section: "accounts",
     label: t("settings.schema.items.serverAccount"),
@@ -69,28 +56,6 @@ export const SETTINGS_ITEMS: SettingsItemDef[] = [
     icon: Key,
     Control: ServerSessionControl,
     when: (e) => e.hasServer,
-  },
-  {
-    id: "active-sessions",
-    section: "accounts",
-    label: t("settings.schema.items.activeSessions"),
-    description: t("settings.schema.items.devicesSignedInToThe"),
-    keywords: ["admin", "devices", "revoke"],
-    order: 40,
-    icon: Monitor,
-    href: "/tabs/settings/ActiveSessions",
-    when: (e) => e.signedIn && e.isAdmin,
-  },
-  {
-    id: "api-keys",
-    section: "accounts",
-    label: t("settings.schema.items.apiKeys"),
-    description: t("settings.schema.items.keysForScriptsAndTools"),
-    keywords: ["admin", "token"],
-    order: 50,
-    icon: Key,
-    href: "/tabs/settings/ApiKeys",
-    when: (e) => e.signedIn && e.isAdmin,
   },
   {
     id: "change-password",
@@ -264,17 +229,6 @@ export const SETTINGS_ITEMS: SettingsItemDef[] = [
     icon: Bell,
     Control: PushNotificationsControl,
   },
-  {
-    id: "server-alerts",
-    section: "notifications",
-    label: t("settings.schema.items.serverAlerts"),
-    description: t("settings.schema.items.alertsFromTheAlertsPlugin"),
-    keywords: ["alerts", "push", "channels"],
-    order: 20,
-    icon: Bell,
-    href: "/tabs/plugins/alerts",
-    when: (e) => e.plugins.includes("alerts"),
-  },
 
   // Privacy
   {
@@ -296,17 +250,6 @@ export const SETTINGS_ITEMS: SettingsItemDef[] = [
     order: 20,
     icon: Lock,
     Control: ClearRecentControl,
-  },
-  {
-    id: "usage-statistics",
-    section: "privacy",
-    label: t("settings.schema.items.serverUsageStatistics"),
-    description: t("settings.schema.items.telemetrySettingsOnYourServer"),
-    keywords: ["telemetry", "analytics", "stats"],
-    order: 30,
-    icon: Database,
-    href: "/tabs/plugins/telemetry",
-    when: (e) => e.plugins.includes("telemetry"),
   },
 
   // Plugins

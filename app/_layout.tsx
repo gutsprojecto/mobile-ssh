@@ -22,8 +22,6 @@ import {
 } from "@/contexts/ThemeContext";
 import { AppLockProvider, useAppLock } from "@/contexts/AppLockContext";
 import { LockScreen } from "@/components/LockScreen";
-import LinkFlow from "@/screens/link/LinkFlow";
-import Welcome from "@/screens/onboarding/Welcome";
 import {
   View,
   Text,
@@ -43,7 +41,6 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { FONT_MAP, MONO_FONT, MONO_FONT_BOLD } from "@/constants/fonts";
 import "../global.css";
-import UpdateRequired from "@/screens/authentication/UpdateRequired";
 import {
   WidgetDeepLinkHost,
   usePowerWidgetSync,
@@ -52,10 +49,6 @@ import {
 import { loadHostListPrefs } from "@/core/host-list-prefs";
 import { loadUiPrefs } from "@/core/ui-prefs";
 import { registerBuiltInFeatures } from "@/features";
-import { usePluginFrameFeatures } from "@/features/plugin-webview/register";
-import { AccountSwitcher } from "@/screens/accounts/AccountSwitcher";
-import { ProxyGateHost } from "@/screens/accounts/ProxyGateHost";
-import { OpenLinkHost } from "@/screens/links/OpenLinkHost";
 import { ShortcutSheet } from "@/screens/shortcuts/ShortcutSheet";
 import { useAppShortcuts } from "@/core/shortcuts/useAppShortcuts";
 import { CommandPalette } from "@/screens/palette/CommandPalette";
@@ -78,14 +71,7 @@ SplashScreen.preventAutoHideAsync().catch(() => {});
 const SPLASH_MAX_MS = 3000;
 
 function RootLayoutContent() {
-  const {
-    authFlowVisible,
-    welcomeVisible,
-    finishWelcome,
-    showUpdateScreen,
-    isLoading,
-    setIsLoading,
-  } = useAppContext();
+  const { isLoading, setIsLoading } = useAppContext();
   const accent = useThemeColor()("accent-brand");
   const ui = useUiColors();
   const { isDark } = useTheme();
@@ -108,8 +94,7 @@ function RootLayoutContent() {
   const lock = useAppLock();
   const still = useReduceMotion();
   // While a full screen layer is up, screen readers must not reach what is under it.
-  const covered = welcomeVisible || authFlowVisible || lock.covered;
-  usePluginFrameFeatures();
+  const covered = lock.covered;
   useAppShortcuts();
   useWidgetSync();
   usePowerWidgetSync();
@@ -146,11 +131,6 @@ function RootLayoutContent() {
     );
   }
 
-  if (showUpdateScreen) return <UpdateRequired />;
-
-  // The tab shell always renders once loaded. When the user isn't connected,
-  // the tabs themselves show a "no server connected" empty state. The auth flow
-  // is layered on top as a dismissible full-screen overlay.
   return (
     <View className="flex-1 bg-background">
       <View
@@ -175,29 +155,10 @@ function RootLayoutContent() {
           sheet. Mounted here so it is active for the whole session, including
           cold starts from a widget. */}
       <WidgetDeepLinkHost />
-      <OpenLinkHost />
       {SHOWCASE ? <ShowcaseHost /> : null}
       <CommandPalette />
       <ShortcutSheet />
-      <AccountSwitcher />
-      <ProxyGateHost />
       <AppLockGate />
-      {welcomeVisible ? (
-        <View
-          className="absolute inset-0 bg-background"
-          accessibilityViewIsModal
-        >
-          <Welcome onDone={finishWelcome} />
-        </View>
-      ) : null}
-      {authFlowVisible ? (
-        <View
-          className="absolute inset-0 bg-background"
-          accessibilityViewIsModal
-        >
-          <LinkFlow />
-        </View>
-      ) : null}
     </View>
   );
 }

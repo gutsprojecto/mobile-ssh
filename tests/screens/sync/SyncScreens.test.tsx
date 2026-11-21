@@ -2,8 +2,6 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { accounts } from "@/core/accounts";
 import { localStores } from "@/core/db/stores";
 import { SyncBanner } from "@/screens/hosts/SyncBanner";
-import SyncSettings from "@/screens/settings/Sync";
-import { ConfirmProvider } from "@/ui";
 import { resetStorage } from "../../helpers/http";
 import { testDriver } from "../../helpers/db";
 
@@ -62,32 +60,4 @@ test("the banner stays away when sync is fine or only offline", async () => {
   await linkedAccount({ status: "offline", lastError: "offline" });
   await render(<SyncBanner />);
   expect(screen.queryByText("Offline")).toBeNull();
-});
-
-test("the sync screen lists what syncs and offers unlink with keep", async () => {
-  await linkedAccount({ lastSyncAt: new Date().toISOString() });
-  await render(
-    <ConfirmProvider>
-      <SyncSettings />
-    </ConfirmProvider>,
-  );
-  expect(screen.getByText("What syncs")).toBeTruthy();
-  expect(screen.getByText("Hosts and folders")).toBeTruthy();
-  expect(screen.getByText("Snippets")).toBeTruthy();
-  expect(screen.getByText("Headers")).toBeTruthy();
-  await fireEvent.press(screen.getByText("Unlink this server"));
-  expect(await screen.findByText("Keep a copy on This device")).toBeTruthy();
-});
-
-test("a server that can't sync says how to turn it on", async () => {
-  await linkedAccount({ options: { sync: false } });
-  await render(
-    <ConfirmProvider>
-      <SyncSettings />
-    </ConfirmProvider>,
-  );
-  expect(
-    screen.getByText("This server reads live and keeps no copy on the phone."),
-  ).toBeTruthy();
-  expect(screen.queryByText("What syncs")).toBeNull();
 });

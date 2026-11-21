@@ -17,8 +17,7 @@ const legacyServer = {
 
 test("built in features register without clashes", () => {
   const r = registry();
-  // Plus the plugin host fields feature, which needs the registry.
-  expect(r.all()).toHaveLength(BUILT_IN_FEATURES.length + 1);
+  expect(r.all()).toHaveLength(BUILT_IN_FEATURES.length);
   const ids = BUILT_IN_FEATURES.map((f) => f.id);
   expect(new Set(ids).size).toBe(ids.length);
 });
@@ -184,7 +183,7 @@ test("files work over SFTP or the server, and sit beside terminals", () => {
   );
 });
 
-test("terminal tabs get find, tmux, key rows, and a share link through the server", () => {
+test("terminal tabs get find, tmux, the connection log and key rows", () => {
   const r = registry();
   const server = {
     account: { id: "s", kind: "server" } as any,
@@ -203,7 +202,6 @@ test("terminal tabs get find, tmux, key rows, and a share link through the serve
     "terminal.tmuxWindows",
     "terminal.connectionLog",
     "terminal.keyRows",
-    "session-sharing.link",
   ]);
   expect(
     r

@@ -1,0 +1,7 @@
+expo.modules.hardwarekeyboard.hardware-keyboard-pngs-0 /home/guts/mobile-ssh/modules/hardware-keyboard/android/build/generated/res/pngs/release
+expo.modules.hardwarekeyboard.hardware-keyboard-resValues-1 /home/guts/mobile-ssh/modules/hardware-keyboard/android/build/generated/res/resValues/release
+expo.modules.hardwarekeyboard.hardware-keyboard-mergeReleaseResources-2 /home/guts/mobile-ssh/modules/hardware-keyboard/android/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+expo.modules.hardwarekeyboard.hardware-keyboard-mergeReleaseResources-3 /home/guts/mobile-ssh/modules/hardware-keyboard/android/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+expo.modules.hardwarekeyboard.hardware-keyboard-release-4 /home/guts/mobile-ssh/modules/hardware-keyboard/android/build/intermediates/merged_res/release/mergeReleaseResources
+expo.modules.hardwarekeyboard.hardware-keyboard-main-5 /home/guts/mobile-ssh/modules/hardware-keyboard/android/src/main/res
+expo.modules.hardwarekeyboard.hardware-keyboard-release-6 /home/guts/mobile-ssh/modules/hardware-keyboard/android/src/release/res

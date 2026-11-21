@@ -1,6 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <g transform="translate(-56 0)">
-    <path d="M652 352C612 290 520 268 446 292C372 316 340 384 372 438C404 492 488 500 560 524C638 550 686 600 664 670C640 744 548 772 468 752C414 738 380 708 360 672" fill="none" stroke="#f59145" stroke-width="104" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M724 768H792" fill="none" stroke="#f59145" stroke-width="64" stroke-linecap="round"/>
+  <!-- ShellPad: a folded prompt ">" with a cursor, centered at 512,512.
+       Paths with data-shade are shading only and are dropped in one color icons. -->
+  <defs>
+    <linearGradient id="sp-top" gradientUnits="userSpaceOnUse" x1="330" y1="250" x2="660" y2="540">
+      <stop offset="0" stop-color="#ffc06b"/>
+      <stop offset="1" stop-color="#ff8a2b"/>
+    </linearGradient>
+    <linearGradient id="sp-bottom" gradientUnits="userSpaceOnUse" x1="360" y1="480" x2="640" y2="780">
+      <stop offset="0" stop-color="#ff7a2f"/>
+      <stop offset="1" stop-color="#f0436b"/>
+    </linearGradient>
+    <linearGradient id="sp-cursor" gradientUnits="userSpaceOnUse" x1="590" y1="0" x2="740" y2="0">
+      <stop offset="0" stop-color="#ff9a3c"/>
+      <stop offset="1" stop-color="#ef5a4c"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(512 512) scale(0.92) translate(-512 -512)">
+    <path d="M352 312Q330 290 352 268L360 262Q384 246 408 262L640 470Q672 512 640 554Z" fill="url(#sp-top)"/>
+    <path d="M352 312L640 554L408 762Q384 778 360 762L352 756Q330 734 352 712L560 512Z" fill="url(#sp-bottom)"/>
+    <path data-shade="1" d="M560 512L640 470Q672 512 640 554Z" fill="#c2410c" opacity="0.35"/>
+    <rect x="600" y="702" width="150" height="62" rx="31" fill="url(#sp-cursor)"/>
   </g>
 </svg>

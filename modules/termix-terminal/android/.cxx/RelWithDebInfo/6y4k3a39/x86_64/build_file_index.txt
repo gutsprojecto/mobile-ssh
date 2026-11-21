@@ -1,0 +1,1 @@
+/home/guts/mobile-ssh/modules/termix-terminal/android/CMakeLists.txt

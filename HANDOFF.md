@@ -56,6 +56,15 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - Icon: helles Feld (`BRAND.iconTile` #fbf8f3) mit orangem Verlauf-„S_“, wie aktuelle Google-App-Icons; Startbild bleibt dunkel.
 - Offen/analysiert: türkiser Android-Griff oben links → siehe „Offene Punkte“.
 
+### Vierte Runde (2026-11-21)
+
+- **Nur noch arm64**: `plugins/withArm64Only.js` setzt `reactNativeArchitectures=arm64-v8a`, das Ghostty-Modul baut nur noch die angefragten ABIs. APK ca. 145 → ~95 MB. Emulator-APK: `./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86_64`.
+- **Termix-Server-Oberfläche gelöscht** (war seit Runde 1 schon unsichtbar): Features Sitzungen teilen, Homepage, Aktionen/Freigaben, Plugin-Webview (+ 0,75-MB-Plugin-Host), Plugin-Hostfelder; Screens Server verknüpfen, Konten-Umschalter, Proxy-Anmeldung, Plugins, „Update nötig“, Willkommen, `shellpad://open`-Server-Links, OIDC-Callback; Einstellungen Sync, Aktive Sitzungen, API-Schlüssel, Freigaben, Ausführungsverlauf, Server-Aktionen, Plugins, Server-Alarme, Server-Statistik.
+  **Bewusst geblieben**: `src/core/api`, `core/accounts`, `core/sync`, `core/plugins` (Host-Daten, Konto „Dieses Gerät“ und Feature-Registry hängen daran), Tailscale-Feature (in Hostliste/Editor verdrahtet), Remote-Desktop.
+- **Hostliste in der Session ein/aus weich**: gleitet als Ebene über die Bühne (220 ms), erst danach gibt die Bühne Platz ab; beim Schließen bekommt die Bühne den Platz sofort zurück, die Liste gleitet darüber hinaus. Das Terminal ändert die Breite also nur einmal, kurzes Abblenden kaschiert das Umbrechen des Textes (`Sessions.tsx`, `paneSettled`/`paneSlide`/`stageFade`).
+- **Bug „Session-Tab hängt ausgewählt, reagiert erst nach Fingertipp“** (auch im Original): Halten startet nach 250 ms das Verschieben; wurde die Geste abgebrochen statt beendet, blieben `justDropped`/`dragging` gesetzt und jeder Klick wurde ignoriert. Jetzt Aufräumen in `onFinalize`, und ein langsamer Klick ohne Bewegung zählt als Klick (`TabStrip.tsx`).
+- **Icon neu**: weißes Feld, kleines gefaltetes `>_` (Orange → Koralle) mittig, wie Google Play/Proton Pass. Symbol mit eigenen Verläufen in `assets/brand/logo.svg`, Größe über `TILE_SYMBOL` in `scripts/icon-spec.cjs`; `npm run icons`. Vorlage: Screenshot in `~/shellpad/`.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -79,13 +88,13 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 - **Kopiert manchmal von selbst nach dem Kopieren, vielleicht wegen tmux.** Vermutete Ursache: tmux mit Mausmodus markiert beim Ziehen selbst (Copy-Mode) und schickt die Auswahl beim Loslassen per **OSC 52** ans Terminal (`set-clipboard on`/`external`). ShellPad übernimmt jede OSC-52-Nachricht sofort in die Zwischenablage und zeigt „Kopiert“ (`GhosttyTerminalView.kt`, `nativeTakeClipboard` → `setClipboard` + `onCopied`). Auf dem Server prüfen: `tmux show -g set-clipboard`, `tmux show -g mouse`, Bindings für `MouseDragEnd1Pane`. Mögliche Lösung: OSC-52-Schreiben als Einstellung (an / fragen / aus) oder nur nach eigener Mausaktion, Hinweis „von tmux kopiert“ statt still kopieren.
 - **Navigationsleiste überall wie die ausgeklappte Session-Leiste**: das schwebende Glas-Design (Pille mit Abstand, zentrierte Symbole) auch auf Home/Hosts/Tools/Einstellungen verwenden. Wirkt einheitlich und verhindert, dass die Leiste beim Wechsel zwischen normalem Screen und Session leicht springt. Dabei Breite/Position beider Zustände exakt gleich halten (`AutoHideSideBar`, `sidebarScenePadding` in `src/screens/shell/SideBar.tsx`).
-- **Icon ist noch nicht wie gewünscht** (aktuell: helles Feld, oranges Verlauf-„S_“). Vor dem nächsten Versuch genau klären, was fehlt (z. B. Farbe der Fläche, Form des Buchstabens, „SP“ statt „S“, ohne Cursor, Beispiel-App als Vorbild) und 2–3 Varianten als Vorschau zeigen, bevor gebaut wird. Quelle: `assets/brand/logo.svg` + `scripts/generate-icons.mjs`, Farben in `scripts/icon-spec.cjs`.
+- **Speicher weiter sparen (ohne Funktionsverlust)**: nur genutzte Inter/JetBrains-Gewichte importieren (Subpfade statt Paket-Index, ~3,7 MB), Terminal-Schriften auf JetBrains Mono NF reduzieren (~10 MB), nur Englisch + Deutsch bündeln (~6–7 MB). Optional: QR-Scanner/expo-camera (~6 MB), Remote-Desktop (~1 MB).
 
 ### Weitere
 
 - **Türkiser Punkt oben links (Systemgriff)**: wahrscheinlich zeichnet die Tastatur/Android ihren Cursor-Griff an Position 0,0, weil sich das Terminal als Texteingabe meldet (`onCheckIsTextEditor`), aber nie mitteilt, wo der Cursor steht (kein `requestCursorUpdates`/`CursorAnchorInfo` in `GhosttyTerminalView`). Lösung: Cursor-Position per `CursorAnchorInfo` melden bzw. Handschrift/Griffe abschalten.
 
-- **Auf dem Tablet testen**: Maus (Rad, Ziehen in tmux, Rechtsklick), Hover-Leiste, Glas-Blur über dem Terminal, Performance.
+- **Auf dem Tablet testen**: neue Hostlisten-Animation (auch mit fester Leiste neben Files), langsamer Klick auf Tabs, Maus (Rad, Ziehen in tmux, Rechtsklick), Hover-Leiste, Glas-Blur über dem Terminal, Performance.
 - Noch nicht umgesetzt aus der Ideenliste: Shift+PgUp/PgDn & Shift+Home/End für Scrollback, Shift+Insert/Ctrl+Insert, Hover/Rechtsklick auf Hosts & Tabs, Tab/Pfeil/Enter-Navigation in Listen.
 - Push (eigenes Firebase), eigener Release-Schlüssel statt Debug-Signatur.
 - Übersetzungen: neue Texte nur in Englisch + Deutsch; Termix-Übersetzungs-Workflow läuft im Fork nicht.
@@ -93,6 +102,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-21: nur arm64, Termix-Server-Oberfläche gelöscht, weiche Hostliste, Tab-Hänger behoben, weißes `>_`-Icon.
 - 2026-11-20 (spät): weiche Übergänge, Hostliste/Leiste, Sheet-Karten, helles S-Icon.
 - 2026-11-20 (abends): weißer Blitz, zentrierte/animierte Leiste, Terminal-Abstand, neues Logo.
 - 2026-11-20 (später): Tablet-Test-Fixes, Server-Oberfläche entfernt, neues Logo.

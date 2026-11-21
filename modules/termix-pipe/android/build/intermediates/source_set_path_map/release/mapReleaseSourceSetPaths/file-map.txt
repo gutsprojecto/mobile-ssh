@@ -1,0 +1,7 @@
+expo.modules.termixpipe.termix-pipe-pngs-0 /home/guts/mobile-ssh/modules/termix-pipe/android/build/generated/res/pngs/release
+expo.modules.termixpipe.termix-pipe-resValues-1 /home/guts/mobile-ssh/modules/termix-pipe/android/build/generated/res/resValues/release
+expo.modules.termixpipe.termix-pipe-mergeReleaseResources-2 /home/guts/mobile-ssh/modules/termix-pipe/android/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+expo.modules.termixpipe.termix-pipe-mergeReleaseResources-3 /home/guts/mobile-ssh/modules/termix-pipe/android/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+expo.modules.termixpipe.termix-pipe-release-4 /home/guts/mobile-ssh/modules/termix-pipe/android/build/intermediates/merged_res/release/mergeReleaseResources
+expo.modules.termixpipe.termix-pipe-main-5 /home/guts/mobile-ssh/modules/termix-pipe/android/src/main/res
+expo.modules.termixpipe.termix-pipe-release-6 /home/guts/mobile-ssh/modules/termix-pipe/android/src/release/res

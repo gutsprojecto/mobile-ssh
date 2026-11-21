@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/arm64-v8a",
+  "command": "/home/guts/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --sysroot=/home/guts/Android/sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DGHOSTTY_STATIC -Dtermixterminal_EXPORTS -I/home/guts/mobile-ssh/modules/termix-terminal/android/vendor/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -g -DNDEBUG -fPIC -Wall -fvisibility=hidden -std=gnu++17 -o CMakeFiles/termixterminal.dir/src/main/cpp/ghostty_jni.cpp.o -c /home/guts/mobile-ssh/modules/termix-terminal/android/src/main/cpp/ghostty_jni.cpp",
+  "file": "/home/guts/mobile-ssh/modules/termix-terminal/android/src/main/cpp/ghostty_jni.cpp"
+}
+]

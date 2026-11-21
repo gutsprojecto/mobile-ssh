@@ -19,6 +19,8 @@ import { statusLabel, TabStatusMark } from "./TabStatusMark";
 import { t } from "@/i18n";
 
 const GAP = 4;
+// A hold that moved less than this is a click, not a drag.
+const STILL_PX = 6;
 const HOLD_MS = 250;
 
 type Box = { x: number; width: number };
@@ -155,8 +157,9 @@ function Tab({
   const shift = useRef(new Animated.Value(0)).current;
   // A drag ends with a release; that release must not also count as a tap.
   const justDropped = useRef(false);
-  const handlers = useRef({ onDragStart, onDrop });
-  handlers.current = { onDragStart, onDrop };
+  const dragged = useRef(false);
+  const handlers = useRef({ onDragStart, onDrop, onPress });
+  handlers.current = { onDragStart, onDrop, onPress };
 
   const pan = useMemo(
     () =>
@@ -164,13 +167,25 @@ function Tab({
         .activateAfterLongPress(HOLD_MS)
         .runOnJS(true)
         .onStart(() => {
+          dragged.current = true;
           justDropped.current = true;
           handlers.current.onDragStart();
         })
         .onUpdate((e) => shift.setValue(e.translationX))
-        .onEnd((e) => {
+        // Finalize runs however the drag ends, also when it is cancelled
+        // (a mouse button released outside, another gesture taking over).
+        // Ending only in onEnd left the tab lifted and ignoring every click
+        // until a finger touched it again.
+        .onFinalize((e, success) => {
+          if (!dragged.current) return;
+          dragged.current = false;
           shift.setValue(0);
-          handlers.current.onDrop(e.translationX);
+          handlers.current.onDrop(success ? e.translationX : 0);
+          // A slow click (held, not moved) is still a click.
+          // The touchable's own press stays blocked below, so it runs once.
+          if (success && Math.abs(e.translationX) < STILL_PX) {
+            handlers.current.onPress();
+          }
           setTimeout(() => {
             justDropped.current = false;
           }, 100);

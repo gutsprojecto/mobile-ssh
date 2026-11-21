@@ -38,7 +38,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "monochromeImage": "./assets/images/adaptive-monochrome.png",
         "backgroundImage": "./assets/images/adaptive-background.png",
-        "backgroundColor": "#fbf8f3"
+        "backgroundColor": "#ffffff"
       },
       "allowBackup": false,
       "blockedPermissions": ["android.permission.READ_MEDIA_IMAGES"]
@@ -104,6 +104,7 @@
       "./plugins/withTermixWidgets.js",
       "./plugins/withLargeScreen.js",
       "./plugins/withGradleMemory.js",
+      "./plugins/withArm64Only.js",
       "./plugins/withPodDeploymentTarget.js",
       "./plugins/withNotificationIcon.js",
       "./plugins/withTermixSsh.js",

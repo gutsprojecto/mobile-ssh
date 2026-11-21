@@ -1,0 +1,38 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:1:1-17:12
+INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:1:1-17:12
+	package
+		INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:2:3-75
+	android:name
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:2:20-72
+uses-permission#android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:3:3-92
+	android:name
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:3:20-89
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:4:3-75
+	android:name
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:4:20-72
+application
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:6:3-16:17
+service#expo.modules.termixsessionservice.SessionService
+ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:12:5-15:57
+	android:exported
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:14:7-31
+	android:foregroundServiceType
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:15:7-54
+	android:name
+		ADDED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml:13:7-70
+uses-sdk
+INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml
+INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/guts/mobile-ssh/modules/termix-session-service/android/src/main/AndroidManifest.xml

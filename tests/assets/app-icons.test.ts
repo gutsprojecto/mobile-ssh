@@ -123,13 +123,16 @@ test("adaptive foreground stays inside the safe circle", () => {
   const png = load(spec.OUT.adaptive);
   expect(png.width).toBe(1024);
   expect(outsideSafeCircle(png)).toBe(0);
-  // The glyph should still reach close to the edge of the circle.
+  // The symbol sits well inside the circle on purpose (TILE_SYMBOL), like
+  // Google Play or Proton Pass, but must not shrink to nothing.
   const c = png.width / 2;
   let reach = 0;
   eachPixel(png, (x, y, _r, _g, _b, a) => {
     if (a > 0) reach = Math.max(reach, Math.hypot(x + 0.5 - c, y + 0.5 - c));
   });
-  expect(reach).toBeGreaterThan(((spec.SAFE_CIRCLE * png.width) / 2) * 0.85);
+  expect(reach).toBeGreaterThan(
+    ((spec.SAFE_CIRCLE * png.width) / 2) * spec.TILE_SYMBOL * 0.85,
+  );
 });
 
 test("themed icon is a single color inside the safe circle", () => {

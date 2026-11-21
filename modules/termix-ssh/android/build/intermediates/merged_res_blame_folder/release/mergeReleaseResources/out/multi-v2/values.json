@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "expo.modules.termixssh.termix-ssh-release-6:/values/values.xml",
+            "map": [
+                {
+                    "source": "/home/guts/.gradle/caches/9.3.1/transforms/4e5b6d4b56ee786d9392b2f679b0a3f3/transformed/jna-5.17.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "60",
+                        "endOffsets": "111"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "expo.modules.termixssh.termix-ssh-mergeReleaseResources-4:/values/values.xml",
+            "map": [
+                {
+                    "source": "/home/guts/.gradle/caches/9.3.1/transforms/4e5b6d4b56ee786d9392b2f679b0a3f3/transformed/jna-5.17.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "60",
+                        "endOffsets": "111"
+                    }
+                }
+            ]
+        }
+    ]
+}

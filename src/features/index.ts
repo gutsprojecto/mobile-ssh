@@ -2,13 +2,10 @@ import { features, type FeatureRegistry } from "@/core/features";
 import { credentialToolsFeature } from "./credential-tools/register";
 import { dockerFeature } from "./docker/register";
 import { fileManagerFeature } from "./file-manager/register";
-import { homepageFeature } from "./homepage/register";
 import { hostAccessFeature } from "./host-access/register";
 import { hostDefaultsFeature } from "./host-defaults/register";
 import { hostTransferFeature } from "./host-transfer/register";
 import { hostMetricsFeature } from "./host-metrics/register";
-import { operationsFeature } from "./operations/register";
-import { pluginHostFieldsFeature } from "./plugin-host-fields/register";
 import {
   rdpFeature,
   remoteDesktopFeature,
@@ -17,7 +14,6 @@ import {
 } from "./remote-desktop/register";
 import { servicesFeature } from "./services/register";
 import { snippetsFeature } from "./snippets/register";
-import { sessionSharingFeature } from "./session-sharing/register";
 import { tailscaleFeature } from "./tailscale/register";
 import { terminalFeature } from "./terminal/register";
 import { totpFeature } from "./totp/register";
@@ -36,15 +32,12 @@ export const BUILT_IN_FEATURES = [
   vncFeature,
   telnetFeature,
   wakeOnLanFeature,
-  operationsFeature,
   snippetsFeature,
   hostDefaultsFeature,
   hostTransferFeature,
   totpFeature,
   tailscaleFeature,
   credentialToolsFeature,
-  sessionSharingFeature,
-  homepageFeature,
   hostAccessFeature,
 ];
 
@@ -59,5 +52,4 @@ export function registerBuiltInFeatures(
     registered = true;
   }
   for (const def of BUILT_IN_FEATURES) registry.register(def);
-  registry.register(pluginHostFieldsFeature(registry));
 }

@@ -76,17 +76,6 @@ describe("buildSettingsGroups", () => {
     expect(ids).toContain("app-lock");
   });
 
-  it("shows admin pages only to signed in admins", () => {
-    const ids = (e: SettingsEnv) =>
-      buildSettingsGroups(e, []).flatMap((g) => g.items.map((i) => i.id));
-    expect(ids(env({ hasServer: true, signedIn: true }))).not.toContain(
-      "api-keys",
-    );
-    expect(
-      ids(env({ hasServer: true, signedIn: true, isAdmin: true })),
-    ).toContain("api-keys");
-  });
-
   it("shows lock options only when App Lock is on", () => {
     const ids = (e: SettingsEnv) =>
       buildSettingsGroups(e, []).flatMap((g) => g.items.map((i) => i.id));
@@ -94,15 +83,6 @@ describe("buildSettingsGroups", () => {
     expect(ids(env({ appLock: true }))).toEqual(
       expect.arrayContaining(["lock-delay", "change-pin"]),
     );
-  });
-
-  it("shows plugin rows when the server runs the plugin", () => {
-    const ids = buildSettingsGroups(
-      env({ plugins: ["telemetry"] }),
-      [],
-    ).flatMap((g) => g.items.map((i) => i.id));
-    expect(ids).toContain("usage-statistics");
-    expect(ids).not.toContain("server-alerts");
   });
 
   it("puts feature links in their section after the app rows", () => {
