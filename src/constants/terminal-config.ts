@@ -27,4 +27,5 @@ export const MOBILE_DEFAULT_TERMINAL_CONFIG: Partial<TerminalConfig> = {
   haptics: true,
   optionAsMeta: false,
   doubleTapTab: false,
+  programClipboard: true,
 };

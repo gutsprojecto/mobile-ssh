@@ -69,22 +69,26 @@ export function useGlassColors() {
 export function Glass({
   radius = 18,
   intensity = 40,
+  blur = true,
   style,
   children,
   ...props
 }: ViewProps & {
   radius?: number;
   intensity?: number;
+  /** False keeps the tint without blurring, for glass over other screens than the target. */
+  blur?: boolean;
   style?: StyleProp<ViewStyle>;
 }) {
   const colors = useGlassColors();
   const blurTarget = useGlassTarget();
   const blurs =
-    Platform.OS === "ios" ||
-    (Platform.OS === "android" &&
-      typeof Platform.Version === "number" &&
-      Platform.Version >= 31 &&
-      blurTarget !== null);
+    blur &&
+    (Platform.OS === "ios" ||
+      (Platform.OS === "android" &&
+        typeof Platform.Version === "number" &&
+        Platform.Version >= 31 &&
+        blurTarget !== null));
   const frame: ViewStyle = {
     borderRadius: radius,
     borderWidth: StyleSheet.hairlineWidth,

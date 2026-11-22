@@ -22,6 +22,7 @@ import { fromBase64 } from "@/modules/termix-ssh/src/base64";
 import { utf8Decode } from "@/core/db/bytes";
 import { useUiColors } from "@/contexts/ThemeContext";
 import { useConfirm } from "@/ui/Confirm";
+import { showCopied } from "@/ui/CopiedHud";
 import { showToast } from "@/utils/toast";
 import type { TerminalSettings } from "./settings";
 import {
@@ -165,11 +166,12 @@ export const TerminalView = forwardRef<TerminalViewApi, Props>(
       [confirm],
     );
 
+    // A short frosted confirmation in the middle, not a toast at the top.
     const handleCopy = useCallback((_text: string, fromProgram: boolean) => {
-      showToast.success(
+      showCopied(
         fromProgram
           ? t("terminal.terminalView.copiedFromTheTerminal")
-          : "Copied",
+          : t("terminal.terminalView.copied"),
       );
     }, []);
 
@@ -214,6 +216,7 @@ export const TerminalView = forwardRef<TerminalViewApi, Props>(
           bell={settings.bell}
           optionAsMeta={settings.optionAsMeta}
           doubleTapTab={settings.doubleTapTab}
+          programClipboard={settings.programClipboard}
           accentColor={ui.brand}
           onInput={handleInput}
           onResize={onResize}

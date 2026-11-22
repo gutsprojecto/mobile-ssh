@@ -408,6 +408,8 @@ export interface TerminalConfig {
   optionAsMeta: boolean;
   /** Phone only: a double tap on the terminal sends Tab. */
   doubleTapTab?: boolean;
+  /** Programs (tmux, vim, Claude Code …) may write the clipboard via OSC 52. */
+  programClipboard?: boolean;
   /** Phone only: ask before a snippet runs. */
   confirmSnippetRun?: boolean;
   /** Phone only: show past commands that match the typed line. */

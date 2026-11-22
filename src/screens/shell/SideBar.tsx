@@ -176,6 +176,11 @@ const RAIL_FADE_MS = 180;
 /** Space around the floating glass rail. */
 const FLOAT_GAP = 10;
 
+/** The room the glass rail takes with its gaps, without the notch inset. */
+function railRoom(isShort: boolean) {
+  return (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + 2 * FLOAT_GAP;
+}
+
 /** How long the rail stays out on the sessions tab once the pointer has left it. */
 const AUTO_HIDE_MS = 5000;
 
@@ -184,8 +189,10 @@ const AUTO_HIDE_MS = 5000;
  * thin strip on the edge so the terminal gets the room; pointing at the strip
  * (or tapping it) brings the rail out over the terminal, and it goes back once
  * the pointer has been away for five seconds while a session is shown. Other
- * tabs show the full rail. It floats over the screens, which pad for it
- * themselves (see sidebarScenePadding), so the terminal never resizes.
+ * tabs show the same glass pill in the same place, so the rail never shifts
+ * when switching between a screen and a session. It floats over the screens,
+ * which pad for it themselves (see sidebarScenePadding), so the terminal
+ * never resizes.
  */
 export function AutoHideSideBar(
   props: BottomTabBarProps & { side?: "left" | "right" },
@@ -230,9 +237,9 @@ export function AutoHideSideBar(
     };
   }, []);
 
+  // Out, it is always the glass pill clear of the edges: over the terminal,
+  // beside files or tools, and on every other tab.
   const expanded = !onSessions || open || pinned;
-  // Out over the terminal it floats as a glass pill, clear of the edges.
-  const floatingOut = onSessions && open && !pinned;
   const { isShort } = useWindowInfo();
   const railWidth = isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH;
   const edgeInset = side === "left" ? insets.left : insets.right;
@@ -243,12 +250,7 @@ export function AutoHideSideBar(
         top: 0,
         bottom: 0,
         [side]: 0,
-        width:
-          (floatingOut
-            ? railWidth + 2 * FLOAT_GAP
-            : expanded
-              ? railWidth
-              : SIDEBAR_PEEK_WIDTH) + edgeInset,
+        width: (expanded ? railRoom(isShort) : SIDEBAR_PEEK_WIDTH) + edgeInset,
         zIndex: 1100,
         elevation: 12,
         // A row, so the rail inside stretches to the full height.
@@ -264,11 +266,17 @@ export function AutoHideSideBar(
         if (onSessions) scheduleHide();
       }}
     >
-      {floatingOut ? (
+      {expanded ? (
+        // One element for every tab, so switching tabs never remounts or
+        // moves it; it only fades when it comes out over a session.
         <Animated.View
-          entering={(side === "left" ? FadeInLeft : FadeInRight)
-            .duration(RAIL_FADE_MS)
-            .reduceMotion(ReduceMotion.System)}
+          entering={
+            onSessions
+              ? (side === "left" ? FadeInLeft : FadeInRight)
+                  .duration(RAIL_FADE_MS)
+                  .reduceMotion(ReduceMotion.System)
+              : undefined
+          }
           exiting={(side === "left" ? FadeOutLeft : FadeOutRight)
             .duration(RAIL_FADE_MS)
             .reduceMotion(ReduceMotion.System)}
@@ -280,21 +288,15 @@ export function AutoHideSideBar(
             width: railWidth,
           }}
         >
-          <Glass radius={22} style={{ flex: 1 }}>
+          <Glass
+            radius={22}
+            // Android blurs the terminal stage; on other tabs that is not
+            // what is behind, so the pill is only tinted there.
+            blur={onSessions}
+            style={{ flex: 1 }}
+          >
             <SideBar {...props} side={side} floating />
           </Glass>
-        </Animated.View>
-      ) : expanded ? (
-        // Beside files or tools it fades in place instead of popping up.
-        <Animated.View
-          style={{ flexDirection: "row" }}
-          entering={
-            onSessions
-              ? FadeIn.duration(RAIL_FADE_MS).reduceMotion(ReduceMotion.System)
-              : undefined
-          }
-        >
-          <SideBar {...props} side={side} />
         </Animated.View>
       ) : (
         <AnimatedPressable
@@ -334,7 +336,7 @@ export function sidebarScenePadding(
   isShort: boolean,
 ) {
   if (routeName === "sessions") return SIDEBAR_PEEK_WIDTH + edgeInset;
-  return (isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) + edgeInset;
+  return railRoom(isShort) + edgeInset;
 }
 
 /**
@@ -349,7 +351,5 @@ export function useSessionsRailInset(): number {
   if (layout.nav !== "side" || layout.railInBar) return 0;
   const active = sessions.find((s) => s.id === activeSessionId);
   if (active && features.sessionHas(active.type, "terminal-input")) return 0;
-  return (
-    (win.isShort ? SHORT_SIDEBAR_WIDTH : SIDEBAR_WIDTH) - SIDEBAR_PEEK_WIDTH
-  );
+  return railRoom(win.isShort) - SIDEBAR_PEEK_WIDTH;
 }

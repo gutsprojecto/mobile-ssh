@@ -2203,7 +2203,8 @@
       "scrollToBottom": "Zum Ende scrollen",
       "onlyWebLinksCanOpen": "Nur Web-Links können aus dem Terminal geöffnet werden",
       "couldNotOpenLink": "Link konnte nicht geöffnet werden",
-      "copiedFromTheTerminal": "Aus dem Terminal kopiert"
+      "copiedFromTheTerminal": "Aus dem Terminal kopiert",
+      "copied": "Kopiert"
     },
     "tmux": {
       "tmuxSheets": {
@@ -3590,6 +3591,8 @@
       "askBeforeOpeningLinks": "Vor dem Öffnen von Links fragen",
       "doubleTapSendsTab": "Doppeltippen sendet Tab",
       "longPressStillSelectsText": "Langes Drücken wählt weiterhin Text aus",
+      "programClipboard": "Programme dürfen kopieren",
+      "programClipboardHint": "tmux, vim oder Claude Code können Text in die Zwischenablage legen (OSC 52). Nie direkt nachdem du selbst kopiert hast.",
       "optionSendsAlt": "Option sendet Alt",
       "onAHardwareKeyboardOff": "Auf einer Hardware-Tastatur. Deaktiviert tippt es Symbole wie auf einem Mac.",
       "history": "Verlauf",

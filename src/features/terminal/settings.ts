@@ -146,6 +146,7 @@ export interface TerminalSettings {
   bell: TerminalBell;
   optionAsMeta: boolean;
   doubleTapTab: boolean;
+  programClipboard: boolean;
   linkPolicy: "confirm" | "direct";
 }
 
@@ -186,6 +187,7 @@ export function resolveTerminalSettings(
     },
     optionAsMeta: user.optionAsMeta ?? false,
     doubleTapTab: user.doubleTapTab ?? false,
+    programClipboard: user.programClipboard ?? true,
     linkPolicy: merged.linkClickBehavior === "direct" ? "direct" : "confirm",
   };
 }

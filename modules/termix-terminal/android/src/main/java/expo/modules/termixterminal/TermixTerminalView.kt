@@ -75,6 +75,10 @@ class TermixTerminalView(context: Context, appContext: AppContext) :
     terminal.doubleTapTab = on
   }
 
+  fun setProgramClipboard(on: Boolean) {
+    terminal.programClipboard = on
+  }
+
   fun setPromptWatch(on: Boolean) {
     terminal.promptWatch = on
   }

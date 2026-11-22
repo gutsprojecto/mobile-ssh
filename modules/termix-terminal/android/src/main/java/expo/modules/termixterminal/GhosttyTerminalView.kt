@@ -248,6 +248,13 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   private var bellVisual = false
   private var haptics = true
   var doubleTapTab = false
+  // Programs may write the clipboard through OSC 52 (tmux set-clipboard,
+  // vim, Claude Code). Off drops those writes.
+  var programClipboard = true
+  // What was put on the clipboard last and when the user copied, so a
+  // program can't silently replace what was just copied by hand.
+  private var lastClipText: String? = null
+  private var lastUserCopyAt = 0L
   private var lastBellAt = 0L
   private var flashUntil = 0L
   private var tone: ToneGenerator? = null
@@ -689,8 +696,14 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
       val bytes = synchronized(vtLock) { if (handle == 0L) null else GhosttyVt.nativeTakeClipboard(handle) }
       if (bytes != null) {
         val text = String(bytes, Charsets.UTF_8)
-        setClipboard(text)
-        onCopied?.invoke(text, true)
+        val justCopied = SystemClock.uptimeMillis() - lastUserCopyAt < USER_COPY_GUARD_MS
+        // Off, the same text again (tmux echoing a copy), or right after a
+        // copy by hand: leave the clipboard and say nothing.
+        if (programClipboard && text.isNotEmpty() && text != lastClipText && !justCopied) {
+          lastClipText = text
+          setClipboard(text)
+          onCopied?.invoke(text, true)
+        }
       }
     }
   }
@@ -1456,6 +1469,8 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     } ?: return
     val text = String(bytes, Charsets.UTF_8)
     clearSelection()
+    lastClipText = text
+    lastUserCopyAt = SystemClock.uptimeMillis()
     post {
       setClipboard(text)
       onCopied?.invoke(text, false)
@@ -2172,6 +2187,8 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     const val ANNOUNCE_DELAY_MS = 500L
     const val PROMPT_DELAY_MS = 150L
     const val BELL_MIN_GAP_MS = 150L
+    // A program's clipboard write this soon after a copy by hand is dropped.
+    const val USER_COPY_GUARD_MS = 3000L
     const val BELL_FLASH_MS = 120L
     const val BELL_TONE_MS = 80
     const val BELL_VOLUME = 40

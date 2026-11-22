@@ -65,6 +65,12 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - **Bug „Session-Tab hängt ausgewählt, reagiert erst nach Fingertipp“** (auch im Original): Halten startet nach 250 ms das Verschieben; wurde die Geste abgebrochen statt beendet, blieben `justDropped`/`dragging` gesetzt und jeder Klick wurde ignoriert. Jetzt Aufräumen in `onFinalize`, und ein langsamer Klick ohne Bewegung zählt als Klick (`TabStrip.tsx`).
 - **Icon neu**: weißes Feld, kleines gefaltetes `>_` (Orange → Koralle) mittig, wie Google Play/Proton Pass. Symbol mit eigenen Verläufen in `assets/brand/logo.svg`, Größe über `TILE_SYMBOL` in `scripts/icon-spec.cjs`; `npm run icons`. Vorlage: Screenshot in `~/shellpad/`.
 
+### Fünfte Runde (2026-11-22)
+
+- **Navigationsleiste überall als Glas-Pille**: Home/Hosts/Tools/Einstellungen und die feste Leiste neben Files zeigen dieselbe schwebende Pille (10 px Abstand, gleiche Breite/Position) wie ausgeklappt über dem Terminal; ein einziges Element, das beim Tabwechsel nicht neu gemountet wird → kein Springen mehr. Bildschirme polstern `railRoom()` (Leiste + 2×10 px). Außerhalb von Sessions nur Tönung ohne Blur (`Glass blur={false}`), weil Android sonst die Terminal-Bühne verwischt.
+- **Ungewolltes Kopieren (OSC 52)**: Ursache auf dem Heimserver: tmux mit `set-clipboard external` (Maus aus) reicht Kopier-Befehle von Programmen (z. B. Claude Code) ans Terminal durch, ShellPad hat jede sofort übernommen. Jetzt: gleicher Text wird ignoriert, 3 s nach eigenem Kopieren darf kein Programm die Zwischenablage überschreiben (`USER_COPY_GUARD_MS`), und Schalter **Einstellungen → Terminal → „Programme dürfen kopieren“** (`programClipboard`, Standard an).
+- **„Kopiert“ als Glas-HUD mittig** statt Toast oben (`src/ui/CopiedHud.tsx`, `showCopied`), 1,2 s, weiches Ein-/Ausblenden.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -86,8 +92,8 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ### Für die nächste Runde (Rückmeldung vom Tablet-Test 2026-11-20)
 
-- **Kopiert manchmal von selbst nach dem Kopieren, vielleicht wegen tmux.** Vermutete Ursache: tmux mit Mausmodus markiert beim Ziehen selbst (Copy-Mode) und schickt die Auswahl beim Loslassen per **OSC 52** ans Terminal (`set-clipboard on`/`external`). ShellPad übernimmt jede OSC-52-Nachricht sofort in die Zwischenablage und zeigt „Kopiert“ (`GhosttyTerminalView.kt`, `nativeTakeClipboard` → `setClipboard` + `onCopied`). Auf dem Server prüfen: `tmux show -g set-clipboard`, `tmux show -g mouse`, Bindings für `MouseDragEnd1Pane`. Mögliche Lösung: OSC-52-Schreiben als Einstellung (an / fragen / aus) oder nur nach eigener Mausaktion, Hinweis „von tmux kopiert“ statt still kopieren.
-- **Navigationsleiste überall wie die ausgeklappte Session-Leiste**: das schwebende Glas-Design (Pille mit Abstand, zentrierte Symbole) auch auf Home/Hosts/Tools/Einstellungen verwenden. Wirkt einheitlich und verhindert, dass die Leiste beim Wechsel zwischen normalem Screen und Session leicht springt. Dabei Breite/Position beider Zustände exakt gleich halten (`AutoHideSideBar`, `sidebarScenePadding` in `src/screens/shell/SideBar.tsx`).
+- ~~Kopiert von selbst~~ → erledigt in Runde 5. Alte Analyse: **Kopiert manchmal von selbst nach dem Kopieren, vielleicht wegen tmux.** Vermutete Ursache: tmux mit Mausmodus markiert beim Ziehen selbst (Copy-Mode) und schickt die Auswahl beim Loslassen per **OSC 52** ans Terminal (`set-clipboard on`/`external`). ShellPad übernimmt jede OSC-52-Nachricht sofort in die Zwischenablage und zeigt „Kopiert“ (`GhosttyTerminalView.kt`, `nativeTakeClipboard` → `setClipboard` + `onCopied`). Auf dem Server prüfen: `tmux show -g set-clipboard`, `tmux show -g mouse`, Bindings für `MouseDragEnd1Pane`. Mögliche Lösung: OSC-52-Schreiben als Einstellung (an / fragen / aus) oder nur nach eigener Mausaktion, Hinweis „von tmux kopiert“ statt still kopieren.
+- ~~Navigationsleiste überall wie die ausgeklappte Session-Leiste~~ → erledigt in Runde 5: das schwebende Glas-Design (Pille mit Abstand, zentrierte Symbole) auch auf Home/Hosts/Tools/Einstellungen verwenden. Wirkt einheitlich und verhindert, dass die Leiste beim Wechsel zwischen normalem Screen und Session leicht springt. Dabei Breite/Position beider Zustände exakt gleich halten (`AutoHideSideBar`, `sidebarScenePadding` in `src/screens/shell/SideBar.tsx`).
 - **Speicher weiter sparen (ohne Funktionsverlust)**: nur genutzte Inter/JetBrains-Gewichte importieren (Subpfade statt Paket-Index, ~3,7 MB), Terminal-Schriften auf JetBrains Mono NF reduzieren (~10 MB), nur Englisch + Deutsch bündeln (~6–7 MB). Optional: QR-Scanner/expo-camera (~6 MB), Remote-Desktop (~1 MB).
 
 ### Weitere
@@ -102,6 +108,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-22: Glas-Leiste auf allen Tabs, OSC-52-Schutz + Schalter, „Kopiert“-HUD mittig.
 - 2026-11-21: nur arm64, Termix-Server-Oberfläche gelöscht, weiche Hostliste, Tab-Hänger behoben, weißes `>_`-Icon.
 - 2026-11-20 (spät): weiche Übergänge, Hostliste/Leiste, Sheet-Karten, helles S-Icon.
 - 2026-11-20 (abends): weißer Blitz, zentrierte/animierte Leiste, Terminal-Abstand, neues Logo.

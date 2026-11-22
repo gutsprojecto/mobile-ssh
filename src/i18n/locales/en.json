@@ -2203,7 +2203,8 @@
       "scrollToBottom": "Scroll to bottom",
       "onlyWebLinksCanOpen": "Only web links can open from the terminal",
       "couldNotOpenLink": "Could not open link",
-      "copiedFromTheTerminal": "Copied from the terminal"
+      "copiedFromTheTerminal": "Copied from the terminal",
+      "copied": "Copied"
     },
     "tmux": {
       "tmuxSheets": {
@@ -3590,6 +3591,8 @@
       "askBeforeOpeningLinks": "Ask before opening links",
       "doubleTapSendsTab": "Double tap sends Tab",
       "longPressStillSelectsText": "Long press still selects text",
+      "programClipboard": "Programs may copy",
+      "programClipboardHint": "tmux, vim or Claude Code can put text on the clipboard (OSC 52). Never right after you copied yourself.",
       "optionSendsAlt": "Option sends Alt",
       "onAHardwareKeyboardOff": "On a hardware keyboard. Off types symbols like on a Mac.",
       "history": "History",

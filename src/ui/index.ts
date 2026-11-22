@@ -34,6 +34,7 @@ export type { ListRowTone } from "./ListRow";
 export { Tabs } from "./Tabs";
 export { EmptyState } from "./EmptyState";
 export { Toaster } from "./Toast";
+export { CopiedHud, showCopied } from "./CopiedHud";
 export { Badge } from "./Badge";
 export type { BadgeVariant } from "./Badge";
 export { ChoiceRow } from "./ChoiceRow";

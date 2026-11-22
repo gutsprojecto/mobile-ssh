@@ -430,13 +430,27 @@ export default function TerminalCustomization() {
             description={t(
               "settings.terminalCustomization.longPressStillSelectsText",
             )}
-            last={Platform.OS !== "ios"}
           >
             <FakeSwitch
               checked={current.doubleTapTab ?? false}
               onChange={(v) => save({ doubleTapTab: v })}
               accessibilityLabel={t(
                 "settings.terminalCustomization.doubleTapSendsTab",
+              )}
+            />
+          </SettingRow>
+          <SettingRow
+            label={t("settings.terminalCustomization.programClipboard")}
+            description={t(
+              "settings.terminalCustomization.programClipboardHint",
+            )}
+            last={Platform.OS !== "ios"}
+          >
+            <FakeSwitch
+              checked={current.programClipboard ?? true}
+              onChange={(v) => save({ programClipboard: v })}
+              accessibilityLabel={t(
+                "settings.terminalCustomization.programClipboard",
               )}
             />
           </SettingRow>

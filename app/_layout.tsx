@@ -32,6 +32,7 @@ import {
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { Toaster } from "@/ui/Toast";
+import { CopiedHud } from "@/ui/CopiedHud";
 import { ConfirmProvider } from "@/ui/Confirm";
 import { useReduceMotion } from "@/ui/motion";
 import { SudoPromptHost } from "@/screens/exec/SudoPromptHost";
@@ -230,6 +231,7 @@ export default function RootLayout() {
                           <SudoPromptHost />
                           {/* Store shots never show toasts. */}
                           {SHOWCASE ? null : <Toaster />}
+                          {SHOWCASE ? null : <CopiedHud />}
                         </KeyPrefsProvider>
                       </KeyboardProvider>
                     </TerminalCustomizationProvider>

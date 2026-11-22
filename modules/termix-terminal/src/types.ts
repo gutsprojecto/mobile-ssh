@@ -86,6 +86,8 @@ export interface TerminalViewProps {
   optionAsMeta?: boolean;
   /** A double tap sends Tab instead of selecting a word. */
   doubleTapTab?: boolean;
+  /** Programs may write the clipboard (OSC 52). */
+  programClipboard?: boolean;
   /** Selection handles and similar accents. */
   accentColor?: string;
   /** Bytes the user typed or the terminal answered, base64. */
