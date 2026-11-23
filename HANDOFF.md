@@ -98,6 +98,10 @@ cd android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86
 
 Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier --check <dateien>`.
 
+## Upstream übernehmen
+
+Remote `upstream` = `github.com/Termix-SSH/Mobile`. Prüfen: `git fetch upstream && git log --oneline HEAD..upstream/main`, Probe: `git merge-tree --write-tree HEAD upstream/main`. Zuletzt übernommen 2026-11-23 (bis `1244705`, nur Plugin-Katalog).
+
 ## Offene Punkte
 
 ### Vor dem Release (Pflicht)
@@ -127,6 +131,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-23 (abends): README auf ShellPad umgeschrieben, Upstream bis `1244705` übernommen.
 - 2026-11-23: Tot-Tasten (AltGr+2 → ü), Links per Mausklick, umgebrochene Links.
 - 2026-11-22: Glas-Leiste auf allen Tabs, OSC-52-Schutz + Schalter, „Kopiert“-HUD mittig.
 - 2026-11-21: nur arm64, Termix-Server-Oberfläche gelöscht, weiche Hostliste, Tab-Hänger behoben, weißes `>_`-Icon.
