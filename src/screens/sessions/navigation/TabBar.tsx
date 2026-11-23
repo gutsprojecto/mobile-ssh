@@ -10,6 +10,8 @@ import {
   Keyboard as KeyboardIcon,
   KeyboardOff,
   Layers,
+  FolderOpen,
+  SquareTerminal,
 } from "lucide-react-native";
 import {
   SessionType,
@@ -47,6 +49,8 @@ interface TabBarProps {
   onTabMove?: (sessionId: string, toIndex: number) => void;
   /** Narrow windows have no rail, so the dock gets a way back to the hosts. */
   backToHosts?: boolean;
+  /** Files of the active tab's server, or back to its terminal from a files tab. */
+  files?: { inFiles: boolean; open: () => void };
   /** Shows or hides the key row (Esc, Tab, arrows) under the terminal. */
   keyRow?: { shown: boolean; toggle: () => void };
 }
@@ -68,6 +72,7 @@ export default function TabBar({
   onTabMenu,
   onTabMove,
   backToHosts = false,
+  files,
   keyRow,
 }: TabBarProps) {
   const ui = useUiColors();
@@ -132,6 +137,23 @@ export default function TabBar({
         >
           <Layers size={iconSize} color={ui.text} />
         </BarButton>
+        {files ? (
+          <BarButton
+            label={
+              files.inFiles
+                ? t("sessions.navigation.tabBar.backToTerminal")
+                : t("sessions.navigation.tabBar.openServerFiles")
+            }
+            size={buttonSize}
+            onPress={files.open}
+          >
+            {files.inFiles ? (
+              <SquareTerminal size={iconSize} color={ui.text} />
+            ) : (
+              <FolderOpen size={iconSize} color={ui.text} />
+            )}
+          </BarButton>
+        ) : null}
         {backToHosts ? (
           <BarButton
             label={t("sessions.navigation.tabBar.backToHosts")}

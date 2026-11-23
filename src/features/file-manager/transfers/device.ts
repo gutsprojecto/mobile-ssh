@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { Directory, File, Paths } from "expo-file-system";
+import { Directory, File, FileMode, Paths } from "expo-file-system";
 import * as Sharing from "expo-sharing";
 import { plainStore } from "@/core/storage/kv";
 import { toLocalPath } from "../backend/paths";
@@ -178,10 +178,34 @@ export async function saveToFolder(
     );
     const name = freeName(source.name, (n) => taken.has(n));
     const target = dir.createFile(name, mimeFor(name));
-    await source.copy(target, { overwrite: true });
+    await copyInto(source, target);
     saved++;
   }
   return saved;
 }
 
 export const canSaveToFolder = Platform.OS === "android";
+
+const COPY_CHUNK = 1024 * 1024;
+
+/**
+ * Streams a file into one just made with `Directory.createFile`. `File.copy` with
+ * overwrite would delete that new document first and then fail to write it
+ * ("Missing file") on picked folders.
+ */
+async function copyInto(source: File, target: File): Promise<void> {
+  const input = source.open(FileMode.ReadOnly);
+  const output = target.open(FileMode.WriteOnly);
+  try {
+    for (;;) {
+      const chunk = input.readBytes(COPY_CHUNK);
+      if (chunk.length === 0) break;
+      output.writeBytes(chunk);
+      // Let the screen draw between chunks of a big file.
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+  } finally {
+    input.close();
+    output.close();
+  }
+}

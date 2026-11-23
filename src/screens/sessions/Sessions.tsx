@@ -54,6 +54,8 @@ import { keyBarHeight } from "@/features/terminal/keys/compact";
 import { shellLayout } from "@/screens/shell/layout";
 import { SPLIT_RATIO_KEY, useStoredNumber } from "@/screens/sessions/stored";
 import { ConnectionsPopup } from "@/screens/sessions/ConnectionsPopup";
+import { FILES_TAB_TYPE } from "@/features/file-manager/CompanionFiles";
+import { isSshHost } from "@/utils/hosts";
 import { CompanionPane } from "@/screens/sessions/CompanionPane";
 import { TabSwipeEdge } from "@/screens/sessions/TabSwipeEdge";
 import {
@@ -752,6 +754,36 @@ export default function Sessions() {
     router.navigate("/hosts" as any);
   };
 
+  // The dock's Files button: the files of the server the active tab is on, or back to
+  // its terminal from there. An open tab for it is reused.
+  const filesTabOpen = activeSession?.type === FILES_TAB_TYPE;
+  const canOpenFiles =
+    !!activeSession &&
+    (filesTabOpen ||
+      (isSshHost(activeSession.host) &&
+        !!activeSession.host.enableFileManager));
+  const handleOpenFiles = () => {
+    if (!activeSession) return;
+    const wanted = filesTabOpen
+      ? features.defaultSessionType()
+      : FILES_TAB_TYPE;
+    const open = sessions.find(
+      (s) =>
+        s.type === wanted &&
+        s.host.id === activeSession.host.id &&
+        s.accountId === activeSession.accountId,
+    );
+    if (open) {
+      handleTabPress(open.id);
+      return;
+    }
+    if (filesTabOpen) return;
+    addSession(activeSession.host, FILES_TAB_TYPE, {
+      origin: activeSession.origin,
+      accountId: activeSession.accountId,
+    });
+  };
+
   const handleToggleKeyboard = () => {
     if (!reduceMotionOn()) {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -1221,6 +1253,11 @@ export default function Sessions() {
             onTabMove={moveSession}
             keyRow={{ shown: keyRowOn, toggle: keyRowShown.toggle }}
             backToHosts={!layout.hostsPane}
+            files={
+              canOpenFiles
+                ? { inFiles: filesTabOpen, open: handleOpenFiles }
+                : undefined
+            }
           />
         </View>
 

@@ -468,6 +468,8 @@
         "connections": "Verbindungen",
         "hideHostList": "Host-Liste ausblenden",
         "showHostList": "Host-Liste anzeigen",
+        "openServerFiles": "Dateien dieses Servers öffnen",
+        "backToTerminal": "Zurück zum Terminal dieses Servers",
         "backToHosts": "Zurück zu den Hosts",
         "showKeyboard": "Tastatur anzeigen",
         "hideKeyboard": "Tastatur ausblenden",

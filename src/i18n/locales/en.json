@@ -468,6 +468,8 @@
         "connections": "Connections",
         "hideHostList": "Hide host list",
         "showHostList": "Show host list",
+        "openServerFiles": "Open this server's files",
+        "backToTerminal": "Back to this server's terminal",
         "backToHosts": "Back to hosts",
         "showKeyboard": "Show keyboard",
         "hideKeyboard": "Hide keyboard",
