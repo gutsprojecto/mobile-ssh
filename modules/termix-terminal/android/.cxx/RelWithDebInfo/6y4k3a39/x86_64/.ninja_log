@@ -1,8 +1,0 @@
-# ninja log v5
-0	1943	1795186521160049994	CMakeFiles/termixterminal.dir/src/main/cpp/ghostty_jni.cpp.o	ca1befb2528dbbe6
-1944	2014	1795186521240050296	../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so	b7b7611750789267
-13	228	1795189522644387791	../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so	b7b7611750789267
-7	5278	1795192442298103004	CMakeFiles/termixterminal.dir/src/main/cpp/ghostty_jni.cpp.o	ca1befb2528dbbe6
-5279	5629	1795192442654104222	../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so	b7b7611750789267
-11	200	1795194633562042109	../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so	b7b7611750789267
-7	121	1795198248543862645	../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so	b7b7611750789267

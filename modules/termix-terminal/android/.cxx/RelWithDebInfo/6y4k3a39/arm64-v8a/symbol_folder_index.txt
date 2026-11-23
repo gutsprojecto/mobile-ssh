@@ -1,1 +1,0 @@
-/home/guts/mobile-ssh/modules/termix-terminal/android/build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/arm64-v8a
