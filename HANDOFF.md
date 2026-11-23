@@ -78,8 +78,8 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - **Umgebrochene Links**: `LinkFinder.findWrapped` verbindet Zeilen, wenn eine bis zur letzten Spalte voll ist und die nächste ohne Leerzeichen weitergeht (max. 8 Zeilen); Zeilen mit tmux-Fensterrand `│` werden nie verbunden.
 - Nicht in der App lösbar: tmux entfernt OSC-8-Links ohne `set -as terminal-features ",xterm*:hyperlinks"` (Server-Einstellung, Hinweis für Nutzer). Offen: prüfen, ob tmux ShellPad per XTVERSION automatisch als link-fähig erkennt.
 - Links in Claude Code (in tmux): Claude Code schaltet Maus-Tracking ein, tmux mit `mouse off` reicht das ans Terminal durch → Klicks gehen ans Programm, Link-Erkennung aus. **Umschalt+Klick** öffnet den Link, Umschalt+Rechtsklick zeigt das Menü. Dem Nutzer reicht das; „Klick auf Link hat Vorrang vor Programm-Maus“ bewusst nicht gebaut.
-- **Tot-Tasten, zweiter Anlauf** (Test 2026-11-23, Layout „UK PC“, AltGr wird vor dem Buchstaben losgelassen): ¨ erschien sofort und blieb als „¨u“, also kommt das ¨ als fertiges Zeichen (nicht als Android-Tot-Taste). In anderen Apps ersetzt das Textfeld ¨+u durch ü. Jetzt in `sendBytes`/`accentAfterTyping`: nach einem einzeln getippten ¨ oder ´ ersetzt der nächste passende Buchstabe es (Backspace + ü), egal ob über Tastatur-App oder Taste. ` ^ ~ bleiben unverändert (Shell). Zusammensetzen in `DeadKeys.kt` (Normalizer, mit Tests).
-- **Lange gedrückt → Umlaut-Auswahl der Tastatur-App**: Hardware-Buchstaben landen jetzt im IME-Kontext (`ime.commit` statt `ime.reset`), damit die Tastatur-App den Buchstaben per `deleteSurroundingText` + `commitText` ersetzen kann. Ungetestet; falls weiter nichts passiert: Funk-Debugging (adb pair) + Log-Build.
+- **Tot-Tasten, zweiter Anlauf (funktioniert, bestätigt 2026-11-23)** (Test 2026-11-23, Layout „UK PC“, AltGr wird vor dem Buchstaben losgelassen): ¨ erschien sofort und blieb als „¨u“, also kommt das ¨ als fertiges Zeichen (nicht als Android-Tot-Taste). In anderen Apps ersetzt das Textfeld ¨+u durch ü. Jetzt in `sendBytes`/`accentAfterTyping`: nach einem einzeln getippten ¨ oder ´ ersetzt der nächste passende Buchstabe es (Backspace + ü), egal ob über Tastatur-App oder Taste. ` ^ ~ bleiben unverändert (Shell). Zusammensetzen in `DeadKeys.kt` (Normalizer, mit Tests).
+- **Lange gedrückt → Umlaut-Auswahl der Tastatur-App**: Hardware-Buchstaben landen jetzt im IME-Kontext (`ime.commit` statt `ime.reset`). Test 2026-11-23: **funktioniert noch nicht** → siehe „Vor dem Release“.
 
 ### Entfernt
 
@@ -99,6 +99,14 @@ cd android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a,x86
 Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier --check <dateien>`.
 
 ## Offene Punkte
+
+### Vor dem Release (Pflicht)
+
+- **Langes Halten einer Taste → Umlaut-Auswahl der Tastatur-App**: Auswahl erscheint, die gedrückte Zahl wird nicht übernommen (Stand 2026-11-23, auch nach `ime.commit` der Hardware-Buchstaben). Tot-Tasten (AltGr+2 loslassen, dann u → ü) funktionieren dagegen. Nächster Schritt: Funk-Debugging (adb pair) + Log-Build, sehen was die Tastatur-App schickt (deleteSurroundingText? Tastendruck? setComposingRegion?), dann gezielt reparieren.
+- **Eigener Release-Schlüssel** statt Debug-Signatur (sicher aufbewahren; ohne ihn keine Updates mehr).
+- **Name prüfen**: „ShellPad“ gibt es schon im Play Store (`com.shellpad.app`).
+- **Lizenz**: Upstream ist Apache-2.0 → LICENSE behalten, NOTICE/Hinweis „Fork von Termix Mobile“ und eigene Änderungen kennzeichnen.
+
 
 ### Für die nächste Runde (Rückmeldung vom Tablet-Test 2026-11-20)
 
