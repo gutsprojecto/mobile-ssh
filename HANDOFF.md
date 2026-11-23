@@ -71,6 +71,14 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - **Ungewolltes Kopieren (OSC 52)**: Ursache auf dem Heimserver: tmux mit `set-clipboard external` (Maus aus) reicht Kopier-Befehle von Programmen (z. B. Claude Code) ans Terminal durch, ShellPad hat jede sofort übernommen. Jetzt: gleicher Text wird ignoriert, 3 s nach eigenem Kopieren darf kein Programm die Zwischenablage überschreiben (`USER_COPY_GUARD_MS`), und Schalter **Einstellungen → Terminal → „Programme dürfen kopieren“** (`programClipboard`, Standard an).
 - **„Kopiert“ als Glas-HUD mittig** statt Toast oben (`src/ui/CopiedHud.tsx`, `showCopied`), 1,2 s, weiches Ein-/Ausblenden.
 
+### Sechste Runde (2026-11-23)
+
+- **Tote Tasten / Akzente**: AltGr+2 dann u → ü (und jede andere Tot-Taste des Layouts). `handleKeyEvent` merkt sich den Akzent (`pendingAccent`, `KeyCharacterMap.COMBINING_ACCENT`) und setzt ihn mit `getDeadChar` auf den nächsten Buchstaben; ohne passenden Buchstaben kommt der Akzent einzeln, dann die Taste. Linkes Alt bleibt Alt/Meta für die Shell.
+- **Links per Mausklick**: einfacher Klick ohne Ziehen öffnet einen Link (Schalter **Einstellungen → Terminal → „Mausklick öffnet Links“**, `mouseClickLinks`, Standard an; aus = nur Strg+Klick/Rechtsklick-Menü). Hand-Mauszeiger gab es schon.
+- **Umgebrochene Links**: `LinkFinder.findWrapped` verbindet Zeilen, wenn eine bis zur letzten Spalte voll ist und die nächste ohne Leerzeichen weitergeht (max. 8 Zeilen); Zeilen mit tmux-Fensterrand `│` werden nie verbunden.
+- Nicht in der App lösbar: tmux entfernt OSC-8-Links ohne `set -as terminal-features ",xterm*:hyperlinks"` (Server-Einstellung, Hinweis für Nutzer). Offen: prüfen, ob tmux ShellPad per XTVERSION automatisch als link-fähig erkennt.
+- Noch nicht gemacht: Akzent-Auswahl beim langen Halten einer Taste (hängt von der Tastatur-App ab).
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -94,6 +102,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 - ~~Kopiert von selbst~~ → erledigt in Runde 5. Alte Analyse: **Kopiert manchmal von selbst nach dem Kopieren, vielleicht wegen tmux.** Vermutete Ursache: tmux mit Mausmodus markiert beim Ziehen selbst (Copy-Mode) und schickt die Auswahl beim Loslassen per **OSC 52** ans Terminal (`set-clipboard on`/`external`). ShellPad übernimmt jede OSC-52-Nachricht sofort in die Zwischenablage und zeigt „Kopiert“ (`GhosttyTerminalView.kt`, `nativeTakeClipboard` → `setClipboard` + `onCopied`). Auf dem Server prüfen: `tmux show -g set-clipboard`, `tmux show -g mouse`, Bindings für `MouseDragEnd1Pane`. Mögliche Lösung: OSC-52-Schreiben als Einstellung (an / fragen / aus) oder nur nach eigener Mausaktion, Hinweis „von tmux kopiert“ statt still kopieren.
 - ~~Navigationsleiste überall wie die ausgeklappte Session-Leiste~~ → erledigt in Runde 5: das schwebende Glas-Design (Pille mit Abstand, zentrierte Symbole) auch auf Home/Hosts/Tools/Einstellungen verwenden. Wirkt einheitlich und verhindert, dass die Leiste beim Wechsel zwischen normalem Screen und Session leicht springt. Dabei Breite/Position beider Zustände exakt gleich halten (`AutoHideSideBar`, `sidebarScenePadding` in `src/screens/shell/SideBar.tsx`).
+- **Mausklicks hängen manchmal (Touch geht)**: Verdacht: Rechtsklick öffnet das schwebende Menü schon beim Drücken (`showMouseMenu`), das Loslassen landet im Popup, der RN-Responder bleibt hängen bis zur nächsten Berührung. Gleiches Muster in TabStrip/Snippets (`onPointerDown`). Prüfen per adb logcat („Got DOWN touch before receiving UP or CANCEL“); Lösung: Menüs beim Loslassen öffnen oder Cancel senden.
 - **Speicher weiter sparen (ohne Funktionsverlust)**: nur genutzte Inter/JetBrains-Gewichte importieren (Subpfade statt Paket-Index, ~3,7 MB), Terminal-Schriften auf JetBrains Mono NF reduzieren (~10 MB), nur Englisch + Deutsch bündeln (~6–7 MB). Optional: QR-Scanner/expo-camera (~6 MB), Remote-Desktop (~1 MB).
 
 ### Weitere
@@ -108,6 +117,7 @@ Prüfen: `npx tsc --noEmit`, `npx jest`, `npx eslint <dateien>`, `npx prettier -
 
 ## Verlauf
 
+- 2026-11-23: Tot-Tasten (AltGr+2 → ü), Links per Mausklick, umgebrochene Links.
 - 2026-11-22: Glas-Leiste auf allen Tabs, OSC-52-Schutz + Schalter, „Kopiert“-HUD mittig.
 - 2026-11-21: nur arm64, Termix-Server-Oberfläche gelöscht, weiche Hostliste, Tab-Hänger behoben, weißes `>_`-Icon.
 - 2026-11-20 (spät): weiche Übergänge, Hostliste/Leiste, Sheet-Karten, helles S-Icon.

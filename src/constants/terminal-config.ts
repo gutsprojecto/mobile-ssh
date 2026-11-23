@@ -28,4 +28,5 @@ export const MOBILE_DEFAULT_TERMINAL_CONFIG: Partial<TerminalConfig> = {
   optionAsMeta: false,
   doubleTapTab: false,
   programClipboard: true,
+  mouseClickLinks: true,
 };

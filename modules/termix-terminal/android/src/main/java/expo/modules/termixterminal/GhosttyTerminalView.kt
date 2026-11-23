@@ -251,6 +251,12 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
   // Programs may write the clipboard through OSC 52 (tmux set-clipboard,
   // vim, Claude Code). Off drops those writes.
   var programClipboard = true
+
+  /** A plain mouse click on a link opens it; off, only Ctrl+click does. */
+  var mouseClickLinks = true
+
+  // Accent of a pressed dead key, waiting for the next letter (0 = none).
+  private var pendingAccent = 0
   // What was put on the clipboard last and when the user copied, so a
   // program can't silently replace what was just copied by hand.
   private var lastClipText: String? = null
@@ -1172,8 +1178,11 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
         } else if (mouseSelecting) {
           mouseSelecting = false
           removeCallbacks(selectionAutoScroll)
-          // Ctrl click opens a link, a plain click only places the pointer.
-          if (!selectionMode && (event.metaState and KeyEvent.META_CTRL_ON != 0)) linkAt(x, y)?.let { onLink?.invoke(it) }
+          // A click without a drag opens a link: any click, or only Ctrl+click when turned off.
+          val ctrl = event.metaState and KeyEvent.META_CTRL_ON != 0
+          if (!selectionMode && mouseClickCount == 1 && (mouseClickLinks || ctrl)) {
+            linkAt(x, y)?.let { onLink?.invoke(it) }
+          }
         }
         mouseLastCol = -1
         mouseLastRow = -1
@@ -1277,9 +1286,12 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
       if (handle == 0L) null else GhosttyVt.nativeHyperlinkAt(handle, col, row)
     }
     if (osc8 != null) return String(osc8, Charsets.UTF_8)
-    val text = rowText.getOrNull(row) ?: return null
-    val starts = rowCellStart.getOrNull(row) ?: return null
-    return LinkFinder.find(cellTexts(text, starts), col)
+    if (rowText.getOrNull(row) == null) return null
+    return LinkFinder.findWrapped(rowText.size, row, col) { r ->
+      val text = rowText[r]
+      val starts = rowCellStart.getOrNull(r)
+      if (text == null || starts == null) null else cellTexts(text, starts)
+    }
   }
 
   private fun cellTexts(text: String, starts: IntArray): List<String> {
@@ -2081,11 +2093,25 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
       metaState and (KeyEvent.META_CTRL_MASK or KeyEvent.META_META_MASK or KeyEvent.META_ALT_MASK).inv()
     }
     val unicode = event.getUnicodeChar(charMeta)
-    val utf8 = if (unicode != 0 && unicode and KeyCharacterMap.COMBINING_ACCENT == 0) {
-      String(Character.toChars(unicode)).toByteArray(Charsets.UTF_8)
-    } else {
-      null
+    // Dead keys, like AltGr+2 then u for ü: the accent waits for the next letter.
+    if (unicode != 0 && unicode and KeyCharacterMap.COMBINING_ACCENT != 0) {
+      if (action == 1) pendingAccent = unicode and KeyCharacterMap.COMBINING_ACCENT_MASK
+      return true
     }
+    var typed = unicode
+    if (pendingAccent != 0 && action == 1 && !KeyEvent.isModifierKey(event.keyCode)) {
+      val accent = pendingAccent
+      pendingAccent = 0
+      val composed = if (unicode != 0) KeyCharacterMap.getDeadChar(accent, unicode) else 0
+      if (composed != 0) {
+        typed = composed
+      } else if (unicode != 0) {
+        // No such letter: type the accent on its own, then the key.
+        val spacing = KeyCharacterMap.getDeadChar(accent, ' '.code)
+        sendText(String(Character.toChars(if (spacing != 0) spacing else accent)))
+      }
+    }
+    val utf8 = if (typed != 0) String(Character.toChars(typed)).toByteArray(Charsets.UTF_8) else null
     val unshifted = event.getUnicodeChar(0)
     val bytes = encodeKey(event.keyCode, action, metaState, unshifted, utf8) ?: return false
     if (bytes.isEmpty()) return false

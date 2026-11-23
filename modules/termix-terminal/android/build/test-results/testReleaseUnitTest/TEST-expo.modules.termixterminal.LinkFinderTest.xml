@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="expo.modules.termixterminal.LinkFinderTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-23T14:07:46.011Z" hostname="Deebot" time="0.424">
+  <properties/>
+  <testcase name="addsHttpsToWww" classname="expo.modules.termixterminal.LinkFinderTest" time="0.266"/>
+  <testcase name="keepsBracketsThatBelongToTheAddress" classname="expo.modules.termixterminal.LinkFinderTest" time="0.008"/>
+  <testcase name="findsTheAddressUnderTheTap" classname="expo.modules.termixterminal.LinkFinderTest" time="0.002"/>
+  <testcase name="keepsRowsApartWhenTheRowIsNotFull" classname="expo.modules.termixterminal.LinkFinderTest" time="0.108"/>
+  <testcase name="joinsAddressesWrappedOverRows" classname="expo.modules.termixterminal.LinkFinderTest" time="0.01"/>
+  <testcase name="neverJoinsAcrossTmuxPanes" classname="expo.modules.termixterminal.LinkFinderTest" time="0.001"/>
+  <testcase name="dropsSentencePunctuation" classname="expo.modules.termixterminal.LinkFinderTest" time="0.001"/>
+  <testcase name="wideCharactersTakeTwoColumns" classname="expo.modules.termixterminal.LinkFinderTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

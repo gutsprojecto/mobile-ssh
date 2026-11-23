@@ -444,13 +444,27 @@ export default function TerminalCustomization() {
             description={t(
               "settings.terminalCustomization.programClipboardHint",
             )}
-            last={Platform.OS !== "ios"}
           >
             <FakeSwitch
               checked={current.programClipboard ?? true}
               onChange={(v) => save({ programClipboard: v })}
               accessibilityLabel={t(
                 "settings.terminalCustomization.programClipboard",
+              )}
+            />
+          </SettingRow>
+          <SettingRow
+            label={t("settings.terminalCustomization.mouseClickLinks")}
+            description={t(
+              "settings.terminalCustomization.mouseClickLinksHint",
+            )}
+            last={Platform.OS !== "ios"}
+          >
+            <FakeSwitch
+              checked={current.mouseClickLinks ?? true}
+              onChange={(v) => save({ mouseClickLinks: v })}
+              accessibilityLabel={t(
+                "settings.terminalCustomization.mouseClickLinks",
               )}
             />
           </SettingRow>

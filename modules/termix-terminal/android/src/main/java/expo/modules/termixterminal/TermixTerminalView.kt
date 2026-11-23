@@ -79,6 +79,10 @@ class TermixTerminalView(context: Context, appContext: AppContext) :
     terminal.programClipboard = on
   }
 
+  fun setMouseClickLinks(on: Boolean) {
+    terminal.mouseClickLinks = on
+  }
+
   fun setPromptWatch(on: Boolean) {
     terminal.promptWatch = on
   }

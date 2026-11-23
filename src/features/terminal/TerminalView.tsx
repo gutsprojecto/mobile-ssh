@@ -217,6 +217,7 @@ export const TerminalView = forwardRef<TerminalViewApi, Props>(
           optionAsMeta={settings.optionAsMeta}
           doubleTapTab={settings.doubleTapTab}
           programClipboard={settings.programClipboard}
+          mouseClickLinks={settings.mouseClickLinks}
           accentColor={ui.brand}
           onInput={handleInput}
           onResize={onResize}

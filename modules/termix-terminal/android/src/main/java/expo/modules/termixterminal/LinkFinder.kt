@@ -41,6 +41,44 @@ internal object LinkFinder {
     return null
   }
 
+  /**
+   * [find] across soft wrapped rows: a long address that fills a row to the last column goes on
+   * at the start of the next one. [rows] holds each viewport row's cells, null when unknown.
+   * Rows with a tmux pane border are never joined, the next row may belong to another pane.
+   */
+  fun findWrapped(rows: List<List<String>?>, row: Int, col: Int): String? =
+    findWrapped(rows.size, row, col) { rows[it] }
+
+  /** [findWrapped] reading rows on demand, so only the rows around [row] are built. */
+  fun findWrapped(rowCount: Int, row: Int, col: Int, rowAt: (Int) -> List<String>?): String? {
+    val cache = HashMap<Int, List<String>?>()
+    val rows = { r: Int -> cache.getOrPut(r) { rowAt(r) } }
+    val here = rows(row) ?: return null
+    var first = row
+    while (first > 0 && row - first < MAX_WRAP_ROWS && joins(rows(first - 1), rows(first))) first--
+    var last = row
+    while (last + 1 < rowCount && last - row < MAX_WRAP_ROWS && joins(rows(last), rows(last + 1))) last++
+    if (first == last) return find(here, col)
+    val cells = ArrayList<String>()
+    var offset = col
+    for (r in first..last) {
+      val cellsOfRow = rows(r)!!
+      if (r < row) offset += cellsOfRow.size
+      cells.addAll(cellsOfRow)
+    }
+    return find(cells, offset)
+  }
+
+  private const val MAX_WRAP_ROWS = 8
+  private const val PANE_BORDER = '│'
+
+  private fun joins(upper: List<String>?, lower: List<String>?): Boolean {
+    if (upper.isNullOrEmpty() || lower.isNullOrEmpty()) return false
+    // "" is the second half of a wide character, so the row is still full.
+    if (upper.last() == " " || lower.first() == " " || lower.first().isEmpty()) return false
+    return upper.none { PANE_BORDER in it } && lower.none { PANE_BORDER in it }
+  }
+
   /** [find] on plain text where every character is one column. */
   fun findInText(line: String, col: Int): String? = find(line.map { it.toString() }, col)
 

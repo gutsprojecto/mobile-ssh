@@ -63,6 +63,7 @@ interface NativeProps {
   optionAsMeta?: boolean;
   doubleTapTab?: boolean;
   programClipboard?: boolean;
+  mouseClickLinks?: boolean;
   accentColor?: string;
   onInput: (e: Ev<{ data: string }>) => void;
   onResize: (e: Ev<{ cols: number; rows: number }>) => void;
@@ -192,6 +193,7 @@ export const TerminalView = forwardRef<TerminalViewHandle, TerminalViewProps>(
         optionAsMeta={props.optionAsMeta}
         doubleTapTab={props.doubleTapTab}
         programClipboard={props.programClipboard ?? true}
+        mouseClickLinks={props.mouseClickLinks ?? true}
         accentColor={props.accentColor}
         watchPrompt={props.watchPrompt ?? false}
         surfaceVisible={props.surfaceVisible ?? true}

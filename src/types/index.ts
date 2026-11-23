@@ -410,6 +410,8 @@ export interface TerminalConfig {
   doubleTapTab?: boolean;
   /** Programs (tmux, vim, Claude Code …) may write the clipboard via OSC 52. */
   programClipboard?: boolean;
+  /** A plain mouse click opens a link; off needs Ctrl+click. */
+  mouseClickLinks?: boolean;
   /** Phone only: ask before a snippet runs. */
   confirmSnippetRun?: boolean;
   /** Phone only: show past commands that match the typed line. */

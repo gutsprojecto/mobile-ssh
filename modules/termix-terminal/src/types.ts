@@ -88,6 +88,8 @@ export interface TerminalViewProps {
   doubleTapTab?: boolean;
   /** Programs may write the clipboard (OSC 52). */
   programClipboard?: boolean;
+  /** A plain mouse click opens a link (else Ctrl+click). */
+  mouseClickLinks?: boolean;
   /** Selection handles and similar accents. */
   accentColor?: string;
   /** Bytes the user typed or the terminal answered, base64. */

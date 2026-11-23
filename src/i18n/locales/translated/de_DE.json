@@ -3593,6 +3593,8 @@
       "longPressStillSelectsText": "Langes Drücken wählt weiterhin Text aus",
       "programClipboard": "Programme dürfen kopieren",
       "programClipboardHint": "tmux, vim oder Claude Code können Text in die Zwischenablage legen (OSC 52). Nie direkt nachdem du selbst kopiert hast.",
+      "mouseClickLinks": "Mausklick öffnet Links",
+      "mouseClickLinksHint": "Aus: Links öffnen mit Strg+Klick oder über das Rechtsklick-Menü.",
       "optionSendsAlt": "Option sendet Alt",
       "onAHardwareKeyboardOff": "Auf einer Hardware-Tastatur. Deaktiviert tippt es Symbole wie auf einem Mac.",
       "history": "Verlauf",

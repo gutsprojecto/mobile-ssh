@@ -38,4 +38,26 @@ class LinkFinderTest {
     assertEquals("https://x.y", LinkFinder.find(cells, 3))
     assertNull(LinkFinder.find(cells, 1))
   }
+
+  private fun row(text: String) = text.map { it.toString() }
+
+  @Test
+  fun joinsAddressesWrappedOverRows() {
+    val rows = listOf(row("see https://ex"), row("ample.org/a/b "), row("next line     "))
+    assertEquals("https://example.org/a/b", LinkFinder.findWrapped(rows, 0, 6))
+    assertEquals("https://example.org/a/b", LinkFinder.findWrapped(rows, 1, 2))
+    assertNull(LinkFinder.findWrapped(rows, 2, 1))
+  }
+
+  @Test
+  fun keepsRowsApartWhenTheRowIsNotFull() {
+    val rows = listOf(row("https://a.b/c "), row("def           "))
+    assertEquals("https://a.b/c", LinkFinder.findWrapped(rows, 0, 3))
+  }
+
+  @Test
+  fun neverJoinsAcrossTmuxPanes() {
+    val rows = listOf(row("x │ https://a.b"), row("y │ cdef       "))
+    assertEquals("https://a.b", LinkFinder.findWrapped(rows, 0, 6))
+  }
 }
