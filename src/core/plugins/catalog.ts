@@ -81,6 +81,7 @@ export const OFFICIAL_PLUGINS: CatalogEntry[] = [
   { id: "fleets", name: "Fleets", kind: "webview" },
   { id: "git", name: "Git", kind: "webview" },
   { id: "homepage", name: "Homepage", kind: "webview" },
+  { id: "host-layout", name: "Host Layout", kind: "look" },
   { id: "host-metrics", name: "Host Metrics", kind: "none" },
   { id: "host-status", name: "Host Status", kind: "app" },
   { id: "hosts-config", name: "Hosts Config", kind: "server" },
@@ -101,6 +102,7 @@ export const OFFICIAL_PLUGINS: CatalogEntry[] = [
   { id: "object-storage", name: "Object Storage", kind: "webview" },
   { id: "operations-center", name: "Operations Center", kind: "none" },
   { id: "opkssh", name: "OPKSSH", kind: "server" },
+  { id: "original-layout", name: "Original Layout", kind: "look" },
   { id: "out-of-band", name: "Out-of-band", kind: "webview" },
   {
     id: "package-manager",
@@ -159,6 +161,7 @@ export const OFFICIAL_PLUGINS: CatalogEntry[] = [
   { id: "sync", name: "Sync", kind: "server" },
   { id: "tailscale", name: "Tailscale", kind: "none" },
   { id: "telemetry", name: "Usage Statistics", kind: "server" },
+  { id: "terminal-layout", name: "Terminal Layout", kind: "look" },
   { id: "termix-identity", name: "Termix Identity", kind: "server" },
   { id: "tmux-monitor", name: "Tmux Monitor", kind: "server" },
   { id: "totp", name: "TOTP", kind: "none" },
@@ -174,6 +177,7 @@ export const OFFICIAL_PLUGINS: CatalogEntry[] = [
   { id: "vault", name: "SSH Certificate Signer", kind: "server" },
   { id: "virtual-machines", name: "Virtual Machines", kind: "webview" },
   { id: "wake-on-lan", name: "Wake-on-LAN", kind: "webview" },
+  { id: "wall-display", name: "Wall Display", kind: "look" },
   { id: "warpgate", name: "Warpgate", kind: "server" },
   { id: "web-endpoint", name: "Web Endpoint", kind: "none" },
   {
