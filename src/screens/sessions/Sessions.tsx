@@ -40,15 +40,9 @@ import {
 import { reduceMotionOn } from "@/ui/motion";
 import { GlassBackdrop, glassTarget } from "@/ui/Glass";
 import Animated, {
-  Easing,
   FadeIn,
   FadeOut,
   ReduceMotion,
-  runOnJS,
-  useAnimatedStyle,
-  useSharedValue,
-  withSequence,
-  withTiming,
 } from "react-native-reanimated";
 import {
   dismissFloatingRail,
@@ -57,17 +51,9 @@ import {
 import TabBar from "@/screens/sessions/navigation/TabBar";
 import { SessionMenu } from "@/screens/sessions/SessionMenu";
 import { keyBarHeight } from "@/features/terminal/keys/compact";
-import { HOSTS_PANE_MIN_WIDTH, shellLayout } from "@/screens/shell/layout";
-import {
-  HOSTS_PANE_WIDTH_KEY,
-  HostsPane,
-  SPLIT_RATIO_KEY,
-  chosenHostsPaneWidth,
-  clampHostsPaneWidth,
-  hostsPaneWidth,
-  useHostsPaneHidden,
-  useStoredNumber,
-} from "@/screens/sessions/HostsPane";
+import { shellLayout } from "@/screens/shell/layout";
+import { SPLIT_RATIO_KEY, useStoredNumber } from "@/screens/sessions/stored";
+import { ConnectionsPopup } from "@/screens/sessions/ConnectionsPopup";
 import { CompanionPane } from "@/screens/sessions/CompanionPane";
 import { TabSwipeEdge } from "@/screens/sessions/TabSwipeEdge";
 import {
@@ -124,10 +110,6 @@ const NO_TERMINAL: React.RefObject<TerminalHandle | null> = { current: null };
 
 /** Soft fade for bars that come and go, like the key row. */
 const UI_FADE_MS = 160;
-
-const PANE_SLIDE_MS = 220;
-const STAGE_FADE_MS = 200;
-const PANE_EASING = Easing.out(Easing.cubic);
 
 export default function Sessions() {
   const ui = useUiColors();
@@ -716,8 +698,9 @@ export default function Sessions() {
     }
     if (id === "nextTab") stepTab(1);
     else if (id === "prevTab") stepTab(-1);
-    else if (id === "newTab" && activeSessionId) {
-      duplicateSession(activeSessionId);
+    // Ctrl+Shift+T opens the host list to start a new connection.
+    else if (id === "newTab") {
+      router.navigate("/hosts" as any);
     } else if (id === "closeTab" && activeSessionId) {
       handleTabClose(activeSessionId);
     }
@@ -881,93 +864,7 @@ export default function Sessions() {
     [openPanel],
   );
 
-  const hostsPaneFits = layout.hostsPane;
-  const [hostsPaneHidden, setHostsPaneHidden] = useHostsPaneHidden();
-  const showHostsPane = hostsPaneFits && !hostsPaneHidden;
-  // A dragged host list width, per window class. None follows the fold or the default.
-  const [savedPaneWidth, setSavedPaneWidth] = useStoredNumber(
-    `${HOSTS_PANE_WIDTH_KEY}.${win.windowClass}`,
-  );
-  const [dragPaneWidth, setDragPaneWidth] = useState<number | null>(null);
-  const paneLeft = useRef(0);
-  const paneBase = useRef(0);
-  const paneSpace = win.width - side.left - side.right;
-  const paneFoldEdge = layout.foldSplit ? fold?.start : undefined;
-  // Half folded, the list ends at the crease and the divider fills it, whatever width was
-  // dragged while flat, so neither pane runs across the bend. Flat again, that width returns.
-  const paneOnBentFold = !!(layout.foldSplit && fold?.active);
-  // Bending mid drag locks the divider before the finger lifts, so that drag never ends.
-  if (paneOnBentFold && dragPaneWidth !== null) setDragPaneWidth(null);
-  const paneWidth = chosenHostsPaneWidth({
-    bentFold: paneOnBentFold,
-    dragged: dragPaneWidth,
-    saved: savedPaneWidth,
-    available: paneSpace,
-  });
-  const paneOnFold = !!(layout.foldSplit && fold && paneWidth == null);
-  // The rail stays beside tabs without a terminal. With the host list out it
-  // sits in front of the list, which gives up that room so the stage (and the
-  // terminals in it) keep their width; otherwise the stage's own content moves.
-  // The host list glides in over the stage first and only then takes its
-  // room, and on the way out gives the room back first: the terminals change
-  // width once, behind the list, instead of jumping as it appears.
-  const [paneSettled, setPaneSettled] = useState(showHostsPane);
-  // In place beside the stage: closing gives the room back at once.
-  const paneLaidOut = showHostsPane && paneSettled;
-  // Still drawn: closing keeps it until it has slid out.
-  const paneMounted = showHostsPane || paneSettled;
-  const [paneSize, setPaneSize] = useState(0);
-  const paneSlide = useSharedValue(showHostsPane ? 1 : 0);
-  const stageFade = useSharedValue(1);
-  useEffect(() => {
-    const still = reduceMotionOn();
-    if (showHostsPane) {
-      paneSlide.value = withTiming(
-        1,
-        { duration: still ? 0 : PANE_SLIDE_MS, easing: PANE_EASING },
-        (done) => {
-          if (done) runOnJS(setPaneSettled)(true);
-        },
-      );
-    } else {
-      paneSlide.value = withTiming(
-        0,
-        { duration: still ? 0 : PANE_SLIDE_MS, easing: PANE_EASING },
-        (done) => {
-          if (done) runOnJS(setPaneSettled)(false);
-        },
-      );
-    }
-  }, [showHostsPane, paneSlide]);
-  // The terminal text reflows to the new width: soften that with a short fade.
-  const firstLayout = useRef(true);
-  useEffect(() => {
-    if (firstLayout.current) {
-      firstLayout.current = false;
-      return;
-    }
-    if (reduceMotionOn()) return;
-    stageFade.value = withSequence(
-      withTiming(0.35, { duration: 60 }),
-      withTiming(1, { duration: STAGE_FADE_MS, easing: PANE_EASING }),
-    );
-  }, [paneLaidOut, stageFade]);
-  const paneStyle = useAnimatedStyle(() => ({
-    // Hidden until measured, so it never flashes in at the wrong spot.
-    opacity: paneSize === 0 ? 0 : 0.4 + 0.6 * paneSlide.value,
-    transform: [{ translateX: (paneSlide.value - 1) * (paneSize + 24) }],
-  }));
-  const stageStyle = useAnimatedStyle(() => ({ opacity: stageFade.value }));
-
-  const stageRailInset = paneLaidOut ? 0 : railInset;
-  const listWidth =
-    showHostsPane && railInset > 0
-      ? Math.max(
-          HOSTS_PANE_MIN_WIDTH,
-          (paneWidth ?? hostsPaneWidth(paneLeft.current, paneFoldEdge)) -
-            railInset,
-        )
-      : paneWidth;
+  const stageRailInset = railInset;
 
   const activeTerminalBgColor =
     activeIsTerminal && activeSessionId
@@ -1024,37 +921,6 @@ export default function Sessions() {
         backgroundColor: stageColor,
       }}
     >
-      {paneLaidOut ? (
-        <View style={{ width: (railInset > 0 ? railInset : 0) + paneSize }} />
-      ) : null}
-      {paneLaidOut ? (
-        // On a fold it fills the crease, so nothing sits on it until dragged off.
-        // Half folded it stays there. It glides with the list between the crease and a
-        // dragged width.
-        <SplitDivider
-          label={t("sessions.resizeHostList")}
-          crease={paneOnFold}
-          locked={paneOnBentFold}
-          width={paneOnFold && fold ? fold.end - fold.start : undefined}
-          glideKey={paneOnBentFold}
-          onStart={() => {
-            paneBase.current =
-              paneWidth ?? hostsPaneWidth(paneLeft.current, paneFoldEdge);
-          }}
-          onMove={(dx) =>
-            setDragPaneWidth(
-              clampHostsPaneWidth(paneBase.current + dx, paneSpace),
-            )
-          }
-          onEnd={(dx) => {
-            const next = clampHostsPaneWidth(paneBase.current + dx, paneSpace);
-            setDragPaneWidth(null);
-            const foldNear =
-              layout.foldSplit && nearFold(paneLeft.current + next, fold);
-            setSavedPaneWidth(foldNear ? null : next);
-          }}
-        />
-      ) : null}
       <Animated.View
         className="flex-1"
         style={[
@@ -1062,7 +928,6 @@ export default function Sessions() {
             paddingTop: insets.top,
             backgroundColor: stageColor,
           },
-          stageStyle,
         ]}
       >
         {/* The terminals are what ShellPad's glass bars and rail blur. */}
@@ -1242,21 +1107,20 @@ export default function Sessions() {
         </GlassBackdrop>
 
         {/* Connections panel: full screen when no sessions, overlay when sessions exist */}
-        {(sessions.length === 0 || showConnectionsPanel) && (
+        {sessions.length === 0 && (
           <StageOverlay zIndex={1010} left={stageRailInset}>
-            {sessions.length === 0 ? (
-              <Screen title={t("sessions.connections")}>
-                <ConnectionsPanel besideHosts={paneLaidOut} />
-              </Screen>
-            ) : (
-              <Screen
-                title={t("sessions.connections")}
-                onBack={closeConnectionsPanel}
-              >
-                <ConnectionsPanel onClose={closeConnectionsPanel} />
-              </Screen>
-            )}
+            <Screen title={t("sessions.connections")}>
+              <ConnectionsPanel />
+            </Screen>
           </StageOverlay>
+        )}
+        {sessions.length > 0 && (
+          <ConnectionsPopup
+            open={showConnectionsPanel}
+            onClose={closeConnectionsPanel}
+            left={stageRailInset}
+            bottom={getTabBarBottomPosition() + SESSION_TAB_BAR_HEIGHT}
+          />
         )}
 
         {sessions.length > 0 &&
@@ -1356,14 +1220,7 @@ export default function Sessions() {
             onTabMenu={setMenuFor}
             onTabMove={moveSession}
             keyRow={{ shown: keyRowOn, toggle: keyRowShown.toggle }}
-            hostsPane={
-              hostsPaneFits
-                ? {
-                    shown: showHostsPane,
-                    toggle: () => setHostsPaneHidden(showHostsPane),
-                  }
-                : undefined
-            }
+            backToHosts={!layout.hostsPane}
           />
         </View>
 
@@ -1516,33 +1373,6 @@ export default function Sessions() {
             />
           )}
       </Animated.View>
-      {paneMounted ? (
-        // The host list floats at the left edge and slides; the spacer above
-        // makes room for it once it is in.
-        <Animated.View
-          pointerEvents={showHostsPane ? "auto" : "none"}
-          onLayout={(e) => setPaneSize(Math.round(e.nativeEvent.layout.width))}
-          style={[
-            {
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: side.left + (railInset > 0 ? railInset : 0),
-              zIndex: 5,
-            },
-            paneStyle,
-          ]}
-        >
-          <HostsPane
-            edge={paneFoldEdge}
-            width={listWidth}
-            tweenKey={paneOnBentFold}
-            onLeft={(x) => {
-              paneLeft.current = x;
-            }}
-          />
-        </Animated.View>
-      ) : null}
     </View>
   );
 }

@@ -10,8 +10,6 @@ import {
   Keyboard as KeyboardIcon,
   KeyboardOff,
   Layers,
-  PanelLeftClose,
-  PanelLeftOpen,
 } from "lucide-react-native";
 import {
   SessionType,
@@ -47,8 +45,8 @@ interface TabBarProps {
   /** Tapping the active tab opens its menu. */
   onTabMenu?: (sessionId: string) => void;
   onTabMove?: (sessionId: string, toIndex: number) => void;
-  /** Set when the window fits the host list beside sessions. */
-  hostsPane?: { shown: boolean; toggle: () => void };
+  /** Narrow windows have no rail, so the dock gets a way back to the hosts. */
+  backToHosts?: boolean;
   /** Shows or hides the key row (Esc, Tab, arrows) under the terminal. */
   keyRow?: { shown: boolean; toggle: () => void };
 }
@@ -69,7 +67,7 @@ export default function TabBar({
   onShowConnections,
   onTabMenu,
   onTabMove,
-  hostsPane,
+  backToHosts = false,
   keyRow,
 }: TabBarProps) {
   const ui = useUiColors();
@@ -134,23 +132,7 @@ export default function TabBar({
         >
           <Layers size={iconSize} color={ui.text} />
         </BarButton>
-        {hostsPane ? (
-          <BarButton
-            label={
-              hostsPane.shown
-                ? t("sessions.navigation.tabBar.hideHostList")
-                : t("sessions.navigation.tabBar.showHostList")
-            }
-            size={buttonSize}
-            onPress={hostsPane.toggle}
-          >
-            {hostsPane.shown ? (
-              <PanelLeftClose size={iconSize} color={ui.text} />
-            ) : (
-              <PanelLeftOpen size={iconSize} color={ui.text} />
-            )}
-          </BarButton>
-        ) : (
+        {backToHosts ? (
           <BarButton
             label={t("sessions.navigation.tabBar.backToHosts")}
             size={buttonSize}
@@ -158,7 +140,7 @@ export default function TabBar({
           >
             <ArrowLeft size={iconSize} color={ui.text} />
           </BarButton>
-        )}
+        ) : null}
 
         {hasInput && keyRow ? (
           <BarButton

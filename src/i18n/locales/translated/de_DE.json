@@ -2185,6 +2185,7 @@
     },
     "shortcuts": {
       "newTabOnThisHost": "Neuer Tab auf diesem Host",
+      "openHosts": "Hosts für eine neue Verbindung öffnen",
       "closeTab": "Tab schließen",
       "nextTab": "Nächster Tab",
       "previousTab": "Vorheriger Tab",

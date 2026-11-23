@@ -156,11 +156,11 @@ function ConnectionRow({
  */
 export function ConnectionsPanel({
   onClose,
-  besideHosts,
+  popup = false,
 }: {
   onClose?: () => void;
-  /** The host list is on screen next to this panel. */
-  besideHosts?: boolean;
+  /** Inside the small popup over the dock: as tall as its rows, scrolling past the popup's limit. */
+  popup?: boolean;
 }) {
   const color = useThemeColor();
   // Re-render when plugins turn on or off.
@@ -262,21 +262,19 @@ export function ConnectionsPanel({
   if (!hasAny) {
     return (
       <EmptyState
-        className="flex-1"
+        className={popup ? "py-6" : "flex-1"}
         icon={Plug}
         title={t("sessions.connectionsPanel.noActiveConnections")}
-        hint={
-          besideHosts
-            ? t("sessions.connectionsPanel.pickAHostFromThe")
-            : t("sessions.connectionsPanel.connectToAHostTo")
-        }
+        hint={t("sessions.connectionsPanel.connectToAHostTo")}
       />
     );
   }
 
   return (
     <ScrollView
-      className="flex-1"
+      className={popup ? undefined : "flex-1"}
+      style={popup ? { flexGrow: 0, flexShrink: 1 } : undefined}
+      contentContainerStyle={popup ? { paddingVertical: 6 } : undefined}
       refreshControl={
         <RefreshControl
           refreshing={refreshing}

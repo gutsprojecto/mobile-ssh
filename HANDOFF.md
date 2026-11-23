@@ -81,6 +81,12 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - **Tot-Tasten, zweiter Anlauf (funktioniert, bestätigt 2026-11-23)** (Test 2026-11-23, Layout „UK PC“, AltGr wird vor dem Buchstaben losgelassen): ¨ erschien sofort und blieb als „¨u“, also kommt das ¨ als fertiges Zeichen (nicht als Android-Tot-Taste). In anderen Apps ersetzt das Textfeld ¨+u durch ü. Jetzt in `sendBytes`/`accentAfterTyping`: nach einem einzeln getippten ¨ oder ´ ersetzt der nächste passende Buchstabe es (Backspace + ü), egal ob über Tastatur-App oder Taste. ` ^ ~ bleiben unverändert (Shell). Zusammensetzen in `DeadKeys.kt` (Normalizer, mit Tests).
 - **Lange gedrückt → Umlaut-Auswahl der Tastatur-App**: Hardware-Buchstaben landen jetzt im IME-Kontext (`ime.commit` statt `ime.reset`). Test 2026-11-23: **funktioniert noch nicht** → siehe „Vor dem Release“.
 
+### Siebte Runde (2026-11-23, abends, noch nicht auf dem Tablet getestet)
+
+- **Hostlisten-Leiste in Sessions entfernt** samt Dock-Button, Breiten-Ziehen, Foldable-Sonderfällen und Gleit-Animation (`HostsPane.tsx` gelöscht; `useStoredNumber`/`SPLIT_RATIO_KEY` jetzt in `src/screens/sessions/stored.ts`). Grund: Sie war nur der eingebettete Hosts-Bildschirm (Anzeigefehler wie der „+“-Button) und änderte die Terminalgröße. Hosts erreicht man über die Navigationsleiste; auf schmalen Fenstern (kein `layout.hostsPane`) bleibt der Zurück-Pfeil im Dock (`TabBar backToHosts`).
+- **Strg+Umschalt+T** (iOS Cmd+T) öffnet jetzt die Hosts statt den Tab zu duplizieren (Duplizieren bleibt im Tab-Menü).
+- **Verbindungen als Glas-Popup** über dem Dock-Button statt Vollbild (`ConnectionsPopup.tsx`): Breite ≈ 3× die drei Dock-Buttons, Höhe nach Inhalt (max. 75 % des Platzes, scrollt darüber), 180 ms auf / 140 ms zu, Klick daneben schließt. Ohne offene Sessions bleibt die Vollbild-Ansicht.
+
 ### Entfernt
 
 - Nutzungsstatistik (PostHog, Zustimmungsdialog, Einstellungen, Zähler) samt `posthog-react-native`.
@@ -127,13 +133,14 @@ Remote `upstream` = `github.com/Termix-SSH/Mobile`. Prüfen: `git fetch upstream
 - **Türkiser Punkt oben links (Systemgriff)**: wahrscheinlich zeichnet die Tastatur/Android ihren Cursor-Griff an Position 0,0, weil sich das Terminal als Texteingabe meldet (`onCheckIsTextEditor`), aber nie mitteilt, wo der Cursor steht (kein `requestCursorUpdates`/`CursorAnchorInfo` in `GhosttyTerminalView`). Lösung: Cursor-Position per `CursorAnchorInfo` melden bzw. Handschrift/Griffe abschalten.
 
 - **Auf dem Tablet testen**: neue Hostlisten-Animation (auch mit fester Leiste neben Files), langsamer Klick auf Tabs, Maus (Rad, Ziehen in tmux, Rechtsklick), Hover-Leiste, Glas-Blur über dem Terminal, Performance.
-- Noch nicht umgesetzt aus der Ideenliste: Shift+PgUp/PgDn & Shift+Home/End für Scrollback, Shift+Insert/Ctrl+Insert, Hover/Rechtsklick auf Hosts & Tabs, Tab/Pfeil/Enter-Navigation in Listen.
+- Noch nicht umgesetzt aus der Ideenliste: Shift+PgUp/PgDn & Shift+Home/End für Scrollback, Hover-Hervorhebung (und ggf. Tooltip) auf Hosts, Tabs und Buttons, Tab/Pfeil/Enter-Navigation in Listen. (Rechtsklick-Menüs auf Hosts/Tabs/Snippets gibt es schon; Shift/Ctrl+Insert nicht nötig – MX Keys Mini hat keine Einfg-Taste, Strg+Umschalt+C/V reichen.)
 - Push (eigenes Firebase), eigener Release-Schlüssel statt Debug-Signatur.
 - Übersetzungen: neue Texte nur in Englisch + Deutsch; Termix-Übersetzungs-Workflow läuft im Fork nicht.
 - OIDC-Login am Termix-Server mit `shellpad://` ungetestet (wird nicht gebraucht).
 
 ## Verlauf
 
+- 2026-11-23 (spät): Hostlisten-Leiste entfernt, Strg+Umschalt+T öffnet Hosts, Verbindungen als Glas-Popup.
 - 2026-11-23 (abends): README auf ShellPad umgeschrieben, Upstream bis `1244705` übernommen.
 - 2026-11-23: Tot-Tasten (AltGr+2 → ü), Links per Mausklick, umgebrochene Links.
 - 2026-11-22: Glas-Leiste auf allen Tabs, OSC-52-Schutz + Schalter, „Kopiert“-HUD mittig.

@@ -30,7 +30,7 @@ export function shortcutHelp(
 ): { keys: string; label: string }[] {
   if (os === "ios") {
     return [
-      { keys: "Cmd T", label: t("terminal.shortcuts.newTabOnThisHost") },
+      { keys: "Cmd T", label: t("terminal.shortcuts.openHosts") },
       { keys: "Cmd W", label: t("terminal.shortcuts.closeTab") },
       {
         keys: "Cmd Shift ] | Ctrl Tab",
@@ -51,7 +51,7 @@ export function shortcutHelp(
     ];
   }
   return [
-    { keys: "Ctrl Shift T", label: t("terminal.shortcuts.newTabOnThisHost") },
+    { keys: "Ctrl Shift T", label: t("terminal.shortcuts.openHosts") },
     { keys: "Ctrl Shift W", label: t("terminal.shortcuts.closeTab") },
     { keys: "Ctrl Tab | Ctrl PgDn", label: t("terminal.shortcuts.nextTab") },
     {
