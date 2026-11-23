@@ -773,8 +773,33 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
       // Typing while scrolled into history jumps back to the live view.
       if (scrollbarOffset + scrollbarLen < scrollbarTotal) scrollToBottom()
       holdBlinkSolid()
-      onInputBytes?.invoke(bytes)
+      onInputBytes?.invoke(accentAfterTyping(bytes))
     }
+  }
+
+  // A lone ¨ or ´ just typed, as a character (keyboard app or layout); 0 = none.
+  private var typedAccent = 0
+
+  /**
+   * Like Android text fields: ¨ then u turns the ¨ into ü. Some layouts and keyboard apps type
+   * the accent as a plain character instead of a dead key, so the shell already has it.
+   */
+  private fun accentAfterTyping(bytes: ByteArray): ByteArray {
+    val c = singleCodePoint(bytes)
+    val accent = typedAccent
+    typedAccent = if (c != 0 && DeadKeys.waitsForLetter(c)) c else 0
+    if (accent == 0 || c == 0) return bytes
+    val composed = DeadKeys.compose(accent, c)
+    if (composed == 0) return bytes
+    typedAccent = 0
+    val erase = encodeKey(KeyEvent.KEYCODE_DEL, 1, 0, 0, null) ?: byteArrayOf(0x7f)
+    return erase + String(Character.toChars(composed)).toByteArray(Charsets.UTF_8)
+  }
+
+  private fun singleCodePoint(bytes: ByteArray): Int {
+    if (bytes.size > 4) return 0
+    val text = String(bytes, Charsets.UTF_8)
+    return if (text.isNotEmpty() && text.codePointCount(0, text.length) == 1) text.codePointAt(0) else 0
   }
 
   private fun markScrollActivity() {
@@ -2079,7 +2104,6 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
         }
       }
     }
-    if (action == 1 && !KeyEvent.isModifierKey(event.keyCode)) ime.reset()
     // Sticky key row modifiers apply to hardware keys too.
     val stickyMeta = if (action == 1) stickyMeta() else 0
     if (stickyMeta != 0) consumeSticky()
@@ -2102,20 +2126,29 @@ internal class GhosttyTerminalView(context: Context) : View(context) {
     if (pendingAccent != 0 && action == 1 && !KeyEvent.isModifierKey(event.keyCode)) {
       val accent = pendingAccent
       pendingAccent = 0
-      val composed = if (unicode != 0) KeyCharacterMap.getDeadChar(accent, unicode) else 0
+      val composed = if (unicode != 0) DeadKeys.compose(accent, unicode) else 0
       if (composed != 0) {
         typed = composed
       } else if (unicode != 0) {
         // No such letter: type the accent on its own, then the key.
-        val spacing = KeyCharacterMap.getDeadChar(accent, ' '.code)
-        sendText(String(Character.toChars(if (spacing != 0) spacing else accent)))
+        sendText(String(Character.toChars(DeadKeys.spacing(accent))))
       }
     }
     val utf8 = if (typed != 0) String(Character.toChars(typed)).toByteArray(Charsets.UTF_8) else null
+    // A typed letter stays in the keyboard's context, so its long press accent picker can replace
+    // it. Any other key forgets the line.
+    val printable = typed != 0 && !Character.isISOControl(typed) &&
+      metaState and (KeyEvent.META_CTRL_MASK or KeyEvent.META_META_MASK or KeyEvent.META_ALT_MASK) == 0
+    if (action == 1 && !printable && !KeyEvent.isModifierKey(event.keyCode)) ime.reset()
     val unshifted = event.getUnicodeChar(0)
     val bytes = encodeKey(event.keyCode, action, metaState, unshifted, utf8) ?: return false
     if (bytes.isEmpty()) return false
     sendBytes(bytes)
+    if (printable && action != 0) {
+      if (ime.hasComposing()) ime.reset()
+      ime.commit(String(Character.toChars(typed)))
+      syncImeSelection()
+    }
     return true
   }
 
