@@ -1,21 +1,15 @@
 <div align="center">
 
-<img src="https://termix.site/img/logo.svg" width="120" alt="Termix Logo" />
+<img src="./assets/brand/logo.svg" width="120" alt="ShellPad logo" />
 
-<h1>Termix Mobile</h1>
+<h1>ShellPad</h1>
 
-<p>SSH client for phones and tablets, with or without a Termix server</p>
-
-<p>
-  <img src="https://img.shields.io/github/stars/Termix-SSH/Mobile?style=flat&label=Stars&color=F39044&labelColor=1a1a1a" />
-  <img src="https://img.shields.io/github/forks/Termix-SSH/Mobile?style=flat&label=Forks&color=F39044&labelColor=1a1a1a" />
-  <img src="https://img.shields.io/github/v/release/Termix-SSH/Mobile?style=flat&label=Release&color=F39044&labelColor=1a1a1a" />
-  <a href="https://discord.gg/jVQGdvHDrf"><img alt="Discord" src="https://img.shields.io/discord/1347374268253470720?color=F39044&labelColor=1a1a1a" /></a>
-  <a href="https://donate.termix.site/"><img alt="Donate" src="https://img.shields.io/badge/Donate-Support%20Termix-F39044?style=flat&labelColor=1a1a1a" /></a>
-</p>
+<p>A tablet first SSH client for Android, made for a mouse, a hardware keyboard and tmux</p>
 
 <p>
-  <a href="https://donate.termix.site/"><img alt="Donations this month" src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&label=Donations%20this%20month&query=%24.fiatTotal&prefix=%24&url=https%3A%2F%2Ftermix.site%2Fdonation-snapshot.json&color=F39044&labelColor=1a1a1a" /></a>
+  <img src="https://img.shields.io/badge/platform-Android-F39044?style=flat&labelColor=1a1a1a" />
+  <img src="https://img.shields.io/badge/fork%20of-Termix%20Mobile-F39044?style=flat&labelColor=1a1a1a" />
+  <img src="https://img.shields.io/badge/license-Apache%202.0-F39044?style=flat&labelColor=1a1a1a" />
 </p>
 
 </div>
@@ -24,121 +18,95 @@
 
 ## Overview
 
-Termix Mobile is an SSH client for phones and tablets. It works on its own with no server, keeping hosts, logins and snippets in an encrypted database on the phone and connecting straight from it. Link one or more [Termix](https://github.com/Termix-SSH/Termix) servers to sync with them, reach hosts through them and use their plugins. See the [mobile app docs](https://docs.termix.site/mobile).
+ShellPad is a fork of [Termix Mobile](https://github.com/Termix-SSH/Mobile), tuned for working on an Android tablet like on a laptop: a Bluetooth keyboard, a mouse or trackpad, and long running tmux sessions on your own servers.
 
-Try Termix at [demo.termix.site](https://demo.termix.site/). Any username and password works.
+It connects straight from the tablet, with no server needed. Hosts, keys and snippets stay in an encrypted database on the device. The parts of Termix Mobile that only make sense with a Termix server are removed from the app, and so is the usage statistics.
 
-<br />
-
-## Screenshots
-
-<div align="center">
-
-<img src="./.github/readme/home.jpg" width="200" alt="Home" />
-<img src="./.github/readme/hosts.jpg" width="200" alt="Hosts" />
-<img src="./.github/readme/terminal.jpg" width="200" alt="Terminal" />
-<img src="./.github/readme/files.jpg" width="200" alt="File manager" />
-
-<img src="./.github/readme/metrics.jpg" width="200" alt="Host metrics" />
-<img src="./.github/readme/docker.jpg" width="200" alt="Docker" />
-<img src="./.github/readme/themes.jpg" width="200" alt="Themes" />
-<img src="./.github/readme/snippets.jpg" width="200" alt="Snippets" />
-
-<img src="./.github/readme/tablet.jpg" width="816" alt="Split view on a tablet" />
-
-</div>
+> ShellPad is an independent fork and is not affiliated with or supported by the Termix project. Please do not send ShellPad issues to the Termix repos.
 
 <br />
 
-## Features
+## Thank you, Termix
 
-- No server needed: hosts, logins and snippets are saved on the phone in an encrypted database. Export a backup locked with a passphrase, or delete it all in Settings.
-- Servers: link more than one Termix server and switch between them while open tabs keep running. Each server keeps its own encrypted copy on the phone, synced both ways and in the background, so its hosts work offline too. Needs the Sync plugin on the server. Each host can connect from the phone, through the server or pick on its own.
-- Terminal: a fast native terminal with smooth scrolling, selection, links and mouse support. Themes, fonts with ligatures you can turn off and pinch to zoom, set globally or per host. Key rows in groups (Main, Nav, Symbols, Ctrl, tmux) with custom keys per host, find, tmux attach, password and sudo fill, history search and share links.
-- Tabs: rename, drag, swipe and split them. Sessions keep running in the background on Android, tabs come back after the app is closed, and a dropped connection retries and keeps what you typed.
-- File manager: browse, edit and move files over SFTP from the phone or through your server. Transfers with pause and resume, share files in from other apps, a code editor, previews and a files panel beside the terminal.
-- Home: a dashboard of cards you can reorder and hide, with open sessions, quick connect, recent and pinned hosts, server health, Homepage widgets as native cards, approvals, snippets, Wake-on-LAN and tunnels.
-- Notifications: push alerts from your servers, picked per server by how bad they are, and an inbox with unread counts. Needs the Alerts plugin on the server.
-- Actions: run any action a server's plugins offer for a host, like restarting a container or service, with a dry run, approvals and a run history you can cancel or undo from.
-- Tools: host metrics with history, Docker containers, logs and compose stacks, systemd and OpenRC services with the journal, tunnels (local, remote and dynamic) and snippets that run on many hosts at once.
-- Remote desktop: RDP, VNC and Telnet straight from the phone, or through your server.
-- Hosts: folders with drag to reorder, select many, colors and icons, jump hosts, host defaults, import and export (Termix files and SSH config), QR sharing, sharing with people and roles on a server, Wake-on-LAN, host status and Tailscale.
-- Keys: make Ed25519 and ECDSA keys, check keys and certificates as you type and convert PuTTY keys. OPKSSH, Step CA and Vault work through a linked server.
-- Sign in: every login the server offers, including SSO, TOTP and passkeys, plus servers behind a reverse proxy (extra headers, Cloudflare tokens, basic auth, client certificates and proxy sign in pages).
-- Server plugins: plugins with no phone version, like Homepage, Alerts and Proxmox, open inside the app with the same screens as the web app.
-- Search: one palette for hosts, snippets, actions and settings.
-- Tablets and keyboards: a sidebar and split view on wide screens, foldable support, resizable windows, keyboard shortcuts and mouse or trackpad support.
-- Widgets: open a host, run a snippet, check metrics or wake a machine from the home screen on iOS and Android.
-- App lock: Face ID, Touch ID or fingerprint with a PIN as backup, and the app hidden in the app switcher.
-- Languages: 41 languages, following the phone or picked in Settings. Anyone can fix a translation or add a language, see [translations](src/i18n/locales/README.md).
-- Usage statistics: an anonymous daily report, off until you answer the question on first start. See [what is sent](https://docs.termix.site/privacy#mobile-app).
+ShellPad would not exist without the work of the [Termix](https://github.com/Termix-SSH) team. Termix Mobile brought the native terminal built on Ghostty, the SFTP file manager, the host tools and almost everything else this app is made of, all open source under Apache 2.0. ShellPad only changes how it feels on a tablet.
+
+If you like the app, please give [Termix Mobile](https://github.com/Termix-SSH/Mobile) a star and consider [supporting Termix](https://donate.termix.site/).
+
+<br />
+
+## What ShellPad adds
+
+### Mouse and trackpad
+
+- Wheel scrolling, drag to select (also into the scrollback, with auto scroll at the edge), double click for a word, triple click for a line, Shift+click to extend the selection.
+- Right click menu with copy, paste and open link at the pointer, middle click pastes.
+- tmux, vim and other programs get press, drag and release of every button, so pane borders, selections and scrollbars work. Shift+click always selects in the app, even while a program uses the mouse.
+- Text and hand pointers, and the touchpad counts as a mouse.
+
+### Hardware keyboard
+
+- Dead keys and accents: for example AltGr+2, then u types ü, on layouts that type the accent as a dead key or as a plain character.
+- AltGr types the symbols of your layout, Left Alt stays Alt for the shell.
+- Keyboard shortcuts for tabs and font size, and the on screen key row can be hidden with one tap.
+
+### Links
+
+- A plain mouse click opens a link (can be turned off), Ctrl+click and the right click menu work too.
+- Long addresses that wrap over several lines are found as a whole, without joining tmux panes.
+- Inside programs that use the mouse, like Claude Code, Shift+click opens the link.
+
+### Made for tmux
+
+- The terminal never changes size when app UI shows or hides, so tmux does not redraw. The navigation rail floats over the terminal as a frosted glass pill and hides itself again.
+- The host list slides over the terminal and the text reflows only once.
+- Clipboard writes from programs (OSC 52) are guarded: the same text is ignored, nothing overwrites what you just copied, and a switch turns them off.
+
+### Look and feel
+
+- Frosted glass design with rounded corners and the Inter font.
+- A centered "Copied" message, smooth transitions and no white flash between screens.
+- A new icon.
+
+### Lean
+
+- No usage statistics or telemetry.
+- No Termix server sign in, linking, sync, plugins or server actions in the app.
+- arm64 only, about 94 MB instead of 145 MB.
+
+### Fixes
+
+- A session tab no longer stays "selected" and ignores clicks until it is touched with a finger.
+
+<br />
+
+## Kept from Termix Mobile
+
+- Native terminal with themes, fonts, ligatures, pinch to zoom, find, history search, tmux attach, password and sudo fill.
+- Tabs you can rename, drag and split, sessions that keep running in the background and reconnect.
+- SFTP file manager with transfers, a code editor and previews.
+- Host metrics, Docker, systemd and OpenRC services, tunnels and snippets for many hosts at once.
+- RDP, VNC and Telnet.
+- Hosts with folders, jump hosts, import from SSH config, Wake-on-LAN and Tailscale.
+- Ed25519 and ECDSA key generation, PuTTY key conversion.
+- App lock with fingerprint and PIN, home screen widgets and many languages.
 
 <br />
 
 ## Installation
 
-Termix Mobile is available for [Android](https://docs.termix.site/install/apps/android) and [iOS](https://docs.termix.site/install/apps/ios) (iOS 16.4 or newer). To link a server, see [linking a server](https://docs.termix.site/mobile/linking).
+There is no release yet. Until then, build it yourself:
 
-<br />
+```sh
+npm ci --ignore-scripts
+npx expo prebuild --platform android --no-install
+cd android && ./gradlew assembleRelease
+# android/app/build/outputs/apk/release/app-release.apk
+```
 
-## Sponsors
-
-For a paid sponsor spot, email [mail@termix.site](mailto:mail@termix.site).
-
-<!-- SPONSORS:START -->
-
-<div align="center">
-
-<br />
-
-<a href="https://www.blacksmith.sh/">
-  <img src="https://termix.site/img/sponsors/blacksmith.svg" height="40" alt="Blacksmith" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://www.cloudflare.com/">
-  <img src="https://termix.site/img/sponsors/cloudflare.png" height="40" alt="Cloudflare" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://akamai.com/">
-  <img src="https://termix.site/img/sponsors/akamai.svg" height="40" alt="Akamai" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://aws.amazon.com/">
-  <img src="https://termix.site/img/sponsors/aws.png" height="40" alt="AWS" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://rackgenius.com/">
-  <img src="https://termix.site/img/sponsors/rackgenius.png" height="40" alt="Rack Genius" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://ginernet.com/">
-  <img src="https://termix.site/img/sponsors/ginernet.png" height="40" alt="Ginernet" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://www.hetzner.com/?mtm_campaign=termix&mtm_medium=referral&mtm_content=sponsoring_link">
-  <img src="https://termix.site/img/sponsors/hetzner.png" height="40" alt="Hetzner" />
-</a>
-&nbsp;&nbsp;&nbsp;
-<a href="https://emberswan.com/">
-  <img src="https://termix.site/img/sponsors/emberswan.png" height="40" alt="Ember Swan" />
-</a>
-
-</div>
-
-<!-- SPONSORS:END -->
-
-<br />
-
-## Support
-
-Bugs and ideas for the mobile app go in this repo: [report a bug](https://github.com/Termix-SSH/Mobile/issues/new?template=bug_report.yml) or [request a feature](https://github.com/Termix-SSH/Mobile/issues/new?template=feature_request.yml). Problems with the Termix server or a plugin go in the [Termix repo](https://github.com/Termix-SSH/Termix/issues/new/choose) or that plugin's repo. Not sure where it goes? Open it in Termix and it will be moved.
-
-Add as much detail as you can, in English if possible.
-
-For discussions and questions, join the [Discord](https://discord.gg/jVQGdvHDrf) server.
+You need Node 24, JDK 21 and the Android SDK. ShellPad uses its own package name (`io.github.gutsprojecto.shellpad`), so it installs next to Termix Mobile.
 
 <br />
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
+Apache License 2.0, like Termix Mobile. See [LICENSE](LICENSE). Changes compared to Termix Mobile are in the git history of this repo.
