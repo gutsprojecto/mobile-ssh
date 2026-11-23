@@ -1,2 +1,0 @@
-ninja: Entering directory `/home/guts/mobile-ssh/modules/termix-terminal/android/.cxx/RelWithDebInfo/6y4k3a39/x86_64'
-[1/1] Linking CXX shared library ../../../../build/intermediates/cxx/RelWithDebInfo/6y4k3a39/obj/x86_64/libtermixterminal.so

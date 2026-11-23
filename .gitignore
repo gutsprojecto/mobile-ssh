@@ -42,3 +42,4 @@ Thumbs.db
 
 # jest coverage report
 /coverage
+modules/*/android/build/

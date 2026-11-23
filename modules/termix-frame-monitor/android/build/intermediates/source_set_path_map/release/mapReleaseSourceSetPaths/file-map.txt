@@ -1,7 +1,0 @@
-expo.modules.termixframemonitor.termix-frame-monitor-pngs-0 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/build/generated/res/pngs/release
-expo.modules.termixframemonitor.termix-frame-monitor-resValues-1 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/build/generated/res/resValues/release
-expo.modules.termixframemonitor.termix-frame-monitor-mergeReleaseResources-2 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
-expo.modules.termixframemonitor.termix-frame-monitor-mergeReleaseResources-3 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-expo.modules.termixframemonitor.termix-frame-monitor-release-4 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/build/intermediates/merged_res/release/mergeReleaseResources
-expo.modules.termixframemonitor.termix-frame-monitor-main-5 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/src/main/res
-expo.modules.termixframemonitor.termix-frame-monitor-release-6 /home/guts/mobile-ssh/modules/termix-frame-monitor/android/src/release/res

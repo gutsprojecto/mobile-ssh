@@ -1,7 +1,0 @@
-expo.modules.termixdisplay.termix-display-pngs-0 /home/guts/mobile-ssh/modules/termix-display/android/build/generated/res/pngs/release
-expo.modules.termixdisplay.termix-display-resValues-1 /home/guts/mobile-ssh/modules/termix-display/android/build/generated/res/resValues/release
-expo.modules.termixdisplay.termix-display-mergeReleaseResources-2 /home/guts/mobile-ssh/modules/termix-display/android/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
-expo.modules.termixdisplay.termix-display-mergeReleaseResources-3 /home/guts/mobile-ssh/modules/termix-display/android/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
-expo.modules.termixdisplay.termix-display-release-4 /home/guts/mobile-ssh/modules/termix-display/android/build/intermediates/merged_res/release/mergeReleaseResources
-expo.modules.termixdisplay.termix-display-main-5 /home/guts/mobile-ssh/modules/termix-display/android/src/main/res
-expo.modules.termixdisplay.termix-display-release-6 /home/guts/mobile-ssh/modules/termix-display/android/src/release/res
