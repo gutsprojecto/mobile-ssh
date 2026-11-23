@@ -110,7 +110,7 @@ Remote `upstream` = `github.com/Termix-SSH/Mobile`. Prüfen: `git fetch upstream
 - **Eigener Release-Schlüssel** statt Debug-Signatur (sicher aufbewahren; ohne ihn keine Updates mehr).
 - **Name prüfen**: „ShellPad“ gibt es schon im Play Store (`com.shellpad.app`).
 - **Mausklick-Hänger bei Session-Tabs** (siehe „Weitere“) beheben.
-- **Neuer Name** (ShellPad ist im Play Store vergeben): Favoriten Caretty, Folia, Folioterm, Tessera – noch zu prüfen (Play, F-Droid, GitHub, EUIPO/DPMA). Store-Titel mit Zusatz, z. B. „Caretty – SSH & Terminal“ (max. 30 Zeichen). Dabei Paketnamen und Repo `mobile-ssh` (Kollision mit der App „Mobile SSH“) mit umbenennen.
+- **Neuer Name** (ShellPad ist im Play Store vergeben). Geprüft 2026-11-23: **Folia** ✗ (eingetragene Marke ® von Branchfire Inc., Dokumenten-App in Play/App Store), **Tessera** ✗ (iOS-App „Tessera – SSH Terminal“, tmux-Client), **Caretty** ✓ keine Treffer in Web/Stores (Markenregister EUIPO/DPMA/USPTO noch direkt prüfen; Verwechslung mit „cattery“ möglich). Store-Titel max. 30 Zeichen („Caretty: SSH for Tablets“). Icon-Entwürfe: dicke, flächige Symbole wie im Dock (Folia-F2 „Blätter-Stapel mit >_“ gefiel). Paketnamen und Repo `mobile-ssh` (Kollision mit App „Mobile SSH“) mit umbenennen – Achtung: neuer Paketname = neue App, Daten vorher exportieren.
 - **Lizenz**: Upstream ist Apache-2.0 → LICENSE behalten, NOTICE/Hinweis „Fork von Termix Mobile“ und eigene Änderungen kennzeichnen.
 
 
