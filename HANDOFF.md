@@ -77,7 +77,8 @@ SSH-Client für ein **Android-Tablet mit Maus und Tastatur**, Hauptnutzung: Verb
 - **Links per Mausklick**: einfacher Klick ohne Ziehen öffnet einen Link (Schalter **Einstellungen → Terminal → „Mausklick öffnet Links“**, `mouseClickLinks`, Standard an; aus = nur Strg+Klick/Rechtsklick-Menü). Hand-Mauszeiger gab es schon.
 - **Umgebrochene Links**: `LinkFinder.findWrapped` verbindet Zeilen, wenn eine bis zur letzten Spalte voll ist und die nächste ohne Leerzeichen weitergeht (max. 8 Zeilen); Zeilen mit tmux-Fensterrand `│` werden nie verbunden.
 - Nicht in der App lösbar: tmux entfernt OSC-8-Links ohne `set -as terminal-features ",xterm*:hyperlinks"` (Server-Einstellung, Hinweis für Nutzer). Offen: prüfen, ob tmux ShellPad per XTVERSION automatisch als link-fähig erkennt.
-- Noch nicht gemacht: Akzent-Auswahl beim langen Halten einer Taste (hängt von der Tastatur-App ab).
+- Links in Claude Code (in tmux): Claude Code schaltet Maus-Tracking ein, tmux mit `mouse off` reicht das ans Terminal durch → Klicks gehen ans Programm, Link-Erkennung aus. **Umschalt+Klick** öffnet den Link, Umschalt+Rechtsklick zeigt das Menü. Dem Nutzer reicht das; „Klick auf Link hat Vorrang vor Programm-Maus“ bewusst nicht gebaut.
+- **Tot-Tasten funktionieren auf dem Tablet noch nicht** (Test 2026-11-23, Layout „UK PC“): AltGr+2 dann u ergibt „¨u“, also greift der Fallback in `handleKeyEvent` (Akzent erkannt, `getDeadChar` liefert 0) – oder die Tastatur-App schickt anderes. Langes Halten zeigt die Umlaut-Auswahl der Tastatur-App, die gedrückte Zahl wird aber nicht übernommen (vermutlich, weil sie den Buchstaben per `deleteSurroundingText` ersetzen will und das Terminal keinen Text kennt). Nächster Schritt: Funk-Debugging (adb pair) + Log-Build, dann gezielt reparieren. Tastatur-App noch unbekannt.
 
 ### Entfernt
 
